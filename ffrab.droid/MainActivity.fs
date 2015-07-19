@@ -1,4 +1,4 @@
-﻿namespace ffrab.droid
+﻿namespace ffrab.mobile.droid
 
 open System
 
@@ -23,6 +23,6 @@ type MainActivity () =
 
         Forms.Init (this, bundle)
 
-        this.LoadApplication(new ffrab.common.app.App())
+        this.LoadApplication(new ffrab.mobile.common.app.App())
 
 

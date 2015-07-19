@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab.common", "ffrab.common\ffrab.common.fsproj", "{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab-mobile.common", "ffrab.common\ffrab-mobile.common.fsproj", "{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab.droid", "ffrab.droid\ffrab.droid.fsproj", "{4417292E-65E9-4110-99EE-53ED2FB8C898}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab-mobile.droid", "ffrab.droid\ffrab-mobile.droid.fsproj", "{4417292E-65E9-4110-99EE-53ED2FB8C898}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab.apple", "ffrab.apple\ffrab.apple.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab-mobile.apple", "ffrab.apple\ffrab-mobile.apple.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

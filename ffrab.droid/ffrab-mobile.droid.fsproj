@@ -19,7 +19,7 @@
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
     <TargetFrameworkProfile />
-    <Name>ffrab.droid</Name>
+    <Name>ffrab-mobile.droid</Name>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -59,7 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.fs" />
     <Content Include="Properties\AndroidManifest.xml" />
     <Compile Include="MainActivity.fs" />
-    <None Include="GettingStarted.Xamarin" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,8 +96,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ffrab.common\ffrab.common.fsproj">
-      <Name>ffrab.common</Name>
+    <ProjectReference Include="..\ffrab.common\ffrab-mobile.common.fsproj">
+      <Name>ffrab-mobile.common</Name>
       <Project>{219c64d9-17f7-46cd-8a3c-ee9ede15bf16}</Project>
       <Private>True</Private>
     </ProjectReference>

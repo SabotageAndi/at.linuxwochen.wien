@@ -1,4 +1,4 @@
-﻿namespace ffrab.common
+﻿namespace ffrab.mobile.common
 
 
 open Xamarin.Forms

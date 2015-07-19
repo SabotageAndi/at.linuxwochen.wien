@@ -1,4 +1,4 @@
-namespace ffrab.apple
+namespace ffrab.mobile.apple
 
 open System
 open UIKit
@@ -14,7 +14,7 @@ type AppDelegate () =
         Forms.Init()
 
         let window = new UIWindow (UIScreen.MainScreen.Bounds)
-        this.LoadApplication(new ffrab.common.app.App())
+        this.LoadApplication(new ffrab.mobile.common.app.App())
            
         base.FinishedLaunching (app, options)
 
