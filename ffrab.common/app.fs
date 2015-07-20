@@ -9,6 +9,4 @@ module app =
         inherit Application()
 
         do
-            let content = new ContentPage()
-            content.Content <- new Label(Text = "Hiho", VerticalOptions = LayoutOptions.CenterAndExpand, HorizontalOptions = LayoutOptions.CenterAndExpand)
-            this.MainPage <- content
+            this.MainPage <- new ffrab.mobile.common.ui.MainPage()

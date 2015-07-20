@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>ffrab.mobile.apple</string>
+	<string>FFRAB Mobile</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.your-company.ffrab.apple</string>
 	<key>CFBundleShortVersionString</key>
@@ -29,6 +29,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>7.0</string>
+	<string>8.4</string>
 </dict>
 </plist>

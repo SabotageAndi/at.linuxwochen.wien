@@ -12,6 +12,7 @@
     <Name>ffrab-mobile.apple</Name>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SelectedDevice>iPhone 5s iOS 8.4</SelectedDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
