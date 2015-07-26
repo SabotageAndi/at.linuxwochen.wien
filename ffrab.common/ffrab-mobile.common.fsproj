@@ -42,6 +42,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets" />
   <ItemGroup>
     <Content Include="packages.config" />
+    <Compile Include="model.fs" />
     <Compile Include="viewmodels.fs" />
     <Compile Include="app.fs" />
     <Content Include="app.config" />
