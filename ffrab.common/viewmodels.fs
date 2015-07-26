@@ -9,6 +9,9 @@ module viewmodels =
  
     open ffrab.mobile.common.model
 
+    type IViewModelShown =
+        abstract member Init : unit -> unit
+
     type AboutViewModel() as self =
         inherit ViewModelBase()
     
@@ -38,21 +41,49 @@ module viewmodels =
 
     type ConferenceListViewModel() as self =
         inherit ViewModelBase()
+       
 
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<Conference>())
+        let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
 
-        do
-            items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
-
+      
+        interface IViewModelShown with
+            member this.Init() = 
+                 items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
 
         member this.Items with get() = items.Value
-
+        member this.SelectedItem 
+            with get() = 
+                match selectedItem.Value with
+                | Some v ->
+                    v
+                | _ ->
+                    null
+            
+            and set(v) = 
+                match v with
+                | null ->
+                    selectedItem.Value <- None
+                | _ ->
+                    selectedItem.Value <- Some v
+                    model.Conferences.setActualConference selectedItem.Value.Value
       
     type MainViewModel() as self =
         inherit ViewModelBase()
 
-        let conferenceTitle = self.Factory.Backing(<@ self.ConferenceTitle @>, "")
-
-        member this.ConferenceTitle with get() = conferenceTitle.Value and set(v) = conferenceTitle.Value <- v
+        let mutable conference : Conference option = None
+        
+        interface IViewModelShown with
+            member this.Init() = 
+                conference <- model.Conferences.getActualConference()
+                self.RaisePropertyChanged(<@ self.ConferenceTitle @>)
+            
+            
+        member this.ConferenceTitle 
+            with get() =
+                match conference with
+                | Some conf ->
+                    conf.Name
+                | _ ->
+                    ""
        
-

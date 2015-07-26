@@ -15,6 +15,10 @@ module app =
     type App() as this =
         inherit Application()
 
+        let (|As|_|) (p:'T) : 'U option =
+            let p = p :> obj
+            if p :? 'U then Some (p :?> 'U) else None
+
         let conferenceList = { MenuItemConnection.Name = "Conferences"; ViewModel = new ConferenceListViewModel(); content = (fun (x : unit) -> new ConferenceList() :> ContentPage) }
         let about = { MenuItemConnection.Name = "About"; ViewModel = new AboutViewModel(); content = (fun x -> new ContentPage())}
         let home = { MenuItemConnection.Name = "Home"; ViewModel = new viewmodels.MainViewModel(); content = (fun x -> new MainPage() :> ContentPage )}
@@ -33,6 +37,12 @@ module app =
             let content = menuItem.content()
             content.BindingContext <- menuItem.ViewModel
             masterDetailPage.Detail <- new NavigationPage(content)
+
+            match menuItem.ViewModel with
+            | As (viewModelShown : IViewModelShown) ->
+                viewModelShown.Init()
+            | _ -> ()
+
             masterDetailPage.IsPresented <- false
 
         let searchMenuItemAndNavigateTo (menuItemViewModel : MenuItemViewModel) =         
