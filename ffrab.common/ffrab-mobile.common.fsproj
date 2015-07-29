@@ -42,6 +42,8 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets" />
   <ItemGroup>
     <Content Include="packages.config" />
+    <Compile Include="common.fs" />
+    <Compile Include="eventbus.fs" />
     <Compile Include="model.fs" />
     <Compile Include="viewmodels.fs" />
     <Compile Include="app.fs" />
@@ -55,6 +57,10 @@
     </Reference>
     <Reference Include="FSharp.ViewModule.Core">
       <HintPath>..\packages\FSharp.ViewModule.Core.0.9.9.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\FSharp.ViewModule.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core">

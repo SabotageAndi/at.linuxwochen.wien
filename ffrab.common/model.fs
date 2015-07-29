@@ -1,18 +1,35 @@
 ﻿namespace ffrab.mobile.common
 
-open Xamarin.Forms
 
 module model =
+
+    open Xamarin.Forms
+    open System
+
+    type ConferenceDay(day) =
+        let day = day
+
+        member this.Day with get() = day
+
+    type ConferenceData()=
+        let mutable days : ConferenceDay list = []
+        member this.Days with get() = days
+
+        member this.addDay day =
+            days <- day :: days
 
     [<AllowNullLiteral>]
     type Conference(id, name, dataUri) =
         let id = id
         let name = name
         let dataUri = dataUri
-
+        let mutable data : ConferenceData option = None
+        
         member this.Name with get() = name
         member this.Id with get() = id
         member this.DataUri with get() = dataUri
+        member this.Data with get() = data and set(v) = data <- v
+        
 
 
     module Conferences =
@@ -44,3 +61,16 @@ module model =
                 getConference id
             | _ ->
                 None
+
+        let getConferenceData (conf : Conference)=
+            match conf.Data with
+            | Some data ->
+                data
+            | _ ->
+                let data = new ConferenceData()
+                new ConferenceDay(DateTime.Today) |> data.addDay
+                new ConferenceDay(DateTime.Today.AddDays(-1.0)) |> data.addDay
+                new ConferenceDay(DateTime.Today.AddDays(-2.0)) |> data.addDay
+                conf.Data <- Some data
+                data
+                

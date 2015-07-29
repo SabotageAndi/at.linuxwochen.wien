@@ -8,6 +8,7 @@ open System.Linq
 module viewmodels =
  
     open ffrab.mobile.common.model
+    open ffrab.mobile.common.eventbus
 
     type IViewModelShown =
         abstract member Init : unit -> unit
@@ -31,6 +32,12 @@ module viewmodels =
 
         member this.addMenu item =
             items.Value.Add item
+
+        member this.removeMenu name =
+            items.Value.ToArray() |> 
+            List.ofSeq |>
+            List.filter (fun i -> i.Name = name) |>
+            List.iter (fun i -> items.Value.Remove(i) |> ignore)
 
         member this.Items with get() = items.Value
         member this.SelectedItem 
@@ -67,6 +74,8 @@ module viewmodels =
                 | _ ->
                     selectedItem.Value <- Some v
                     model.Conferences.setActualConference selectedItem.Value.Value
+                    Eventbus.Current.Publish {identifier = "changeConference"}
+
       
     type MainViewModel() as self =
         inherit ViewModelBase()
