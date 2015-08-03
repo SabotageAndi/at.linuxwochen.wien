@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ffrab.mobile.common.ui.ConferenceList">
+	<ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Path=Name}" />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

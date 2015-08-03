@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ffrab.mobile.common.ui.Menu"
+             Title="Menu">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    Android="0"
+                    WinPhone="0"
+                    iOS="0,20,0,0"/>
+    </ContentPage.Padding>
+	
+    <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Path=Name}" />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        
+    </ListView>
+</ContentPage>
