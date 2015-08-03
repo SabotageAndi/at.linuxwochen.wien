@@ -1,5 +1,7 @@
 ﻿namespace ffrab.mobile.common
 
+open System
+
 module common =
 
     let (|As|_|) (p:'T) : 'U option =
@@ -10,3 +12,6 @@ module common =
         | About
         | ConferenceList 
         | Main
+        | Day of DateTime
+
+

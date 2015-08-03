@@ -13,24 +13,27 @@ module viewmodel =
         open ffrab.mobile.common.common
         open ffrab.mobile.common.eventbus
 
+         let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = menuviewmodel; Content = (fun x -> null) }
+
         [<Fact>]
         let ``add menu item``() =
-
+            
             let menuviewmodel = new MenuViewModel()
-            let menuitem = new ffrab.mobile.common.viewmodels.MenuItemViewModel("test", ViewModelType.Main)
-            menuviewmodel.addMenu menuitem
+           
+            conn(menuviewmodel) |> menuviewmodel.addMenu 
           
             menuviewmodel.Items.Count |> should equal 1
             
         [<Fact>]
         let ``new menu item has correct name``() =
-            let menuitem = new ffrab.mobile.common.viewmodels.MenuItemViewModel("name", ViewModelType.Main)
+            let menuItemConnection = conn(new MainViewModel())
+            let menuitem = new ffrab.mobile.common.viewmodels.MenuItemViewModel(menuItemConnection)
             menuitem.Name |> should equal "name"
            
 
         [<Fact>]
         let ``handle menu item click``() =
-            let menuitem = new ffrab.mobile.common.viewmodels.MenuItemViewModel("test", ViewModelType.Main)
+            
            
             let mutable itemClickIsHandled = false
 
@@ -39,8 +42,10 @@ module viewmodel =
             Message.SwitchPage(ViewModelType.Main) |> Eventbus.Current.Register nav 
                 
             let menuviewmodel = new ffrab.mobile.common.viewmodels.MenuViewModel()
-            menuviewmodel.addMenu menuitem
-
-            menuviewmodel.SelectedItem <- menuitem
+            conn(menuviewmodel) |> menuviewmodel.addMenu 
+            
+            let menuItem = menuviewmodel.Items.First()
+           
+            menuviewmodel.SelectedItem <- menuItem
 
             itemClickIsHandled |> should equal true

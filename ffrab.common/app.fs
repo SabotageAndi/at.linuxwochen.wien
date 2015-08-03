@@ -8,8 +8,8 @@ module app =
     open ffrab.mobile.common.ui
     open ffrab.mobile.common.viewmodels
     open ffrab.mobile.common.eventbus
+    open ffrab.mobile.common.model
 
-    type MenuItemConnection = { Name : string; Type : ViewModelType; ViewModel : ViewModelBase; Content : unit -> ContentPage }
         
     type App() as this =
         inherit Application()
@@ -20,6 +20,7 @@ module app =
 
         let mutable masterPage : NavigationPage option = None
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
+        let menuViewModel = new MenuViewModel()
 
         let menuItems = 
             [
@@ -45,23 +46,39 @@ module app =
             navigateTo menuItem
 
 
-        let menuViewModel = new MenuViewModel()
-
         let changeConference msg = 
             ignore()
+
 
         let addNavigation menuItemConnection (menuViewModel : MenuViewModel) =
             let viewModelType = menuItemConnection.Type
             let navigate msg = searchMenuItemAndNavigateTo viewModelType
             Message.SwitchPage(viewModelType) |> Eventbus.Current.Register navigate 
-            new MenuItemViewModel(menuItemConnection.Name, menuItemConnection.Type) |> menuViewModel.addMenu
+            menuItemConnection |> menuViewModel.addMenu
             
+        let addConferenceDayMenuItems() =
+            let conf = Conferences.getActualConference()
+            match conf with
+            | Some conference ->
+                let confData = Conferences.getConferenceData conference
+                confData.Days |>
+                List.iter (fun item -> 
+                    let menuItemConnection = { MenuItemConnection.Name = item.Day.ToString("dd.MM."); Type = ViewModelType.Day(item.Day); ViewModel = new AboutViewModel(); Content = (fun x -> new ContentPage()) }
+                    menuViewModel |> addNavigation menuItemConnection
+                    )
+
+                ignore()
+            | None ->
+                ignore()
+
         do
             Message.ChangeConference |> Eventbus.Current.Register changeConference
 
             menuViewModel |> addNavigation home 
             menuViewModel |> addNavigation conferenceList 
             menuViewModel |> addNavigation about 
+
+            addConferenceDayMenuItems()
 
             
             let menu = new Menu()

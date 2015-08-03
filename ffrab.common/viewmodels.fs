@@ -4,6 +4,7 @@ open System.Collections.Generic
 open System.Collections.ObjectModel
 open FSharp.ViewModule
 open System.Linq
+open Xamarin.Forms
 
 module viewmodels =
  
@@ -16,15 +17,17 @@ module viewmodels =
 
     type AboutViewModel() as self =
         inherit ViewModelBase()
+
+    type MenuItemConnection = { Name : string; Type : ViewModelType; ViewModel : ViewModelBase; Content : unit -> ContentPage }
     
-    type MenuItemViewModel(name : string, viewModelType : ViewModelType) as self = 
+    
+    type MenuItemViewModel(menuItemConnection) as self = 
         inherit ViewModelBase()
 
-        let name = self.Factory.Backing(<@ self.Name @>, name)
-        let viewModelType = viewModelType
-
-        member this.Name with get() = name.Value
-        member this.Type with get() = viewModelType
+        let menuItemConnection = menuItemConnection
+       
+        member this.Name with get() = menuItemConnection.Name
+        member this.Type with get() = menuItemConnection.Type
 
 
     type MenuViewModel() as self =
@@ -34,7 +37,14 @@ module viewmodels =
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, items.Value.FirstOrDefault())
 
         member this.addMenu item =
-            items.Value.Add item
+            let itemViewModel = new MenuItemViewModel(item)
+            items.Value.Add itemViewModel
+
+        member this.AddMenuAfter after item =
+            let index = items.Value |>
+                        List.ofSeq |>
+                        List.findIndex (fun i -> i.Type = after.Type)
+            items.Value.Insert(index, new MenuItemViewModel(item))
 
         member this.removeMenu name =
             items.Value.ToArray() |> 
