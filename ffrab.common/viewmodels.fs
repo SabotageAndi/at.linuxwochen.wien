@@ -7,6 +7,7 @@ open System.Linq
 
 module viewmodels =
  
+    open ffrab.mobile.common.common
     open ffrab.mobile.common.model
     open ffrab.mobile.common.eventbus
 
@@ -16,15 +17,17 @@ module viewmodels =
     type AboutViewModel() as self =
         inherit ViewModelBase()
     
-    type MenuItemViewModel(name : string) as self = 
+    type MenuItemViewModel(name : string, viewModelType : ViewModelType) as self = 
         inherit ViewModelBase()
 
         let name = self.Factory.Backing(<@ self.Name @>, name)
+        let viewModelType = viewModelType
 
         member this.Name with get() = name.Value
+        member this.Type with get() = viewModelType
 
 
-    type MenuViewModel(navigateTo : (MenuItemViewModel -> unit)) as self =
+    type MenuViewModel() as self =
         inherit ViewModelBase()
 
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<MenuItemViewModel>() )
@@ -44,7 +47,7 @@ module viewmodels =
             with get() = selectedItem.Value 
             and set(v) = 
                 selectedItem.Value <- v
-                navigateTo selectedItem.Value
+                Message.SwitchPage(selectedItem.Value.Type) |> Eventbus.Current.Publish 
 
     type ConferenceListViewModel() as self =
         inherit ViewModelBase()
@@ -74,7 +77,7 @@ module viewmodels =
                 | _ ->
                     selectedItem.Value <- Some v
                     model.Conferences.setActualConference selectedItem.Value.Value
-                    Eventbus.Current.Publish {identifier = "changeConference"}
+                    Eventbus.Current.Publish Message.ChangeConference
 
       
     type MainViewModel() as self =

@@ -2,9 +2,13 @@
 
 module eventbus =
 
-    type Message = {identifier : string}
+    open ffrab.mobile.common.common
+
+    type Message = 
+        | ChangeConference 
+        | SwitchPage of ViewModelType
         
-    type RegisteredMessage = { msg : Message; action :  (Message -> unit) }
+    type RegisteredMessage = { Msg : Message; Action :  (Message -> unit) }
     
     type Eventbus() =
         
@@ -12,14 +16,14 @@ module eventbus =
         
         let mutable registeredMessages : RegisteredMessage list = []
 
-        member this.Register msg action =
-            let registeredMessage = { msg = msg; action = action}
+        member this.Register action msg =
+            let registeredMessage = { Msg = msg; Action = action}
             registeredMessages <- registeredMessage :: registeredMessages
 
         member this.Publish (msg : Message) =
             registeredMessages |>
-            List.filter (fun i -> i.msg = msg) |>
-            List.iter (fun i -> i.msg |> i.action)
+            List.filter (fun i -> i.Msg = msg) |>
+            List.iter (fun i -> i.Msg |> i.Action)
 
         static member Current with get() = currentInstance
             

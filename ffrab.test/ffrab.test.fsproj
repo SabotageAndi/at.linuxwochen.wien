@@ -57,6 +57,7 @@
     <Compile Include="viewmodel.fs" />
     <Content Include="packages.config" />
     <Content Include="app.config" />
+    <Compile Include="eventbus.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.ViewModule.Core">

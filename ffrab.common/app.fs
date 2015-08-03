@@ -9,14 +9,14 @@ module app =
     open ffrab.mobile.common.viewmodels
     open ffrab.mobile.common.eventbus
 
-    type MenuItemConnection = { Name : string; ViewModel : ViewModelBase; content : unit -> ContentPage }
+    type MenuItemConnection = { Name : string; Type : ViewModelType; ViewModel : ViewModelBase; Content : unit -> ContentPage }
         
     type App() as this =
         inherit Application()
 
-        let conferenceList = { MenuItemConnection.Name = "Conferences"; ViewModel = new ConferenceListViewModel(); content = (fun (x : unit) -> new ConferenceList() :> ContentPage) }
-        let about = { MenuItemConnection.Name = "About"; ViewModel = new AboutViewModel(); content = (fun x -> new ContentPage())}
-        let home = { MenuItemConnection.Name = "Home"; ViewModel = new viewmodels.MainViewModel(); content = (fun x -> new MainPage() :> ContentPage )}
+        let conferenceList = { MenuItemConnection.Name = "Conferences"; Type = ViewModelType.ConferenceList; ViewModel = new ConferenceListViewModel(); Content = (fun (x : unit) -> new ConferenceList() :> ContentPage) }
+        let about = { MenuItemConnection.Name = "About"; Type = ViewModelType.About; ViewModel = new AboutViewModel(); Content = (fun x -> new ContentPage())}
+        let home = { MenuItemConnection.Name = "Home"; Type = ViewModelType.Main; ViewModel = new viewmodels.MainViewModel(); Content = (fun x -> new MainPage() :> ContentPage )}
 
         let mutable masterPage : NavigationPage option = None
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
@@ -29,7 +29,7 @@ module app =
             ]
 
         let navigateTo menuItem = 
-            let content = menuItem.content()
+            let content = menuItem.Content()
             content.BindingContext <- menuItem.ViewModel
             masterDetailPage.Detail <- new NavigationPage(content)
 
@@ -40,21 +40,29 @@ module app =
 
             masterDetailPage.IsPresented <- false
 
-        let searchMenuItemAndNavigateTo (menuItemViewModel : MenuItemViewModel) =         
-            let menuItem = menuItems |> List.find (fun x -> x.Name = menuItemViewModel.Name)
+        let searchMenuItemAndNavigateTo (viewModelType)= 
+            let menuItem = menuItems |> List.find (fun x -> x.Type = viewModelType)
             navigateTo menuItem
 
-        let menuViewModel = new MenuViewModel(searchMenuItemAndNavigateTo)
+
+        let menuViewModel = new MenuViewModel()
 
         let changeConference msg = 
             ignore()
+
+        let addNavigation menuItemConnection (menuViewModel : MenuViewModel) =
+            let viewModelType = menuItemConnection.Type
+            let navigate msg = searchMenuItemAndNavigateTo viewModelType
+            Message.SwitchPage(viewModelType) |> Eventbus.Current.Register navigate 
+            new MenuItemViewModel(menuItemConnection.Name, menuItemConnection.Type) |> menuViewModel.addMenu
             
         do
-            Eventbus.Current.Register {identifier = "changeConference"} changeConference
+            Message.ChangeConference |> Eventbus.Current.Register changeConference
 
-            new MenuItemViewModel(home.Name) |> menuViewModel.addMenu
-            new MenuItemViewModel(conferenceList.Name) |> menuViewModel.addMenu
-            new MenuItemViewModel(about.Name) |> menuViewModel.addMenu
+            menuViewModel |> addNavigation home 
+            menuViewModel |> addNavigation conferenceList 
+            menuViewModel |> addNavigation about 
+
             
             let menu = new Menu()
             menu.BindingContext <- menuViewModel
