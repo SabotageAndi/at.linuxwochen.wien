@@ -2,6 +2,7 @@
 
 module app =
 
+    open System.Collections.Generic
     open FSharp.ViewModule
     open Xamarin.Forms
     open ffrab.mobile.common.common
@@ -22,12 +23,8 @@ module app =
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
         let menuViewModel = new MenuViewModel()
 
-        let menuItems = 
-            [
-                home
-                conferenceList
-                about
-            ]
+        let mutable menuItems = []
+           
 
         let navigateTo menuItem = 
             let content = menuItem.Content()
@@ -55,6 +52,7 @@ module app =
             let navigate msg = searchMenuItemAndNavigateTo viewModelType
             Message.SwitchPage(viewModelType) |> Eventbus.Current.Register navigate 
             menuItemConnection |> menuViewModel.addMenu
+            menuItems <- menuItemConnection :: menuItems
             
         let addConferenceDayMenuItems() =
             let conf = Conferences.getActualConference()
