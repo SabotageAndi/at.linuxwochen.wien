@@ -44,7 +44,7 @@ module viewmodels =
             let index = items.Value |>
                         List.ofSeq |>
                         List.findIndex (fun i -> i.Type = after.Type)
-            items.Value.Insert(index, new MenuItemViewModel(item))
+            items.Value.Insert(index + 1, new MenuItemViewModel(item))
 
         member this.removeMenu name =
             items.Value.ToArray() |> 
@@ -59,6 +59,17 @@ module viewmodels =
                 selectedItem.Value <- v
                 Message.SwitchPage(selectedItem.Value.Type) |> Eventbus.Current.Publish 
 
+        member this.SetCurrentItem item =
+            let mivm = items.Value |>
+                        List.ofSeq |>
+                        List.tryFind (fun i -> i.Type = item.Type && i.Name = item.Name)
+            match mivm with
+            | Some x ->
+                selectedItem.Value <- x
+            | _ -> 
+                ignore()
+
+        
     type ConferenceListViewModel() as self =
         inherit ViewModelBase()
        
