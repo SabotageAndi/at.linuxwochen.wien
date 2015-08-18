@@ -5,8 +5,9 @@ module model =
 
     open Xamarin.Forms
     open System
+    open FSharp.Data
 
-    type ConferenceDay(day) =
+    type ConferenceDay(day : DateTime) =
         let day = day
 
         member this.Day with get() = day
@@ -15,7 +16,7 @@ module model =
         let mutable days : ConferenceDay list = []
         member this.Days with get() = days
 
-        member this.addDay day =
+        member this.AddDay day =
             days <- day :: days
 
     [<AllowNullLiteral>]
@@ -33,6 +34,13 @@ module model =
 
 
     module Conferences =
+
+        open Newtonsoft.Json
+        open Newtonsoft.Json.Linq
+        open System.IO
+        open System.Linq
+        
+
         let actualConfKey = "actualConference"
 
         let conferences = 
@@ -62,15 +70,55 @@ module model =
             | _ ->
                 None
 
+        let loadJsonFromUri (uri : string)  =
+            async {
+                let httpClient = new System.Net.Http.HttpClient()
+                let! response = httpClient.GetAsync(uri) |> Async.AwaitTask
+                response.EnsureSuccessStatusCode () |> ignore
+                let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask
+                return content
+            } |> Async.RunSynchronously
+
+        let deserializeJson data =
+            JObject.Parse data
+
+        let parseSchedule (root : JObject) =
+            let scheduleNode = root.["schedule"]
+            let conferenceNode = scheduleNode.["conference"] :?> JObject
+            
+            (new ConferenceData(), conferenceNode)
+
+        let parseDay (dayNode : JToken) =
+            new ConferenceDay(DateTime.Now)
+
+        let parseDays (confData : ConferenceData, conferenceNode : JObject) =
+            let daysNode = conferenceNode.["days"]
+
+            daysNode.Children().ToArray() |>
+            List.ofArray |>
+            List.map parseDay |>
+            List.iter (fun i -> confData.AddDay(i))
+
+            confData
+
+        let parseJson json =
+            let root = deserializeJson json
+
+            let conferenceData = root |>
+                                 parseSchedule |>
+                                 parseDays
+
+
+            conferenceData
+            
         let getConferenceData (conf : Conference)=
             match conf.Data with
             | Some data ->
                 data
             | _ ->
-                let data = new ConferenceData()
-                new ConferenceDay(DateTime.Today) |> data.addDay
-                new ConferenceDay(DateTime.Today.AddDays(-1.0)) |> data.addDay
-                new ConferenceDay(DateTime.Today.AddDays(-2.0)) |> data.addDay
+                let data = loadJsonFromUri conf.DataUri |>
+                           parseJson
+
                 conf.Data <- Some data
                 data
                 
