@@ -23,7 +23,7 @@ module app =
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
         let menuViewModel = new MenuViewModel()
 
-        let mutable menuItems = []
+        let mutable menuItems  : MenuItemConnection list = []
         let mutable lastMenuItem : MenuItemConnection option = None
            
         let getNewDetail menuItem =
@@ -48,11 +48,11 @@ module app =
             lastMenuItem <- Some menuItem
             masterDetailPage.IsPresented <- false
 
-        let searchMenuItemAndNavigateTo (viewModelType)= 
+        let searchMenuItemAndNavigateTo (viewModelType : ViewModelType)= 
             let menuItem = menuItems |> List.find (fun x -> x.Type = viewModelType)
             navigateTo menuItem
 
-        let addToNavigationInfrastructure menuItemConnection (menuViewModel : MenuViewModel) =
+        let addToNavigationInfrastructure (menuItemConnection : MenuItemConnection) (menuViewModel : MenuViewModel) =
             let viewModelType = menuItemConnection.Type
             let navigate msg = searchMenuItemAndNavigateTo viewModelType
             Message.SwitchPage(viewModelType) |> Eventbus.Current.Register navigate 

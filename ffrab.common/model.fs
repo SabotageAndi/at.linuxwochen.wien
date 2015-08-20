@@ -8,12 +8,31 @@ module model =
     open FSharp.Data
     open NodaTime
    
+    type Entry = {
+        Id : int;
+        Guid: Guid;
+        Title: string;
+        Subtitle: string;
+        Track: string;
+        Start: OffsetDateTime;
+        Duration: Duration;
+        Type: string;
+        Language: string;
+        Abstract: string;
+        Description: string;
+    }
+
+    type Room = {
+        Name : string;
+        Entries : Entry list;
+    }
 
     type ConferenceDay = {
         Index : int;
         Day : LocalDate;
         StartTime : OffsetDateTime;
         EndTime : OffsetDateTime;
+        Rooms : Room list
     }
 
     type ConferenceData = {
@@ -84,6 +103,7 @@ module model =
 
         let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
         let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
+        let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
         
         let deserializeJson data =
             let reader = new JsonTextReader(new StringReader(data));
@@ -98,6 +118,36 @@ module model =
             
             ({ Version = version.Value<string>(); Days = [] }, conferenceNode)
 
+        let parseEntry (entryNode : JToken) =
+            {
+                Id = entryNode.["id"].Value<int>();
+                Guid = Guid.Parse(entryNode.["guid"].Value<string>());
+                Title = entryNode.["title"].Value<string>();
+                Subtitle = entryNode.["subtitle"].Value<string>();
+                Abstract = entryNode.["abstract"].Value<string>();
+                Track = entryNode.["track"].Value<string>();
+                Description = entryNode.["description"].Value<string>();
+                Start = dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value;
+                Language = entryNode.["language"].Value<string>();
+                Duration = durationFormat.Parse(entryNode.["duration"].Value<string>()).Value;
+                Type = entryNode.["type"].Value<string>();
+            }
+
+        let parseRoom (roomNode : JToken) =
+            let roomPropertyNode = roomNode :?> JProperty
+
+            let array = roomPropertyNode.First.Children()
+
+            let entries = array |>
+                          List.ofSeq |>
+                          List.map parseEntry
+
+            { 
+                Name = roomPropertyNode.Name;
+                Entries = entries
+            }
+
+
         let parseDay (dayNode : JToken) =
             let date = dayNode.["date"]
 
@@ -105,18 +155,23 @@ module model =
             let startTime = dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
             let endTime = dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
             
+            let rooms = dayNode.["rooms"].Children() |>
+                        List.ofSeq |>
+                        List.map parseRoom
+
             {
                 Index = dayNode.["index"].Value<int>();
                 Day = day;
                 StartTime = startTime;
-                EndTime = endTime
+                EndTime = endTime;
+                Rooms = rooms
             }
 
         let parseDays (confData : ConferenceData, conferenceNode : JObject) =
             let daysNode = conferenceNode.["days"]
 
-            let days = daysNode.Children().ToArray() |>
-                       List.ofArray |>
+            let days = daysNode.Children() |>
+                       List.ofSeq |>
                        List.map parseDay
             
             { confData with Days = days }
