@@ -59,8 +59,10 @@ module app =
             menuItems <- menuItemConnection :: menuItems
             menuItemConnection
             
+        let dateFormat = NodaTime.Text.LocalDatePattern.CreateWithInvariantCulture("dd'.'MM")
+
         let getConferenceDayName (item : ConferenceDay) =
-            item.Day.ToString("dd.MM.")
+            dateFormat.Format(item.Day)
 
         let addConferenceDayMenuItems() =
             let conf = Conferences.getActualConference()

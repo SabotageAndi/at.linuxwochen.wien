@@ -6,18 +6,20 @@ module model =
     open Xamarin.Forms
     open System
     open FSharp.Data
+    open NodaTime
+   
 
-    type ConferenceDay(day : DateTime) =
-        let day = day
+    type ConferenceDay = {
+        Index : int;
+        Day : LocalDate;
+        StartTime : OffsetDateTime;
+        EndTime : OffsetDateTime;
+    }
 
-        member this.Day with get() = day
-
-    type ConferenceData()=
-        let mutable days : ConferenceDay list = []
-        member this.Days with get() = days
-
-        member this.AddDay day =
-            days <- day :: days
+    type ConferenceData = {
+        Days : ConferenceDay list;
+        Version : string
+    }
 
     [<AllowNullLiteral>]
     type Conference(id, name, dataUri) =
@@ -39,6 +41,7 @@ module model =
         open Newtonsoft.Json.Linq
         open System.IO
         open System.Linq
+        open NodaTime.Text
         
 
         let actualConfKey = "actualConference"
@@ -79,27 +82,44 @@ module model =
                 return content
             } |> Async.RunSynchronously
 
+        let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
+        let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
+        
         let deserializeJson data =
-            JObject.Parse data
+            let reader = new JsonTextReader(new StringReader(data));
+            reader.DateParseHandling <- DateParseHandling.None;
+            JObject.Load(reader);
 
         let parseSchedule (root : JObject) =
             let scheduleNode = root.["schedule"]
             let conferenceNode = scheduleNode.["conference"] :?> JObject
+
+            let version = scheduleNode.["version"]
             
-            (new ConferenceData(), conferenceNode)
+            ({ Version = version.Value<string>(); Days = [] }, conferenceNode)
 
         let parseDay (dayNode : JToken) =
-            new ConferenceDay(DateTime.Now)
+            let date = dayNode.["date"]
+
+            let day = dateFormat.Parse(date.Value<string>()).Value
+            let startTime = dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
+            let endTime = dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
+            
+            {
+                Index = dayNode.["index"].Value<int>();
+                Day = day;
+                StartTime = startTime;
+                EndTime = endTime
+            }
 
         let parseDays (confData : ConferenceData, conferenceNode : JObject) =
             let daysNode = conferenceNode.["days"]
 
-            daysNode.Children().ToArray() |>
-            List.ofArray |>
-            List.map parseDay |>
-            List.iter (fun i -> confData.AddDay(i))
-
-            confData
+            let days = daysNode.Children().ToArray() |>
+                       List.ofArray |>
+                       List.map parseDay
+            
+            { confData with Days = days }
 
         let parseJson json =
             let root = deserializeJson json

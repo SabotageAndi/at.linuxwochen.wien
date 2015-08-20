@@ -12,6 +12,6 @@ module common =
         | About
         | ConferenceList 
         | Main
-        | Day of DateTime
+        | Day of NodaTime.LocalDate
 
 
