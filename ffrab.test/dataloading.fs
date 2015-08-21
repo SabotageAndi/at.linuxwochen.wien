@@ -10,7 +10,7 @@ module dataloading =
     open ffrab.mobile.common.model
     open NodaTime
     
-    let parseJson() = File.ReadAllText("data/conference.json") |> Conferences.parseJson
+    let parseJson() = File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson
     
     [<Fact>]
     let ``get correct number of days``() = 

@@ -101,90 +101,89 @@ module model =
                 return content
             } |> Async.RunSynchronously
 
-        let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
-        let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
-        let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
+        module Parser = 
+            let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
+            let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
+            let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
         
-        let deserializeJson data =
-            let reader = new JsonTextReader(new StringReader(data));
-            reader.DateParseHandling <- DateParseHandling.None;
-            JObject.Load(reader);
+            let deserializeJson data =
+                let reader = new JsonTextReader(new StringReader(data));
+                reader.DateParseHandling <- DateParseHandling.None;
+                JObject.Load(reader);
 
-        let parseSchedule (root : JObject) =
-            let scheduleNode = root.["schedule"]
-            let conferenceNode = scheduleNode.["conference"] :?> JObject
+          
+            let parseEntry (entryNode : JToken) =
+                {
+                    Id = entryNode.["id"].Value<int>();
+                    Guid = Guid.Parse(entryNode.["guid"].Value<string>());
+                    Title = entryNode.["title"].Value<string>();
+                    Subtitle = entryNode.["subtitle"].Value<string>();
+                    Abstract = entryNode.["abstract"].Value<string>();
+                    Track = entryNode.["track"].Value<string>();
+                    Description = entryNode.["description"].Value<string>();
+                    Start = dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value;
+                    Language = entryNode.["language"].Value<string>();
+                    Duration = durationFormat.Parse(entryNode.["duration"].Value<string>()).Value;
+                    Type = entryNode.["type"].Value<string>();
+                }
 
-            let version = scheduleNode.["version"]
+            let parseRoom (roomNode : JToken) =
+                let roomPropertyNode = roomNode :?> JProperty
+
+                let array = roomPropertyNode.First.Children()
+
+                let entries = array |>
+                              List.ofSeq |>
+                              List.map parseEntry
+
+                { 
+                    Name = roomPropertyNode.Name;
+                    Entries = entries
+                }
+
+
+            let parseDay (dayNode : JToken) =
+                let date = dayNode.["date"]
+
+                let day = dateFormat.Parse(date.Value<string>()).Value
+                let startTime = dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
+                let endTime = dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
             
-            ({ Version = version.Value<string>(); Days = [] }, conferenceNode)
+                let rooms = dayNode.["rooms"].Children() |>
+                            List.ofSeq |>
+                            List.map parseRoom
 
-        let parseEntry (entryNode : JToken) =
-            {
-                Id = entryNode.["id"].Value<int>();
-                Guid = Guid.Parse(entryNode.["guid"].Value<string>());
-                Title = entryNode.["title"].Value<string>();
-                Subtitle = entryNode.["subtitle"].Value<string>();
-                Abstract = entryNode.["abstract"].Value<string>();
-                Track = entryNode.["track"].Value<string>();
-                Description = entryNode.["description"].Value<string>();
-                Start = dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value;
-                Language = entryNode.["language"].Value<string>();
-                Duration = durationFormat.Parse(entryNode.["duration"].Value<string>()).Value;
-                Type = entryNode.["type"].Value<string>();
-            }
+                {
+                    Index = dayNode.["index"].Value<int>();
+                    Day = day;
+                    StartTime = startTime;
+                    EndTime = endTime;
+                    Rooms = rooms
+                }
 
-        let parseRoom (roomNode : JToken) =
-            let roomPropertyNode = roomNode :?> JProperty
+            let parseDays (conferenceNode : JObject) =
+                let daysNode = conferenceNode.["days"]
 
-            let array = roomPropertyNode.First.Children()
-
-            let entries = array |>
-                          List.ofSeq |>
-                          List.map parseEntry
-
-            { 
-                Name = roomPropertyNode.Name;
-                Entries = entries
-            }
+                daysNode.Children() |>
+                List.ofSeq |>
+                List.map parseDay
 
 
-        let parseDay (dayNode : JToken) =
-            let date = dayNode.["date"]
+            let parseSchedule (root : JObject) =
+                let scheduleNode = root.["schedule"]
+                let conferenceNode = scheduleNode.["conference"] :?> JObject
 
-            let day = dateFormat.Parse(date.Value<string>()).Value
-            let startTime = dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
-            let endTime = dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
-            
-            let rooms = dayNode.["rooms"].Children() |>
-                        List.ofSeq |>
-                        List.map parseRoom
+                let version = scheduleNode.["version"]
+                let days = parseDays conferenceNode
 
-            {
-                Index = dayNode.["index"].Value<int>();
-                Day = day;
-                StartTime = startTime;
-                EndTime = endTime;
-                Rooms = rooms
-            }
-
-        let parseDays (confData : ConferenceData, conferenceNode : JObject) =
-            let daysNode = conferenceNode.["days"]
-
-            let days = daysNode.Children() |>
-                       List.ofSeq |>
-                       List.map parseDay
-            
-            { confData with Days = days }
-
-        let parseJson json =
-            let root = deserializeJson json
-
-            let conferenceData = root |>
-                                 parseSchedule |>
-                                 parseDays
+                { Version = version.Value<string>(); Days = days}
 
 
-            conferenceData
+            let parseJson json =
+                deserializeJson json |>
+                parseSchedule
+                
+                
             
         let getConferenceData (conf : Conference)=
             match conf.Data with
@@ -192,7 +191,7 @@ module model =
                 data
             | _ ->
                 let data = loadJsonFromUri conf.DataUri |>
-                           parseJson
+                           Parser.parseJson
 
                 conf.Data <- Some data
                 data
