@@ -10,7 +10,9 @@ module dataloading =
     open ffrab.mobile.common.model
     open NodaTime
     
-    let parseJson() = File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson
+    let parseJson() = 
+        let conf = new Conference(1, "", "")
+        File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson conf
     
     [<Fact>]
     let ``get correct number of days``() = 
@@ -87,3 +89,39 @@ module dataloading =
 
         entry.Type
         |> should equal "lecture"
+
+    [<Fact>]
+    let ``correct conference id in day``() =
+        let data = parseJson()
+
+        data.Days.Item(0).ConferenceId
+        |> should equal data.ConferenceId
+
+    [<Fact>]
+    let ``correct ids in room``() =
+        let data = parseJson()
+
+        let day = data.Days.Item(0)
+
+        day.Rooms.Item(0).ConferenceId
+        |> should equal data.ConferenceId
+
+        day.Rooms.Item(0).ConferenceDayGuid
+        |> should equal day.Guid
+
+    [<Fact>]
+    let ``correct ids in entry``() =
+        let data = parseJson()
+
+        let day = data.Days.Item(0)
+        let room = day.Rooms.Item(0)
+        let entry = room.Entries.Item(0)
+
+        entry.ConferenceId
+        |> should equal data.ConferenceId
+
+        entry.ConferenceDayGuid 
+        |> should equal day.Guid
+
+        entry.RoomGuid
+        |> should equal room.Guid
