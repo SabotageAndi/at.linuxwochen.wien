@@ -23,10 +23,10 @@ namespace ffrab.droid
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException20cd50f404724ebca2a01e0850700b0c of obj
-    exception ReturnNoneException20cd50f404724ebca2a01e0850700b0c
+    exception ReturnExceptionb83fe7cfdb154200bc2b9d27334395cd of obj
+    exception ReturnNoneExceptionb83fe7cfdb154200bc2b9d27334395cd
     [<AutoOpen>]
-    module FuncConvertFinalOverload20cd50f404724ebca2a01e0850700b0c =
+    module FuncConvertFinalOverloadb83fe7cfdb154200bc2b9d27334395cd =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form
@@ -39,6 +39,8 @@ namespace ffrab.droid
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
             static member UpdateIdValues  () =
+                global.SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName <- Resource_String.ApplicationName
+                global.SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello <- Resource_String.Hello
                 global.Xamarin.Forms.Platform.Resource.String.ApplicationName <- Resource_String.ApplicationName
                 global.Xamarin.Forms.Platform.Resource.String.Hello <- Resource_String.Hello
 
