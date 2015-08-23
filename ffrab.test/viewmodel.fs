@@ -20,7 +20,7 @@ module viewmodel =
             
             let menuviewmodel = new MenuViewModel()
            
-            conn(menuviewmodel) |> menuviewmodel.addMenu 
+            conn(menuviewmodel) |> menuviewmodel.AddMenu 
           
             menuviewmodel.Items.Count |> should equal 1
             
@@ -42,7 +42,7 @@ module viewmodel =
             Message.SwitchPage(ViewModelType.Main) |> Eventbus.Current.Register nav 
                 
             let menuviewmodel = new ffrab.mobile.common.viewmodels.MenuViewModel()
-            conn(menuviewmodel) |> menuviewmodel.addMenu 
+            conn(menuviewmodel) |> menuviewmodel.AddMenu 
             
             let menuItem = menuviewmodel.Items.First()
            
