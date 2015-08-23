@@ -5,11 +5,12 @@ module app =
     open System.Collections.Generic
     open FSharp.ViewModule
     open Xamarin.Forms
-    open ffrab.mobile.common.common
+    open common
     open ffrab.mobile.common.ui
-    open ffrab.mobile.common.viewmodels
-    open ffrab.mobile.common.eventbus
-    open ffrab.mobile.common.model
+    open viewmodels
+    open eventbus
+    open entities
+    open model
 
         
     type App() as this =
