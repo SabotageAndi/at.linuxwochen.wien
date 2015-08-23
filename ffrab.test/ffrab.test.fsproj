@@ -69,6 +69,7 @@
     <None Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Compile Include="infrastructure.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.ViewModule.Core">

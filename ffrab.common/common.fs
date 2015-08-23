@@ -15,14 +15,26 @@ module common =
         | Day of NodaTime.LocalDate
 
     open NodaTime
+    open NodaTime.Text
     open SQLite.Net
+
+    open System.Runtime.Serialization
+    open System.Runtime.Serialization.Formatters
 
     module NodaTypeSerializerDelegate =
 
+        type SupportedTyp = {
+            Typ : Type;
+        }
+
+        let localDateType = typeof<LocalDate>
+        let offsetDateTimeType = typeof<OffsetDateTime>
+        let durationType = typeof<Duration>
+
         let supportedTypes = [
-            typeof<NodaTime.LocalDate>;
-            typeof<NodaTime.OffsetDateTime>;
-            typeof<NodaTime.Duration>
+            (localDateType);
+            (offsetDateTimeType);
+            (durationType)
             ]
 
         let getSupportedType typ =
@@ -33,19 +45,51 @@ module common =
         let canSerialize (typ : Type) =
             let supportedTyp = getSupportedType typ
 
-            match typ with
-            | supportedTyp ->
+            match supportedTyp with
+            | Some x ->
                 true
             | _ ->
                 false
 
+        
+
         let serialize (obj : Object) =
-            Array.init<byte> 0 (fun index -> 0uy)
             
+            let typ = obj.GetType()
+            
+            let mutable formatResult = ""
 
+            if typ = localDateType then
+                formatResult <- LocalDatePattern.IsoPattern.Format (obj :?> LocalDate)
 
-        let deserialize (data : byte[]) (typ : Type) =
-            new Object()
+            if typ = offsetDateTimeType then
+                formatResult <- OffsetDateTimePattern.ExtendedIsoPattern.Format (obj :?> OffsetDateTime)
+                
+            if typ = durationType then
+                formatResult <- DurationPattern.RoundtripPattern.Format (obj :?> Duration)
+                
+            System.Text.Encoding.Unicode.GetBytes formatResult
+
+            
+        let deserialize (data : byte[]) (typ : Type) : Object =
+            let text = System.Text.Encoding.Unicode.GetString(data, 0, data.Length)
+
+            let mutable result : Object = null
+
+            if typ = localDateType then
+                let parseResult = LocalDatePattern.IsoPattern.Parse text
+                result <- parseResult.Value :> Object
+
+            if typ = offsetDateTimeType then
+                let parseResult = OffsetDateTimePattern.ExtendedIsoPattern.Parse text
+                result <- parseResult.Value :> Object
+
+            if typ = durationType then
+                let parseResult = DurationPattern.RoundtripPattern.Parse text
+                result <- parseResult.Value :> Object
+
+            result
+            
 
         let Delegate() =
             new BlobSerializerDelegate(new BlobSerializerDelegate.SerializeDelegate(serialize),
