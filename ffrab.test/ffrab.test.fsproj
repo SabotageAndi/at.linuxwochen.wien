@@ -57,11 +57,18 @@
     <Compile Include="viewmodel.fs" />
     <Content Include="app.config" />
     <Compile Include="eventbus.fs" />
-    <Compile Include="dataloading.fs" />
+    <Compile Include="Parsing.fs" />
     <None Include="data\conference.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="packages.config" />
+    <Compile Include="database.fs" />
+    <None Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.ViewModule.Core">

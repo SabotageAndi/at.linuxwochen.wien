@@ -10,8 +10,9 @@ module app =
     open eventbus
     open entities
     open model
+    open SQLite.Net.Interop
     
-    type App() as this = 
+    type App(sqlPlatform : ISQLitePlatform) as this = 
         inherit Application()
         
         let conferenceList = 
@@ -32,6 +33,7 @@ module app =
               ViewModel = new viewmodels.MainViewModel()
               Content = (fun x -> new MainPage() :> ContentPage) }
         
+        let sqlPlatform = sqlPlatform
         let mutable masterPage : NavigationPage option = None
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
         let menuViewModel = new MenuViewModel()
@@ -107,18 +109,27 @@ module app =
         do 
             lastMenuItem <- None
             Message.ChangeConference |> Eventbus.Current.Register changeConference
+
             menuViewModel
             |> addToNavigationInfrastructure home
             |> menuViewModel.AddMenu
+
             menuViewModel
             |> addToNavigationInfrastructure conferenceList
             |> menuViewModel.AddMenu
+
             menuViewModel
             |> addToNavigationInfrastructure about
             |> menuViewModel.AddMenu
+
             addConferenceDayMenuItems()
+
             let menu = new Menu()
             menu.BindingContext <- menuViewModel
             masterDetailPage.Master <- menu
             navigateTo home
             this.MainPage <- masterDetailPage
+
+        override this.OnStart() =
+            
+            ignore()

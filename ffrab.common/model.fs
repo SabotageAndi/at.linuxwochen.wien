@@ -3,8 +3,11 @@
 module model = 
     open Xamarin.Forms
     open System
+    open SQLite.Net
     open FSharp.Data
     open entities
+    open common
+    open System.Collections.Generic
     
     [<AllowNullLiteral>]
     type Conference(id, name, dataUri) = 
@@ -19,6 +22,33 @@ module model =
         member this.Data 
             with get () = data
             and set (v) = data <- v
+
+    type State(conn) = 
+        let sqlConnection : SQLiteConnection = conn
+
+        member this.SQLConnection 
+            with get() = sqlConnection
+    
+
+    let mutable CurrentState : State = new State(null)
+
+    let Init(sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform) =
+
+        let extraTypeMappings = new Dictionary<Type, string>()
+        
+        extraTypeMappings.Add(typeof<NodaTime.LocalDate>, "blob")
+        extraTypeMappings.Add(typeof<NodaTime.OffsetDateTime>, "blob")
+        extraTypeMappings.Add(typeof<NodaTime.Duration>, "blob")
+
+        let sqlConnection = new SQLiteConnection(sqlitePlatform, 
+                                                 "ffrab.mobile.db", 
+                                                 false,
+                                                 NodaTypeSerializerDelegate.Delegate(),
+                                                 null,
+                                                 extraTypeMappings
+                                                 )
+
+        CurrentState <- new State(sqlConnection)
     
     module Conferences = 
         open Newtonsoft.Json
@@ -121,6 +151,26 @@ module model =
                 new ConferenceData(Version = version.Value<string>(), Days = days, ConferenceId = conference.Id)
             
             let parseJson conference json = deserializeJson json |> parseSchedule conference
+
+        module Database = 
+            let reCreateDatabase() =
+                CurrentState.SQLConnection.DropTable<Entry>() |> ignore
+                CurrentState.SQLConnection.DropTable<Room>() |> ignore
+                CurrentState.SQLConnection.DropTable<ConferenceDay>() |> ignore
+                CurrentState.SQLConnection.DropTable<ConferenceData>() |> ignore
+
+                CurrentState.SQLConnection.CreateTable<Entry>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Room>() |> ignore
+                CurrentState.SQLConnection.CreateTable<ConferenceDay>() |> ignore
+                CurrentState.SQLConnection.CreateTable<ConferenceData>() |> ignore
+
+
+            let deleteConference (conference : Conference) =
+                CurrentState.SQLConnection.Table<Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Room>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+
         
         let getConferenceData (conf : Conference) = 
             match conf.Data with

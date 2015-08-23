@@ -1,10 +1,7 @@
-﻿namespace ffrab.mobile.test
+﻿module Eventbus
 
-open Xunit
-open FsUnit.Xunit
-
-module eventbus =
-
+    open Xunit
+    open FsUnit.Xunit
     open ffrab.mobile.common.eventbus
     
     [<Fact>]

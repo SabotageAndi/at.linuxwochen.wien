@@ -1,12 +1,8 @@
-﻿namespace ffrab.mobile.test
-
-open Xunit
-open FsUnit.Xunit
-open System
-open System.IO
-open FSharp.Data
-
-module dataloading = 
+﻿module Parsing
+    open Xunit
+    open FsUnit.Xunit
+    open System
+    open System.IO
     open ffrab.mobile.common.model
     open NodaTime
     

@@ -1,11 +1,8 @@
-﻿namespace ffrab.mobile.test
+﻿module Viewmodel
 
-open Xunit
-open FsUnit.Xunit
-
-open System.Linq
-
-module viewmodel =
+    open Xunit
+    open FsUnit.Xunit
+    open System.Linq
 
     module menu = 
 

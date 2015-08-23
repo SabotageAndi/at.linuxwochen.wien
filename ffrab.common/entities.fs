@@ -46,6 +46,8 @@ module entities =
         member val ConferenceDayGuid : Guid = Guid.Empty with get, set
         
         member val Name : string = "" with get, set
+
+        [<IgnoreAttribute>]
         member val Entries : Entry list = [] with get, set
     
     type ConferenceDay() = 
@@ -60,6 +62,7 @@ module entities =
         member val Day : LocalDate = new LocalDate() with get, set
         member val StartTime : OffsetDateTime = new OffsetDateTime() with get, set
         member val EndTime : OffsetDateTime = new OffsetDateTime() with get, set
+        [<IgnoreAttribute>]
         member val Rooms : Room list = [] with get, set
     
     type ConferenceData() = 
@@ -67,5 +70,7 @@ module entities =
         [<PrimaryKeyAttribute>]
         member val ConferenceId : int = 0 with get, set
         
+        [<IgnoreAttribute>]
         member val Days : ConferenceDay list = [] with get, set
+        
         member val Version : string = "" with get, set

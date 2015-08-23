@@ -14,7 +14,7 @@ type AppDelegate () =
         Forms.Init()
 
         let window = new UIWindow (UIScreen.MainScreen.Bounds)
-        this.LoadApplication(new ffrab.mobile.common.app.App())
+        this.LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS()))
            
         base.FinishedLaunching (app, options)
 
