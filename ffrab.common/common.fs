@@ -14,12 +14,20 @@ module common =
         | Main
         | Day of NodaTime.LocalDate
 
+         
+    let loadJsonFromUri (uri : string) = 
+        async { 
+            let httpClient = new System.Net.Http.HttpClient()
+            let! response = httpClient.GetAsync(uri) |> Async.AwaitTask
+            response.EnsureSuccessStatusCode() |> ignore
+            let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask
+            return content
+        }
+        |> Async.RunSynchronously
+
     open NodaTime
     open NodaTime.Text
     open SQLite.Net
-
-    open System.Runtime.Serialization
-    open System.Runtime.Serialization.Formatters
 
     module NodaTypeSerializerDelegate =
 

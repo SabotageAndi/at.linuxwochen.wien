@@ -1,7 +1,6 @@
 ﻿module Parsing
     open Xunit
     open FsUnit.Xunit
-    open System
     open System.IO
     open ffrab.mobile.common.model
     open NodaTime
@@ -60,7 +59,7 @@
         |> should equal 311
 
         entry.Guid
-        |> should equal (Guid.Parse "38a1c2da-bb3e-47f8-b832-945b8d5ab1ab")
+        |> should equal "38a1c2da-bb3e-47f8-b832-945b8d5ab1ab"
 
         entry.Title
         |> should equal "Begrüßung"

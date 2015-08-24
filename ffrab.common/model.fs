@@ -32,23 +32,8 @@ module model =
 
     let mutable CurrentState : State = new State(null)
 
-    let Init(sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform) =
+    
 
-        let extraTypeMappings = new Dictionary<Type, string>()
-        
-        extraTypeMappings.Add(typeof<NodaTime.LocalDate>, "blob")
-        extraTypeMappings.Add(typeof<NodaTime.OffsetDateTime>, "blob")
-        extraTypeMappings.Add(typeof<NodaTime.Duration>, "blob")
-
-        let sqlConnection = new SQLiteConnection(sqlitePlatform, 
-                                                 "ffrab.mobile.db", 
-                                                 false,
-                                                 NodaTypeSerializerDelegate.Delegate(),
-                                                 null,
-                                                 extraTypeMappings
-                                                 )
-
-        CurrentState <- new State(sqlConnection)
     
     module Conferences = 
         open Newtonsoft.Json
@@ -75,16 +60,7 @@ module model =
                 let id = Application.Current.Properties.[actualConfKey] :?> int
                 getConference id
             | _ -> None
-        
-        let loadJsonFromUri (uri : string) = 
-            async { 
-                let httpClient = new System.Net.Http.HttpClient()
-                let! response = httpClient.GetAsync(uri) |> Async.AwaitTask
-                response.EnsureSuccessStatusCode() |> ignore
-                let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask
-                return content
-            }
-            |> Async.RunSynchronously
+   
         
         module Parser = 
             let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
@@ -97,7 +73,7 @@ module model =
                 JObject.Load(reader)
             
             let parseEntry (room : Room) (entryNode : JToken) = 
-                new Entry(Id = entryNode.["id"].Value<int>(), Guid = Guid.Parse(entryNode.["guid"].Value<string>()), 
+                new Entry(Id = entryNode.["id"].Value<int>(), Guid = entryNode.["guid"].Value<string>(), 
                           Title = entryNode.["title"].Value<string>(), Subtitle = entryNode.["subtitle"].Value<string>(), 
                           Abstract = entryNode.["abstract"].Value<string>(), Track = entryNode.["track"].Value<string>(), 
                           Description = entryNode.["description"].Value<string>(), 
@@ -153,6 +129,9 @@ module model =
             let parseJson conference json = deserializeJson json |> parseSchedule conference
 
         module Database = 
+            let shouldCreateDatabase() =
+                not(CurrentState.SQLConnection.GetTableInfo("Entry").Any())
+
             let reCreateDatabase() =
                 CurrentState.SQLConnection.DropTable<Entry>() |> ignore
                 CurrentState.SQLConnection.DropTable<Room>() |> ignore
@@ -179,7 +158,10 @@ module model =
             let writeDbEntry dbEntry =
                 CurrentState.SQLConnection.Insert dbEntry |> ignore
 
-            
+            let getConferenceDays (conference : Conference) =
+                CurrentState.SQLConnection.Table<ConferenceDay>()
+                |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
+
         module Synchronization =
 
             let writeEntry (entry : Entry) =
@@ -212,10 +194,44 @@ module model =
                 | _ ->
                     writeData conferenceData
         
-        let getConferenceData (conf : Conference) = 
-            match conf.Data with
-            | Some data -> data
-            | _ -> 
-                let data = loadJsonFromUri conf.DataUri |> Parser.parseJson conf
-                conf.Data <- Some data
-                data
+        let getConferenceDays conference = 
+            Database.getConferenceDays conference
+
+        let getActualConferenceDays() =
+            let conf = getActualConference()
+            match conf with
+            | Some conference ->
+                getConferenceDays conference
+            | _ ->
+                Seq.empty
+
+        let synchronizeData() =
+            let conf = getActualConference()
+            match conf with
+            | Some conference ->
+                let json = loadJsonFromUri conference.DataUri
+                let conferenceData = Parser.parseJson conference json
+                Synchronization.sync conference conferenceData
+            | _ ->
+                ignore()
+
+    let Init(sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform) =
+
+        let extraTypeMappings = new Dictionary<Type, string>()
+        
+        extraTypeMappings.Add(typeof<NodaTime.LocalDate>, "blob")
+        extraTypeMappings.Add(typeof<NodaTime.OffsetDateTime>, "blob")
+        extraTypeMappings.Add(typeof<NodaTime.Duration>, "blob")
+
+        let sqlConnection = new SQLiteConnection(sqlitePlatform, 
+                                                    "ffrab.mobile.db", 
+                                                    false,
+                                                    NodaTypeSerializerDelegate.Delegate(),
+                                                    null,
+                                                    extraTypeMappings
+                                                    )
+
+        CurrentState <- new State(sqlConnection)
+
+        if Conferences.Database.shouldCreateDatabase() then
+            Conferences.Database.reCreateDatabase()

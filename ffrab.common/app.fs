@@ -39,6 +39,7 @@ module app =
         let menuViewModel = new MenuViewModel()
         let mutable menuItems : MenuItemConnection list = []
         let mutable lastMenuItem : MenuItemConnection option = None
+        let mutable lastConference : Conference option = None
         
         let getNewDetail menuItem = 
             let content = menuItem.Content()
@@ -82,28 +83,27 @@ module app =
             |> menuViewModel.AddMenuAfter home
 
         let addConferenceDayMenuItems() = 
-            let conf = Conferences.getActualConference()
-            match conf with
-            | Some conference -> 
-                let confData = Conferences.getConferenceData conference
-                confData.Days
-                |> List.sortBy (fun i -> i.Day)
-                |> List.iter addConferenceDayMenuItems
-            | None -> ignore()
-        
-        let removeActualConferenceDayMenuItems() = 
-            let conf = Conferences.getActualConference()
-            match conf with
-            | Some conference -> 
-                let confData = Conferences.getConferenceData conference
-                confData.Days
-                |> List.map getConferenceDayName
-                |> List.iter menuViewModel.RemoveMenu
-            | None -> ignore()
-        
+            Conferences.getActualConferenceDays()
+            |> Seq.sortByDescending (fun i -> i.Day)
+            |> Seq.iter addConferenceDayMenuItems
+            
+        let removeActualConferenceDayMenuItems conference = 
+            conference 
+            |> Conferences.getConferenceDays
+            |> Seq.map getConferenceDayName
+            |> Seq.iter menuViewModel.RemoveMenu
+          
         let changeConference msg = 
-            removeActualConferenceDayMenuItems()
+
+            match lastConference with
+            | Some conf ->
+                removeActualConferenceDayMenuItems conf 
+            | _ ->
+                ignore()
+
+            model.Conferences.synchronizeData()
             addConferenceDayMenuItems()
+            lastConference <- model.Conferences.getActualConference()
             navigateTo home
         
         do 
@@ -122,8 +122,6 @@ module app =
             |> addToNavigationInfrastructure about
             |> menuViewModel.AddMenu
 
-            addConferenceDayMenuItems()
-
             let menu = new Menu()
             menu.BindingContext <- menuViewModel
             masterDetailPage.Master <- menu
@@ -131,5 +129,6 @@ module app =
             this.MainPage <- masterDetailPage
 
         override this.OnStart() =
-            
-            ignore()
+            model.Init sqlPlatform
+            model.Conferences.synchronizeData()
+            addConferenceDayMenuItems()

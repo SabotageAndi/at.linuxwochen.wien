@@ -151,3 +151,12 @@
 
             deserializedDuration
             |> should equal duration
+
+    module common =
+
+        [<Fact>]
+        let ``load schedule.json from server``() =
+            let json = ffrab.mobile.common.common.loadJsonFromUri "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json"
+
+            json.Length 
+            |> should greaterThan 0

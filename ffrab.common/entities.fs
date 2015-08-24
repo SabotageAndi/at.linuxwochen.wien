@@ -10,7 +10,7 @@ module entities =
         member val Id : int = -1 with get, set
         
         [<PrimaryKeyAttribute>]
-        member val Guid : Guid = Guid.Empty with get, set
+        member val Guid : string = "" with get, set
         
         member val Title : string = "" with get, set
         member val Subtitle : string = "" with get, set
