@@ -11,7 +11,6 @@
     let conf = new Conference(1, "", "")
 
     let init() =
-        let dbpath = Path.GetTempFileName()
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db)
         ffrab.mobile.common.model.CurrentState.SQLConnection

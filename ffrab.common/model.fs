@@ -171,6 +171,46 @@ module model =
                 CurrentState.SQLConnection.Table<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
                 CurrentState.SQLConnection.Table<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
 
+            let getConferenceData (conference : Conference) =
+                CurrentState.SQLConnection.Table<ConferenceData>()
+                |> Seq.filter (fun c -> c.ConferenceId = conference.Id)
+                |> Seq.tryHead
+
+            let writeDbEntry dbEntry =
+                CurrentState.SQLConnection.Insert dbEntry |> ignore
+
+            
+        module Synchronization =
+
+            let writeEntry (entry : Entry) =
+                Database.writeDbEntry entry
+
+            let writeRoom (room : Room) =
+                Database.writeDbEntry room
+                room.Entries 
+                |> List.iter writeEntry
+
+            let writeDay (conferenceDay : ConferenceDay) =
+                Database.writeDbEntry conferenceDay
+                conferenceDay.Rooms 
+                |> List.iter writeRoom
+
+            let writeData (conferenceData : ConferenceData) =
+                Database.writeDbEntry conferenceData
+                conferenceData.Days 
+                |> List.iter writeDay
+             
+
+            let sync conference (conferenceData : ConferenceData) =
+                let currentConferenceData = Database.getConferenceData conference
+
+                match currentConferenceData with
+                | Some data ->
+                    if data.Version <> conferenceData.Version then
+                        Database.deleteConference conference
+                        writeData conferenceData
+                | _ ->
+                    writeData conferenceData
         
         let getConferenceData (conf : Conference) = 
             match conf.Data with

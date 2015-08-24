@@ -70,6 +70,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="infrastructure.fs" />
+    <Compile Include="Synchronization.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.ViewModule.Core">
