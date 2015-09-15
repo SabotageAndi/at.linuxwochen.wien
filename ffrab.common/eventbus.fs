@@ -6,6 +6,8 @@ module eventbus =
     type Message = 
         | ChangeConference
         | SwitchPage of ViewModelType
+        | StartLongRunningAction
+        | StopLongRunningAction
     
     type RegisteredMessage = 
         { Msg : Message

@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ffrab.mobile.common.ui
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentView
     {
         public MainPage()
         {

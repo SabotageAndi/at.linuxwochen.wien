@@ -21,7 +21,7 @@ module viewmodels =
         { Name : string
           Type : ViewModelType
           ViewModel : ViewModelBase
-          Content : unit -> ContentPage }
+          Content : unit -> ContentView }
     
     type MenuItemViewModel(menuItemConnection) as self = 
         inherit ViewModelBase()

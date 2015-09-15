@@ -19,19 +19,19 @@ module app =
             { MenuItemConnection.Name = "Conferences"
               Type = ViewModelType.ConferenceList
               ViewModel = new ConferenceListViewModel()
-              Content = (fun (x : unit) -> new ConferenceList() :> ContentPage) }
+              Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
         
         let about = 
             { MenuItemConnection.Name = "About"
               Type = ViewModelType.About
               ViewModel = new AboutViewModel()
-              Content = (fun x -> new ContentPage()) }
+              Content = (fun x -> new ContentView()) }
         
         let home = 
             { MenuItemConnection.Name = "Home"
               Type = ViewModelType.Main
               ViewModel = new viewmodels.MainViewModel()
-              Content = (fun x -> new MainPage() :> ContentPage) }
+              Content = (fun x -> new MainPage() :> ContentView) }
         
         let sqlPlatform = sqlPlatform
         let mutable masterPage : NavigationPage option = None
@@ -40,11 +40,35 @@ module app =
         let mutable menuItems : MenuItemConnection list = []
         let mutable lastMenuItem : MenuItemConnection option = None
         let mutable lastConference : Conference option = None
+
+        let activityIndicator : ActivityIndicator = new ActivityIndicator(Color = Color.Gray, 
+                                                                          HorizontalOptions = LayoutOptions.CenterAndExpand, 
+                                                                          VerticalOptions = LayoutOptions.CenterAndExpand,
+                                                                          IsVisible = false)
         
+        let startLongRunningAction msg =
+            activityIndicator.IsRunning <- true
+            activityIndicator.IsVisible <- true
+
+        let stopLongRunningAction msg =
+            activityIndicator.IsRunning <- false
+            activityIndicator.IsVisible <- false
+
         let getNewDetail menuItem = 
             let content = menuItem.Content()
             content.BindingContext <- menuItem.ViewModel
-            masterDetailPage.Detail <- new NavigationPage(content)
+
+            let stackPanel = new Grid()
+            stackPanel.RowSpacing <- 0.0
+            stackPanel.ColumnSpacing <- 0.0
+            stackPanel.VerticalOptions <- LayoutOptions.FillAndExpand
+            stackPanel.Children.Add activityIndicator
+            stackPanel.Children.Add content
+
+            let contentPage = new ContentPage()
+            contentPage.Content <- stackPanel
+
+            masterDetailPage.Detail <- new NavigationPage(contentPage)
             match menuItem.ViewModel with
             | As(viewModelShown : IViewModelShown) -> viewModelShown.Init()
             | _ -> ()
@@ -77,7 +101,7 @@ module app =
                            { MenuItemConnection.Name = getConferenceDayName (conferenceDay)
                              Type = ViewModelType.Day(conferenceDay.Day)
                              ViewModel = new AboutViewModel()
-                             Content = (fun x -> new ContentPage()) }
+                             Content = (fun x -> new ContentView()) }
             menuViewModel
             |> addToNavigationInfrastructure menuItemConnection
             |> menuViewModel.AddMenuAfter home
@@ -94,7 +118,7 @@ module app =
             |> Seq.iter menuViewModel.RemoveMenu
           
         let changeConference msg = 
-
+            Eventbus.Current.Publish Message.StartLongRunningAction
             match lastConference with
             | Some conf ->
                 removeActualConferenceDayMenuItems conf 
@@ -105,10 +129,13 @@ module app =
             addConferenceDayMenuItems()
             lastConference <- model.Conferences.getActualConference()
             navigateTo home
+            Eventbus.Current.Publish Message.StopLongRunningAction
         
         do 
             lastMenuItem <- None
             Message.ChangeConference |> Eventbus.Current.Register changeConference
+            Message.StartLongRunningAction |> Eventbus.Current.Register startLongRunningAction
+            Message.StopLongRunningAction |> Eventbus.Current.Register stopLongRunningAction
 
             menuViewModel
             |> addToNavigationInfrastructure home

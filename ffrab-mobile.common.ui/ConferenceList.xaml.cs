@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ffrab.mobile.common.ui
 {
-    public partial class ConferenceList : ContentPage
+    public partial class ConferenceList : ContentView
     {
         public ConferenceList()
         {
