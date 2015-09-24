@@ -100,8 +100,8 @@ module app =
             let menuItemConnection = 
                            { MenuItemConnection.Name = getConferenceDayName (conferenceDay)
                              Type = ViewModelType.Day(conferenceDay.Day)
-                             ViewModel = new AboutViewModel()
-                             Content = (fun x -> new ContentView()) }
+                             ViewModel = new DayViewModel(conferenceDay)
+                             Content = (fun x -> new DayView() :> ContentView) }
             menuViewModel
             |> addToNavigationInfrastructure menuItemConnection
             |> menuViewModel.AddMenuAfter home

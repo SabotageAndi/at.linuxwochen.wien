@@ -5,6 +5,7 @@ open System.Collections.ObjectModel
 open FSharp.ViewModule
 open System.Linq
 open Xamarin.Forms
+open NodaTime
 
 module viewmodels = 
     open ffrab.mobile.common.common
@@ -107,3 +108,41 @@ module viewmodels =
             match conference with
             | Some conf -> conf.Name
             | _ -> ""
+
+    type DayItemViewModel(entry : entities.Entry) =
+        inherit ViewModelBase()
+
+        let entry = entry
+
+        member this.Title 
+            with get() =
+                entry.Title
+
+    type GroupDayItemViewModel(startTime : OffsetDateTime, itemViewModels : DayItemViewModel list) =
+        inherit ObservableCollection<DayItemViewModel>(itemViewModels)
+
+        let startTime = startTime
+
+        member this.StartTime 
+            with get() =
+                common.Formatting.durationOffsetFormat.Format startTime
+
+        
+
+    type DayViewModel(conferenceDay) as self =
+        inherit ViewModelBase()
+        let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<GroupDayItemViewModel>())
+        
+        let conferenceDay = conferenceDay
+
+        interface IViewModelShown with
+            member this.Init() =
+                let viewModels = conferenceDay
+                                 |> model.Conferences.getEntriesForDay
+                                 |> List.groupBy (fun e -> e.Start)
+                                 |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
+                                 |> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
+                                 
+                items.Value <- new ObservableCollection<GroupDayItemViewModel>(viewModels)
+
+        member this.Items = items.Value

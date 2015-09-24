@@ -63,9 +63,7 @@ module model =
    
         
         module Parser = 
-            let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
-            let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
-            let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
+
             
             let deserializeJson data = 
                 let reader = new JsonTextReader(new StringReader(data))
@@ -77,9 +75,9 @@ module model =
                           Title = entryNode.["title"].Value<string>(), Subtitle = entryNode.["subtitle"].Value<string>(), 
                           Abstract = entryNode.["abstract"].Value<string>(), Track = entryNode.["track"].Value<string>(), 
                           Description = entryNode.["description"].Value<string>(), 
-                          Start = dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value, 
+                          Start = common.Formatting.dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value, 
                           Language = entryNode.["language"].Value<string>(), 
-                          Duration = durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
+                          Duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
                           Type = entryNode.["type"].Value<string>(), ConferenceId = room.ConferenceId, 
                           ConferenceDayGuid = room.ConferenceDayGuid, RoomGuid = room.Guid)
             
@@ -99,9 +97,9 @@ module model =
             
             let parseDay (conference : Conference) (dayNode : JToken) = 
                 let date = dayNode.["date"]
-                let day = dateFormat.Parse(date.Value<string>()).Value
-                let startTime = dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
-                let endTime = dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
+                let day = common.Formatting.dateFormat.Parse(date.Value<string>()).Value
+                let startTime = common.Formatting.dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
+                let endTime = common.Formatting.dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
                 let conferenceDay = 
                     new ConferenceDay(Index = dayNode.["index"].Value<int>(), Day = day, StartTime = startTime, 
                                       EndTime = endTime, ConferenceId = conference.Id, Guid = Guid.NewGuid())
@@ -162,6 +160,13 @@ module model =
                 CurrentState.SQLConnection.Table<ConferenceDay>()
                 |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
 
+            
+            let getEntriesForDay (day : ConferenceDay) =
+                CurrentState.SQLConnection.Table<Entry>()
+                |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
+                |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
+            
+
         module Synchronization =
 
             let writeEntry (entry : Entry) =
@@ -195,7 +200,12 @@ module model =
                     writeData conferenceData
         
         let getConferenceDays conference = 
-            Database.getConferenceDays conference
+            Database.getConferenceDays conference 
+            |> Seq.toList
+
+        let getEntriesForDay (day : ConferenceDay) =
+            Database.getEntriesForDay day
+            |> Seq.toList
 
         let getActualConferenceDays() =
             let conf = getActualConference()
@@ -203,7 +213,7 @@ module model =
             | Some conference ->
                 getConferenceDays conference
             | _ ->
-                Seq.empty
+                List.empty
 
         let synchronizeData() =
             let conf = getActualConference()
