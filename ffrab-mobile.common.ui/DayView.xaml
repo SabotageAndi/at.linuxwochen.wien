@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ffrab.mobile.common.ui.DayView">
   <ListView ItemsSource="{Binding Path=Items}"
+            SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
             IsGroupingEnabled="True" HasUnevenRows="True">
     <ListView.ItemTemplate>
       <DataTemplate>

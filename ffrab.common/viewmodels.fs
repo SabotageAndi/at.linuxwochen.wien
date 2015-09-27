@@ -15,7 +15,7 @@ module viewmodels =
     type IViewModelShown = 
         abstract Init : unit -> unit
     
-    type AboutViewModel() as self = 
+    type AboutViewModel() = 
         inherit ViewModelBase()
     
     type MenuItemConnection = 
@@ -24,12 +24,17 @@ module viewmodels =
           ViewModel : ViewModelBase
           Content : unit -> ContentView }
     
-    type MenuItemViewModel(menuItemConnection) as self = 
+    type MenuItemViewModel(menuItemConnection) = 
         inherit ViewModelBase()
         let menuItemConnection = menuItemConnection
         member this.Name = menuItemConnection.Name
         member this.Type = menuItemConnection.Type
     
+    type SwitchPageEvent(msg, typ) =
+        inherit eventbus.Entry(msg)
+
+        member this.Typ = typ
+
     type MenuViewModel() as self = 
         inherit ViewModelBase()
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<MenuItemViewModel>())
@@ -61,7 +66,7 @@ module viewmodels =
             with get () = selectedItem.Value
             and set (v) = 
                 selectedItem.Value <- v
-                Message.SwitchPage(selectedItem.Value.Type) |> Eventbus.Current.Publish
+                new SwitchPageEvent(Message.SwitchPage, selectedItem.Value.Type) |> Eventbus.Current.Publish
         
         member this.SetCurrentItem item = 
             let mivm = 
@@ -93,7 +98,7 @@ module viewmodels =
                 | _ -> 
                     selectedItem.Value <- Some v
                     model.Conferences.setActualConference selectedItem.Value.Value
-                    Eventbus.Current.Publish Message.ChangeConference
+                    new eventbus.Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
     
     type MainViewModel() as self = 
         inherit ViewModelBase()
@@ -129,9 +134,15 @@ module viewmodels =
 
         
 
+    type EntrySelected(msg, entry) =
+        inherit eventbus.Entry(msg)
+
+        member this.Entry = entry
+
     type DayViewModel(conferenceDay) as self =
         inherit ViewModelBase()
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<GroupDayItemViewModel>())
+        let selectedItem : NotifyingValue<entities.Entry option>= self.Factory.Backing(<@ self.SelectedItem @>, None)
         
         let conferenceDay = conferenceDay
 
@@ -146,3 +157,53 @@ module viewmodels =
                 items.Value <- new ObservableCollection<GroupDayItemViewModel>(viewModels)
 
         member this.Items = items.Value
+
+        member this.SelectedItem 
+            with get () : entities.Entry option = 
+                match selectedItem.Value with
+                | Some v -> Some v
+                | _ -> None
+            and set (v) = 
+                match v with
+                | None -> selectedItem.Value <- None
+                | Some entry -> 
+                    selectedItem.Value <- Some entry
+                    new EntrySelected(Message.ShowEntry, entry) |> Eventbus.Current.Publish 
+
+    type EntryViewModel(entry : entities.Entry) =
+        inherit ViewModelBase()
+
+        let entry = entry
+        let mutable room : entities.Room option = None
+
+        interface IViewModelShown with
+            member this.Init() =
+                room <- model.Conferences.getRoom entry.RoomGuid
+
+        member this.Topic 
+            with get() =
+                entry.Title
+
+        member this.BeginTime 
+            with get() =
+                common.Formatting.durationOffsetFormat.Format entry.Start
+            
+        member this.Duration
+            with get() = 
+                common.Formatting.durationFormat.Format entry.Duration
+
+        member this.Room
+            with get() =
+                match room with
+                | Some r ->
+                    r.Name
+                | None ->
+                    "No room"
+
+        member this.Track
+            with get() =
+                entry.Track
+
+        member this.Content
+            with get() =
+                entry.Abstract

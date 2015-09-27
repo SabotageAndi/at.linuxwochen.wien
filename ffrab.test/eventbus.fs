@@ -10,7 +10,7 @@
         let isCalled x = calledCount <- calledCount + 1
 
         Eventbus.Current.Register isCalled Message.ChangeConference 
-        Eventbus.Current.Publish Message.ChangeConference
+        new Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
 
         calledCount |> should equal 1
 
@@ -20,8 +20,9 @@
         let isCalled x = calledCount <- calledCount + 1
 
         Eventbus.Current.Register isCalled Message.ChangeConference 
-        Eventbus.Current.Publish Message.ChangeConference
-        Eventbus.Current.Publish Message.ChangeConference
+        new Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
+        new Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
+
 
         calledCount |> should equal 2
 

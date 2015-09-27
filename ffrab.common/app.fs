@@ -87,9 +87,6 @@ module app =
             navigateTo menuItem
         
         let addToNavigationInfrastructure (menuItemConnection : MenuItemConnection) (menuViewModel : MenuViewModel) = 
-            let viewModelType = menuItemConnection.Type
-            let navigate msg = searchMenuItemAndNavigateTo viewModelType
-            Message.SwitchPage(viewModelType) |> Eventbus.Current.Register navigate
             menuItems <- menuItemConnection :: menuItems
             menuItemConnection
         
@@ -118,7 +115,7 @@ module app =
             |> Seq.iter menuViewModel.RemoveMenu
           
         let changeConference msg = 
-            Eventbus.Current.Publish Message.StartLongRunningAction
+            new eventbus.Entry(Message.StartLongRunningAction) |> Eventbus.Current.Publish
             match lastConference with
             | Some conf ->
                 removeActualConferenceDayMenuItems conf 
@@ -129,13 +126,25 @@ module app =
             addConferenceDayMenuItems()
             lastConference <- model.Conferences.getActualConference()
             navigateTo home
-            Eventbus.Current.Publish Message.StopLongRunningAction
+            new eventbus.Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
         
+        let navigate (data : eventbus.Entry) =
+            match data with
+            | :? SwitchPageEvent as switchPageEvent ->
+                searchMenuItemAndNavigateTo switchPageEvent.Typ
+            | _ ->
+                ignore()
+
+        let gotoEntry msg =
+            ignore()
+
         do 
             lastMenuItem <- None
             Message.ChangeConference |> Eventbus.Current.Register changeConference
             Message.StartLongRunningAction |> Eventbus.Current.Register startLongRunningAction
             Message.StopLongRunningAction |> Eventbus.Current.Register stopLongRunningAction
+            Message.SwitchPage |> Eventbus.Current.Register navigate
+            
 
             menuViewModel
             |> addToNavigationInfrastructure home

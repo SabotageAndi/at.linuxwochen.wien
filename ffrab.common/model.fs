@@ -166,6 +166,10 @@ module model =
                 |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
                 |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
             
+            let getRoom (roomGuid) =
+                CurrentState.SQLConnection.Table<Room>()
+                |> Seq.filter (fun r -> r.Guid = roomGuid)
+                |> Seq.tryHead
 
         module Synchronization =
 
@@ -214,6 +218,9 @@ module model =
                 getConferenceDays conference
             | _ ->
                 List.empty
+
+        let getRoom (roomGuid) =
+            Database.getRoom roomGuid
 
         let synchronizeData() =
             let conf = getActualConference()

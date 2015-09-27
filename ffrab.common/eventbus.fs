@@ -5,14 +5,23 @@ module eventbus =
     
     type Message = 
         | ChangeConference
-        | SwitchPage of ViewModelType
+        | SwitchPage
         | StartLongRunningAction
         | StopLongRunningAction
+        | ShowEntry
     
+    type Entry(msg) =
+        member this.Message : Message = msg
+        
+        
+        
+
     type RegisteredMessage = 
         { Msg : Message
-          Action : Message -> unit }
+          Action : Entry -> unit }
     
+
+
     type Eventbus() = 
         static let currentInstance = new Eventbus()
         let mutable registeredMessages : RegisteredMessage list = []
@@ -23,9 +32,9 @@ module eventbus =
                   Action = action }
             registeredMessages <- registeredMessage :: registeredMessages
         
-        member this.Publish(msg : Message) = 
+        member this.Publish (e : Entry) = 
             registeredMessages
-            |> List.filter (fun i -> i.Msg = msg)
-            |> List.iter (fun i -> i.Msg |> i.Action)
+            |> List.filter (fun i -> i.Msg = e.Message)
+            |> List.iter (fun i -> e |> i.Action)
         
         static member Current = currentInstance

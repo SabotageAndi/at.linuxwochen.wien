@@ -10,7 +10,7 @@
         open ffrab.mobile.common.common
         open ffrab.mobile.common.eventbus
 
-         let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = menuviewmodel; Content = (fun x -> null) }
+        let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = menuviewmodel; Content = (fun x -> null) }
 
         [<Fact>]
         let ``add menu item``() =
@@ -30,13 +30,11 @@
 
         [<Fact>]
         let ``handle menu item click``() =
-            
-           
             let mutable itemClickIsHandled = false
 
             let nav x = itemClickIsHandled <- true
 
-            Message.SwitchPage(ViewModelType.Main) |> Eventbus.Current.Register nav 
+            Message.SwitchPage |> Eventbus.Current.Register nav 
                 
             let menuviewmodel = new ffrab.mobile.common.viewmodels.MenuViewModel()
             conn(menuviewmodel) |> menuviewmodel.AddMenu 
