@@ -4,7 +4,7 @@
              x:Class="ffrab.mobile.common.ui.DayView">
   <ListView ItemsSource="{Binding Path=Items}"
             SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
-            
+            IsGroupingEnabled="True"
             HasUnevenRows="True"
             ItemTapped="ListView_OnItemTapped"
             >
@@ -13,7 +13,11 @@
         <TextCell Text="{Binding Path=Title}" />
       </DataTemplate>
     </ListView.ItemTemplate>
-   
-    
+    <ListView.GroupHeaderTemplate>
+      <DataTemplate>
+        <TextCell Text="{Binding Path=StartTime}"></TextCell>
+      </DataTemplate>
+    </ListView.GroupHeaderTemplate>
+
   </ListView>
 </ContentView>

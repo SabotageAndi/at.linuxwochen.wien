@@ -123,6 +123,7 @@ module viewmodels =
 
         member this.Title = entry.Title
 
+    [<AllowNullLiteralAttribute>]
     type GroupDayItemViewModel(startTime : OffsetDateTime, itemViewModels : DayItemViewModel list) =
         inherit ObservableCollection<DayItemViewModel>(itemViewModels)
 
@@ -141,7 +142,7 @@ module viewmodels =
 
     type DayViewModel(conferenceDay) as self =
         inherit ViewModelBase()
-        let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<DayItemViewModel>())
+        let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<GroupDayItemViewModel>())
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
         
         let conferenceDay = conferenceDay
@@ -150,13 +151,11 @@ module viewmodels =
             member this.Init() =
                 let viewModels = conferenceDay
                                  |> model.Conferences.getEntriesForDay
-                                 |> List.map (fun i -> new DayItemViewModel(i))
-                                 //|> List.groupBy (fun e -> e.Start)
-                                 //|> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
-                                 //|> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
+                                 |> List.groupBy (fun e -> e.Start)
+                                 |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
+                                 |> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
                                  
-//                items.Value <- new ObservableCollection<GroupDayItemView)Model>(viewModels)
-                items.Value <- new ObservableCollection<DayItemViewModel>(viewModels)
+                items.Value <- new ObservableCollection<GroupDayItemViewModel>(viewModels)
 
         member this.Items = items.Value
 
