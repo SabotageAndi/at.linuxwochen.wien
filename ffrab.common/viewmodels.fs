@@ -114,14 +114,14 @@ module viewmodels =
             | Some conf -> conf.Name
             | _ -> ""
 
+    [<AllowNullLiteralAttribute>]
     type DayItemViewModel(entry : entities.Entry) =
-        inherit ViewModelBase()
 
         let entry = entry
 
-        member this.Title 
-            with get() =
-                entry.Title
+        member this.Entry = entry
+
+        member this.Title = entry.Title
 
     type GroupDayItemViewModel(startTime : OffsetDateTime, itemViewModels : DayItemViewModel list) =
         inherit ObservableCollection<DayItemViewModel>(itemViewModels)
@@ -134,15 +134,15 @@ module viewmodels =
 
         
 
-    type EntrySelected(msg, entry) =
+    type EntrySelected(msg, entry : entities.Entry) =
         inherit eventbus.Entry(msg)
 
         member this.Entry = entry
 
     type DayViewModel(conferenceDay) as self =
         inherit ViewModelBase()
-        let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<GroupDayItemViewModel>())
-        let selectedItem : NotifyingValue<entities.Entry option>= self.Factory.Backing(<@ self.SelectedItem @>, None)
+        let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<DayItemViewModel>())
+        let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
         
         let conferenceDay = conferenceDay
 
@@ -150,25 +150,28 @@ module viewmodels =
             member this.Init() =
                 let viewModels = conferenceDay
                                  |> model.Conferences.getEntriesForDay
-                                 |> List.groupBy (fun e -> e.Start)
-                                 |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
-                                 |> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
+                                 |> List.map (fun i -> new DayItemViewModel(i))
+                                 //|> List.groupBy (fun e -> e.Start)
+                                 //|> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
+                                 //|> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
                                  
-                items.Value <- new ObservableCollection<GroupDayItemViewModel>(viewModels)
+//                items.Value <- new ObservableCollection<GroupDayItemView)Model>(viewModels)
+                items.Value <- new ObservableCollection<DayItemViewModel>(viewModels)
 
         member this.Items = items.Value
 
         member this.SelectedItem 
-            with get () : entities.Entry option = 
+            with get () : DayItemViewModel = 
                 match selectedItem.Value with
-                | Some v -> Some v
-                | _ -> None
+                | Some v -> v
+                | _ -> null
             and set (v) = 
                 match v with
-                | None -> selectedItem.Value <- None
-                | Some entry -> 
-                    selectedItem.Value <- Some entry
-                    new EntrySelected(Message.ShowEntry, entry) |> Eventbus.Current.Publish 
+                | null -> selectedItem.Value <- None
+                | _ -> 
+                    selectedItem.Value <- Some v
+                    new EntrySelected(Message.ShowEntry, v.Entry) |> Eventbus.Current.Publish
+                    
 
     type EntryViewModel(entry : entities.Entry) =
         inherit ViewModelBase()

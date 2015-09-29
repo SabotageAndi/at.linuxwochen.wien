@@ -135,8 +135,16 @@ module app =
             | _ ->
                 ignore()
 
-        let gotoEntry msg =
-            ignore()
+        let gotoEntry (data : eventbus.Entry) =
+            match data with
+            | :? EntrySelected as entrySelected ->
+                let viewModel = new EntryViewModel(entrySelected.Entry)
+                let view = new EntryView()
+                view.BindingContext <- viewModel
+
+                masterDetailPage.Detail.Navigation.PushAsync view |> Async.AwaitTask |> ignore
+            | _ ->
+                ignore()
 
         do 
             lastMenuItem <- None
@@ -144,7 +152,7 @@ module app =
             Message.StartLongRunningAction |> Eventbus.Current.Register startLongRunningAction
             Message.StopLongRunningAction |> Eventbus.Current.Register stopLongRunningAction
             Message.SwitchPage |> Eventbus.Current.Register navigate
-            
+            Message.ShowEntry |> Eventbus.Current.Register gotoEntry
 
             menuViewModel
             |> addToNavigationInfrastructure home
