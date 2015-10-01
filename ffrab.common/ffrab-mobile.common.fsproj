@@ -49,6 +49,7 @@
     <Compile Include="app.fs" />
     <Content Include="app.config" />
     <None Include="data-examples\ffrab1.json" />
+    <None Include="data\vmqn2015.json" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
