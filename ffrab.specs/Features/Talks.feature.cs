@@ -18,20 +18,20 @@ namespace ffrab.specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Menu", SourceFile="Features\\Menu.feature", SourceLine=0)]
-    public partial class MenuFeature
+    [TechTalk.SpecRun.FeatureAttribute("Talks", SourceFile="Features\\Talks.feature", SourceLine=0)]
+    public partial class TalksFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Menu.feature"
+#line 1 "Talks.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Menu", "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Talks", "", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -62,27 +62,34 @@ namespace ffrab.specs.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Standard Menu when no conference is selected", SourceLine=3)]
-        public virtual void StandardMenuWhenNoConferenceIsSelected()
+        [TechTalk.SpecRun.ScenarioAttribute("Seeing the details of the choosen talk", SourceLine=3)]
+        public virtual void SeeingTheDetailsOfTheChoosenTalk()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Standard Menu when no conference is selected", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Seeing the details of the choosen talk", ((string[])(null)));
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
- testRunner.Given("no conference is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am attending the \'Vienna Mobile Quality Night\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.When("the menu is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I choose the \'Mobile UI Testautomation mit SpecFlow\' talk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Title"});
+                        "field",
+                        "value"});
             table1.AddRow(new string[] {
-                        "Home"});
+                        "title",
+                        "Mobile UI Testautomation mit SpecFlow"});
             table1.AddRow(new string[] {
-                        "Conferences"});
+                        "presenter",
+                        "Andreas Willich"});
             table1.AddRow(new string[] {
-                        "About"});
+                        "start time",
+                        "21:05"});
+            table1.AddRow(new string[] {
+                        "duration",
+                        "0:5"});
 #line 7
- testRunner.Then("following menu items are shown:", ((string)(null)), table1, "Then ");
+ testRunner.Then("I see the details of this talk", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

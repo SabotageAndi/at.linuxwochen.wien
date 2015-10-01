@@ -9,21 +9,70 @@
   <TestAssemblyPaths>
     <TestAssemblyPath>ffrab.specs.dll</TestAssemblyPath>
   </TestAssemblyPaths>
-  <DeploymentTransformation>
-    <Steps>
-      <!-- sample config transform to change the connection string-->
-      <!--<ConfigFileTransformation configFile="App.config">
-        <Transformation>
-          <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+
+  <Targets>
+    <Target name="ViewModels">
+      <DeploymentTransformationSteps>
+        <ConfigFileTransformation configFile="App.config">
+          <Transformation>
+            <![CDATA[<?xml version="1.0" encoding="utf-8"?>
 							<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-                <connectionStrings>
-                  <add name="MyDatabase" connectionString="Data Source=.;Initial Catalog=MyDatabaseForTesting;Integrated Security=True" 
-                       xdt:Locator="Match(name)" xdt:Transform="SetAttributes(connectionString)" />
-                </connectionStrings>
+                  <specFlow.mobile  xdt:Transform="Remove" />                  
 							</configuration>
 						]]>
-        </Transformation>
-      </ConfigFileTransformation>-->
+          </Transformation>
+        </ConfigFileTransformation>
+      </DeploymentTransformationSteps>
+    </Target>
+    <Target name="Android">
+      <DeploymentTransformationSteps>
+        <ConfigFileTransformation configFile="App.config">
+          <Transformation>
+            <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+							<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                  <specFlow.mobile  xdt:Transform="Remove" />
+                  <specFlow.mobile xdt:Locator="Match(Platform)" xdt:Transform="Insert"
+                      Platform="Android" 
+                      ApplicationName="ffrab-mobile.droid"
+                      Device="Nexus_5"
+                      UseRemoteServer="false"
+                      RemoteServer="http://localhost:4723/wd/hub"
+                      PackagePath="C:/Work/Privat/ffrab/ffrab.droid/bin/Debug/ffrab.droid.apk"
+                      />
+							</configuration>
+						]]>
+          </Transformation>
+        </ConfigFileTransformation>
+      </DeploymentTransformationSteps>
+    </Target>
+    <Target name="iOS">
+      <DeploymentTransformationSteps>
+        <ConfigFileTransformation configFile="App.config">
+          <Transformation>
+            <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+							<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                  <specFlow.mobile  xdt:Transform="Remove" />
+							    <specFlow.mobile
+                     Platform="iOS"
+                     ApplicationName="ffrab-mobile.apple"
+                     Device="iPhone 5s" 
+                     UseRemoteServer="true" 
+                     IsSimulator="true"
+                     RemoteServer="http://192.168.2.177:4723/wd/hub" 
+                     PackagePath="/Users/awi/Library/Caches/Xamarin/mtbs/builds/TipCalciOS/8a9d3eb51e97a0cf88bcd099dcd7f6b8/bin/iPhoneSimulator/Debug/TipCalciOS.app" 
+                     xdt:Locator="Match(Platform)" xdt:Transform="Insert"
+                   />
+							</configuration>
+						]]>
+          </Transformation>
+        </ConfigFileTransformation>
+      </DeploymentTransformationSteps>
+    </Target>
+  </Targets>
+
+  <DeploymentTransformation>
+    <Steps>
     </Steps>
   </DeploymentTransformation>
+
 </TestProfile>
