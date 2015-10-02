@@ -7,7 +7,7 @@
     open ffrab.mobile.common.model
     open ffrab.mobile.common.entities
 
-    let conference = new Conference(1, "", "")
+    let conference = new Conference(1, "", "", "")
 
     let parseJson() = 
         File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson conference

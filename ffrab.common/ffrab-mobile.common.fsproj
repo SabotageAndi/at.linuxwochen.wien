@@ -41,6 +41,7 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets" />
   <ItemGroup>
+    <Compile Include="constants.fs" />
     <Compile Include="common.fs" />
     <Compile Include="eventbus.fs" />
     <Compile Include="entities.fs" />

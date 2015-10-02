@@ -8,7 +8,7 @@
     open ffrab.mobile.common.model
     open ffrab.mobile.common.entities
 
-    let conf = new Conference(1, "", "")
+    let conf = new Conference(1, "", "", "")
 
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()

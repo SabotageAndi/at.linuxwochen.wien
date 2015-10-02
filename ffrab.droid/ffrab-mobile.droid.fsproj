@@ -22,7 +22,7 @@
     <Name>ffrab-mobile.droid</Name>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <SelectedDevice>VS Emulator 5" KitKat (4.4) XXHDPI Phone</SelectedDevice>
+    <SelectedDevice>VS Emulator 5" Lollipop (5.1.1) XXHDPI Phone</SelectedDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

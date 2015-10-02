@@ -182,7 +182,7 @@ module viewmodels =
             member this.Init() =
                 room <- model.Conferences.getRoom entry.RoomGuid
 
-        member this.Topic 
+        member this.Title 
             with get() =
                 entry.Title
 
@@ -200,7 +200,7 @@ module viewmodels =
                 | Some r ->
                     r.Name
                 | None ->
-                    "No room"
+                    ""
 
         member this.Track
             with get() =

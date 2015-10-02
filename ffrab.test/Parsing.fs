@@ -6,7 +6,7 @@
     open NodaTime
     
     let parseJson() = 
-        let conf = new Conference(1, "", "")
+        let conf = new Conference(1, "", "", "")
         File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson conf
     
     [<Fact>]

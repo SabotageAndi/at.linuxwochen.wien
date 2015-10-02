@@ -10,14 +10,16 @@ module model =
     open System.Collections.Generic
     
     [<AllowNullLiteral>]
-    type Conference(id, name, dataUri) = 
+    type Conference(id, name, dataUri, rawData) = 
         let id = id
         let name = name
         let dataUri = dataUri
+        let rawData = rawData
         let mutable data : ConferenceData option = None
         member this.Name = name
         member this.Id = id
         member this.DataUri = dataUri
+        member this.RawData = rawData
         
         member this.Data 
             with get () = data
@@ -44,8 +46,8 @@ module model =
         let actualConfKey = "actualConference"
         
         let conferences =
-            [ new Conference(1, "Vienna Mobile Quality Night", "ffrab.common.data.vmqn2015.json")
-              new Conference(2, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json") ]
+            [ new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
+              new Conference(2, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json", "") ]
         
         let getAllConferences() = conferences
         let getConference id = conferences |> List.tryFind (fun i -> i.Id = id)
@@ -122,7 +124,9 @@ module model =
                 let days = parseDays conference conferenceNode
                 new ConferenceData(Version = version.Value<string>(), Days = days, ConferenceId = conference.Id)
             
-            let parseJson conference json = deserializeJson json |> parseSchedule conference
+            let parseJson conference json = 
+                deserializeJson json 
+                |> parseSchedule conference
 
         module Database = 
             let shouldCreateDatabase() =
@@ -220,13 +224,35 @@ module model =
         let getRoom (roomGuid) =
             Database.getRoom roomGuid
 
+        type UriType =
+        | Http
+        | Local
+
+        let getUriType (conf : Conference) =
+            let uri = conf.DataUri
+            let start = uri.Substring(0, 4)
+
+            if start = "http" then 
+                (UriType.Http, conf)
+            else
+                (UriType.Local, conf)
+
+        let getJson (uriType, conf : Conference) =
+            match uriType with
+            | UriType.Http ->
+                loadJsonFromUri conf.DataUri
+            | UriType.Local ->
+                conf.RawData
+
         let synchronizeData() =
             let conf = getActualConference()
             match conf with
             | Some conference ->
-                let json = loadJsonFromUri conference.DataUri
-                let conferenceData = Parser.parseJson conference json
-                Synchronization.sync conference conferenceData
+                conference 
+                |> getUriType
+                |> getJson 
+                |> Parser.parseJson conference
+                |> Synchronization.sync conference
             | _ ->
                 ignore()
 

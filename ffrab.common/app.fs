@@ -146,14 +146,14 @@ module app =
             | _ ->
                 ignore()
 
-        do 
-            lastMenuItem <- None
+        let addEventListeners() = 
             Message.ChangeConference |> Eventbus.Current.Register changeConference
             Message.StartLongRunningAction |> Eventbus.Current.Register startLongRunningAction
             Message.StopLongRunningAction |> Eventbus.Current.Register stopLongRunningAction
             Message.SwitchPage |> Eventbus.Current.Register navigate
             Message.ShowEntry |> Eventbus.Current.Register gotoEntry
 
+        let addMenuItems() = 
             menuViewModel
             |> addToNavigationInfrastructure home
             |> menuViewModel.AddMenu
@@ -165,6 +165,12 @@ module app =
             menuViewModel
             |> addToNavigationInfrastructure about
             |> menuViewModel.AddMenu
+
+        do 
+            lastMenuItem <- None
+            addEventListeners()
+
+            addMenuItems()
 
             let menu = new Menu()
             menu.BindingContext <- menuViewModel

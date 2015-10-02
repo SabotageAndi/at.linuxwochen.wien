@@ -23,6 +23,9 @@ type MainActivity () =
 
         Forms.Init (this, bundle)
 
-        this.LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid()))
+        let sqlPlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid()
+        let app = new ffrab.mobile.common.app.App(sqlPlatform)
+
+        this.LoadApplication(app)
 
 
