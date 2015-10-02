@@ -40,14 +40,12 @@ module model =
         open Newtonsoft.Json.Linq
         open System.IO
         open System.Linq
-        open NodaTime.Text
         
         let actualConfKey = "actualConference"
         
-        let conferences = 
-            [ new Conference(1, "Linuxwochen 2013", "https://cfp.linuxwochen.at/en/LWW13/public/schedule.json")
-              new Conference(2, "Linuxwochen 2014", "https://cfp.linuxwochen.at/en/LWW14/public/schedule.json")
-              new Conference(3, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json") ]
+        let conferences =
+            [ new Conference(1, "Vienna Mobile Quality Night", "ffrab.common.data.vmqn2015.json")
+              new Conference(2, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json") ]
         
         let getAllConferences() = conferences
         let getConference id = conferences |> List.tryFind (fun i -> i.Id = id)
