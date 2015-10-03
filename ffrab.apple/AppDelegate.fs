@@ -14,7 +14,9 @@ type AppDelegate () =
         Forms.Init()
 
         let window = new UIWindow (UIScreen.MainScreen.Bounds)
-        this.LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS()))
+        
+        let databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ffrab.mobile.db")
+        this.LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS(), databasePath))
            
         base.FinishedLaunching (app, options)
 

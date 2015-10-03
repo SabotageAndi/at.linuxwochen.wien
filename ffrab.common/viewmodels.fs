@@ -21,7 +21,7 @@ module viewmodels =
     type MenuItemConnection = 
         { Name : string
           Type : ViewModelType
-          ViewModel : ViewModelBase
+          ViewModel : unit -> ViewModelBase
           Content : unit -> ContentView }
     
     type MenuItemViewModel(menuItemConnection) = 
@@ -55,12 +55,12 @@ module viewmodels =
             items.Value.Insert(index + 1, new MenuItemViewModel(item))
         
         member this.RemoveMenu name = 
-            items.Value.ToArray()
+            items.Value
             |> List.ofSeq
             |> List.filter (fun i -> i.Name = name)
             |> List.iter removeMenuEntry
         
-        member this.Items = items.Value
+        member this.Items = items
         
         member this.SelectedItem 
             with get () = selectedItem.Value

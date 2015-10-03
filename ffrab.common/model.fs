@@ -256,7 +256,9 @@ module model =
             | _ ->
                 ignore()
 
-    let Init(sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform) =
+    
+
+    let Init (sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform, databaseFilePath : string) =
 
         let extraTypeMappings = new Dictionary<Type, string>()
         
@@ -265,7 +267,7 @@ module model =
         extraTypeMappings.Add(typeof<NodaTime.Duration>, "blob")
 
         let sqlConnection = new SQLiteConnection(sqlitePlatform, 
-                                                    "ffrab.mobile.db", 
+                                                    databaseFilePath, 
                                                     false,
                                                     NodaTypeSerializerDelegate.Delegate(),
                                                     null,

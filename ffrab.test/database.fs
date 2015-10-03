@@ -12,7 +12,7 @@
 
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
-        Init(db)
+        Init(db, "ffrab.mobile.db")
         ffrab.mobile.common.model.CurrentState.SQLConnection
 
     let initWithRecreate() =

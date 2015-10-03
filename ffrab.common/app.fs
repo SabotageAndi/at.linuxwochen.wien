@@ -12,28 +12,29 @@ module app =
     open model
     open SQLite.Net.Interop
     
-    type App(sqlPlatform : ISQLitePlatform) as this = 
+    type App(sqlPlatform : ISQLitePlatform, databasePath : string) as this = 
         inherit Application()
-        
-        let conferenceList = 
-            { MenuItemConnection.Name = "Conferences"
-              Type = ViewModelType.ConferenceList
-              ViewModel = new ConferenceListViewModel()
-              Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
         
         let about = 
             { MenuItemConnection.Name = "About"
               Type = ViewModelType.About
-              ViewModel = new AboutViewModel()
-              Content = (fun x -> new ContentView()) }
+              ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase)
+              Content = (fun _ -> new ContentView()) }
         
         let home = 
             { MenuItemConnection.Name = "Home"
               Type = ViewModelType.Main
-              ViewModel = new viewmodels.MainViewModel()
-              Content = (fun x -> new MainPage() :> ContentView) }
+              ViewModel = ( fun _ -> new viewmodels.MainViewModel() :> ViewModelBase)
+              Content = (fun _ -> new MainPage() :> ContentView) }
+
+        let conferenceList = 
+            { MenuItemConnection.Name = "Conferences"
+              Type = ViewModelType.ConferenceList
+              ViewModel = ( fun _ -> new ConferenceListViewModel() :> ViewModelBase)
+              Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
         
-        let sqlPlatform = sqlPlatform
+        let sql = (sqlPlatform, databasePath)
+
         let mutable masterPage : NavigationPage option = None
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
         let menuViewModel = new MenuViewModel()
@@ -56,7 +57,7 @@ module app =
 
         let getNewDetail menuItem = 
             let content = menuItem.Content()
-            content.BindingContext <- menuItem.ViewModel
+            content.BindingContext <- menuItem.ViewModel()
 
             let stackPanel = new Grid()
             stackPanel.RowSpacing <- 0.0
@@ -86,7 +87,7 @@ module app =
             let menuItem = menuItems |> List.find (fun x -> x.Type = viewModelType)
             navigateTo menuItem
         
-        let addToNavigationInfrastructure (menuItemConnection : MenuItemConnection) (menuViewModel : MenuViewModel) = 
+        let addToNavigationInfrastructure (menuItemConnection : MenuItemConnection) = 
             menuItems <- menuItemConnection :: menuItems
             menuItemConnection
         
@@ -97,10 +98,10 @@ module app =
             let menuItemConnection = 
                            { MenuItemConnection.Name = getConferenceDayName (conferenceDay)
                              Type = ViewModelType.Day(conferenceDay.Day)
-                             ViewModel = new DayViewModel(conferenceDay)
-                             Content = (fun x -> new DayView() :> ContentView) }
-            menuViewModel
-            |> addToNavigationInfrastructure menuItemConnection
+                             ViewModel = (fun _ -> new DayViewModel(conferenceDay) :> ViewModelBase)
+                             Content = (fun _ -> new DayView() :> ContentView) }
+            
+            addToNavigationInfrastructure menuItemConnection
             |> menuViewModel.AddMenuAfter home
 
         let addConferenceDayMenuItems() = 
@@ -154,16 +155,13 @@ module app =
             Message.ShowEntry |> Eventbus.Current.Register gotoEntry
 
         let addMenuItems() = 
-            menuViewModel
-            |> addToNavigationInfrastructure home
+            addToNavigationInfrastructure home
             |> menuViewModel.AddMenu
-
-            menuViewModel
-            |> addToNavigationInfrastructure conferenceList
+            
+            addToNavigationInfrastructure conferenceList
             |> menuViewModel.AddMenu
-
-            menuViewModel
-            |> addToNavigationInfrastructure about
+            
+            addToNavigationInfrastructure about
             |> menuViewModel.AddMenu
 
         do 
@@ -179,6 +177,6 @@ module app =
             this.MainPage <- masterDetailPage
 
         override this.OnStart() =
-            model.Init sqlPlatform
+            model.Init sql
             model.Conferences.synchronizeData()
             addConferenceDayMenuItems()

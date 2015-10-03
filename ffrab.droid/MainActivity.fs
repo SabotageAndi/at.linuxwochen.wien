@@ -15,7 +15,6 @@ open Xamarin.Forms.Platform.Android
 type MainActivity () =
     inherit FormsApplicationActivity ()
 
-    let mutable count:int = 1
 
     override this.OnCreate (bundle) =
 
@@ -24,7 +23,10 @@ type MainActivity () =
         Forms.Init (this, bundle)
 
         let sqlPlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid()
-        let app = new ffrab.mobile.common.app.App(sqlPlatform)
+        let databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ffrab.mobile.db")
+
+        
+        let app = new ffrab.mobile.common.app.App(sqlPlatform, databasePath)
 
         this.LoadApplication(app)
 

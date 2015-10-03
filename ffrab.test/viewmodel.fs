@@ -10,7 +10,7 @@
         open ffrab.mobile.common.common
         open ffrab.mobile.common.eventbus
 
-        let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = menuviewmodel; Content = (fun x -> null) }
+        let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = (fun _ -> menuviewmodel); Content = (fun _ -> null) }
 
         [<Fact>]
         let ``add menu item``() =
