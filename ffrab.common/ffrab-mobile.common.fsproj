@@ -48,6 +48,7 @@
     <Compile Include="model.fs" />
     <Compile Include="viewmodels.fs" />
     <Compile Include="app.fs" />
+    <Compile Include="testhooks.fs" />
     <Content Include="app.config" />
     <None Include="data-examples\ffrab1.json" />
     <EmbeddedResource Include="data\vmqn2015.json" />
