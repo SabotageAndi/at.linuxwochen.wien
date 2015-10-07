@@ -74,9 +74,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "title"});
             table1.AddRow(new string[] {
-                        "Linuxwochen 2013"});
-            table1.AddRow(new string[] {
-                        "Linuxwochen 2014"});
+                        "Vienna Mobility Quality Night"});
             table1.AddRow(new string[] {
                         "Linuxwochen 2015"});
 #line 7
