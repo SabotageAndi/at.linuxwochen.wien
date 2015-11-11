@@ -1,0 +1,17 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  
+  <Target Name="test" AfterTargets="Build">
+    <MSBuild Condition=" '$(OS)' == 'Windows_NT' "
+			 Projects="$(ProjectDir)..\ffrab.droid\ffrab-mobile.droid.fsproj"
+			 Targets="SignAndroidPackage"
+			 Properties="Configuration=$(Configuration)"
+  		  />
+
+    <Exec Condition=" '$(OS)' == 'Unix' "
+          Command="xbuild $(ProjectDir)..\ffrab.droid\ffrab-mobile.droid.fsproj /t:SignAndroidPackage /p:Configuration=$(Configuration)" />
+
+    
+  </Target>
+
+</Project>

@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <PropertyGroup>
+    <_specflow_GeneratedFiles_DestinationFolder>$(MSBuildProjectDirectory)\Features.Generated\</_specflow_GeneratedFiles_DestinationFolder>
+    <SpecFlowTargetsPath>$(MSBuildProjectDirectory)\..\packages\SpecFlow.1.9.0\tools\TechTalk.SpecFlow.targets</SpecFlowTargetsPath>
+  </PropertyGroup>
+
+</Project>

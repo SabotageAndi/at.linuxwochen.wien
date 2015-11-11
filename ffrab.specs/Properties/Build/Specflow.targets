@@ -1,0 +1,33 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <Import Project="$(SpecFlowTargetsPath)" Condition="Exists('$(SpecFlowTargetsPath)')" />
+
+  <!-- Override Generation Folder -->
+  <Target Name="AfterUpdateFeatureFilesInProject">
+    <Copy
+      SourceFiles="@(SpecFlowGeneratedFiles)"
+      DestinationFolder="$(_specflow_GeneratedFiles_DestinationFolder)"
+      OverwriteReadOnlyFiles="true" />
+
+    <ItemGroup>
+      <!-- include the generated test classes to be compiled -->
+      <Compile Include="$(_specflow_GeneratedFiles_DestinationFolder)\**\*.cs">
+        <Visible>true</Visible>
+        <!-- the generated files can be hidden in Visual Studio -->
+      </Compile>
+    </ItemGroup>
+
+  </Target>
+
+
+  <Target Name="specflow_consistenceCheck_BeforeBuild" AfterTargets="BeforeBuild">
+    <Error Text="Specflow MSBuild targets file could not be found, Path: '$(SpecFlowTargetsPath)'"
+           Condition="!Exists('$(SpecFlowTargetsPath)')"/>
+    <!--
+    How to fix missing targets file?
+     - Check if nuget package was installed.
+     - If SpecFlow nuget package was installed during build -> Releoad project.
+    -->
+  </Target>
+
+</Project>
