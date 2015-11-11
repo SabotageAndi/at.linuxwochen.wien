@@ -165,9 +165,9 @@
     </When>
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <!-- <Import Project="Properties\Build\Specflow.props" /> -->
+  <Import Project="Properties\Build\Specflow.props" /> 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- <Import Project="Properties\Build\Specflow.targets" Condition=" '$(OS)' == 'Windows_NT' " /> -->
+  <Import Project="Properties\Build\Specflow.targets" Condition=" '$(OS)' == 'Windows_NT' " /> 
   <Import Project="Properties\Build\build.targets" />
   <!-- <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" /> -->
   <!-- <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
