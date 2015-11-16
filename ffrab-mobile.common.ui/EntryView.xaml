@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ffrab.mobile.common.ui.EntryView">
+             x:Class="ffrab.mobile.common.ui.EntryView" Padding="5">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
@@ -10,16 +10,16 @@
       <RowDefinition Height="*"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition Width="Auto"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
   
     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title"/>
   
-    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=BeginTime}" StyleId="starttime" />
-    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Duration}" StyleId="duration" />
+    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Time}" StyleId="starttime" />
+    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End"/>
+    
     <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Room}" StyleId="room"/>
-    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track"/>
 
     <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
            LineBreakMode="WordWrap" Text="{Binding Path=Content}" StyleId="content"/>

@@ -189,6 +189,10 @@ module viewmodels =
             with get() =
                 entry.Title
 
+        member this.Time
+            with get() =
+                sprintf "%s - %s min" this.BeginTime this.Duration
+
         member this.BeginTime 
             with get() =
                 common.Formatting.durationOffsetFormat.Format entry.Start
