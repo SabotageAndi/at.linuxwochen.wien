@@ -84,9 +84,11 @@ module viewmodels =
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
         
         interface IViewModelShown with
-            member this.Init() = items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
+            member this.Init() = 
+                items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
         
-        member this.Items = items.Value
+        member this.Items 
+            with get() = items.Value
         
         member this.SelectedItem 
             with get () = 

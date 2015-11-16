@@ -56,8 +56,9 @@ module app =
             activityIndicator.IsVisible <- false
 
         let getNewDetail menuItem = 
+            let viewModel = menuItem.ViewModel()
             let content = menuItem.Content()
-            content.BindingContext <- menuItem.ViewModel()
+            content.BindingContext <- viewModel
 
             let stackPanel = new Grid()
             stackPanel.RowSpacing <- 0.0
@@ -70,7 +71,7 @@ module app =
             contentPage.Content <- stackPanel
 
             masterDetailPage.Detail <- new NavigationPage(contentPage)
-            match menuItem.ViewModel with
+            match viewModel with
             | As(viewModelShown : IViewModelShown) -> viewModelShown.Init()
             | _ -> ()
             menuViewModel.SetCurrentItem menuItem
