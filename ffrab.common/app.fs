@@ -181,4 +181,5 @@ module app =
         override this.OnStart() =
             model.Init sql
             model.Conferences.synchronizeData()
+            lastConference <- model.Conferences.getActualConference()
             addConferenceDayMenuItems()
