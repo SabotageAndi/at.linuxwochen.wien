@@ -172,6 +172,7 @@ module app =
 
             let menu = new Menu()
             menu.BindingContext <- menuViewModel
+
             masterDetailPage.Master <- menu
             navigateTo home
             this.MainPage <- masterDetailPage

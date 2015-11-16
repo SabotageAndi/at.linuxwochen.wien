@@ -60,7 +60,8 @@ module viewmodels =
             |> List.filter (fun i -> i.Name = name)
             |> List.iter removeMenuEntry
         
-        member this.Items = items
+        member this.Items 
+            with get() = items.Value
         
         member this.SelectedItem 
             with get () = selectedItem.Value
