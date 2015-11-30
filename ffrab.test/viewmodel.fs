@@ -19,7 +19,7 @@
            
             conn(menuviewmodel) |> menuviewmodel.AddMenu 
           
-            menuviewmodel.Items.Value.Count |> should equal 1
+            menuviewmodel.Items.Count |> should equal 1
             
         [<Fact>]
         let ``new menu item has correct name``() =
@@ -39,7 +39,7 @@
             let menuviewmodel = new ffrab.mobile.common.viewmodels.MenuViewModel()
             conn(menuviewmodel) |> menuviewmodel.AddMenu 
             
-            let menuItem = menuviewmodel.Items.Value.First()
+            let menuItem = menuviewmodel.Items.First()
            
             menuviewmodel.SelectedItem <- menuItem
 

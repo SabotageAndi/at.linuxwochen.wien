@@ -23,10 +23,10 @@ namespace ffrab.droid
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException55e90a1042f94de9b21e026fc2b90e68 of obj
-    exception ReturnNoneException55e90a1042f94de9b21e026fc2b90e68
+    exception ReturnExceptionab05da28c3e34b8ebecf6392cc519007 of obj
+    exception ReturnNoneExceptionab05da28c3e34b8ebecf6392cc519007
     [<AutoOpen>]
-    module FuncConvertFinalOverload55e90a1042f94de9b21e026fc2b90e68 =
+    module FuncConvertFinalOverloadab05da28c3e34b8ebecf6392cc519007 =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form
@@ -41,8 +41,1513 @@ namespace ffrab.droid
             static member UpdateIdValues  () =
                 global.SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName <- Resource_String.ApplicationName
                 global.SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello <- Resource_String.Hello
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_fade_in <- Resource_Animation.abc_fade_in
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_fade_out <- Resource_Animation.abc_fade_out
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_grow_fade_in_from_bottom <- Resource_Animation.abc_grow_fade_in_from_bottom
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_popup_enter <- Resource_Animation.abc_popup_enter
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_popup_exit <- Resource_Animation.abc_popup_exit
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_shrink_fade_out_from_bottom <- Resource_Animation.abc_shrink_fade_out_from_bottom
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_slide_in_bottom <- Resource_Animation.abc_slide_in_bottom
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_slide_in_top <- Resource_Animation.abc_slide_in_top
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_slide_out_bottom <- Resource_Animation.abc_slide_out_bottom
+                global.Xamarin.Forms.Platform.Resource.Animation.abc_slide_out_top <- Resource_Animation.abc_slide_out_top
+                global.Xamarin.Forms.Platform.Resource.Animation.design_fab_in <- Resource_Animation.design_fab_in
+                global.Xamarin.Forms.Platform.Resource.Animation.design_fab_out <- Resource_Animation.design_fab_out
+                global.Xamarin.Forms.Platform.Resource.Animation.design_snackbar_in <- Resource_Animation.design_snackbar_in
+                global.Xamarin.Forms.Platform.Resource.Animation.design_snackbar_out <- Resource_Animation.design_snackbar_out
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarDivider <- Resource_Attribute.actionBarDivider
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarItemBackground <- Resource_Attribute.actionBarItemBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarPopupTheme <- Resource_Attribute.actionBarPopupTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarSize <- Resource_Attribute.actionBarSize
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarSplitStyle <- Resource_Attribute.actionBarSplitStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarStyle <- Resource_Attribute.actionBarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarTabBarStyle <- Resource_Attribute.actionBarTabBarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarTabStyle <- Resource_Attribute.actionBarTabStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarTabTextStyle <- Resource_Attribute.actionBarTabTextStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarTheme <- Resource_Attribute.actionBarTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionBarWidgetTheme <- Resource_Attribute.actionBarWidgetTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionButtonStyle <- Resource_Attribute.actionButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionDropDownStyle <- Resource_Attribute.actionDropDownStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionLayout <- Resource_Attribute.actionLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionMenuTextAppearance <- Resource_Attribute.actionMenuTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionMenuTextColor <- Resource_Attribute.actionMenuTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeBackground <- Resource_Attribute.actionModeBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeCloseButtonStyle <- Resource_Attribute.actionModeCloseButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeCloseDrawable <- Resource_Attribute.actionModeCloseDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeCopyDrawable <- Resource_Attribute.actionModeCopyDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeCutDrawable <- Resource_Attribute.actionModeCutDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeFindDrawable <- Resource_Attribute.actionModeFindDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModePasteDrawable <- Resource_Attribute.actionModePasteDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModePopupWindowStyle <- Resource_Attribute.actionModePopupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeSelectAllDrawable <- Resource_Attribute.actionModeSelectAllDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeShareDrawable <- Resource_Attribute.actionModeShareDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeSplitBackground <- Resource_Attribute.actionModeSplitBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeStyle <- Resource_Attribute.actionModeStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionModeWebSearchDrawable <- Resource_Attribute.actionModeWebSearchDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionOverflowButtonStyle <- Resource_Attribute.actionOverflowButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionOverflowMenuStyle <- Resource_Attribute.actionOverflowMenuStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionProviderClass <- Resource_Attribute.actionProviderClass
+                global.Xamarin.Forms.Platform.Resource.Attribute.actionViewClass <- Resource_Attribute.actionViewClass
+                global.Xamarin.Forms.Platform.Resource.Attribute.activityChooserViewStyle <- Resource_Attribute.activityChooserViewStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.alertDialogButtonGroupStyle <- Resource_Attribute.alertDialogButtonGroupStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.alertDialogCenterButtons <- Resource_Attribute.alertDialogCenterButtons
+                global.Xamarin.Forms.Platform.Resource.Attribute.alertDialogStyle <- Resource_Attribute.alertDialogStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.alertDialogTheme <- Resource_Attribute.alertDialogTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.arrowHeadLength <- Resource_Attribute.arrowHeadLength
+                global.Xamarin.Forms.Platform.Resource.Attribute.arrowShaftLength <- Resource_Attribute.arrowShaftLength
+                global.Xamarin.Forms.Platform.Resource.Attribute.autoCompleteTextViewStyle <- Resource_Attribute.autoCompleteTextViewStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.background <- Resource_Attribute.background
+                global.Xamarin.Forms.Platform.Resource.Attribute.backgroundSplit <- Resource_Attribute.backgroundSplit
+                global.Xamarin.Forms.Platform.Resource.Attribute.backgroundStacked <- Resource_Attribute.backgroundStacked
+                global.Xamarin.Forms.Platform.Resource.Attribute.backgroundTint <- Resource_Attribute.backgroundTint
+                global.Xamarin.Forms.Platform.Resource.Attribute.backgroundTintMode <- Resource_Attribute.backgroundTintMode
+                global.Xamarin.Forms.Platform.Resource.Attribute.barLength <- Resource_Attribute.barLength
+                global.Xamarin.Forms.Platform.Resource.Attribute.behavior_overlapTop <- Resource_Attribute.behavior_overlapTop
+                global.Xamarin.Forms.Platform.Resource.Attribute.borderWidth <- Resource_Attribute.borderWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.borderlessButtonStyle <- Resource_Attribute.borderlessButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonBarButtonStyle <- Resource_Attribute.buttonBarButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonBarNegativeButtonStyle <- Resource_Attribute.buttonBarNegativeButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonBarNeutralButtonStyle <- Resource_Attribute.buttonBarNeutralButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonBarPositiveButtonStyle <- Resource_Attribute.buttonBarPositiveButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonBarStyle <- Resource_Attribute.buttonBarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonPanelSideLayout <- Resource_Attribute.buttonPanelSideLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonStyle <- Resource_Attribute.buttonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonStyleSmall <- Resource_Attribute.buttonStyleSmall
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonTint <- Resource_Attribute.buttonTint
+                global.Xamarin.Forms.Platform.Resource.Attribute.buttonTintMode <- Resource_Attribute.buttonTintMode
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardBackgroundColor <- Resource_Attribute.cardBackgroundColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardCornerRadius <- Resource_Attribute.cardCornerRadius
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardElevation <- Resource_Attribute.cardElevation
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardMaxElevation <- Resource_Attribute.cardMaxElevation
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardPreventCornerOverlap <- Resource_Attribute.cardPreventCornerOverlap
+                global.Xamarin.Forms.Platform.Resource.Attribute.cardUseCompatPadding <- Resource_Attribute.cardUseCompatPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.checkboxStyle <- Resource_Attribute.checkboxStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.checkedTextViewStyle <- Resource_Attribute.checkedTextViewStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.closeIcon <- Resource_Attribute.closeIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.closeItemLayout <- Resource_Attribute.closeItemLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.collapseContentDescription <- Resource_Attribute.collapseContentDescription
+                global.Xamarin.Forms.Platform.Resource.Attribute.collapseIcon <- Resource_Attribute.collapseIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.collapsedTitleGravity <- Resource_Attribute.collapsedTitleGravity
+                global.Xamarin.Forms.Platform.Resource.Attribute.collapsedTitleTextAppearance <- Resource_Attribute.collapsedTitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.color <- Resource_Attribute.color
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorAccent <- Resource_Attribute.colorAccent
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorButtonNormal <- Resource_Attribute.colorButtonNormal
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorControlActivated <- Resource_Attribute.colorControlActivated
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorControlHighlight <- Resource_Attribute.colorControlHighlight
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorControlNormal <- Resource_Attribute.colorControlNormal
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorPrimary <- Resource_Attribute.colorPrimary
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorPrimaryDark <- Resource_Attribute.colorPrimaryDark
+                global.Xamarin.Forms.Platform.Resource.Attribute.colorSwitchThumbNormal <- Resource_Attribute.colorSwitchThumbNormal
+                global.Xamarin.Forms.Platform.Resource.Attribute.commitIcon <- Resource_Attribute.commitIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentInsetEnd <- Resource_Attribute.contentInsetEnd
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentInsetLeft <- Resource_Attribute.contentInsetLeft
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentInsetRight <- Resource_Attribute.contentInsetRight
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentInsetStart <- Resource_Attribute.contentInsetStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentPadding <- Resource_Attribute.contentPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentPaddingBottom <- Resource_Attribute.contentPaddingBottom
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentPaddingLeft <- Resource_Attribute.contentPaddingLeft
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentPaddingRight <- Resource_Attribute.contentPaddingRight
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentPaddingTop <- Resource_Attribute.contentPaddingTop
+                global.Xamarin.Forms.Platform.Resource.Attribute.contentScrim <- Resource_Attribute.contentScrim
+                global.Xamarin.Forms.Platform.Resource.Attribute.controlBackground <- Resource_Attribute.controlBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.customNavigationLayout <- Resource_Attribute.customNavigationLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.defaultQueryHint <- Resource_Attribute.defaultQueryHint
+                global.Xamarin.Forms.Platform.Resource.Attribute.dialogPreferredPadding <- Resource_Attribute.dialogPreferredPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.dialogTheme <- Resource_Attribute.dialogTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.displayOptions <- Resource_Attribute.displayOptions
+                global.Xamarin.Forms.Platform.Resource.Attribute.divider <- Resource_Attribute.divider
+                global.Xamarin.Forms.Platform.Resource.Attribute.dividerHorizontal <- Resource_Attribute.dividerHorizontal
+                global.Xamarin.Forms.Platform.Resource.Attribute.dividerPadding <- Resource_Attribute.dividerPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.dividerVertical <- Resource_Attribute.dividerVertical
+                global.Xamarin.Forms.Platform.Resource.Attribute.drawableSize <- Resource_Attribute.drawableSize
+                global.Xamarin.Forms.Platform.Resource.Attribute.drawerArrowStyle <- Resource_Attribute.drawerArrowStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.dropDownListViewStyle <- Resource_Attribute.dropDownListViewStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.dropdownListPreferredItemHeight <- Resource_Attribute.dropdownListPreferredItemHeight
+                global.Xamarin.Forms.Platform.Resource.Attribute.editTextBackground <- Resource_Attribute.editTextBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.editTextColor <- Resource_Attribute.editTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.editTextStyle <- Resource_Attribute.editTextStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.elevation <- Resource_Attribute.elevation
+                global.Xamarin.Forms.Platform.Resource.Attribute.errorEnabled <- Resource_Attribute.errorEnabled
+                global.Xamarin.Forms.Platform.Resource.Attribute.errorTextAppearance <- Resource_Attribute.errorTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandActivityOverflowButtonDrawable <- Resource_Attribute.expandActivityOverflowButtonDrawable
+                global.Xamarin.Forms.Platform.Resource.Attribute.expanded <- Resource_Attribute.expanded
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleGravity <- Resource_Attribute.expandedTitleGravity
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleMargin <- Resource_Attribute.expandedTitleMargin
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleMarginBottom <- Resource_Attribute.expandedTitleMarginBottom
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleMarginEnd <- Resource_Attribute.expandedTitleMarginEnd
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleMarginStart <- Resource_Attribute.expandedTitleMarginStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleMarginTop <- Resource_Attribute.expandedTitleMarginTop
+                global.Xamarin.Forms.Platform.Resource.Attribute.expandedTitleTextAppearance <- Resource_Attribute.expandedTitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.fabSize <- Resource_Attribute.fabSize
+                global.Xamarin.Forms.Platform.Resource.Attribute.gapBetweenBars <- Resource_Attribute.gapBetweenBars
+                global.Xamarin.Forms.Platform.Resource.Attribute.goIcon <- Resource_Attribute.goIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.headerLayout <- Resource_Attribute.headerLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.height <- Resource_Attribute.height
+                global.Xamarin.Forms.Platform.Resource.Attribute.hideOnContentScroll <- Resource_Attribute.hideOnContentScroll
+                global.Xamarin.Forms.Platform.Resource.Attribute.hintAnimationEnabled <- Resource_Attribute.hintAnimationEnabled
+                global.Xamarin.Forms.Platform.Resource.Attribute.hintTextAppearance <- Resource_Attribute.hintTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.homeAsUpIndicator <- Resource_Attribute.homeAsUpIndicator
+                global.Xamarin.Forms.Platform.Resource.Attribute.homeLayout <- Resource_Attribute.homeLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.icon <- Resource_Attribute.icon
+                global.Xamarin.Forms.Platform.Resource.Attribute.iconifiedByDefault <- Resource_Attribute.iconifiedByDefault
+                global.Xamarin.Forms.Platform.Resource.Attribute.indeterminateProgressStyle <- Resource_Attribute.indeterminateProgressStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.initialActivityCount <- Resource_Attribute.initialActivityCount
+                global.Xamarin.Forms.Platform.Resource.Attribute.insetForeground <- Resource_Attribute.insetForeground
+                global.Xamarin.Forms.Platform.Resource.Attribute.isLightTheme <- Resource_Attribute.isLightTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.itemBackground <- Resource_Attribute.itemBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.itemIconTint <- Resource_Attribute.itemIconTint
+                global.Xamarin.Forms.Platform.Resource.Attribute.itemPadding <- Resource_Attribute.itemPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.itemTextAppearance <- Resource_Attribute.itemTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.itemTextColor <- Resource_Attribute.itemTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.keylines <- Resource_Attribute.keylines
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout <- Resource_Attribute.layout
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_anchor <- Resource_Attribute.layout_anchor
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_anchorGravity <- Resource_Attribute.layout_anchorGravity
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_behavior <- Resource_Attribute.layout_behavior
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_collapseMode <- Resource_Attribute.layout_collapseMode
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_collapseParallaxMultiplier <- Resource_Attribute.layout_collapseParallaxMultiplier
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_keyline <- Resource_Attribute.layout_keyline
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_scrollFlags <- Resource_Attribute.layout_scrollFlags
+                global.Xamarin.Forms.Platform.Resource.Attribute.layout_scrollInterpolator <- Resource_Attribute.layout_scrollInterpolator
+                global.Xamarin.Forms.Platform.Resource.Attribute.listChoiceBackgroundIndicator <- Resource_Attribute.listChoiceBackgroundIndicator
+                global.Xamarin.Forms.Platform.Resource.Attribute.listDividerAlertDialog <- Resource_Attribute.listDividerAlertDialog
+                global.Xamarin.Forms.Platform.Resource.Attribute.listItemLayout <- Resource_Attribute.listItemLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.listLayout <- Resource_Attribute.listLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPopupWindowStyle <- Resource_Attribute.listPopupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPreferredItemHeight <- Resource_Attribute.listPreferredItemHeight
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPreferredItemHeightLarge <- Resource_Attribute.listPreferredItemHeightLarge
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPreferredItemHeightSmall <- Resource_Attribute.listPreferredItemHeightSmall
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPreferredItemPaddingLeft <- Resource_Attribute.listPreferredItemPaddingLeft
+                global.Xamarin.Forms.Platform.Resource.Attribute.listPreferredItemPaddingRight <- Resource_Attribute.listPreferredItemPaddingRight
+                global.Xamarin.Forms.Platform.Resource.Attribute.logo <- Resource_Attribute.logo
+                global.Xamarin.Forms.Platform.Resource.Attribute.logoDescription <- Resource_Attribute.logoDescription
+                global.Xamarin.Forms.Platform.Resource.Attribute.maxActionInlineWidth <- Resource_Attribute.maxActionInlineWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.maxButtonHeight <- Resource_Attribute.maxButtonHeight
+                global.Xamarin.Forms.Platform.Resource.Attribute.measureWithLargestChild <- Resource_Attribute.measureWithLargestChild
+                global.Xamarin.Forms.Platform.Resource.Attribute.menu <- Resource_Attribute.menu
+                global.Xamarin.Forms.Platform.Resource.Attribute.multiChoiceItemLayout <- Resource_Attribute.multiChoiceItemLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.navigationContentDescription <- Resource_Attribute.navigationContentDescription
+                global.Xamarin.Forms.Platform.Resource.Attribute.navigationIcon <- Resource_Attribute.navigationIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.navigationMode <- Resource_Attribute.navigationMode
+                global.Xamarin.Forms.Platform.Resource.Attribute.overlapAnchor <- Resource_Attribute.overlapAnchor
+                global.Xamarin.Forms.Platform.Resource.Attribute.paddingEnd <- Resource_Attribute.paddingEnd
+                global.Xamarin.Forms.Platform.Resource.Attribute.paddingStart <- Resource_Attribute.paddingStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.panelBackground <- Resource_Attribute.panelBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.panelMenuListTheme <- Resource_Attribute.panelMenuListTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.panelMenuListWidth <- Resource_Attribute.panelMenuListWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.popupMenuStyle <- Resource_Attribute.popupMenuStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.popupTheme <- Resource_Attribute.popupTheme
+                global.Xamarin.Forms.Platform.Resource.Attribute.popupWindowStyle <- Resource_Attribute.popupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.preserveIconSpacing <- Resource_Attribute.preserveIconSpacing
+                global.Xamarin.Forms.Platform.Resource.Attribute.pressedTranslationZ <- Resource_Attribute.pressedTranslationZ
+                global.Xamarin.Forms.Platform.Resource.Attribute.progressBarPadding <- Resource_Attribute.progressBarPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.progressBarStyle <- Resource_Attribute.progressBarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.queryBackground <- Resource_Attribute.queryBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.queryHint <- Resource_Attribute.queryHint
+                global.Xamarin.Forms.Platform.Resource.Attribute.radioButtonStyle <- Resource_Attribute.radioButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.ratingBarStyle <- Resource_Attribute.ratingBarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.rippleColor <- Resource_Attribute.rippleColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.searchHintIcon <- Resource_Attribute.searchHintIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.searchIcon <- Resource_Attribute.searchIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.searchViewStyle <- Resource_Attribute.searchViewStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.selectableItemBackground <- Resource_Attribute.selectableItemBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.selectableItemBackgroundBorderless <- Resource_Attribute.selectableItemBackgroundBorderless
+                global.Xamarin.Forms.Platform.Resource.Attribute.showAsAction <- Resource_Attribute.showAsAction
+                global.Xamarin.Forms.Platform.Resource.Attribute.showDividers <- Resource_Attribute.showDividers
+                global.Xamarin.Forms.Platform.Resource.Attribute.showText <- Resource_Attribute.showText
+                global.Xamarin.Forms.Platform.Resource.Attribute.singleChoiceItemLayout <- Resource_Attribute.singleChoiceItemLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.spinBars <- Resource_Attribute.spinBars
+                global.Xamarin.Forms.Platform.Resource.Attribute.spinnerDropDownItemStyle <- Resource_Attribute.spinnerDropDownItemStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.spinnerStyle <- Resource_Attribute.spinnerStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.splitTrack <- Resource_Attribute.splitTrack
+                global.Xamarin.Forms.Platform.Resource.Attribute.state_above_anchor <- Resource_Attribute.state_above_anchor
+                global.Xamarin.Forms.Platform.Resource.Attribute.statusBarBackground <- Resource_Attribute.statusBarBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.statusBarScrim <- Resource_Attribute.statusBarScrim
+                global.Xamarin.Forms.Platform.Resource.Attribute.submitBackground <- Resource_Attribute.submitBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.subtitle <- Resource_Attribute.subtitle
+                global.Xamarin.Forms.Platform.Resource.Attribute.subtitleTextAppearance <- Resource_Attribute.subtitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.subtitleTextColor <- Resource_Attribute.subtitleTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.subtitleTextStyle <- Resource_Attribute.subtitleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.suggestionRowLayout <- Resource_Attribute.suggestionRowLayout
+                global.Xamarin.Forms.Platform.Resource.Attribute.switchMinWidth <- Resource_Attribute.switchMinWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.switchPadding <- Resource_Attribute.switchPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.switchStyle <- Resource_Attribute.switchStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.switchTextAppearance <- Resource_Attribute.switchTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabBackground <- Resource_Attribute.tabBackground
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabContentStart <- Resource_Attribute.tabContentStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabGravity <- Resource_Attribute.tabGravity
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabIndicatorColor <- Resource_Attribute.tabIndicatorColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabIndicatorHeight <- Resource_Attribute.tabIndicatorHeight
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabMaxWidth <- Resource_Attribute.tabMaxWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabMinWidth <- Resource_Attribute.tabMinWidth
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabMode <- Resource_Attribute.tabMode
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabPadding <- Resource_Attribute.tabPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabPaddingBottom <- Resource_Attribute.tabPaddingBottom
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabPaddingEnd <- Resource_Attribute.tabPaddingEnd
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabPaddingStart <- Resource_Attribute.tabPaddingStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabPaddingTop <- Resource_Attribute.tabPaddingTop
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabSelectedTextColor <- Resource_Attribute.tabSelectedTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabTextAppearance <- Resource_Attribute.tabTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.tabTextColor <- Resource_Attribute.tabTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAllCaps <- Resource_Attribute.textAllCaps
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceLargePopupMenu <- Resource_Attribute.textAppearanceLargePopupMenu
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceListItem <- Resource_Attribute.textAppearanceListItem
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceListItemSmall <- Resource_Attribute.textAppearanceListItemSmall
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceSearchResultSubtitle <- Resource_Attribute.textAppearanceSearchResultSubtitle
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceSearchResultTitle <- Resource_Attribute.textAppearanceSearchResultTitle
+                global.Xamarin.Forms.Platform.Resource.Attribute.textAppearanceSmallPopupMenu <- Resource_Attribute.textAppearanceSmallPopupMenu
+                global.Xamarin.Forms.Platform.Resource.Attribute.textColorAlertDialogListItem <- Resource_Attribute.textColorAlertDialogListItem
+                global.Xamarin.Forms.Platform.Resource.Attribute.textColorSearchUrl <- Resource_Attribute.textColorSearchUrl
+                global.Xamarin.Forms.Platform.Resource.Attribute.theme <- Resource_Attribute.theme
+                global.Xamarin.Forms.Platform.Resource.Attribute.thickness <- Resource_Attribute.thickness
+                global.Xamarin.Forms.Platform.Resource.Attribute.thumbTextPadding <- Resource_Attribute.thumbTextPadding
+                global.Xamarin.Forms.Platform.Resource.Attribute.title <- Resource_Attribute.title
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleEnabled <- Resource_Attribute.titleEnabled
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleMarginBottom <- Resource_Attribute.titleMarginBottom
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleMarginEnd <- Resource_Attribute.titleMarginEnd
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleMarginStart <- Resource_Attribute.titleMarginStart
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleMarginTop <- Resource_Attribute.titleMarginTop
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleMargins <- Resource_Attribute.titleMargins
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleTextAppearance <- Resource_Attribute.titleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleTextColor <- Resource_Attribute.titleTextColor
+                global.Xamarin.Forms.Platform.Resource.Attribute.titleTextStyle <- Resource_Attribute.titleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.toolbarId <- Resource_Attribute.toolbarId
+                global.Xamarin.Forms.Platform.Resource.Attribute.toolbarNavigationButtonStyle <- Resource_Attribute.toolbarNavigationButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.toolbarStyle <- Resource_Attribute.toolbarStyle
+                global.Xamarin.Forms.Platform.Resource.Attribute.track <- Resource_Attribute.track
+                global.Xamarin.Forms.Platform.Resource.Attribute.voiceIcon <- Resource_Attribute.voiceIcon
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowActionBar <- Resource_Attribute.windowActionBar
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowActionBarOverlay <- Resource_Attribute.windowActionBarOverlay
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowActionModeOverlay <- Resource_Attribute.windowActionModeOverlay
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowFixedHeightMajor <- Resource_Attribute.windowFixedHeightMajor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowFixedHeightMinor <- Resource_Attribute.windowFixedHeightMinor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowFixedWidthMajor <- Resource_Attribute.windowFixedWidthMajor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowFixedWidthMinor <- Resource_Attribute.windowFixedWidthMinor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowMinWidthMajor <- Resource_Attribute.windowMinWidthMajor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowMinWidthMinor <- Resource_Attribute.windowMinWidthMinor
+                global.Xamarin.Forms.Platform.Resource.Attribute.windowNoTitle <- Resource_Attribute.windowNoTitle
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_action_bar_embed_tabs <- Resource_Boolean.abc_action_bar_embed_tabs
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_action_bar_embed_tabs_pre_jb <- Resource_Boolean.abc_action_bar_embed_tabs_pre_jb
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_action_bar_expanded_action_views_exclusive <- Resource_Boolean.abc_action_bar_expanded_action_views_exclusive
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_config_actionMenuItemAllCaps <- Resource_Boolean.abc_config_actionMenuItemAllCaps
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_config_allowActionMenuItemTextWithIcon <- Resource_Boolean.abc_config_allowActionMenuItemTextWithIcon
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_config_closeDialogWhenTouchOutside <- Resource_Boolean.abc_config_closeDialogWhenTouchOutside
+                global.Xamarin.Forms.Platform.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent <- Resource_Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent
+                global.Xamarin.Forms.Platform.Resource.Color.abc_background_cache_hint_selector_material_dark <- Resource_Color.abc_background_cache_hint_selector_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.abc_background_cache_hint_selector_material_light <- Resource_Color.abc_background_cache_hint_selector_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.abc_color_highlight_material <- Resource_Color.abc_color_highlight_material
+                global.Xamarin.Forms.Platform.Resource.Color.abc_input_method_navigation_guard <- Resource_Color.abc_input_method_navigation_guard
+                global.Xamarin.Forms.Platform.Resource.Color.abc_primary_text_disable_only_material_dark <- Resource_Color.abc_primary_text_disable_only_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.abc_primary_text_disable_only_material_light <- Resource_Color.abc_primary_text_disable_only_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.abc_primary_text_material_dark <- Resource_Color.abc_primary_text_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.abc_primary_text_material_light <- Resource_Color.abc_primary_text_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.abc_search_url_text <- Resource_Color.abc_search_url_text
+                global.Xamarin.Forms.Platform.Resource.Color.abc_search_url_text_normal <- Resource_Color.abc_search_url_text_normal
+                global.Xamarin.Forms.Platform.Resource.Color.abc_search_url_text_pressed <- Resource_Color.abc_search_url_text_pressed
+                global.Xamarin.Forms.Platform.Resource.Color.abc_search_url_text_selected <- Resource_Color.abc_search_url_text_selected
+                global.Xamarin.Forms.Platform.Resource.Color.abc_secondary_text_material_dark <- Resource_Color.abc_secondary_text_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.abc_secondary_text_material_light <- Resource_Color.abc_secondary_text_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.accent_material_dark <- Resource_Color.accent_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.accent_material_light <- Resource_Color.accent_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.background_floating_material_dark <- Resource_Color.background_floating_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.background_floating_material_light <- Resource_Color.background_floating_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.background_material_dark <- Resource_Color.background_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.background_material_light <- Resource_Color.background_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_disabled_material_dark <- Resource_Color.bright_foreground_disabled_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_disabled_material_light <- Resource_Color.bright_foreground_disabled_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_inverse_material_dark <- Resource_Color.bright_foreground_inverse_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_inverse_material_light <- Resource_Color.bright_foreground_inverse_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_material_dark <- Resource_Color.bright_foreground_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.bright_foreground_material_light <- Resource_Color.bright_foreground_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.button_material_dark <- Resource_Color.button_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.button_material_light <- Resource_Color.button_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.cardview_dark_background <- Resource_Color.cardview_dark_background
+                global.Xamarin.Forms.Platform.Resource.Color.cardview_light_background <- Resource_Color.cardview_light_background
+                global.Xamarin.Forms.Platform.Resource.Color.cardview_shadow_end_color <- Resource_Color.cardview_shadow_end_color
+                global.Xamarin.Forms.Platform.Resource.Color.cardview_shadow_start_color <- Resource_Color.cardview_shadow_start_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_shadow_end_color <- Resource_Color.design_fab_shadow_end_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_shadow_mid_color <- Resource_Color.design_fab_shadow_mid_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_shadow_start_color <- Resource_Color.design_fab_shadow_start_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_stroke_end_inner_color <- Resource_Color.design_fab_stroke_end_inner_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_stroke_end_outer_color <- Resource_Color.design_fab_stroke_end_outer_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_stroke_top_inner_color <- Resource_Color.design_fab_stroke_top_inner_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_fab_stroke_top_outer_color <- Resource_Color.design_fab_stroke_top_outer_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_snackbar_background_color <- Resource_Color.design_snackbar_background_color
+                global.Xamarin.Forms.Platform.Resource.Color.design_textinput_error_color <- Resource_Color.design_textinput_error_color
+                global.Xamarin.Forms.Platform.Resource.Color.dim_foreground_disabled_material_dark <- Resource_Color.dim_foreground_disabled_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.dim_foreground_disabled_material_light <- Resource_Color.dim_foreground_disabled_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.dim_foreground_material_dark <- Resource_Color.dim_foreground_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.dim_foreground_material_light <- Resource_Color.dim_foreground_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.foreground_material_dark <- Resource_Color.foreground_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.foreground_material_light <- Resource_Color.foreground_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.highlighted_text_material_dark <- Resource_Color.highlighted_text_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.highlighted_text_material_light <- Resource_Color.highlighted_text_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.hint_foreground_material_dark <- Resource_Color.hint_foreground_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.hint_foreground_material_light <- Resource_Color.hint_foreground_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.material_blue_grey_800 <- Resource_Color.material_blue_grey_800
+                global.Xamarin.Forms.Platform.Resource.Color.material_blue_grey_900 <- Resource_Color.material_blue_grey_900
+                global.Xamarin.Forms.Platform.Resource.Color.material_blue_grey_950 <- Resource_Color.material_blue_grey_950
+                global.Xamarin.Forms.Platform.Resource.Color.material_deep_teal_200 <- Resource_Color.material_deep_teal_200
+                global.Xamarin.Forms.Platform.Resource.Color.material_deep_teal_500 <- Resource_Color.material_deep_teal_500
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_100 <- Resource_Color.material_grey_100
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_300 <- Resource_Color.material_grey_300
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_50 <- Resource_Color.material_grey_50
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_600 <- Resource_Color.material_grey_600
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_800 <- Resource_Color.material_grey_800
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_850 <- Resource_Color.material_grey_850
+                global.Xamarin.Forms.Platform.Resource.Color.material_grey_900 <- Resource_Color.material_grey_900
+                global.Xamarin.Forms.Platform.Resource.Color.primary_dark_material_dark <- Resource_Color.primary_dark_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.primary_dark_material_light <- Resource_Color.primary_dark_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.primary_material_dark <- Resource_Color.primary_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.primary_material_light <- Resource_Color.primary_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.primary_text_default_material_dark <- Resource_Color.primary_text_default_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.primary_text_default_material_light <- Resource_Color.primary_text_default_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.primary_text_disabled_material_dark <- Resource_Color.primary_text_disabled_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.primary_text_disabled_material_light <- Resource_Color.primary_text_disabled_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.ripple_material_dark <- Resource_Color.ripple_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.ripple_material_light <- Resource_Color.ripple_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.secondary_text_default_material_dark <- Resource_Color.secondary_text_default_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.secondary_text_default_material_light <- Resource_Color.secondary_text_default_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.secondary_text_disabled_material_dark <- Resource_Color.secondary_text_disabled_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.secondary_text_disabled_material_light <- Resource_Color.secondary_text_disabled_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_disabled_material_dark <- Resource_Color.switch_thumb_disabled_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_disabled_material_light <- Resource_Color.switch_thumb_disabled_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_material_dark <- Resource_Color.switch_thumb_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_material_light <- Resource_Color.switch_thumb_material_light
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_normal_material_dark <- Resource_Color.switch_thumb_normal_material_dark
+                global.Xamarin.Forms.Platform.Resource.Color.switch_thumb_normal_material_light <- Resource_Color.switch_thumb_normal_material_light
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_content_inset_material <- Resource_Dimension.abc_action_bar_content_inset_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_default_height_material <- Resource_Dimension.abc_action_bar_default_height_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_default_padding_end_material <- Resource_Dimension.abc_action_bar_default_padding_end_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_default_padding_start_material <- Resource_Dimension.abc_action_bar_default_padding_start_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_icon_vertical_padding_material <- Resource_Dimension.abc_action_bar_icon_vertical_padding_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_overflow_padding_end_material <- Resource_Dimension.abc_action_bar_overflow_padding_end_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_overflow_padding_start_material <- Resource_Dimension.abc_action_bar_overflow_padding_start_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_progress_bar_size <- Resource_Dimension.abc_action_bar_progress_bar_size
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_stacked_max_height <- Resource_Dimension.abc_action_bar_stacked_max_height
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_stacked_tab_max_width <- Resource_Dimension.abc_action_bar_stacked_tab_max_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material <- Resource_Dimension.abc_action_bar_subtitle_bottom_margin_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_bar_subtitle_top_margin_material <- Resource_Dimension.abc_action_bar_subtitle_top_margin_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_button_min_height_material <- Resource_Dimension.abc_action_button_min_height_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_button_min_width_material <- Resource_Dimension.abc_action_button_min_width_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_action_button_min_width_overflow_material <- Resource_Dimension.abc_action_button_min_width_overflow_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_alert_dialog_button_bar_height <- Resource_Dimension.abc_alert_dialog_button_bar_height
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_button_inset_horizontal_material <- Resource_Dimension.abc_button_inset_horizontal_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_button_inset_vertical_material <- Resource_Dimension.abc_button_inset_vertical_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_button_padding_horizontal_material <- Resource_Dimension.abc_button_padding_horizontal_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_button_padding_vertical_material <- Resource_Dimension.abc_button_padding_vertical_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_config_prefDialogWidth <- Resource_Dimension.abc_config_prefDialogWidth
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_control_corner_material <- Resource_Dimension.abc_control_corner_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_control_inset_material <- Resource_Dimension.abc_control_inset_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_control_padding_material <- Resource_Dimension.abc_control_padding_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dialog_list_padding_vertical_material <- Resource_Dimension.abc_dialog_list_padding_vertical_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dialog_min_width_major <- Resource_Dimension.abc_dialog_min_width_major
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dialog_min_width_minor <- Resource_Dimension.abc_dialog_min_width_minor
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dialog_padding_material <- Resource_Dimension.abc_dialog_padding_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dialog_padding_top_material <- Resource_Dimension.abc_dialog_padding_top_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_disabled_alpha_material_dark <- Resource_Dimension.abc_disabled_alpha_material_dark
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_disabled_alpha_material_light <- Resource_Dimension.abc_disabled_alpha_material_light
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dropdownitem_icon_width <- Resource_Dimension.abc_dropdownitem_icon_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dropdownitem_text_padding_left <- Resource_Dimension.abc_dropdownitem_text_padding_left
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_dropdownitem_text_padding_right <- Resource_Dimension.abc_dropdownitem_text_padding_right
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_edit_text_inset_bottom_material <- Resource_Dimension.abc_edit_text_inset_bottom_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_edit_text_inset_horizontal_material <- Resource_Dimension.abc_edit_text_inset_horizontal_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_edit_text_inset_top_material <- Resource_Dimension.abc_edit_text_inset_top_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_floating_window_z <- Resource_Dimension.abc_floating_window_z
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_list_item_padding_horizontal_material <- Resource_Dimension.abc_list_item_padding_horizontal_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_panel_menu_list_width <- Resource_Dimension.abc_panel_menu_list_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_search_view_preferred_width <- Resource_Dimension.abc_search_view_preferred_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_search_view_text_min_width <- Resource_Dimension.abc_search_view_text_min_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_switch_padding <- Resource_Dimension.abc_switch_padding
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_body_1_material <- Resource_Dimension.abc_text_size_body_1_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_body_2_material <- Resource_Dimension.abc_text_size_body_2_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_button_material <- Resource_Dimension.abc_text_size_button_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_caption_material <- Resource_Dimension.abc_text_size_caption_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_display_1_material <- Resource_Dimension.abc_text_size_display_1_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_display_2_material <- Resource_Dimension.abc_text_size_display_2_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_display_3_material <- Resource_Dimension.abc_text_size_display_3_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_display_4_material <- Resource_Dimension.abc_text_size_display_4_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_headline_material <- Resource_Dimension.abc_text_size_headline_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_large_material <- Resource_Dimension.abc_text_size_large_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_medium_material <- Resource_Dimension.abc_text_size_medium_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_menu_material <- Resource_Dimension.abc_text_size_menu_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_small_material <- Resource_Dimension.abc_text_size_small_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_subhead_material <- Resource_Dimension.abc_text_size_subhead_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_subtitle_material_toolbar <- Resource_Dimension.abc_text_size_subtitle_material_toolbar
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_title_material <- Resource_Dimension.abc_text_size_title_material
+                global.Xamarin.Forms.Platform.Resource.Dimension.abc_text_size_title_material_toolbar <- Resource_Dimension.abc_text_size_title_material_toolbar
+                global.Xamarin.Forms.Platform.Resource.Dimension.cardview_compat_inset_shadow <- Resource_Dimension.cardview_compat_inset_shadow
+                global.Xamarin.Forms.Platform.Resource.Dimension.cardview_default_elevation <- Resource_Dimension.cardview_default_elevation
+                global.Xamarin.Forms.Platform.Resource.Dimension.cardview_default_radius <- Resource_Dimension.cardview_default_radius
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_appbar_elevation <- Resource_Dimension.design_appbar_elevation
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_border_width <- Resource_Dimension.design_fab_border_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_content_size <- Resource_Dimension.design_fab_content_size
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_elevation <- Resource_Dimension.design_fab_elevation
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_size_mini <- Resource_Dimension.design_fab_size_mini
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_size_normal <- Resource_Dimension.design_fab_size_normal
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_fab_translation_z_pressed <- Resource_Dimension.design_fab_translation_z_pressed
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_elevation <- Resource_Dimension.design_navigation_elevation
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_icon_padding <- Resource_Dimension.design_navigation_icon_padding
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_icon_size <- Resource_Dimension.design_navigation_icon_size
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_max_width <- Resource_Dimension.design_navigation_max_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_padding_bottom <- Resource_Dimension.design_navigation_padding_bottom
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_padding_top_default <- Resource_Dimension.design_navigation_padding_top_default
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_navigation_separator_vertical_padding <- Resource_Dimension.design_navigation_separator_vertical_padding
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_action_inline_max_width <- Resource_Dimension.design_snackbar_action_inline_max_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_background_corner_radius <- Resource_Dimension.design_snackbar_background_corner_radius
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_elevation <- Resource_Dimension.design_snackbar_elevation
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_extra_spacing_horizontal <- Resource_Dimension.design_snackbar_extra_spacing_horizontal
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_max_width <- Resource_Dimension.design_snackbar_max_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_min_width <- Resource_Dimension.design_snackbar_min_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_padding_horizontal <- Resource_Dimension.design_snackbar_padding_horizontal
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_padding_vertical <- Resource_Dimension.design_snackbar_padding_vertical
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_padding_vertical_2lines <- Resource_Dimension.design_snackbar_padding_vertical_2lines
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_snackbar_text_size <- Resource_Dimension.design_snackbar_text_size
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_tab_max_width <- Resource_Dimension.design_tab_max_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.design_tab_min_width <- Resource_Dimension.design_tab_min_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.dialog_fixed_height_major <- Resource_Dimension.dialog_fixed_height_major
+                global.Xamarin.Forms.Platform.Resource.Dimension.dialog_fixed_height_minor <- Resource_Dimension.dialog_fixed_height_minor
+                global.Xamarin.Forms.Platform.Resource.Dimension.dialog_fixed_width_major <- Resource_Dimension.dialog_fixed_width_major
+                global.Xamarin.Forms.Platform.Resource.Dimension.dialog_fixed_width_minor <- Resource_Dimension.dialog_fixed_width_minor
+                global.Xamarin.Forms.Platform.Resource.Dimension.disabled_alpha_material_dark <- Resource_Dimension.disabled_alpha_material_dark
+                global.Xamarin.Forms.Platform.Resource.Dimension.disabled_alpha_material_light <- Resource_Dimension.disabled_alpha_material_light
+                global.Xamarin.Forms.Platform.Resource.Dimension.highlight_alpha_material_colored <- Resource_Dimension.highlight_alpha_material_colored
+                global.Xamarin.Forms.Platform.Resource.Dimension.highlight_alpha_material_dark <- Resource_Dimension.highlight_alpha_material_dark
+                global.Xamarin.Forms.Platform.Resource.Dimension.highlight_alpha_material_light <- Resource_Dimension.highlight_alpha_material_light
+                global.Xamarin.Forms.Platform.Resource.Dimension.notification_large_icon_height <- Resource_Dimension.notification_large_icon_height
+                global.Xamarin.Forms.Platform.Resource.Dimension.notification_large_icon_width <- Resource_Dimension.notification_large_icon_width
+                global.Xamarin.Forms.Platform.Resource.Dimension.notification_subtext_size <- Resource_Dimension.notification_subtext_size
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ab_share_pack_mtrl_alpha <- Resource_Drawable.abc_ab_share_pack_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_action_bar_item_background_material <- Resource_Drawable.abc_action_bar_item_background_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_borderless_material <- Resource_Drawable.abc_btn_borderless_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_check_material <- Resource_Drawable.abc_btn_check_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_check_to_on_mtrl_000 <- Resource_Drawable.abc_btn_check_to_on_mtrl_000
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_check_to_on_mtrl_015 <- Resource_Drawable.abc_btn_check_to_on_mtrl_015
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_colored_material <- Resource_Drawable.abc_btn_colored_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_default_mtrl_shape <- Resource_Drawable.abc_btn_default_mtrl_shape
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_radio_material <- Resource_Drawable.abc_btn_radio_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 <- Resource_Drawable.abc_btn_radio_to_on_mtrl_000
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 <- Resource_Drawable.abc_btn_radio_to_on_mtrl_015
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_rating_star_off_mtrl_alpha <- Resource_Drawable.abc_btn_rating_star_off_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_rating_star_on_mtrl_alpha <- Resource_Drawable.abc_btn_rating_star_on_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 <- Resource_Drawable.abc_btn_switch_to_on_mtrl_00001
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 <- Resource_Drawable.abc_btn_switch_to_on_mtrl_00012
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_cab_background_internal_bg <- Resource_Drawable.abc_cab_background_internal_bg
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_cab_background_top_material <- Resource_Drawable.abc_cab_background_top_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_cab_background_top_mtrl_alpha <- Resource_Drawable.abc_cab_background_top_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_control_background_material <- Resource_Drawable.abc_control_background_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_dialog_material_background_dark <- Resource_Drawable.abc_dialog_material_background_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_dialog_material_background_light <- Resource_Drawable.abc_dialog_material_background_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_edit_text_material <- Resource_Drawable.abc_edit_text_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha <- Resource_Drawable.abc_ic_ab_back_mtrl_am_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_clear_mtrl_alpha <- Resource_Drawable.abc_ic_clear_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha <- Resource_Drawable.abc_ic_commit_search_api_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_go_search_api_mtrl_alpha <- Resource_Drawable.abc_ic_go_search_api_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha <- Resource_Drawable.abc_ic_menu_copy_mtrl_am_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha <- Resource_Drawable.abc_ic_menu_cut_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_moreoverflow_mtrl_alpha <- Resource_Drawable.abc_ic_menu_moreoverflow_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha <- Resource_Drawable.abc_ic_menu_paste_mtrl_am_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha <- Resource_Drawable.abc_ic_menu_selectall_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_menu_share_mtrl_alpha <- Resource_Drawable.abc_ic_menu_share_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_search_api_mtrl_alpha <- Resource_Drawable.abc_ic_search_api_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ic_voice_search_api_mtrl_alpha <- Resource_Drawable.abc_ic_voice_search_api_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_item_background_holo_dark <- Resource_Drawable.abc_item_background_holo_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_item_background_holo_light <- Resource_Drawable.abc_item_background_holo_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_divider_mtrl_alpha <- Resource_Drawable.abc_list_divider_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_focused_holo <- Resource_Drawable.abc_list_focused_holo
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_longpressed_holo <- Resource_Drawable.abc_list_longpressed_holo
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_pressed_holo_dark <- Resource_Drawable.abc_list_pressed_holo_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_pressed_holo_light <- Resource_Drawable.abc_list_pressed_holo_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_background_transition_holo_dark <- Resource_Drawable.abc_list_selector_background_transition_holo_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_background_transition_holo_light <- Resource_Drawable.abc_list_selector_background_transition_holo_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_disabled_holo_dark <- Resource_Drawable.abc_list_selector_disabled_holo_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_disabled_holo_light <- Resource_Drawable.abc_list_selector_disabled_holo_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_holo_dark <- Resource_Drawable.abc_list_selector_holo_dark
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_list_selector_holo_light <- Resource_Drawable.abc_list_selector_holo_light
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult <- Resource_Drawable.abc_menu_hardkey_panel_mtrl_mult
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_popup_background_mtrl_mult <- Resource_Drawable.abc_popup_background_mtrl_mult
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_ratingbar_full_material <- Resource_Drawable.abc_ratingbar_full_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_spinner_mtrl_am_alpha <- Resource_Drawable.abc_spinner_mtrl_am_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_spinner_textfield_background_material <- Resource_Drawable.abc_spinner_textfield_background_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_switch_thumb_material <- Resource_Drawable.abc_switch_thumb_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_switch_track_mtrl_alpha <- Resource_Drawable.abc_switch_track_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_tab_indicator_material <- Resource_Drawable.abc_tab_indicator_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_tab_indicator_mtrl_alpha <- Resource_Drawable.abc_tab_indicator_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_text_cursor_material <- Resource_Drawable.abc_text_cursor_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_textfield_activated_mtrl_alpha <- Resource_Drawable.abc_textfield_activated_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_textfield_default_mtrl_alpha <- Resource_Drawable.abc_textfield_default_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha <- Resource_Drawable.abc_textfield_search_activated_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_textfield_search_default_mtrl_alpha <- Resource_Drawable.abc_textfield_search_default_mtrl_alpha
+                global.Xamarin.Forms.Platform.Resource.Drawable.abc_textfield_search_material <- Resource_Drawable.abc_textfield_search_material
+                global.Xamarin.Forms.Platform.Resource.Drawable.design_fab_background <- Resource_Drawable.design_fab_background
+                global.Xamarin.Forms.Platform.Resource.Drawable.design_snackbar_background <- Resource_Drawable.design_snackbar_background
+                global.Xamarin.Forms.Platform.Resource.Drawable.notification_template_icon_bg <- Resource_Drawable.notification_template_icon_bg
+                global.Xamarin.Forms.Platform.Resource.Id.action0 <- Resource_Id.action0
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar <- Resource_Id.action_bar
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_activity_content <- Resource_Id.action_bar_activity_content
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_container <- Resource_Id.action_bar_container
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_root <- Resource_Id.action_bar_root
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_spinner <- Resource_Id.action_bar_spinner
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_subtitle <- Resource_Id.action_bar_subtitle
+                global.Xamarin.Forms.Platform.Resource.Id.action_bar_title <- Resource_Id.action_bar_title
+                global.Xamarin.Forms.Platform.Resource.Id.action_context_bar <- Resource_Id.action_context_bar
+                global.Xamarin.Forms.Platform.Resource.Id.action_divider <- Resource_Id.action_divider
+                global.Xamarin.Forms.Platform.Resource.Id.action_menu_divider <- Resource_Id.action_menu_divider
+                global.Xamarin.Forms.Platform.Resource.Id.action_menu_presenter <- Resource_Id.action_menu_presenter
+                global.Xamarin.Forms.Platform.Resource.Id.action_mode_bar <- Resource_Id.action_mode_bar
+                global.Xamarin.Forms.Platform.Resource.Id.action_mode_bar_stub <- Resource_Id.action_mode_bar_stub
+                global.Xamarin.Forms.Platform.Resource.Id.action_mode_close_button <- Resource_Id.action_mode_close_button
+                global.Xamarin.Forms.Platform.Resource.Id.activity_chooser_view_content <- Resource_Id.activity_chooser_view_content
+                global.Xamarin.Forms.Platform.Resource.Id.alertTitle <- Resource_Id.alertTitle
+                global.Xamarin.Forms.Platform.Resource.Id.always <- Resource_Id.always
+                global.Xamarin.Forms.Platform.Resource.Id.beginning <- Resource_Id.beginning
+                global.Xamarin.Forms.Platform.Resource.Id.bottom <- Resource_Id.bottom
+                global.Xamarin.Forms.Platform.Resource.Id.buttonPanel <- Resource_Id.buttonPanel
+                global.Xamarin.Forms.Platform.Resource.Id.cancel_action <- Resource_Id.cancel_action
+                global.Xamarin.Forms.Platform.Resource.Id.center <- Resource_Id.center
+                global.Xamarin.Forms.Platform.Resource.Id.center_horizontal <- Resource_Id.center_horizontal
+                global.Xamarin.Forms.Platform.Resource.Id.center_vertical <- Resource_Id.center_vertical
+                global.Xamarin.Forms.Platform.Resource.Id.checkbox <- Resource_Id.checkbox
+                global.Xamarin.Forms.Platform.Resource.Id.chronometer <- Resource_Id.chronometer
+                global.Xamarin.Forms.Platform.Resource.Id.clip_horizontal <- Resource_Id.clip_horizontal
+                global.Xamarin.Forms.Platform.Resource.Id.clip_vertical <- Resource_Id.clip_vertical
+                global.Xamarin.Forms.Platform.Resource.Id.collapseActionView <- Resource_Id.collapseActionView
+                global.Xamarin.Forms.Platform.Resource.Id.contentPanel <- Resource_Id.contentPanel
+                global.Xamarin.Forms.Platform.Resource.Id.custom <- Resource_Id.custom
+                global.Xamarin.Forms.Platform.Resource.Id.customPanel <- Resource_Id.customPanel
+                global.Xamarin.Forms.Platform.Resource.Id.decor_content_parent <- Resource_Id.decor_content_parent
+                global.Xamarin.Forms.Platform.Resource.Id.default_activity_button <- Resource_Id.default_activity_button
+                global.Xamarin.Forms.Platform.Resource.Id.disableHome <- Resource_Id.disableHome
+                global.Xamarin.Forms.Platform.Resource.Id.edit_query <- Resource_Id.edit_query
+                global.Xamarin.Forms.Platform.Resource.Id.end <- Resource_Id.end
+                global.Xamarin.Forms.Platform.Resource.Id.end_padder <- Resource_Id.end_padder
+                global.Xamarin.Forms.Platform.Resource.Id.enterAlways <- Resource_Id.enterAlways
+                global.Xamarin.Forms.Platform.Resource.Id.enterAlwaysCollapsed <- Resource_Id.enterAlwaysCollapsed
+                global.Xamarin.Forms.Platform.Resource.Id.exitUntilCollapsed <- Resource_Id.exitUntilCollapsed
+                global.Xamarin.Forms.Platform.Resource.Id.expand_activities_button <- Resource_Id.expand_activities_button
+                global.Xamarin.Forms.Platform.Resource.Id.expanded_menu <- Resource_Id.expanded_menu
+                global.Xamarin.Forms.Platform.Resource.Id.fill <- Resource_Id.fill
+                global.Xamarin.Forms.Platform.Resource.Id.fill_horizontal <- Resource_Id.fill_horizontal
+                global.Xamarin.Forms.Platform.Resource.Id.fill_vertical <- Resource_Id.fill_vertical
+                global.Xamarin.Forms.Platform.Resource.Id.fixed <- Resource_Id.fixed
+                global.Xamarin.Forms.Platform.Resource.Id.home <- Resource_Id.home
+                global.Xamarin.Forms.Platform.Resource.Id.homeAsUp <- Resource_Id.homeAsUp
+                global.Xamarin.Forms.Platform.Resource.Id.icon <- Resource_Id.icon
+                global.Xamarin.Forms.Platform.Resource.Id.ifRoom <- Resource_Id.ifRoom
+                global.Xamarin.Forms.Platform.Resource.Id.image <- Resource_Id.image
+                global.Xamarin.Forms.Platform.Resource.Id.info <- Resource_Id.info
+                global.Xamarin.Forms.Platform.Resource.Id.left <- Resource_Id.left
+                global.Xamarin.Forms.Platform.Resource.Id.line1 <- Resource_Id.line1
+                global.Xamarin.Forms.Platform.Resource.Id.line3 <- Resource_Id.line3
+                global.Xamarin.Forms.Platform.Resource.Id.listMode <- Resource_Id.listMode
+                global.Xamarin.Forms.Platform.Resource.Id.list_item <- Resource_Id.list_item
+                global.Xamarin.Forms.Platform.Resource.Id.media_actions <- Resource_Id.media_actions
+                global.Xamarin.Forms.Platform.Resource.Id.middle <- Resource_Id.middle
+                global.Xamarin.Forms.Platform.Resource.Id.mini <- Resource_Id.mini
+                global.Xamarin.Forms.Platform.Resource.Id.multiply <- Resource_Id.multiply
+                global.Xamarin.Forms.Platform.Resource.Id.never <- Resource_Id.never
+                global.Xamarin.Forms.Platform.Resource.Id.none <- Resource_Id.none
+                global.Xamarin.Forms.Platform.Resource.Id.normal <- Resource_Id.normal
+                global.Xamarin.Forms.Platform.Resource.Id.parallax <- Resource_Id.parallax
+                global.Xamarin.Forms.Platform.Resource.Id.parentPanel <- Resource_Id.parentPanel
+                global.Xamarin.Forms.Platform.Resource.Id.pin <- Resource_Id.pin
+                global.Xamarin.Forms.Platform.Resource.Id.progress_circular <- Resource_Id.progress_circular
+                global.Xamarin.Forms.Platform.Resource.Id.progress_horizontal <- Resource_Id.progress_horizontal
+                global.Xamarin.Forms.Platform.Resource.Id.radio <- Resource_Id.radio
+                global.Xamarin.Forms.Platform.Resource.Id.right <- Resource_Id.right
+                global.Xamarin.Forms.Platform.Resource.Id.screen <- Resource_Id.screen
+                global.Xamarin.Forms.Platform.Resource.Id.scroll <- Resource_Id.scroll
+                global.Xamarin.Forms.Platform.Resource.Id.scrollView <- Resource_Id.scrollView
+                global.Xamarin.Forms.Platform.Resource.Id.scrollable <- Resource_Id.scrollable
+                global.Xamarin.Forms.Platform.Resource.Id.search_badge <- Resource_Id.search_badge
+                global.Xamarin.Forms.Platform.Resource.Id.search_bar <- Resource_Id.search_bar
+                global.Xamarin.Forms.Platform.Resource.Id.search_button <- Resource_Id.search_button
+                global.Xamarin.Forms.Platform.Resource.Id.search_close_btn <- Resource_Id.search_close_btn
+                global.Xamarin.Forms.Platform.Resource.Id.search_edit_frame <- Resource_Id.search_edit_frame
+                global.Xamarin.Forms.Platform.Resource.Id.search_go_btn <- Resource_Id.search_go_btn
+                global.Xamarin.Forms.Platform.Resource.Id.search_mag_icon <- Resource_Id.search_mag_icon
+                global.Xamarin.Forms.Platform.Resource.Id.search_plate <- Resource_Id.search_plate
+                global.Xamarin.Forms.Platform.Resource.Id.search_src_text <- Resource_Id.search_src_text
+                global.Xamarin.Forms.Platform.Resource.Id.search_voice_btn <- Resource_Id.search_voice_btn
+                global.Xamarin.Forms.Platform.Resource.Id.select_dialog_listview <- Resource_Id.select_dialog_listview
+                global.Xamarin.Forms.Platform.Resource.Id.shortcut <- Resource_Id.shortcut
+                global.Xamarin.Forms.Platform.Resource.Id.showCustom <- Resource_Id.showCustom
+                global.Xamarin.Forms.Platform.Resource.Id.showHome <- Resource_Id.showHome
+                global.Xamarin.Forms.Platform.Resource.Id.showTitle <- Resource_Id.showTitle
+                global.Xamarin.Forms.Platform.Resource.Id.snackbar_action <- Resource_Id.snackbar_action
+                global.Xamarin.Forms.Platform.Resource.Id.snackbar_text <- Resource_Id.snackbar_text
+                global.Xamarin.Forms.Platform.Resource.Id.split_action_bar <- Resource_Id.split_action_bar
+                global.Xamarin.Forms.Platform.Resource.Id.src_atop <- Resource_Id.src_atop
+                global.Xamarin.Forms.Platform.Resource.Id.src_in <- Resource_Id.src_in
+                global.Xamarin.Forms.Platform.Resource.Id.src_over <- Resource_Id.src_over
+                global.Xamarin.Forms.Platform.Resource.Id.start <- Resource_Id.start
+                global.Xamarin.Forms.Platform.Resource.Id.status_bar_latest_event_content <- Resource_Id.status_bar_latest_event_content
+                global.Xamarin.Forms.Platform.Resource.Id.submit_area <- Resource_Id.submit_area
+                global.Xamarin.Forms.Platform.Resource.Id.tabMode <- Resource_Id.tabMode
+                global.Xamarin.Forms.Platform.Resource.Id.text <- Resource_Id.text
+                global.Xamarin.Forms.Platform.Resource.Id.text2 <- Resource_Id.text2
+                global.Xamarin.Forms.Platform.Resource.Id.textSpacerNoButtons <- Resource_Id.textSpacerNoButtons
+                global.Xamarin.Forms.Platform.Resource.Id.time <- Resource_Id.time
+                global.Xamarin.Forms.Platform.Resource.Id.title <- Resource_Id.title
+                global.Xamarin.Forms.Platform.Resource.Id.title_template <- Resource_Id.title_template
+                global.Xamarin.Forms.Platform.Resource.Id.top <- Resource_Id.top
+                global.Xamarin.Forms.Platform.Resource.Id.topPanel <- Resource_Id.topPanel
+                global.Xamarin.Forms.Platform.Resource.Id.up <- Resource_Id.up
+                global.Xamarin.Forms.Platform.Resource.Id.useLogo <- Resource_Id.useLogo
+                global.Xamarin.Forms.Platform.Resource.Id.view_offset_helper <- Resource_Id.view_offset_helper
+                global.Xamarin.Forms.Platform.Resource.Id.withText <- Resource_Id.withText
+                global.Xamarin.Forms.Platform.Resource.Id.wrap_content <- Resource_Id.wrap_content
+                global.Xamarin.Forms.Platform.Resource.Integer.abc_config_activityDefaultDur <- Resource_Integer.abc_config_activityDefaultDur
+                global.Xamarin.Forms.Platform.Resource.Integer.abc_config_activityShortDur <- Resource_Integer.abc_config_activityShortDur
+                global.Xamarin.Forms.Platform.Resource.Integer.abc_max_action_buttons <- Resource_Integer.abc_max_action_buttons
+                global.Xamarin.Forms.Platform.Resource.Integer.cancel_button_image_alpha <- Resource_Integer.cancel_button_image_alpha
+                global.Xamarin.Forms.Platform.Resource.Integer.design_snackbar_text_max_lines <- Resource_Integer.design_snackbar_text_max_lines
+                global.Xamarin.Forms.Platform.Resource.Integer.status_bar_notification_info_maxnum <- Resource_Integer.status_bar_notification_info_maxnum
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_bar_title_item <- Resource_Layout.abc_action_bar_title_item
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_bar_up_container <- Resource_Layout.abc_action_bar_up_container
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_bar_view_list_nav_layout <- Resource_Layout.abc_action_bar_view_list_nav_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_menu_item_layout <- Resource_Layout.abc_action_menu_item_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_menu_layout <- Resource_Layout.abc_action_menu_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_mode_bar <- Resource_Layout.abc_action_mode_bar
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_action_mode_close_item_material <- Resource_Layout.abc_action_mode_close_item_material
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_activity_chooser_view <- Resource_Layout.abc_activity_chooser_view
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_activity_chooser_view_list_item <- Resource_Layout.abc_activity_chooser_view_list_item
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_alert_dialog_material <- Resource_Layout.abc_alert_dialog_material
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_dialog_title_material <- Resource_Layout.abc_dialog_title_material
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_expanded_menu_layout <- Resource_Layout.abc_expanded_menu_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_list_menu_item_checkbox <- Resource_Layout.abc_list_menu_item_checkbox
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_list_menu_item_icon <- Resource_Layout.abc_list_menu_item_icon
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_list_menu_item_layout <- Resource_Layout.abc_list_menu_item_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_list_menu_item_radio <- Resource_Layout.abc_list_menu_item_radio
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_popup_menu_item_layout <- Resource_Layout.abc_popup_menu_item_layout
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_screen_content_include <- Resource_Layout.abc_screen_content_include
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_screen_simple <- Resource_Layout.abc_screen_simple
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_screen_simple_overlay_action_mode <- Resource_Layout.abc_screen_simple_overlay_action_mode
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_screen_toolbar <- Resource_Layout.abc_screen_toolbar
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_search_dropdown_item_icons_2line <- Resource_Layout.abc_search_dropdown_item_icons_2line
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_search_view <- Resource_Layout.abc_search_view
+                global.Xamarin.Forms.Platform.Resource.Layout.abc_select_dialog_material <- Resource_Layout.abc_select_dialog_material
+                global.Xamarin.Forms.Platform.Resource.Layout.design_layout_snackbar <- Resource_Layout.design_layout_snackbar
+                global.Xamarin.Forms.Platform.Resource.Layout.design_layout_snackbar_include <- Resource_Layout.design_layout_snackbar_include
+                global.Xamarin.Forms.Platform.Resource.Layout.design_layout_tab_icon <- Resource_Layout.design_layout_tab_icon
+                global.Xamarin.Forms.Platform.Resource.Layout.design_layout_tab_text <- Resource_Layout.design_layout_tab_text
+                global.Xamarin.Forms.Platform.Resource.Layout.design_navigation_item <- Resource_Layout.design_navigation_item
+                global.Xamarin.Forms.Platform.Resource.Layout.design_navigation_item_header <- Resource_Layout.design_navigation_item_header
+                global.Xamarin.Forms.Platform.Resource.Layout.design_navigation_item_separator <- Resource_Layout.design_navigation_item_separator
+                global.Xamarin.Forms.Platform.Resource.Layout.design_navigation_item_subheader <- Resource_Layout.design_navigation_item_subheader
+                global.Xamarin.Forms.Platform.Resource.Layout.design_navigation_menu <- Resource_Layout.design_navigation_menu
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_media_action <- Resource_Layout.notification_media_action
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_media_cancel_action <- Resource_Layout.notification_media_cancel_action
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_big_media <- Resource_Layout.notification_template_big_media
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_big_media_narrow <- Resource_Layout.notification_template_big_media_narrow
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_lines <- Resource_Layout.notification_template_lines
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_media <- Resource_Layout.notification_template_media
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_part_chronometer <- Resource_Layout.notification_template_part_chronometer
+                global.Xamarin.Forms.Platform.Resource.Layout.notification_template_part_time <- Resource_Layout.notification_template_part_time
+                global.Xamarin.Forms.Platform.Resource.Layout.select_dialog_item_material <- Resource_Layout.select_dialog_item_material
+                global.Xamarin.Forms.Platform.Resource.Layout.select_dialog_multichoice_material <- Resource_Layout.select_dialog_multichoice_material
+                global.Xamarin.Forms.Platform.Resource.Layout.select_dialog_singlechoice_material <- Resource_Layout.select_dialog_singlechoice_material
+                global.Xamarin.Forms.Platform.Resource.Layout.support_simple_spinner_dropdown_item <- Resource_Layout.support_simple_spinner_dropdown_item
                 global.Xamarin.Forms.Platform.Resource.String.ApplicationName <- Resource_String.ApplicationName
                 global.Xamarin.Forms.Platform.Resource.String.Hello <- Resource_String.Hello
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_bar_home_description <- Resource_String.abc_action_bar_home_description
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_bar_home_description_format <- Resource_String.abc_action_bar_home_description_format
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_bar_home_subtitle_description_format <- Resource_String.abc_action_bar_home_subtitle_description_format
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_bar_up_description <- Resource_String.abc_action_bar_up_description
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_menu_overflow_description <- Resource_String.abc_action_menu_overflow_description
+                global.Xamarin.Forms.Platform.Resource.String.abc_action_mode_done <- Resource_String.abc_action_mode_done
+                global.Xamarin.Forms.Platform.Resource.String.abc_activity_chooser_view_see_all <- Resource_String.abc_activity_chooser_view_see_all
+                global.Xamarin.Forms.Platform.Resource.String.abc_activitychooserview_choose_application <- Resource_String.abc_activitychooserview_choose_application
+                global.Xamarin.Forms.Platform.Resource.String.abc_search_hint <- Resource_String.abc_search_hint
+                global.Xamarin.Forms.Platform.Resource.String.abc_searchview_description_clear <- Resource_String.abc_searchview_description_clear
+                global.Xamarin.Forms.Platform.Resource.String.abc_searchview_description_query <- Resource_String.abc_searchview_description_query
+                global.Xamarin.Forms.Platform.Resource.String.abc_searchview_description_search <- Resource_String.abc_searchview_description_search
+                global.Xamarin.Forms.Platform.Resource.String.abc_searchview_description_submit <- Resource_String.abc_searchview_description_submit
+                global.Xamarin.Forms.Platform.Resource.String.abc_searchview_description_voice <- Resource_String.abc_searchview_description_voice
+                global.Xamarin.Forms.Platform.Resource.String.abc_shareactionprovider_share_with <- Resource_String.abc_shareactionprovider_share_with
+                global.Xamarin.Forms.Platform.Resource.String.abc_shareactionprovider_share_with_application <- Resource_String.abc_shareactionprovider_share_with_application
+                global.Xamarin.Forms.Platform.Resource.String.abc_toolbar_collapse_description <- Resource_String.abc_toolbar_collapse_description
+                global.Xamarin.Forms.Platform.Resource.String.appbar_scrolling_view_behavior <- Resource_String.appbar_scrolling_view_behavior
+                global.Xamarin.Forms.Platform.Resource.String.status_bar_notification_info_overflow <- Resource_String.status_bar_notification_info_overflow
+                global.Xamarin.Forms.Platform.Resource.Style.AlertDialog_AppCompat <- Resource_Style.AlertDialog_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.AlertDialog_AppCompat_Light <- Resource_Style.AlertDialog_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Animation_AppCompat_Dialog <- Resource_Style.Animation_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Animation_AppCompat_DropDownUp <- Resource_Style.Animation_AppCompat_DropDownUp
+                global.Xamarin.Forms.Platform.Resource.Style.Base_AlertDialog_AppCompat <- Resource_Style.Base_AlertDialog_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_AlertDialog_AppCompat_Light <- Resource_Style.Base_AlertDialog_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Animation_AppCompat_Dialog <- Resource_Style.Base_Animation_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Animation_AppCompat_DropDownUp <- Resource_Style.Base_Animation_AppCompat_DropDownUp
+                global.Xamarin.Forms.Platform.Resource.Style.Base_DialogWindowTitle_AppCompat <- Resource_Style.Base_DialogWindowTitle_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_DialogWindowTitleBackground_AppCompat <- Resource_Style.Base_DialogWindowTitleBackground_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat <- Resource_Style.Base_TextAppearance_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Body1 <- Resource_Style.Base_TextAppearance_AppCompat_Body1
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Body2 <- Resource_Style.Base_TextAppearance_AppCompat_Body2
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Button <- Resource_Style.Base_TextAppearance_AppCompat_Button
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Caption <- Resource_Style.Base_TextAppearance_AppCompat_Caption
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Display1 <- Resource_Style.Base_TextAppearance_AppCompat_Display1
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Display2 <- Resource_Style.Base_TextAppearance_AppCompat_Display2
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Display3 <- Resource_Style.Base_TextAppearance_AppCompat_Display3
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Display4 <- Resource_Style.Base_TextAppearance_AppCompat_Display4
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Headline <- Resource_Style.Base_TextAppearance_AppCompat_Headline
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Large <- Resource_Style.Base_TextAppearance_AppCompat_Large
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Large_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large <- Resource_Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small <- Resource_Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Medium <- Resource_Style.Base_TextAppearance_AppCompat_Medium
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Medium_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Menu <- Resource_Style.Base_TextAppearance_AppCompat_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_SearchResult <- Resource_Style.Base_TextAppearance_AppCompat_SearchResult
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle <- Resource_Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title <- Resource_Style.Base_TextAppearance_AppCompat_SearchResult_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Small <- Resource_Style.Base_TextAppearance_AppCompat_Small
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Small_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Subhead <- Resource_Style.Base_TextAppearance_AppCompat_Subhead
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Subhead_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Title <- Resource_Style.Base_TextAppearance_AppCompat_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Title_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title <- Resource_Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button <- Resource_Style.Base_TextAppearance_AppCompat_Widget_Button
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse <- Resource_Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem <- Resource_Style.Base_TextAppearance_AppCompat_Widget_DropDownItem
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large <- Resource_Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small <- Resource_Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch <- Resource_Style.Base_TextAppearance_AppCompat_Widget_Switch
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem <- Resource_Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item <- Resource_Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle <- Resource_Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title <- Resource_Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat <- Resource_Style.Base_Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_CompactMenu <- Resource_Style.Base_Theme_AppCompat_CompactMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Dialog <- Resource_Style.Base_Theme_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Dialog_Alert <- Resource_Style.Base_Theme_AppCompat_Dialog_Alert
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize <- Resource_Style.Base_Theme_AppCompat_Dialog_FixedSize
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth <- Resource_Style.Base_Theme_AppCompat_Dialog_MinWidth
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge <- Resource_Style.Base_Theme_AppCompat_DialogWhenLarge
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light <- Resource_Style.Base_Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar <- Resource_Style.Base_Theme_AppCompat_Light_DarkActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_Dialog <- Resource_Style.Base_Theme_AppCompat_Light_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert <- Resource_Style.Base_Theme_AppCompat_Light_Dialog_Alert
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize <- Resource_Style.Base_Theme_AppCompat_Light_Dialog_FixedSize
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth <- Resource_Style.Base_Theme_AppCompat_Light_Dialog_MinWidth
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge <- Resource_Style.Base_Theme_AppCompat_Light_DialogWhenLarge
+                global.Xamarin.Forms.Platform.Resource.Style.Base_ThemeOverlay_AppCompat <- Resource_Style.Base_ThemeOverlay_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar <- Resource_Style.Base_ThemeOverlay_AppCompat_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_ThemeOverlay_AppCompat_Dark <- Resource_Style.Base_ThemeOverlay_AppCompat_Dark
+                global.Xamarin.Forms.Platform.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar <- Resource_Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_ThemeOverlay_AppCompat_Light <- Resource_Style.Base_ThemeOverlay_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V11_Theme_AppCompat_Dialog <- Resource_Style.Base_V11_Theme_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog <- Resource_Style.Base_V11_Theme_AppCompat_Light_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView <- Resource_Style.Base_V12_Widget_AppCompat_AutoCompleteTextView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V12_Widget_AppCompat_EditText <- Resource_Style.Base_V12_Widget_AppCompat_EditText
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V21_Theme_AppCompat <- Resource_Style.Base_V21_Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V21_Theme_AppCompat_Dialog <- Resource_Style.Base_V21_Theme_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V21_Theme_AppCompat_Light <- Resource_Style.Base_V21_Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog <- Resource_Style.Base_V21_Theme_AppCompat_Light_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V22_Theme_AppCompat <- Resource_Style.Base_V22_Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V22_Theme_AppCompat_Light <- Resource_Style.Base_V22_Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V23_Theme_AppCompat <- Resource_Style.Base_V23_Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V23_Theme_AppCompat_Light <- Resource_Style.Base_V23_Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Theme_AppCompat <- Resource_Style.Base_V7_Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Theme_AppCompat_Dialog <- Resource_Style.Base_V7_Theme_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Theme_AppCompat_Light <- Resource_Style.Base_V7_Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog <- Resource_Style.Base_V7_Theme_AppCompat_Light_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView <- Resource_Style.Base_V7_Widget_AppCompat_AutoCompleteTextView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_V7_Widget_AppCompat_EditText <- Resource_Style.Base_V7_Widget_AppCompat_EditText
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionBar <- Resource_Style.Base_Widget_AppCompat_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid <- Resource_Style.Base_Widget_AppCompat_ActionBar_Solid
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar <- Resource_Style.Base_Widget_AppCompat_ActionBar_TabBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText <- Resource_Style.Base_Widget_AppCompat_ActionBar_TabText
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView <- Resource_Style.Base_Widget_AppCompat_ActionBar_TabView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionButton <- Resource_Style.Base_Widget_AppCompat_ActionButton
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode <- Resource_Style.Base_Widget_AppCompat_ActionButton_CloseMode
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow <- Resource_Style.Base_Widget_AppCompat_ActionButton_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActionMode <- Resource_Style.Base_Widget_AppCompat_ActionMode
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ActivityChooserView <- Resource_Style.Base_Widget_AppCompat_ActivityChooserView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView <- Resource_Style.Base_Widget_AppCompat_AutoCompleteTextView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button <- Resource_Style.Base_Widget_AppCompat_Button
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button_Borderless <- Resource_Style.Base_Widget_AppCompat_Button_Borderless
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored <- Resource_Style.Base_Widget_AppCompat_Button_Borderless_Colored
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog <- Resource_Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button_Colored <- Resource_Style.Base_Widget_AppCompat_Button_Colored
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Button_Small <- Resource_Style.Base_Widget_AppCompat_Button_Small
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ButtonBar <- Resource_Style.Base_Widget_AppCompat_ButtonBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog <- Resource_Style.Base_Widget_AppCompat_ButtonBar_AlertDialog
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox <- Resource_Style.Base_Widget_AppCompat_CompoundButton_CheckBox
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton <- Resource_Style.Base_Widget_AppCompat_CompoundButton_RadioButton
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch <- Resource_Style.Base_Widget_AppCompat_CompoundButton_Switch
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle <- Resource_Style.Base_Widget_AppCompat_DrawerArrowToggle
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common <- Resource_Style.Base_Widget_AppCompat_DrawerArrowToggle_Common
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner <- Resource_Style.Base_Widget_AppCompat_DropDownItem_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_EditText <- Resource_Style.Base_Widget_AppCompat_EditText
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar_Solid
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar_TabBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar_TabText
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView <- Resource_Style.Base_Widget_AppCompat_Light_ActionBar_TabView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu <- Resource_Style.Base_Widget_AppCompat_Light_PopupMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow <- Resource_Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ListPopupWindow <- Resource_Style.Base_Widget_AppCompat_ListPopupWindow
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ListView <- Resource_Style.Base_Widget_AppCompat_ListView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ListView_DropDown <- Resource_Style.Base_Widget_AppCompat_ListView_DropDown
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ListView_Menu <- Resource_Style.Base_Widget_AppCompat_ListView_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_PopupMenu <- Resource_Style.Base_Widget_AppCompat_PopupMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow <- Resource_Style.Base_Widget_AppCompat_PopupMenu_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_PopupWindow <- Resource_Style.Base_Widget_AppCompat_PopupWindow
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ProgressBar <- Resource_Style.Base_Widget_AppCompat_ProgressBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal <- Resource_Style.Base_Widget_AppCompat_ProgressBar_Horizontal
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_RatingBar <- Resource_Style.Base_Widget_AppCompat_RatingBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_SearchView <- Resource_Style.Base_Widget_AppCompat_SearchView
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar <- Resource_Style.Base_Widget_AppCompat_SearchView_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Spinner <- Resource_Style.Base_Widget_AppCompat_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined <- Resource_Style.Base_Widget_AppCompat_Spinner_Underlined
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem <- Resource_Style.Base_Widget_AppCompat_TextView_SpinnerItem
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Toolbar <- Resource_Style.Base_Widget_AppCompat_Toolbar
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation <- Resource_Style.Base_Widget_AppCompat_Toolbar_Button_Navigation
+                global.Xamarin.Forms.Platform.Resource.Style.Base_Widget_Design_TabLayout <- Resource_Style.Base_Widget_Design_TabLayout
+                global.Xamarin.Forms.Platform.Resource.Style.CardView <- Resource_Style.CardView
+                global.Xamarin.Forms.Platform.Resource.Style.CardView_Dark <- Resource_Style.CardView_Dark
+                global.Xamarin.Forms.Platform.Resource.Style.CardView_Light <- Resource_Style.CardView_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_AppCompat <- Resource_Style.Platform_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_AppCompat_Light <- Resource_Style.Platform_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_ThemeOverlay_AppCompat <- Resource_Style.Platform_ThemeOverlay_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark <- Resource_Style.Platform_ThemeOverlay_AppCompat_Dark
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_ThemeOverlay_AppCompat_Light <- Resource_Style.Platform_ThemeOverlay_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_V11_AppCompat <- Resource_Style.Platform_V11_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_V11_AppCompat_Light <- Resource_Style.Platform_V11_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_V14_AppCompat <- Resource_Style.Platform_V14_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_V14_AppCompat_Light <- Resource_Style.Platform_V14_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Platform_Widget_AppCompat_Spinner <- Resource_Style.Platform_Widget_AppCompat_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat <- Resource_Style.RtlOverlay_DialogWindowTitle_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem <- Resource_Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_ActionButton_Overflow <- Resource_Style.RtlOverlay_Widget_AppCompat_ActionButton_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon <- Resource_Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem <- Resource_Style.RtlOverlay_Widget_AppCompat_PopupMenuItem
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup <- Resource_Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text <- Resource_Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown <- Resource_Style.RtlOverlay_Widget_AppCompat_Search_DropDown
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 <- Resource_Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 <- Resource_Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query <- Resource_Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text <- Resource_Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text
+                global.Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon <- Resource_Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat <- Resource_Style.TextAppearance_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Body1 <- Resource_Style.TextAppearance_AppCompat_Body1
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Body2 <- Resource_Style.TextAppearance_AppCompat_Body2
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Button <- Resource_Style.TextAppearance_AppCompat_Button
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Caption <- Resource_Style.TextAppearance_AppCompat_Caption
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Display1 <- Resource_Style.TextAppearance_AppCompat_Display1
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Display2 <- Resource_Style.TextAppearance_AppCompat_Display2
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Display3 <- Resource_Style.TextAppearance_AppCompat_Display3
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Display4 <- Resource_Style.TextAppearance_AppCompat_Display4
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Headline <- Resource_Style.TextAppearance_AppCompat_Headline
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Inverse <- Resource_Style.TextAppearance_AppCompat_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Large <- Resource_Style.TextAppearance_AppCompat_Large
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Large_Inverse <- Resource_Style.TextAppearance_AppCompat_Large_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle <- Resource_Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title <- Resource_Style.TextAppearance_AppCompat_Light_SearchResult_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large <- Resource_Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small <- Resource_Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Medium <- Resource_Style.TextAppearance_AppCompat_Medium
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Medium_Inverse <- Resource_Style.TextAppearance_AppCompat_Medium_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Menu <- Resource_Style.TextAppearance_AppCompat_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle <- Resource_Style.TextAppearance_AppCompat_SearchResult_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_SearchResult_Title <- Resource_Style.TextAppearance_AppCompat_SearchResult_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Small <- Resource_Style.TextAppearance_AppCompat_Small
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Small_Inverse <- Resource_Style.TextAppearance_AppCompat_Small_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Subhead <- Resource_Style.TextAppearance_AppCompat_Subhead
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse <- Resource_Style.TextAppearance_AppCompat_Subhead_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Title <- Resource_Style.TextAppearance_AppCompat_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Title_Inverse <- Resource_Style.TextAppearance_AppCompat_Title_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu <- Resource_Style.TextAppearance_AppCompat_Widget_ActionBar_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle <- Resource_Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse <- Resource_Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title <- Resource_Style.TextAppearance_AppCompat_Widget_ActionBar_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse <- Resource_Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle <- Resource_Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse <- Resource_Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title <- Resource_Style.TextAppearance_AppCompat_Widget_ActionMode_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse <- Resource_Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_Button <- Resource_Style.TextAppearance_AppCompat_Widget_Button
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse <- Resource_Style.TextAppearance_AppCompat_Widget_Button_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem <- Resource_Style.TextAppearance_AppCompat_Widget_DropDownItem
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large <- Resource_Style.TextAppearance_AppCompat_Widget_PopupMenu_Large
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small <- Resource_Style.TextAppearance_AppCompat_Widget_PopupMenu_Small
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_Switch <- Resource_Style.TextAppearance_AppCompat_Widget_Switch
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem <- Resource_Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded <- Resource_Style.TextAppearance_Design_CollapsingToolbar_Expanded
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Design_Error <- Resource_Style.TextAppearance_Design_Error
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Design_Hint <- Resource_Style.TextAppearance_Design_Hint
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Design_Snackbar_Message <- Resource_Style.TextAppearance_Design_Snackbar_Message
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Design_Tab <- Resource_Style.TextAppearance_Design_Tab
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_StatusBar_EventContent <- Resource_Style.TextAppearance_StatusBar_EventContent
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_StatusBar_EventContent_Info <- Resource_Style.TextAppearance_StatusBar_EventContent_Info
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_StatusBar_EventContent_Line2 <- Resource_Style.TextAppearance_StatusBar_EventContent_Line2
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_StatusBar_EventContent_Time <- Resource_Style.TextAppearance_StatusBar_EventContent_Time
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_StatusBar_EventContent_Title <- Resource_Style.TextAppearance_StatusBar_EventContent_Title
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item <- Resource_Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle <- Resource_Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle
+                global.Xamarin.Forms.Platform.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title <- Resource_Style.TextAppearance_Widget_AppCompat_Toolbar_Title
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat <- Resource_Style.Theme_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_CompactMenu <- Resource_Style.Theme_AppCompat_CompactMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Dialog <- Resource_Style.Theme_AppCompat_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Dialog_Alert <- Resource_Style.Theme_AppCompat_Dialog_Alert
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Dialog_MinWidth <- Resource_Style.Theme_AppCompat_Dialog_MinWidth
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_DialogWhenLarge <- Resource_Style.Theme_AppCompat_DialogWhenLarge
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light <- Resource_Style.Theme_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_DarkActionBar <- Resource_Style.Theme_AppCompat_Light_DarkActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_Dialog <- Resource_Style.Theme_AppCompat_Light_Dialog
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_Dialog_Alert <- Resource_Style.Theme_AppCompat_Light_Dialog_Alert
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth <- Resource_Style.Theme_AppCompat_Light_Dialog_MinWidth
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge <- Resource_Style.Theme_AppCompat_Light_DialogWhenLarge
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_Light_NoActionBar <- Resource_Style.Theme_AppCompat_Light_NoActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Theme_AppCompat_NoActionBar <- Resource_Style.Theme_AppCompat_NoActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.ThemeOverlay_AppCompat <- Resource_Style.ThemeOverlay_AppCompat
+                global.Xamarin.Forms.Platform.Resource.Style.ThemeOverlay_AppCompat_ActionBar <- Resource_Style.ThemeOverlay_AppCompat_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.ThemeOverlay_AppCompat_Dark <- Resource_Style.ThemeOverlay_AppCompat_Dark
+                global.Xamarin.Forms.Platform.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar <- Resource_Style.ThemeOverlay_AppCompat_Dark_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.ThemeOverlay_AppCompat_Light <- Resource_Style.ThemeOverlay_AppCompat_Light
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionBar <- Resource_Style.Widget_AppCompat_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionBar_Solid <- Resource_Style.Widget_AppCompat_ActionBar_Solid
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionBar_TabBar <- Resource_Style.Widget_AppCompat_ActionBar_TabBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionBar_TabText <- Resource_Style.Widget_AppCompat_ActionBar_TabText
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionBar_TabView <- Resource_Style.Widget_AppCompat_ActionBar_TabView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionButton <- Resource_Style.Widget_AppCompat_ActionButton
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionButton_CloseMode <- Resource_Style.Widget_AppCompat_ActionButton_CloseMode
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionButton_Overflow <- Resource_Style.Widget_AppCompat_ActionButton_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActionMode <- Resource_Style.Widget_AppCompat_ActionMode
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ActivityChooserView <- Resource_Style.Widget_AppCompat_ActivityChooserView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_AutoCompleteTextView <- Resource_Style.Widget_AppCompat_AutoCompleteTextView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button <- Resource_Style.Widget_AppCompat_Button
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button_Borderless <- Resource_Style.Widget_AppCompat_Button_Borderless
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button_Borderless_Colored <- Resource_Style.Widget_AppCompat_Button_Borderless_Colored
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog <- Resource_Style.Widget_AppCompat_Button_ButtonBar_AlertDialog
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button_Colored <- Resource_Style.Widget_AppCompat_Button_Colored
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Button_Small <- Resource_Style.Widget_AppCompat_Button_Small
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ButtonBar <- Resource_Style.Widget_AppCompat_ButtonBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog <- Resource_Style.Widget_AppCompat_ButtonBar_AlertDialog
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox <- Resource_Style.Widget_AppCompat_CompoundButton_CheckBox
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton <- Resource_Style.Widget_AppCompat_CompoundButton_RadioButton
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_CompoundButton_Switch <- Resource_Style.Widget_AppCompat_CompoundButton_Switch
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_DrawerArrowToggle <- Resource_Style.Widget_AppCompat_DrawerArrowToggle
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_DropDownItem_Spinner <- Resource_Style.Widget_AppCompat_DropDownItem_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_EditText <- Resource_Style.Widget_AppCompat_EditText
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar <- Resource_Style.Widget_AppCompat_Light_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid <- Resource_Style.Widget_AppCompat_Light_ActionBar_Solid
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse <- Resource_Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabText
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse <- Resource_Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionButton <- Resource_Style.Widget_AppCompat_Light_ActionButton
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode <- Resource_Style.Widget_AppCompat_Light_ActionButton_CloseMode
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow <- Resource_Style.Widget_AppCompat_Light_ActionButton_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse <- Resource_Style.Widget_AppCompat_Light_ActionMode_Inverse
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ActivityChooserView <- Resource_Style.Widget_AppCompat_Light_ActivityChooserView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView <- Resource_Style.Widget_AppCompat_Light_AutoCompleteTextView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner <- Resource_Style.Widget_AppCompat_Light_DropDownItem_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ListPopupWindow <- Resource_Style.Widget_AppCompat_Light_ListPopupWindow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_ListView_DropDown <- Resource_Style.Widget_AppCompat_Light_ListView_DropDown
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_PopupMenu <- Resource_Style.Widget_AppCompat_Light_PopupMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow <- Resource_Style.Widget_AppCompat_Light_PopupMenu_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_SearchView <- Resource_Style.Widget_AppCompat_Light_SearchView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar <- Resource_Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ListPopupWindow <- Resource_Style.Widget_AppCompat_ListPopupWindow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ListView <- Resource_Style.Widget_AppCompat_ListView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ListView_DropDown <- Resource_Style.Widget_AppCompat_ListView_DropDown
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ListView_Menu <- Resource_Style.Widget_AppCompat_ListView_Menu
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_PopupMenu <- Resource_Style.Widget_AppCompat_PopupMenu
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_PopupMenu_Overflow <- Resource_Style.Widget_AppCompat_PopupMenu_Overflow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_PopupWindow <- Resource_Style.Widget_AppCompat_PopupWindow
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ProgressBar <- Resource_Style.Widget_AppCompat_ProgressBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal <- Resource_Style.Widget_AppCompat_ProgressBar_Horizontal
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_RatingBar <- Resource_Style.Widget_AppCompat_RatingBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_SearchView <- Resource_Style.Widget_AppCompat_SearchView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_SearchView_ActionBar <- Resource_Style.Widget_AppCompat_SearchView_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Spinner <- Resource_Style.Widget_AppCompat_Spinner
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Spinner_DropDown <- Resource_Style.Widget_AppCompat_Spinner_DropDown
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar <- Resource_Style.Widget_AppCompat_Spinner_DropDown_ActionBar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Spinner_Underlined <- Resource_Style.Widget_AppCompat_Spinner_Underlined
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_TextView_SpinnerItem <- Resource_Style.Widget_AppCompat_TextView_SpinnerItem
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Toolbar <- Resource_Style.Widget_AppCompat_Toolbar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation <- Resource_Style.Widget_AppCompat_Toolbar_Button_Navigation
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_AppBarLayout <- Resource_Style.Widget_Design_AppBarLayout
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_CollapsingToolbar <- Resource_Style.Widget_Design_CollapsingToolbar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_CoordinatorLayout <- Resource_Style.Widget_Design_CoordinatorLayout
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_FloatingActionButton <- Resource_Style.Widget_Design_FloatingActionButton
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_NavigationView <- Resource_Style.Widget_Design_NavigationView
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_ScrimInsetsFrameLayout <- Resource_Style.Widget_Design_ScrimInsetsFrameLayout
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_Snackbar <- Resource_Style.Widget_Design_Snackbar
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_TabLayout <- Resource_Style.Widget_Design_TabLayout
+                global.Xamarin.Forms.Platform.Resource.Style.Widget_Design_TextInputLayout <- Resource_Style.Widget_Design_TextInputLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar <- Resource_Styleable.ActionBar
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_background <- Resource_Styleable.ActionBar_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_backgroundSplit <- Resource_Styleable.ActionBar_backgroundSplit
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_backgroundStacked <- Resource_Styleable.ActionBar_backgroundStacked
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_contentInsetEnd <- Resource_Styleable.ActionBar_contentInsetEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_contentInsetLeft <- Resource_Styleable.ActionBar_contentInsetLeft
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_contentInsetRight <- Resource_Styleable.ActionBar_contentInsetRight
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_contentInsetStart <- Resource_Styleable.ActionBar_contentInsetStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_customNavigationLayout <- Resource_Styleable.ActionBar_customNavigationLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_displayOptions <- Resource_Styleable.ActionBar_displayOptions
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_divider <- Resource_Styleable.ActionBar_divider
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_elevation <- Resource_Styleable.ActionBar_elevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_height <- Resource_Styleable.ActionBar_height
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_hideOnContentScroll <- Resource_Styleable.ActionBar_hideOnContentScroll
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_homeAsUpIndicator <- Resource_Styleable.ActionBar_homeAsUpIndicator
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_homeLayout <- Resource_Styleable.ActionBar_homeLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_icon <- Resource_Styleable.ActionBar_icon
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_indeterminateProgressStyle <- Resource_Styleable.ActionBar_indeterminateProgressStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_itemPadding <- Resource_Styleable.ActionBar_itemPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_logo <- Resource_Styleable.ActionBar_logo
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_navigationMode <- Resource_Styleable.ActionBar_navigationMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_popupTheme <- Resource_Styleable.ActionBar_popupTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_progressBarPadding <- Resource_Styleable.ActionBar_progressBarPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_progressBarStyle <- Resource_Styleable.ActionBar_progressBarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_subtitle <- Resource_Styleable.ActionBar_subtitle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_subtitleTextStyle <- Resource_Styleable.ActionBar_subtitleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_title <- Resource_Styleable.ActionBar_title
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBar_titleTextStyle <- Resource_Styleable.ActionBar_titleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBarLayout <- Resource_Styleable.ActionBarLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionBarLayout_android_layout_gravity <- Resource_Styleable.ActionBarLayout_android_layout_gravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMenuItemView <- Resource_Styleable.ActionMenuItemView
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMenuItemView_android_minWidth <- Resource_Styleable.ActionMenuItemView_android_minWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMenuView <- Resource_Styleable.ActionMenuView
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode <- Resource_Styleable.ActionMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_background <- Resource_Styleable.ActionMode_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_backgroundSplit <- Resource_Styleable.ActionMode_backgroundSplit
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_closeItemLayout <- Resource_Styleable.ActionMode_closeItemLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_height <- Resource_Styleable.ActionMode_height
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_subtitleTextStyle <- Resource_Styleable.ActionMode_subtitleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActionMode_titleTextStyle <- Resource_Styleable.ActionMode_titleTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView <- Resource_Styleable.ActivityChooserView
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable <- Resource_Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView_initialActivityCount <- Resource_Styleable.ActivityChooserView_initialActivityCount
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog <- Resource_Styleable.AlertDialog
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_android_layout <- Resource_Styleable.AlertDialog_android_layout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_buttonPanelSideLayout <- Resource_Styleable.AlertDialog_buttonPanelSideLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_listItemLayout <- Resource_Styleable.AlertDialog_listItemLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_listLayout <- Resource_Styleable.AlertDialog_listLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_multiChoiceItemLayout <- Resource_Styleable.AlertDialog_multiChoiceItemLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_singleChoiceItemLayout <- Resource_Styleable.AlertDialog_singleChoiceItemLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout <- Resource_Styleable.AppBarLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_android_background <- Resource_Styleable.AppBarLayout_android_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_elevation <- Resource_Styleable.AppBarLayout_elevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_expanded <- Resource_Styleable.AppBarLayout_expanded
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_LayoutParams <- Resource_Styleable.AppBarLayout_LayoutParams
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollFlags <- Resource_Styleable.AppBarLayout_LayoutParams_layout_scrollFlags
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollInterpolator <- Resource_Styleable.AppBarLayout_LayoutParams_layout_scrollInterpolator
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppCompatTextView <- Resource_Styleable.AppCompatTextView
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppCompatTextView_android_textAppearance <- Resource_Styleable.AppCompatTextView_android_textAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.AppCompatTextView_textAllCaps <- Resource_Styleable.AppCompatTextView_textAllCaps
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView <- Resource_Styleable.CardView
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardBackgroundColor <- Resource_Styleable.CardView_cardBackgroundColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardCornerRadius <- Resource_Styleable.CardView_cardCornerRadius
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardElevation <- Resource_Styleable.CardView_cardElevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardMaxElevation <- Resource_Styleable.CardView_cardMaxElevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardPreventCornerOverlap <- Resource_Styleable.CardView_cardPreventCornerOverlap
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_cardUseCompatPadding <- Resource_Styleable.CardView_cardUseCompatPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_contentPadding <- Resource_Styleable.CardView_contentPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_contentPaddingBottom <- Resource_Styleable.CardView_contentPaddingBottom
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_contentPaddingLeft <- Resource_Styleable.CardView_contentPaddingLeft
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_contentPaddingRight <- Resource_Styleable.CardView_contentPaddingRight
+                global.Xamarin.Forms.Platform.Resource.Styleable.CardView_contentPaddingTop <- Resource_Styleable.CardView_contentPaddingTop
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingAppBarLayout_LayoutParams <- Resource_Styleable.CollapsingAppBarLayout_LayoutParams
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseMode <- Resource_Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseParallaxMultiplier <- Resource_Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseParallaxMultiplier
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout <- Resource_Styleable.CollapsingToolbarLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity <- Resource_Styleable.CollapsingToolbarLayout_collapsedTitleGravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance <- Resource_Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_contentScrim <- Resource_Styleable.CollapsingToolbarLayout_contentScrim
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleGravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleMargin
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleMarginStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleMarginTop
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance <- Resource_Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim <- Resource_Styleable.CollapsingToolbarLayout_statusBarScrim
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_title <- Resource_Styleable.CollapsingToolbarLayout_title
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_titleEnabled <- Resource_Styleable.CollapsingToolbarLayout_titleEnabled
+                global.Xamarin.Forms.Platform.Resource.Styleable.CollapsingToolbarLayout_toolbarId <- Resource_Styleable.CollapsingToolbarLayout_toolbarId
+                global.Xamarin.Forms.Platform.Resource.Styleable.CompoundButton <- Resource_Styleable.CompoundButton
+                global.Xamarin.Forms.Platform.Resource.Styleable.CompoundButton_android_button <- Resource_Styleable.CompoundButton_android_button
+                global.Xamarin.Forms.Platform.Resource.Styleable.CompoundButton_buttonTint <- Resource_Styleable.CompoundButton_buttonTint
+                global.Xamarin.Forms.Platform.Resource.Styleable.CompoundButton_buttonTintMode <- Resource_Styleable.CompoundButton_buttonTintMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout <- Resource_Styleable.CoordinatorLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_keylines <- Resource_Styleable.CoordinatorLayout_keylines
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_statusBarBackground <- Resource_Styleable.CoordinatorLayout_statusBarBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams <- Resource_Styleable.CoordinatorLayout_LayoutParams
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams_android_layout_gravity <- Resource_Styleable.CoordinatorLayout_LayoutParams_android_layout_gravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchor <- Resource_Styleable.CoordinatorLayout_LayoutParams_layout_anchor
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchorGravity <- Resource_Styleable.CoordinatorLayout_LayoutParams_layout_anchorGravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_behavior <- Resource_Styleable.CoordinatorLayout_LayoutParams_layout_behavior
+                global.Xamarin.Forms.Platform.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_keyline <- Resource_Styleable.CoordinatorLayout_LayoutParams_layout_keyline
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle <- Resource_Styleable.DrawerArrowToggle
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_arrowHeadLength <- Resource_Styleable.DrawerArrowToggle_arrowHeadLength
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_arrowShaftLength <- Resource_Styleable.DrawerArrowToggle_arrowShaftLength
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_barLength <- Resource_Styleable.DrawerArrowToggle_barLength
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_color <- Resource_Styleable.DrawerArrowToggle_color
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_drawableSize <- Resource_Styleable.DrawerArrowToggle_drawableSize
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_gapBetweenBars <- Resource_Styleable.DrawerArrowToggle_gapBetweenBars
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_spinBars <- Resource_Styleable.DrawerArrowToggle_spinBars
+                global.Xamarin.Forms.Platform.Resource.Styleable.DrawerArrowToggle_thickness <- Resource_Styleable.DrawerArrowToggle_thickness
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton <- Resource_Styleable.FloatingActionButton
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_android_background <- Resource_Styleable.FloatingActionButton_android_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_backgroundTint <- Resource_Styleable.FloatingActionButton_backgroundTint
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_backgroundTintMode <- Resource_Styleable.FloatingActionButton_backgroundTintMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_borderWidth <- Resource_Styleable.FloatingActionButton_borderWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_elevation <- Resource_Styleable.FloatingActionButton_elevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_fabSize <- Resource_Styleable.FloatingActionButton_fabSize
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_pressedTranslationZ <- Resource_Styleable.FloatingActionButton_pressedTranslationZ
+                global.Xamarin.Forms.Platform.Resource.Styleable.FloatingActionButton_rippleColor <- Resource_Styleable.FloatingActionButton_rippleColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat <- Resource_Styleable.LinearLayoutCompat
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_android_baselineAligned <- Resource_Styleable.LinearLayoutCompat_android_baselineAligned
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex <- Resource_Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_android_gravity <- Resource_Styleable.LinearLayoutCompat_android_gravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_android_orientation <- Resource_Styleable.LinearLayoutCompat_android_orientation
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_android_weightSum <- Resource_Styleable.LinearLayoutCompat_android_weightSum
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_divider <- Resource_Styleable.LinearLayoutCompat_divider
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_dividerPadding <- Resource_Styleable.LinearLayoutCompat_dividerPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild <- Resource_Styleable.LinearLayoutCompat_measureWithLargestChild
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_showDividers <- Resource_Styleable.LinearLayoutCompat_showDividers
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_Layout <- Resource_Styleable.LinearLayoutCompat_Layout
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity <- Resource_Styleable.LinearLayoutCompat_Layout_android_layout_gravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height <- Resource_Styleable.LinearLayoutCompat_Layout_android_layout_height
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight <- Resource_Styleable.LinearLayoutCompat_Layout_android_layout_weight
+                global.Xamarin.Forms.Platform.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width <- Resource_Styleable.LinearLayoutCompat_Layout_android_layout_width
+                global.Xamarin.Forms.Platform.Resource.Styleable.ListPopupWindow <- Resource_Styleable.ListPopupWindow
+                global.Xamarin.Forms.Platform.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset <- Resource_Styleable.ListPopupWindow_android_dropDownHorizontalOffset
+                global.Xamarin.Forms.Platform.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset <- Resource_Styleable.ListPopupWindow_android_dropDownVerticalOffset
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup <- Resource_Styleable.MenuGroup
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_checkableBehavior <- Resource_Styleable.MenuGroup_android_checkableBehavior
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_enabled <- Resource_Styleable.MenuGroup_android_enabled
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_id <- Resource_Styleable.MenuGroup_android_id
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_menuCategory <- Resource_Styleable.MenuGroup_android_menuCategory
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_orderInCategory <- Resource_Styleable.MenuGroup_android_orderInCategory
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuGroup_android_visible <- Resource_Styleable.MenuGroup_android_visible
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem <- Resource_Styleable.MenuItem
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_actionLayout <- Resource_Styleable.MenuItem_actionLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_actionProviderClass <- Resource_Styleable.MenuItem_actionProviderClass
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_actionViewClass <- Resource_Styleable.MenuItem_actionViewClass
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_alphabeticShortcut <- Resource_Styleable.MenuItem_android_alphabeticShortcut
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_checkable <- Resource_Styleable.MenuItem_android_checkable
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_checked <- Resource_Styleable.MenuItem_android_checked
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_enabled <- Resource_Styleable.MenuItem_android_enabled
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_icon <- Resource_Styleable.MenuItem_android_icon
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_id <- Resource_Styleable.MenuItem_android_id
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_menuCategory <- Resource_Styleable.MenuItem_android_menuCategory
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_numericShortcut <- Resource_Styleable.MenuItem_android_numericShortcut
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_onClick <- Resource_Styleable.MenuItem_android_onClick
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_orderInCategory <- Resource_Styleable.MenuItem_android_orderInCategory
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_title <- Resource_Styleable.MenuItem_android_title
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_titleCondensed <- Resource_Styleable.MenuItem_android_titleCondensed
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_android_visible <- Resource_Styleable.MenuItem_android_visible
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuItem_showAsAction <- Resource_Styleable.MenuItem_showAsAction
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView <- Resource_Styleable.MenuView
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_headerBackground <- Resource_Styleable.MenuView_android_headerBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_horizontalDivider <- Resource_Styleable.MenuView_android_horizontalDivider
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_itemBackground <- Resource_Styleable.MenuView_android_itemBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_itemIconDisabledAlpha <- Resource_Styleable.MenuView_android_itemIconDisabledAlpha
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_itemTextAppearance <- Resource_Styleable.MenuView_android_itemTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_verticalDivider <- Resource_Styleable.MenuView_android_verticalDivider
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_windowAnimationStyle <- Resource_Styleable.MenuView_android_windowAnimationStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.MenuView_preserveIconSpacing <- Resource_Styleable.MenuView_preserveIconSpacing
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView <- Resource_Styleable.NavigationView
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_android_background <- Resource_Styleable.NavigationView_android_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_android_fitsSystemWindows <- Resource_Styleable.NavigationView_android_fitsSystemWindows
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_android_maxWidth <- Resource_Styleable.NavigationView_android_maxWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_elevation <- Resource_Styleable.NavigationView_elevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_headerLayout <- Resource_Styleable.NavigationView_headerLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemBackground <- Resource_Styleable.NavigationView_itemBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemIconTint <- Resource_Styleable.NavigationView_itemIconTint
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemTextAppearance <- Resource_Styleable.NavigationView_itemTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemTextColor <- Resource_Styleable.NavigationView_itemTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.NavigationView_menu <- Resource_Styleable.NavigationView_menu
+                global.Xamarin.Forms.Platform.Resource.Styleable.PopupWindow <- Resource_Styleable.PopupWindow
+                global.Xamarin.Forms.Platform.Resource.Styleable.PopupWindow_android_popupBackground <- Resource_Styleable.PopupWindow_android_popupBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.PopupWindow_overlapAnchor <- Resource_Styleable.PopupWindow_overlapAnchor
+                global.Xamarin.Forms.Platform.Resource.Styleable.PopupWindowBackgroundState <- Resource_Styleable.PopupWindowBackgroundState
+                global.Xamarin.Forms.Platform.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor <- Resource_Styleable.PopupWindowBackgroundState_state_above_anchor
+                global.Xamarin.Forms.Platform.Resource.Styleable.ScrimInsetsFrameLayout <- Resource_Styleable.ScrimInsetsFrameLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground <- Resource_Styleable.ScrimInsetsFrameLayout_insetForeground
+                global.Xamarin.Forms.Platform.Resource.Styleable.ScrollingViewBehavior_Params <- Resource_Styleable.ScrollingViewBehavior_Params
+                global.Xamarin.Forms.Platform.Resource.Styleable.ScrollingViewBehavior_Params_behavior_overlapTop <- Resource_Styleable.ScrollingViewBehavior_Params_behavior_overlapTop
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView <- Resource_Styleable.SearchView
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_focusable <- Resource_Styleable.SearchView_android_focusable
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_imeOptions <- Resource_Styleable.SearchView_android_imeOptions
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_inputType <- Resource_Styleable.SearchView_android_inputType
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_maxWidth <- Resource_Styleable.SearchView_android_maxWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_closeIcon <- Resource_Styleable.SearchView_closeIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_commitIcon <- Resource_Styleable.SearchView_commitIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_defaultQueryHint <- Resource_Styleable.SearchView_defaultQueryHint
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_goIcon <- Resource_Styleable.SearchView_goIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_iconifiedByDefault <- Resource_Styleable.SearchView_iconifiedByDefault
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_layout <- Resource_Styleable.SearchView_layout
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_queryBackground <- Resource_Styleable.SearchView_queryBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_queryHint <- Resource_Styleable.SearchView_queryHint
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_searchHintIcon <- Resource_Styleable.SearchView_searchHintIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_searchIcon <- Resource_Styleable.SearchView_searchIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_submitBackground <- Resource_Styleable.SearchView_submitBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_suggestionRowLayout <- Resource_Styleable.SearchView_suggestionRowLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.SearchView_voiceIcon <- Resource_Styleable.SearchView_voiceIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.SnackbarLayout <- Resource_Styleable.SnackbarLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.SnackbarLayout_android_maxWidth <- Resource_Styleable.SnackbarLayout_android_maxWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.SnackbarLayout_elevation <- Resource_Styleable.SnackbarLayout_elevation
+                global.Xamarin.Forms.Platform.Resource.Styleable.SnackbarLayout_maxActionInlineWidth <- Resource_Styleable.SnackbarLayout_maxActionInlineWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.Spinner <- Resource_Styleable.Spinner
+                global.Xamarin.Forms.Platform.Resource.Styleable.Spinner_android_dropDownWidth <- Resource_Styleable.Spinner_android_dropDownWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.Spinner_android_popupBackground <- Resource_Styleable.Spinner_android_popupBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Spinner_android_prompt <- Resource_Styleable.Spinner_android_prompt
+                global.Xamarin.Forms.Platform.Resource.Styleable.Spinner_popupTheme <- Resource_Styleable.Spinner_popupTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat <- Resource_Styleable.SwitchCompat
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_android_textOff <- Resource_Styleable.SwitchCompat_android_textOff
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_android_textOn <- Resource_Styleable.SwitchCompat_android_textOn
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_android_thumb <- Resource_Styleable.SwitchCompat_android_thumb
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_showText <- Resource_Styleable.SwitchCompat_showText
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_splitTrack <- Resource_Styleable.SwitchCompat_splitTrack
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_switchMinWidth <- Resource_Styleable.SwitchCompat_switchMinWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_switchPadding <- Resource_Styleable.SwitchCompat_switchPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_switchTextAppearance <- Resource_Styleable.SwitchCompat_switchTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_thumbTextPadding <- Resource_Styleable.SwitchCompat_thumbTextPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.SwitchCompat_track <- Resource_Styleable.SwitchCompat_track
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout <- Resource_Styleable.TabLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabBackground <- Resource_Styleable.TabLayout_tabBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabContentStart <- Resource_Styleable.TabLayout_tabContentStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabGravity <- Resource_Styleable.TabLayout_tabGravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabIndicatorColor <- Resource_Styleable.TabLayout_tabIndicatorColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabIndicatorHeight <- Resource_Styleable.TabLayout_tabIndicatorHeight
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabMaxWidth <- Resource_Styleable.TabLayout_tabMaxWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabMinWidth <- Resource_Styleable.TabLayout_tabMinWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabMode <- Resource_Styleable.TabLayout_tabMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabPadding <- Resource_Styleable.TabLayout_tabPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabPaddingBottom <- Resource_Styleable.TabLayout_tabPaddingBottom
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabPaddingEnd <- Resource_Styleable.TabLayout_tabPaddingEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabPaddingStart <- Resource_Styleable.TabLayout_tabPaddingStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabPaddingTop <- Resource_Styleable.TabLayout_tabPaddingTop
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabSelectedTextColor <- Resource_Styleable.TabLayout_tabSelectedTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabTextAppearance <- Resource_Styleable.TabLayout_tabTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.TabLayout_tabTextColor <- Resource_Styleable.TabLayout_tabTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance <- Resource_Styleable.TextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance_android_textColor <- Resource_Styleable.TextAppearance_android_textColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance_android_textSize <- Resource_Styleable.TextAppearance_android_textSize
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance_android_textStyle <- Resource_Styleable.TextAppearance_android_textStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance_android_typeface <- Resource_Styleable.TextAppearance_android_typeface
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextAppearance_textAllCaps <- Resource_Styleable.TextAppearance_textAllCaps
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout <- Resource_Styleable.TextInputLayout
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_android_hint <- Resource_Styleable.TextInputLayout_android_hint
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_android_textColorHint <- Resource_Styleable.TextInputLayout_android_textColorHint
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_errorEnabled <- Resource_Styleable.TextInputLayout_errorEnabled
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_errorTextAppearance <- Resource_Styleable.TextInputLayout_errorTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_hintAnimationEnabled <- Resource_Styleable.TextInputLayout_hintAnimationEnabled
+                global.Xamarin.Forms.Platform.Resource.Styleable.TextInputLayout_hintTextAppearance <- Resource_Styleable.TextInputLayout_hintTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme <- Resource_Styleable.Theme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarDivider <- Resource_Styleable.Theme_actionBarDivider
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarItemBackground <- Resource_Styleable.Theme_actionBarItemBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarPopupTheme <- Resource_Styleable.Theme_actionBarPopupTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarSize <- Resource_Styleable.Theme_actionBarSize
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarSplitStyle <- Resource_Styleable.Theme_actionBarSplitStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarStyle <- Resource_Styleable.Theme_actionBarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarTabBarStyle <- Resource_Styleable.Theme_actionBarTabBarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarTabStyle <- Resource_Styleable.Theme_actionBarTabStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarTabTextStyle <- Resource_Styleable.Theme_actionBarTabTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarTheme <- Resource_Styleable.Theme_actionBarTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionBarWidgetTheme <- Resource_Styleable.Theme_actionBarWidgetTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionButtonStyle <- Resource_Styleable.Theme_actionButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionDropDownStyle <- Resource_Styleable.Theme_actionDropDownStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionMenuTextAppearance <- Resource_Styleable.Theme_actionMenuTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionMenuTextColor <- Resource_Styleable.Theme_actionMenuTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeBackground <- Resource_Styleable.Theme_actionModeBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeCloseButtonStyle <- Resource_Styleable.Theme_actionModeCloseButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeCloseDrawable <- Resource_Styleable.Theme_actionModeCloseDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeCopyDrawable <- Resource_Styleable.Theme_actionModeCopyDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeCutDrawable <- Resource_Styleable.Theme_actionModeCutDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeFindDrawable <- Resource_Styleable.Theme_actionModeFindDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModePasteDrawable <- Resource_Styleable.Theme_actionModePasteDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModePopupWindowStyle <- Resource_Styleable.Theme_actionModePopupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeSelectAllDrawable <- Resource_Styleable.Theme_actionModeSelectAllDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeShareDrawable <- Resource_Styleable.Theme_actionModeShareDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeSplitBackground <- Resource_Styleable.Theme_actionModeSplitBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeStyle <- Resource_Styleable.Theme_actionModeStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionModeWebSearchDrawable <- Resource_Styleable.Theme_actionModeWebSearchDrawable
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionOverflowButtonStyle <- Resource_Styleable.Theme_actionOverflowButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_actionOverflowMenuStyle <- Resource_Styleable.Theme_actionOverflowMenuStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_activityChooserViewStyle <- Resource_Styleable.Theme_activityChooserViewStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_alertDialogButtonGroupStyle <- Resource_Styleable.Theme_alertDialogButtonGroupStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_alertDialogCenterButtons <- Resource_Styleable.Theme_alertDialogCenterButtons
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_alertDialogStyle <- Resource_Styleable.Theme_alertDialogStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_alertDialogTheme <- Resource_Styleable.Theme_alertDialogTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_android_windowAnimationStyle <- Resource_Styleable.Theme_android_windowAnimationStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_android_windowIsFloating <- Resource_Styleable.Theme_android_windowIsFloating
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_autoCompleteTextViewStyle <- Resource_Styleable.Theme_autoCompleteTextViewStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_borderlessButtonStyle <- Resource_Styleable.Theme_borderlessButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonBarButtonStyle <- Resource_Styleable.Theme_buttonBarButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonBarNegativeButtonStyle <- Resource_Styleable.Theme_buttonBarNegativeButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonBarNeutralButtonStyle <- Resource_Styleable.Theme_buttonBarNeutralButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonBarPositiveButtonStyle <- Resource_Styleable.Theme_buttonBarPositiveButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonBarStyle <- Resource_Styleable.Theme_buttonBarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonStyle <- Resource_Styleable.Theme_buttonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_buttonStyleSmall <- Resource_Styleable.Theme_buttonStyleSmall
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_checkboxStyle <- Resource_Styleable.Theme_checkboxStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_checkedTextViewStyle <- Resource_Styleable.Theme_checkedTextViewStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorAccent <- Resource_Styleable.Theme_colorAccent
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorButtonNormal <- Resource_Styleable.Theme_colorButtonNormal
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorControlActivated <- Resource_Styleable.Theme_colorControlActivated
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorControlHighlight <- Resource_Styleable.Theme_colorControlHighlight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorControlNormal <- Resource_Styleable.Theme_colorControlNormal
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorPrimary <- Resource_Styleable.Theme_colorPrimary
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorPrimaryDark <- Resource_Styleable.Theme_colorPrimaryDark
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_colorSwitchThumbNormal <- Resource_Styleable.Theme_colorSwitchThumbNormal
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_controlBackground <- Resource_Styleable.Theme_controlBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dialogPreferredPadding <- Resource_Styleable.Theme_dialogPreferredPadding
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dialogTheme <- Resource_Styleable.Theme_dialogTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dividerHorizontal <- Resource_Styleable.Theme_dividerHorizontal
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dividerVertical <- Resource_Styleable.Theme_dividerVertical
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dropDownListViewStyle <- Resource_Styleable.Theme_dropDownListViewStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_dropdownListPreferredItemHeight <- Resource_Styleable.Theme_dropdownListPreferredItemHeight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_editTextBackground <- Resource_Styleable.Theme_editTextBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_editTextColor <- Resource_Styleable.Theme_editTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_editTextStyle <- Resource_Styleable.Theme_editTextStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_homeAsUpIndicator <- Resource_Styleable.Theme_homeAsUpIndicator
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listChoiceBackgroundIndicator <- Resource_Styleable.Theme_listChoiceBackgroundIndicator
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listDividerAlertDialog <- Resource_Styleable.Theme_listDividerAlertDialog
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPopupWindowStyle <- Resource_Styleable.Theme_listPopupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPreferredItemHeight <- Resource_Styleable.Theme_listPreferredItemHeight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPreferredItemHeightLarge <- Resource_Styleable.Theme_listPreferredItemHeightLarge
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPreferredItemHeightSmall <- Resource_Styleable.Theme_listPreferredItemHeightSmall
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPreferredItemPaddingLeft <- Resource_Styleable.Theme_listPreferredItemPaddingLeft
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_listPreferredItemPaddingRight <- Resource_Styleable.Theme_listPreferredItemPaddingRight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_panelBackground <- Resource_Styleable.Theme_panelBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_panelMenuListTheme <- Resource_Styleable.Theme_panelMenuListTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_panelMenuListWidth <- Resource_Styleable.Theme_panelMenuListWidth
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_popupMenuStyle <- Resource_Styleable.Theme_popupMenuStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_popupWindowStyle <- Resource_Styleable.Theme_popupWindowStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_radioButtonStyle <- Resource_Styleable.Theme_radioButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_ratingBarStyle <- Resource_Styleable.Theme_ratingBarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_searchViewStyle <- Resource_Styleable.Theme_searchViewStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_selectableItemBackground <- Resource_Styleable.Theme_selectableItemBackground
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_selectableItemBackgroundBorderless <- Resource_Styleable.Theme_selectableItemBackgroundBorderless
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_spinnerDropDownItemStyle <- Resource_Styleable.Theme_spinnerDropDownItemStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_spinnerStyle <- Resource_Styleable.Theme_spinnerStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_switchStyle <- Resource_Styleable.Theme_switchStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceLargePopupMenu <- Resource_Styleable.Theme_textAppearanceLargePopupMenu
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceListItem <- Resource_Styleable.Theme_textAppearanceListItem
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceListItemSmall <- Resource_Styleable.Theme_textAppearanceListItemSmall
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceSearchResultSubtitle <- Resource_Styleable.Theme_textAppearanceSearchResultSubtitle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceSearchResultTitle <- Resource_Styleable.Theme_textAppearanceSearchResultTitle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textAppearanceSmallPopupMenu <- Resource_Styleable.Theme_textAppearanceSmallPopupMenu
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textColorAlertDialogListItem <- Resource_Styleable.Theme_textColorAlertDialogListItem
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_textColorSearchUrl <- Resource_Styleable.Theme_textColorSearchUrl
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_toolbarNavigationButtonStyle <- Resource_Styleable.Theme_toolbarNavigationButtonStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_toolbarStyle <- Resource_Styleable.Theme_toolbarStyle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowActionBar <- Resource_Styleable.Theme_windowActionBar
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowActionBarOverlay <- Resource_Styleable.Theme_windowActionBarOverlay
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowActionModeOverlay <- Resource_Styleable.Theme_windowActionModeOverlay
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowFixedHeightMajor <- Resource_Styleable.Theme_windowFixedHeightMajor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowFixedHeightMinor <- Resource_Styleable.Theme_windowFixedHeightMinor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowFixedWidthMajor <- Resource_Styleable.Theme_windowFixedWidthMajor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowFixedWidthMinor <- Resource_Styleable.Theme_windowFixedWidthMinor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowMinWidthMajor <- Resource_Styleable.Theme_windowMinWidthMajor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowMinWidthMinor <- Resource_Styleable.Theme_windowMinWidthMinor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Theme_windowNoTitle <- Resource_Styleable.Theme_windowNoTitle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar <- Resource_Styleable.Toolbar
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_android_gravity <- Resource_Styleable.Toolbar_android_gravity
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_android_minHeight <- Resource_Styleable.Toolbar_android_minHeight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_collapseContentDescription <- Resource_Styleable.Toolbar_collapseContentDescription
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_collapseIcon <- Resource_Styleable.Toolbar_collapseIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_contentInsetEnd <- Resource_Styleable.Toolbar_contentInsetEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_contentInsetLeft <- Resource_Styleable.Toolbar_contentInsetLeft
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_contentInsetRight <- Resource_Styleable.Toolbar_contentInsetRight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_contentInsetStart <- Resource_Styleable.Toolbar_contentInsetStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_logo <- Resource_Styleable.Toolbar_logo
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_logoDescription <- Resource_Styleable.Toolbar_logoDescription
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_maxButtonHeight <- Resource_Styleable.Toolbar_maxButtonHeight
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_navigationContentDescription <- Resource_Styleable.Toolbar_navigationContentDescription
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_navigationIcon <- Resource_Styleable.Toolbar_navigationIcon
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_popupTheme <- Resource_Styleable.Toolbar_popupTheme
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_subtitle <- Resource_Styleable.Toolbar_subtitle
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_subtitleTextAppearance <- Resource_Styleable.Toolbar_subtitleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_subtitleTextColor <- Resource_Styleable.Toolbar_subtitleTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_title <- Resource_Styleable.Toolbar_title
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleMarginBottom <- Resource_Styleable.Toolbar_titleMarginBottom
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleMarginEnd <- Resource_Styleable.Toolbar_titleMarginEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleMarginStart <- Resource_Styleable.Toolbar_titleMarginStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleMarginTop <- Resource_Styleable.Toolbar_titleMarginTop
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleMargins <- Resource_Styleable.Toolbar_titleMargins
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleTextAppearance <- Resource_Styleable.Toolbar_titleTextAppearance
+                global.Xamarin.Forms.Platform.Resource.Styleable.Toolbar_titleTextColor <- Resource_Styleable.Toolbar_titleTextColor
+                global.Xamarin.Forms.Platform.Resource.Styleable.View <- Resource_Styleable.View
+                global.Xamarin.Forms.Platform.Resource.Styleable.View_android_focusable <- Resource_Styleable.View_android_focusable
+                global.Xamarin.Forms.Platform.Resource.Styleable.View_android_theme <- Resource_Styleable.View_android_theme
+                global.Xamarin.Forms.Platform.Resource.Styleable.View_paddingEnd <- Resource_Styleable.View_paddingEnd
+                global.Xamarin.Forms.Platform.Resource.Styleable.View_paddingStart <- Resource_Styleable.View_paddingStart
+                global.Xamarin.Forms.Platform.Resource.Styleable.View_theme <- Resource_Styleable.View_theme
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewBackgroundHelper <- Resource_Styleable.ViewBackgroundHelper
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewBackgroundHelper_android_background <- Resource_Styleable.ViewBackgroundHelper_android_background
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewBackgroundHelper_backgroundTint <- Resource_Styleable.ViewBackgroundHelper_backgroundTint
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode <- Resource_Styleable.ViewBackgroundHelper_backgroundTintMode
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat <- Resource_Styleable.ViewStubCompat
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_id <- Resource_Styleable.ViewStubCompat_android_id
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_inflatedId <- Resource_Styleable.ViewStubCompat_android_inflatedId
+                global.Xamarin.Forms.Platform.Resource.Styleable.ViewStubCompat_android_layout <- Resource_Styleable.ViewStubCompat_android_layout
+
+
+    
+    and
+        
+        (* partial *)Resource_Animation () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f040000
+            static member abc_fade_in = 2130968576
+            
+            // aapt resource value: 0x7f040001
+            static member abc_fade_out = 2130968577
+            
+            // aapt resource value: 0x7f040002
+            static member abc_grow_fade_in_from_bottom = 2130968578
+            
+            // aapt resource value: 0x7f040003
+            static member abc_popup_enter = 2130968579
+            
+            // aapt resource value: 0x7f040004
+            static member abc_popup_exit = 2130968580
+            
+            // aapt resource value: 0x7f040005
+            static member abc_shrink_fade_out_from_bottom = 2130968581
+            
+            // aapt resource value: 0x7f040006
+            static member abc_slide_in_bottom = 2130968582
+            
+            // aapt resource value: 0x7f040007
+            static member abc_slide_in_top = 2130968583
+            
+            // aapt resource value: 0x7f040008
+            static member abc_slide_out_bottom = 2130968584
+            
+            // aapt resource value: 0x7f040009
+            static member abc_slide_out_top = 2130968585
+            
+            // aapt resource value: 0x7f04000a
+            static member design_fab_in = 2130968586
+            
+            // aapt resource value: 0x7f04000b
+            static member design_fab_out = 2130968587
+            
+            // aapt resource value: 0x7f04000c
+            static member design_snackbar_in = 2130968588
+            
+            // aapt resource value: 0x7f04000d
+            static member design_snackbar_out = 2130968589
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 
     
@@ -50,6 +1555,1442 @@ namespace ffrab.droid
         
         (* partial *)Resource_Attribute () =
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f010076
+            static member actionBarDivider = 2130772086
+            
+            // aapt resource value: 0x7f010077
+            static member actionBarItemBackground = 2130772087
+            
+            // aapt resource value: 0x7f010070
+            static member actionBarPopupTheme = 2130772080
+            
+            // aapt resource value: 0x7f010075
+            static member actionBarSize = 2130772085
+            
+            // aapt resource value: 0x7f010072
+            static member actionBarSplitStyle = 2130772082
+            
+            // aapt resource value: 0x7f010071
+            static member actionBarStyle = 2130772081
+            
+            // aapt resource value: 0x7f01006c
+            static member actionBarTabBarStyle = 2130772076
+            
+            // aapt resource value: 0x7f01006b
+            static member actionBarTabStyle = 2130772075
+            
+            // aapt resource value: 0x7f01006d
+            static member actionBarTabTextStyle = 2130772077
+            
+            // aapt resource value: 0x7f010073
+            static member actionBarTheme = 2130772083
+            
+            // aapt resource value: 0x7f010074
+            static member actionBarWidgetTheme = 2130772084
+            
+            // aapt resource value: 0x7f010090
+            static member actionButtonStyle = 2130772112
+            
+            // aapt resource value: 0x7f01008c
+            static member actionDropDownStyle = 2130772108
+            
+            // aapt resource value: 0x7f010047
+            static member actionLayout = 2130772039
+            
+            // aapt resource value: 0x7f010078
+            static member actionMenuTextAppearance = 2130772088
+            
+            // aapt resource value: 0x7f010079
+            static member actionMenuTextColor = 2130772089
+            
+            // aapt resource value: 0x7f01007c
+            static member actionModeBackground = 2130772092
+            
+            // aapt resource value: 0x7f01007b
+            static member actionModeCloseButtonStyle = 2130772091
+            
+            // aapt resource value: 0x7f01007e
+            static member actionModeCloseDrawable = 2130772094
+            
+            // aapt resource value: 0x7f010080
+            static member actionModeCopyDrawable = 2130772096
+            
+            // aapt resource value: 0x7f01007f
+            static member actionModeCutDrawable = 2130772095
+            
+            // aapt resource value: 0x7f010084
+            static member actionModeFindDrawable = 2130772100
+            
+            // aapt resource value: 0x7f010081
+            static member actionModePasteDrawable = 2130772097
+            
+            // aapt resource value: 0x7f010086
+            static member actionModePopupWindowStyle = 2130772102
+            
+            // aapt resource value: 0x7f010082
+            static member actionModeSelectAllDrawable = 2130772098
+            
+            // aapt resource value: 0x7f010083
+            static member actionModeShareDrawable = 2130772099
+            
+            // aapt resource value: 0x7f01007d
+            static member actionModeSplitBackground = 2130772093
+            
+            // aapt resource value: 0x7f01007a
+            static member actionModeStyle = 2130772090
+            
+            // aapt resource value: 0x7f010085
+            static member actionModeWebSearchDrawable = 2130772101
+            
+            // aapt resource value: 0x7f01006e
+            static member actionOverflowButtonStyle = 2130772078
+            
+            // aapt resource value: 0x7f01006f
+            static member actionOverflowMenuStyle = 2130772079
+            
+            // aapt resource value: 0x7f010049
+            static member actionProviderClass = 2130772041
+            
+            // aapt resource value: 0x7f010048
+            static member actionViewClass = 2130772040
+            
+            // aapt resource value: 0x7f010098
+            static member activityChooserViewStyle = 2130772120
+            
+            // aapt resource value: 0x7f0100ba
+            static member alertDialogButtonGroupStyle = 2130772154
+            
+            // aapt resource value: 0x7f0100bb
+            static member alertDialogCenterButtons = 2130772155
+            
+            // aapt resource value: 0x7f0100b9
+            static member alertDialogStyle = 2130772153
+            
+            // aapt resource value: 0x7f0100bc
+            static member alertDialogTheme = 2130772156
+            
+            // aapt resource value: 0x7f01003f
+            static member arrowHeadLength = 2130772031
+            
+            // aapt resource value: 0x7f010040
+            static member arrowShaftLength = 2130772032
+            
+            // aapt resource value: 0x7f0100c1
+            static member autoCompleteTextViewStyle = 2130772161
+            
+            // aapt resource value: 0x7f010020
+            static member background = 2130772000
+            
+            // aapt resource value: 0x7f010022
+            static member backgroundSplit = 2130772002
+            
+            // aapt resource value: 0x7f010021
+            static member backgroundStacked = 2130772001
+            
+            // aapt resource value: 0x7f0100dd
+            static member backgroundTint = 2130772189
+            
+            // aapt resource value: 0x7f0100de
+            static member backgroundTintMode = 2130772190
+            
+            // aapt resource value: 0x7f010041
+            static member barLength = 2130772033
+            
+            // aapt resource value: 0x7f010102
+            static member behavior_overlapTop = 2130772226
+            
+            // aapt resource value: 0x7f0100fa
+            static member borderWidth = 2130772218
+            
+            // aapt resource value: 0x7f010095
+            static member borderlessButtonStyle = 2130772117
+            
+            // aapt resource value: 0x7f010092
+            static member buttonBarButtonStyle = 2130772114
+            
+            // aapt resource value: 0x7f0100bf
+            static member buttonBarNegativeButtonStyle = 2130772159
+            
+            // aapt resource value: 0x7f0100c0
+            static member buttonBarNeutralButtonStyle = 2130772160
+            
+            // aapt resource value: 0x7f0100be
+            static member buttonBarPositiveButtonStyle = 2130772158
+            
+            // aapt resource value: 0x7f010091
+            static member buttonBarStyle = 2130772113
+            
+            // aapt resource value: 0x7f010033
+            static member buttonPanelSideLayout = 2130772019
+            
+            // aapt resource value: 0x7f0100c2
+            static member buttonStyle = 2130772162
+            
+            // aapt resource value: 0x7f0100c3
+            static member buttonStyleSmall = 2130772163
+            
+            // aapt resource value: 0x7f010039
+            static member buttonTint = 2130772025
+            
+            // aapt resource value: 0x7f01003a
+            static member buttonTintMode = 2130772026
+            
+            // aapt resource value: 0x7f010009
+            static member cardBackgroundColor = 2130771977
+            
+            // aapt resource value: 0x7f01000a
+            static member cardCornerRadius = 2130771978
+            
+            // aapt resource value: 0x7f01000b
+            static member cardElevation = 2130771979
+            
+            // aapt resource value: 0x7f01000c
+            static member cardMaxElevation = 2130771980
+            
+            // aapt resource value: 0x7f01000e
+            static member cardPreventCornerOverlap = 2130771982
+            
+            // aapt resource value: 0x7f01000d
+            static member cardUseCompatPadding = 2130771981
+            
+            // aapt resource value: 0x7f0100c4
+            static member checkboxStyle = 2130772164
+            
+            // aapt resource value: 0x7f0100c5
+            static member checkedTextViewStyle = 2130772165
+            
+            // aapt resource value: 0x7f010051
+            static member closeIcon = 2130772049
+            
+            // aapt resource value: 0x7f010030
+            static member closeItemLayout = 2130772016
+            
+            // aapt resource value: 0x7f0100d4
+            static member collapseContentDescription = 2130772180
+            
+            // aapt resource value: 0x7f0100d3
+            static member collapseIcon = 2130772179
+            
+            // aapt resource value: 0x7f0100ee
+            static member collapsedTitleGravity = 2130772206
+            
+            // aapt resource value: 0x7f0100ea
+            static member collapsedTitleTextAppearance = 2130772202
+            
+            // aapt resource value: 0x7f01003b
+            static member color = 2130772027
+            
+            // aapt resource value: 0x7f0100b2
+            static member colorAccent = 2130772146
+            
+            // aapt resource value: 0x7f0100b6
+            static member colorButtonNormal = 2130772150
+            
+            // aapt resource value: 0x7f0100b4
+            static member colorControlActivated = 2130772148
+            
+            // aapt resource value: 0x7f0100b5
+            static member colorControlHighlight = 2130772149
+            
+            // aapt resource value: 0x7f0100b3
+            static member colorControlNormal = 2130772147
+            
+            // aapt resource value: 0x7f0100b0
+            static member colorPrimary = 2130772144
+            
+            // aapt resource value: 0x7f0100b1
+            static member colorPrimaryDark = 2130772145
+            
+            // aapt resource value: 0x7f0100b7
+            static member colorSwitchThumbNormal = 2130772151
+            
+            // aapt resource value: 0x7f010056
+            static member commitIcon = 2130772054
+            
+            // aapt resource value: 0x7f01002b
+            static member contentInsetEnd = 2130772011
+            
+            // aapt resource value: 0x7f01002c
+            static member contentInsetLeft = 2130772012
+            
+            // aapt resource value: 0x7f01002d
+            static member contentInsetRight = 2130772013
+            
+            // aapt resource value: 0x7f01002a
+            static member contentInsetStart = 2130772010
+            
+            // aapt resource value: 0x7f01000f
+            static member contentPadding = 2130771983
+            
+            // aapt resource value: 0x7f010013
+            static member contentPaddingBottom = 2130771987
+            
+            // aapt resource value: 0x7f010010
+            static member contentPaddingLeft = 2130771984
+            
+            // aapt resource value: 0x7f010011
+            static member contentPaddingRight = 2130771985
+            
+            // aapt resource value: 0x7f010012
+            static member contentPaddingTop = 2130771986
+            
+            // aapt resource value: 0x7f0100eb
+            static member contentScrim = 2130772203
+            
+            // aapt resource value: 0x7f0100b8
+            static member controlBackground = 2130772152
+            
+            // aapt resource value: 0x7f010023
+            static member customNavigationLayout = 2130772003
+            
+            // aapt resource value: 0x7f010050
+            static member defaultQueryHint = 2130772048
+            
+            // aapt resource value: 0x7f01008a
+            static member dialogPreferredPadding = 2130772106
+            
+            // aapt resource value: 0x7f010089
+            static member dialogTheme = 2130772105
+            
+            // aapt resource value: 0x7f010019
+            static member displayOptions = 2130771993
+            
+            // aapt resource value: 0x7f01001f
+            static member divider = 2130771999
+            
+            // aapt resource value: 0x7f010097
+            static member dividerHorizontal = 2130772119
+            
+            // aapt resource value: 0x7f010045
+            static member dividerPadding = 2130772037
+            
+            // aapt resource value: 0x7f010096
+            static member dividerVertical = 2130772118
+            
+            // aapt resource value: 0x7f01003d
+            static member drawableSize = 2130772029
+            
+            // aapt resource value: 0x7f010014
+            static member drawerArrowStyle = 2130771988
+            
+            // aapt resource value: 0x7f0100a8
+            static member dropDownListViewStyle = 2130772136
+            
+            // aapt resource value: 0x7f01008d
+            static member dropdownListPreferredItemHeight = 2130772109
+            
+            // aapt resource value: 0x7f01009e
+            static member editTextBackground = 2130772126
+            
+            // aapt resource value: 0x7f01009d
+            static member editTextColor = 2130772125
+            
+            // aapt resource value: 0x7f0100c6
+            static member editTextStyle = 2130772166
+            
+            // aapt resource value: 0x7f01002e
+            static member elevation = 2130772014
+            
+            // aapt resource value: 0x7f010115
+            static member errorEnabled = 2130772245
+            
+            // aapt resource value: 0x7f010116
+            static member errorTextAppearance = 2130772246
+            
+            // aapt resource value: 0x7f010032
+            static member expandActivityOverflowButtonDrawable = 2130772018
+            
+            // aapt resource value: 0x7f0100df
+            static member expanded = 2130772191
+            
+            // aapt resource value: 0x7f0100ef
+            static member expandedTitleGravity = 2130772207
+            
+            // aapt resource value: 0x7f0100e4
+            static member expandedTitleMargin = 2130772196
+            
+            // aapt resource value: 0x7f0100e8
+            static member expandedTitleMarginBottom = 2130772200
+            
+            // aapt resource value: 0x7f0100e7
+            static member expandedTitleMarginEnd = 2130772199
+            
+            // aapt resource value: 0x7f0100e5
+            static member expandedTitleMarginStart = 2130772197
+            
+            // aapt resource value: 0x7f0100e6
+            static member expandedTitleMarginTop = 2130772198
+            
+            // aapt resource value: 0x7f0100e9
+            static member expandedTitleTextAppearance = 2130772201
+            
+            // aapt resource value: 0x7f010008
+            static member externalRouteEnabledDrawable = 2130771976
+            
+            // aapt resource value: 0x7f0100f8
+            static member fabSize = 2130772216
+            
+            // aapt resource value: 0x7f01003e
+            static member gapBetweenBars = 2130772030
+            
+            // aapt resource value: 0x7f010052
+            static member goIcon = 2130772050
+            
+            // aapt resource value: 0x7f010100
+            static member headerLayout = 2130772224
+            
+            // aapt resource value: 0x7f010015
+            static member height = 2130771989
+            
+            // aapt resource value: 0x7f010029
+            static member hideOnContentScroll = 2130772009
+            
+            // aapt resource value: 0x7f010117
+            static member hintAnimationEnabled = 2130772247
+            
+            // aapt resource value: 0x7f010114
+            static member hintTextAppearance = 2130772244
+            
+            // aapt resource value: 0x7f01008f
+            static member homeAsUpIndicator = 2130772111
+            
+            // aapt resource value: 0x7f010024
+            static member homeLayout = 2130772004
+            
+            // aapt resource value: 0x7f01001d
+            static member icon = 2130771997
+            
+            // aapt resource value: 0x7f01004e
+            static member iconifiedByDefault = 2130772046
+            
+            // aapt resource value: 0x7f010026
+            static member indeterminateProgressStyle = 2130772006
+            
+            // aapt resource value: 0x7f010031
+            static member initialActivityCount = 2130772017
+            
+            // aapt resource value: 0x7f010101
+            static member insetForeground = 2130772225
+            
+            // aapt resource value: 0x7f010016
+            static member isLightTheme = 2130771990
+            
+            // aapt resource value: 0x7f0100fe
+            static member itemBackground = 2130772222
+            
+            // aapt resource value: 0x7f0100fc
+            static member itemIconTint = 2130772220
+            
+            // aapt resource value: 0x7f010028
+            static member itemPadding = 2130772008
+            
+            // aapt resource value: 0x7f0100ff
+            static member itemTextAppearance = 2130772223
+            
+            // aapt resource value: 0x7f0100fd
+            static member itemTextColor = 2130772221
+            
+            // aapt resource value: 0x7f0100f1
+            static member keylines = 2130772209
+            
+            // aapt resource value: 0x7f01004d
+            static member layout = 2130772045
+            
+            // aapt resource value: 0x7f0100f4
+            static member layout_anchor = 2130772212
+            
+            // aapt resource value: 0x7f0100f6
+            static member layout_anchorGravity = 2130772214
+            
+            // aapt resource value: 0x7f0100f3
+            static member layout_behavior = 2130772211
+            
+            // aapt resource value: 0x7f0100e2
+            static member layout_collapseMode = 2130772194
+            
+            // aapt resource value: 0x7f0100e3
+            static member layout_collapseParallaxMultiplier = 2130772195
+            
+            // aapt resource value: 0x7f0100f5
+            static member layout_keyline = 2130772213
+            
+            // aapt resource value: 0x7f0100e0
+            static member layout_scrollFlags = 2130772192
+            
+            // aapt resource value: 0x7f0100e1
+            static member layout_scrollInterpolator = 2130772193
+            
+            // aapt resource value: 0x7f0100af
+            static member listChoiceBackgroundIndicator = 2130772143
+            
+            // aapt resource value: 0x7f01008b
+            static member listDividerAlertDialog = 2130772107
+            
+            // aapt resource value: 0x7f010037
+            static member listItemLayout = 2130772023
+            
+            // aapt resource value: 0x7f010034
+            static member listLayout = 2130772020
+            
+            // aapt resource value: 0x7f0100a9
+            static member listPopupWindowStyle = 2130772137
+            
+            // aapt resource value: 0x7f0100a3
+            static member listPreferredItemHeight = 2130772131
+            
+            // aapt resource value: 0x7f0100a5
+            static member listPreferredItemHeightLarge = 2130772133
+            
+            // aapt resource value: 0x7f0100a4
+            static member listPreferredItemHeightSmall = 2130772132
+            
+            // aapt resource value: 0x7f0100a6
+            static member listPreferredItemPaddingLeft = 2130772134
+            
+            // aapt resource value: 0x7f0100a7
+            static member listPreferredItemPaddingRight = 2130772135
+            
+            // aapt resource value: 0x7f01001e
+            static member logo = 2130771998
+            
+            // aapt resource value: 0x7f0100d7
+            static member logoDescription = 2130772183
+            
+            // aapt resource value: 0x7f010103
+            static member maxActionInlineWidth = 2130772227
+            
+            // aapt resource value: 0x7f0100d2
+            static member maxButtonHeight = 2130772178
+            
+            // aapt resource value: 0x7f010043
+            static member measureWithLargestChild = 2130772035
+            
+            // aapt resource value: 0x7f010000
+            static member mediaRouteButtonStyle = 2130771968
+            
+            // aapt resource value: 0x7f010001
+            static member mediaRouteCastDrawable = 2130771969
+            
+            // aapt resource value: 0x7f010002
+            static member mediaRouteConnectingDrawable = 2130771970
+            
+            // aapt resource value: 0x7f010003
+            static member mediaRouteOffDrawable = 2130771971
+            
+            // aapt resource value: 0x7f010004
+            static member mediaRouteOnDrawable = 2130771972
+            
+            // aapt resource value: 0x7f010005
+            static member mediaRoutePauseDrawable = 2130771973
+            
+            // aapt resource value: 0x7f010006
+            static member mediaRoutePlayDrawable = 2130771974
+            
+            // aapt resource value: 0x7f010007
+            static member mediaRouteSettingsDrawable = 2130771975
+            
+            // aapt resource value: 0x7f0100fb
+            static member menu = 2130772219
+            
+            // aapt resource value: 0x7f010035
+            static member multiChoiceItemLayout = 2130772021
+            
+            // aapt resource value: 0x7f0100d6
+            static member navigationContentDescription = 2130772182
+            
+            // aapt resource value: 0x7f0100d5
+            static member navigationIcon = 2130772181
+            
+            // aapt resource value: 0x7f010018
+            static member navigationMode = 2130771992
+            
+            // aapt resource value: 0x7f01004b
+            static member overlapAnchor = 2130772043
+            
+            // aapt resource value: 0x7f0100db
+            static member paddingEnd = 2130772187
+            
+            // aapt resource value: 0x7f0100da
+            static member paddingStart = 2130772186
+            
+            // aapt resource value: 0x7f0100ac
+            static member panelBackground = 2130772140
+            
+            // aapt resource value: 0x7f0100ae
+            static member panelMenuListTheme = 2130772142
+            
+            // aapt resource value: 0x7f0100ad
+            static member panelMenuListWidth = 2130772141
+            
+            // aapt resource value: 0x7f01009b
+            static member popupMenuStyle = 2130772123
+            
+            // aapt resource value: 0x7f01002f
+            static member popupTheme = 2130772015
+            
+            // aapt resource value: 0x7f01009c
+            static member popupWindowStyle = 2130772124
+            
+            // aapt resource value: 0x7f01004a
+            static member preserveIconSpacing = 2130772042
+            
+            // aapt resource value: 0x7f0100f9
+            static member pressedTranslationZ = 2130772217
+            
+            // aapt resource value: 0x7f010027
+            static member progressBarPadding = 2130772007
+            
+            // aapt resource value: 0x7f010025
+            static member progressBarStyle = 2130772005
+            
+            // aapt resource value: 0x7f010058
+            static member queryBackground = 2130772056
+            
+            // aapt resource value: 0x7f01004f
+            static member queryHint = 2130772047
+            
+            // aapt resource value: 0x7f0100c7
+            static member radioButtonStyle = 2130772167
+            
+            // aapt resource value: 0x7f0100c8
+            static member ratingBarStyle = 2130772168
+            
+            // aapt resource value: 0x7f0100f7
+            static member rippleColor = 2130772215
+            
+            // aapt resource value: 0x7f010054
+            static member searchHintIcon = 2130772052
+            
+            // aapt resource value: 0x7f010053
+            static member searchIcon = 2130772051
+            
+            // aapt resource value: 0x7f0100a2
+            static member searchViewStyle = 2130772130
+            
+            // aapt resource value: 0x7f010093
+            static member selectableItemBackground = 2130772115
+            
+            // aapt resource value: 0x7f010094
+            static member selectableItemBackgroundBorderless = 2130772116
+            
+            // aapt resource value: 0x7f010046
+            static member showAsAction = 2130772038
+            
+            // aapt resource value: 0x7f010044
+            static member showDividers = 2130772036
+            
+            // aapt resource value: 0x7f010060
+            static member showText = 2130772064
+            
+            // aapt resource value: 0x7f010036
+            static member singleChoiceItemLayout = 2130772022
+            
+            // aapt resource value: 0x7f01003c
+            static member spinBars = 2130772028
+            
+            // aapt resource value: 0x7f01008e
+            static member spinnerDropDownItemStyle = 2130772110
+            
+            // aapt resource value: 0x7f0100c9
+            static member spinnerStyle = 2130772169
+            
+            // aapt resource value: 0x7f01005f
+            static member splitTrack = 2130772063
+            
+            // aapt resource value: 0x7f01004c
+            static member state_above_anchor = 2130772044
+            
+            // aapt resource value: 0x7f0100f2
+            static member statusBarBackground = 2130772210
+            
+            // aapt resource value: 0x7f0100ec
+            static member statusBarScrim = 2130772204
+            
+            // aapt resource value: 0x7f010059
+            static member submitBackground = 2130772057
+            
+            // aapt resource value: 0x7f01001a
+            static member subtitle = 2130771994
+            
+            // aapt resource value: 0x7f0100cc
+            static member subtitleTextAppearance = 2130772172
+            
+            // aapt resource value: 0x7f0100d9
+            static member subtitleTextColor = 2130772185
+            
+            // aapt resource value: 0x7f01001c
+            static member subtitleTextStyle = 2130771996
+            
+            // aapt resource value: 0x7f010057
+            static member suggestionRowLayout = 2130772055
+            
+            // aapt resource value: 0x7f01005d
+            static member switchMinWidth = 2130772061
+            
+            // aapt resource value: 0x7f01005e
+            static member switchPadding = 2130772062
+            
+            // aapt resource value: 0x7f0100ca
+            static member switchStyle = 2130772170
+            
+            // aapt resource value: 0x7f01005c
+            static member switchTextAppearance = 2130772060
+            
+            // aapt resource value: 0x7f010107
+            static member tabBackground = 2130772231
+            
+            // aapt resource value: 0x7f010106
+            static member tabContentStart = 2130772230
+            
+            // aapt resource value: 0x7f010109
+            static member tabGravity = 2130772233
+            
+            // aapt resource value: 0x7f010104
+            static member tabIndicatorColor = 2130772228
+            
+            // aapt resource value: 0x7f010105
+            static member tabIndicatorHeight = 2130772229
+            
+            // aapt resource value: 0x7f01010b
+            static member tabMaxWidth = 2130772235
+            
+            // aapt resource value: 0x7f01010a
+            static member tabMinWidth = 2130772234
+            
+            // aapt resource value: 0x7f010108
+            static member tabMode = 2130772232
+            
+            // aapt resource value: 0x7f010113
+            static member tabPadding = 2130772243
+            
+            // aapt resource value: 0x7f010112
+            static member tabPaddingBottom = 2130772242
+            
+            // aapt resource value: 0x7f010111
+            static member tabPaddingEnd = 2130772241
+            
+            // aapt resource value: 0x7f01010f
+            static member tabPaddingStart = 2130772239
+            
+            // aapt resource value: 0x7f010110
+            static member tabPaddingTop = 2130772240
+            
+            // aapt resource value: 0x7f01010e
+            static member tabSelectedTextColor = 2130772238
+            
+            // aapt resource value: 0x7f01010c
+            static member tabTextAppearance = 2130772236
+            
+            // aapt resource value: 0x7f01010d
+            static member tabTextColor = 2130772237
+            
+            // aapt resource value: 0x7f010038
+            static member textAllCaps = 2130772024
+            
+            // aapt resource value: 0x7f010087
+            static member textAppearanceLargePopupMenu = 2130772103
+            
+            // aapt resource value: 0x7f0100aa
+            static member textAppearanceListItem = 2130772138
+            
+            // aapt resource value: 0x7f0100ab
+            static member textAppearanceListItemSmall = 2130772139
+            
+            // aapt resource value: 0x7f0100a0
+            static member textAppearanceSearchResultSubtitle = 2130772128
+            
+            // aapt resource value: 0x7f01009f
+            static member textAppearanceSearchResultTitle = 2130772127
+            
+            // aapt resource value: 0x7f010088
+            static member textAppearanceSmallPopupMenu = 2130772104
+            
+            // aapt resource value: 0x7f0100bd
+            static member textColorAlertDialogListItem = 2130772157
+            
+            // aapt resource value: 0x7f0100a1
+            static member textColorSearchUrl = 2130772129
+            
+            // aapt resource value: 0x7f0100dc
+            static member theme = 2130772188
+            
+            // aapt resource value: 0x7f010042
+            static member thickness = 2130772034
+            
+            // aapt resource value: 0x7f01005b
+            static member thumbTextPadding = 2130772059
+            
+            // aapt resource value: 0x7f010017
+            static member title = 2130771991
+            
+            // aapt resource value: 0x7f0100f0
+            static member titleEnabled = 2130772208
+            
+            // aapt resource value: 0x7f0100d1
+            static member titleMarginBottom = 2130772177
+            
+            // aapt resource value: 0x7f0100cf
+            static member titleMarginEnd = 2130772175
+            
+            // aapt resource value: 0x7f0100ce
+            static member titleMarginStart = 2130772174
+            
+            // aapt resource value: 0x7f0100d0
+            static member titleMarginTop = 2130772176
+            
+            // aapt resource value: 0x7f0100cd
+            static member titleMargins = 2130772173
+            
+            // aapt resource value: 0x7f0100cb
+            static member titleTextAppearance = 2130772171
+            
+            // aapt resource value: 0x7f0100d8
+            static member titleTextColor = 2130772184
+            
+            // aapt resource value: 0x7f01001b
+            static member titleTextStyle = 2130771995
+            
+            // aapt resource value: 0x7f0100ed
+            static member toolbarId = 2130772205
+            
+            // aapt resource value: 0x7f01009a
+            static member toolbarNavigationButtonStyle = 2130772122
+            
+            // aapt resource value: 0x7f010099
+            static member toolbarStyle = 2130772121
+            
+            // aapt resource value: 0x7f01005a
+            static member track = 2130772058
+            
+            // aapt resource value: 0x7f010055
+            static member voiceIcon = 2130772053
+            
+            // aapt resource value: 0x7f010061
+            static member windowActionBar = 2130772065
+            
+            // aapt resource value: 0x7f010063
+            static member windowActionBarOverlay = 2130772067
+            
+            // aapt resource value: 0x7f010064
+            static member windowActionModeOverlay = 2130772068
+            
+            // aapt resource value: 0x7f010068
+            static member windowFixedHeightMajor = 2130772072
+            
+            // aapt resource value: 0x7f010066
+            static member windowFixedHeightMinor = 2130772070
+            
+            // aapt resource value: 0x7f010065
+            static member windowFixedWidthMajor = 2130772069
+            
+            // aapt resource value: 0x7f010067
+            static member windowFixedWidthMinor = 2130772071
+            
+            // aapt resource value: 0x7f010069
+            static member windowMinWidthMajor = 2130772073
+            
+            // aapt resource value: 0x7f01006a
+            static member windowMinWidthMinor = 2130772074
+            
+            // aapt resource value: 0x7f010062
+            static member windowNoTitle = 2130772066
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Boolean () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f090002
+            static member abc_action_bar_embed_tabs = 2131296258
+            
+            // aapt resource value: 0x7f090000
+            static member abc_action_bar_embed_tabs_pre_jb = 2131296256
+            
+            // aapt resource value: 0x7f090003
+            static member abc_action_bar_expanded_action_views_exclusive = 2131296259
+            
+            // aapt resource value: 0x7f090004
+            static member abc_config_actionMenuItemAllCaps = 2131296260
+            
+            // aapt resource value: 0x7f090001
+            static member abc_config_allowActionMenuItemTextWithIcon = 2131296257
+            
+            // aapt resource value: 0x7f090005
+            static member abc_config_closeDialogWhenTouchOutside = 2131296261
+            
+            // aapt resource value: 0x7f090006
+            static member abc_config_showMenuShortcutsWhenKeyboardPresent = 2131296262
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Color () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f080047
+            static member abc_background_cache_hint_selector_material_dark = 2131230791
+            
+            // aapt resource value: 0x7f080048
+            static member abc_background_cache_hint_selector_material_light = 2131230792
+            
+            // aapt resource value: 0x7f080049
+            static member abc_color_highlight_material = 2131230793
+            
+            // aapt resource value: 0x7f080004
+            static member abc_input_method_navigation_guard = 2131230724
+            
+            // aapt resource value: 0x7f08004a
+            static member abc_primary_text_disable_only_material_dark = 2131230794
+            
+            // aapt resource value: 0x7f08004b
+            static member abc_primary_text_disable_only_material_light = 2131230795
+            
+            // aapt resource value: 0x7f08004c
+            static member abc_primary_text_material_dark = 2131230796
+            
+            // aapt resource value: 0x7f08004d
+            static member abc_primary_text_material_light = 2131230797
+            
+            // aapt resource value: 0x7f08004e
+            static member abc_search_url_text = 2131230798
+            
+            // aapt resource value: 0x7f080005
+            static member abc_search_url_text_normal = 2131230725
+            
+            // aapt resource value: 0x7f080006
+            static member abc_search_url_text_pressed = 2131230726
+            
+            // aapt resource value: 0x7f080007
+            static member abc_search_url_text_selected = 2131230727
+            
+            // aapt resource value: 0x7f08004f
+            static member abc_secondary_text_material_dark = 2131230799
+            
+            // aapt resource value: 0x7f080050
+            static member abc_secondary_text_material_light = 2131230800
+            
+            // aapt resource value: 0x7f080008
+            static member accent_material_dark = 2131230728
+            
+            // aapt resource value: 0x7f080009
+            static member accent_material_light = 2131230729
+            
+            // aapt resource value: 0x7f08000a
+            static member background_floating_material_dark = 2131230730
+            
+            // aapt resource value: 0x7f08000b
+            static member background_floating_material_light = 2131230731
+            
+            // aapt resource value: 0x7f08000c
+            static member background_material_dark = 2131230732
+            
+            // aapt resource value: 0x7f08000d
+            static member background_material_light = 2131230733
+            
+            // aapt resource value: 0x7f08000e
+            static member bright_foreground_disabled_material_dark = 2131230734
+            
+            // aapt resource value: 0x7f08000f
+            static member bright_foreground_disabled_material_light = 2131230735
+            
+            // aapt resource value: 0x7f080010
+            static member bright_foreground_inverse_material_dark = 2131230736
+            
+            // aapt resource value: 0x7f080011
+            static member bright_foreground_inverse_material_light = 2131230737
+            
+            // aapt resource value: 0x7f080012
+            static member bright_foreground_material_dark = 2131230738
+            
+            // aapt resource value: 0x7f080013
+            static member bright_foreground_material_light = 2131230739
+            
+            // aapt resource value: 0x7f080014
+            static member button_material_dark = 2131230740
+            
+            // aapt resource value: 0x7f080015
+            static member button_material_light = 2131230741
+            
+            // aapt resource value: 0x7f080000
+            static member cardview_dark_background = 2131230720
+            
+            // aapt resource value: 0x7f080001
+            static member cardview_light_background = 2131230721
+            
+            // aapt resource value: 0x7f080002
+            static member cardview_shadow_end_color = 2131230722
+            
+            // aapt resource value: 0x7f080003
+            static member cardview_shadow_start_color = 2131230723
+            
+            // aapt resource value: 0x7f08003e
+            static member design_fab_shadow_end_color = 2131230782
+            
+            // aapt resource value: 0x7f08003f
+            static member design_fab_shadow_mid_color = 2131230783
+            
+            // aapt resource value: 0x7f080040
+            static member design_fab_shadow_start_color = 2131230784
+            
+            // aapt resource value: 0x7f080041
+            static member design_fab_stroke_end_inner_color = 2131230785
+            
+            // aapt resource value: 0x7f080042
+            static member design_fab_stroke_end_outer_color = 2131230786
+            
+            // aapt resource value: 0x7f080043
+            static member design_fab_stroke_top_inner_color = 2131230787
+            
+            // aapt resource value: 0x7f080044
+            static member design_fab_stroke_top_outer_color = 2131230788
+            
+            // aapt resource value: 0x7f080045
+            static member design_snackbar_background_color = 2131230789
+            
+            // aapt resource value: 0x7f080046
+            static member design_textinput_error_color = 2131230790
+            
+            // aapt resource value: 0x7f080016
+            static member dim_foreground_disabled_material_dark = 2131230742
+            
+            // aapt resource value: 0x7f080017
+            static member dim_foreground_disabled_material_light = 2131230743
+            
+            // aapt resource value: 0x7f080018
+            static member dim_foreground_material_dark = 2131230744
+            
+            // aapt resource value: 0x7f080019
+            static member dim_foreground_material_light = 2131230745
+            
+            // aapt resource value: 0x7f08001a
+            static member foreground_material_dark = 2131230746
+            
+            // aapt resource value: 0x7f08001b
+            static member foreground_material_light = 2131230747
+            
+            // aapt resource value: 0x7f08001c
+            static member highlighted_text_material_dark = 2131230748
+            
+            // aapt resource value: 0x7f08001d
+            static member highlighted_text_material_light = 2131230749
+            
+            // aapt resource value: 0x7f08001e
+            static member hint_foreground_material_dark = 2131230750
+            
+            // aapt resource value: 0x7f08001f
+            static member hint_foreground_material_light = 2131230751
+            
+            // aapt resource value: 0x7f080020
+            static member material_blue_grey_800 = 2131230752
+            
+            // aapt resource value: 0x7f080021
+            static member material_blue_grey_900 = 2131230753
+            
+            // aapt resource value: 0x7f080022
+            static member material_blue_grey_950 = 2131230754
+            
+            // aapt resource value: 0x7f080023
+            static member material_deep_teal_200 = 2131230755
+            
+            // aapt resource value: 0x7f080024
+            static member material_deep_teal_500 = 2131230756
+            
+            // aapt resource value: 0x7f080025
+            static member material_grey_100 = 2131230757
+            
+            // aapt resource value: 0x7f080026
+            static member material_grey_300 = 2131230758
+            
+            // aapt resource value: 0x7f080027
+            static member material_grey_50 = 2131230759
+            
+            // aapt resource value: 0x7f080028
+            static member material_grey_600 = 2131230760
+            
+            // aapt resource value: 0x7f080029
+            static member material_grey_800 = 2131230761
+            
+            // aapt resource value: 0x7f08002a
+            static member material_grey_850 = 2131230762
+            
+            // aapt resource value: 0x7f08002b
+            static member material_grey_900 = 2131230763
+            
+            // aapt resource value: 0x7f08002c
+            static member primary_dark_material_dark = 2131230764
+            
+            // aapt resource value: 0x7f08002d
+            static member primary_dark_material_light = 2131230765
+            
+            // aapt resource value: 0x7f08002e
+            static member primary_material_dark = 2131230766
+            
+            // aapt resource value: 0x7f08002f
+            static member primary_material_light = 2131230767
+            
+            // aapt resource value: 0x7f080030
+            static member primary_text_default_material_dark = 2131230768
+            
+            // aapt resource value: 0x7f080031
+            static member primary_text_default_material_light = 2131230769
+            
+            // aapt resource value: 0x7f080032
+            static member primary_text_disabled_material_dark = 2131230770
+            
+            // aapt resource value: 0x7f080033
+            static member primary_text_disabled_material_light = 2131230771
+            
+            // aapt resource value: 0x7f080034
+            static member ripple_material_dark = 2131230772
+            
+            // aapt resource value: 0x7f080035
+            static member ripple_material_light = 2131230773
+            
+            // aapt resource value: 0x7f080036
+            static member secondary_text_default_material_dark = 2131230774
+            
+            // aapt resource value: 0x7f080037
+            static member secondary_text_default_material_light = 2131230775
+            
+            // aapt resource value: 0x7f080038
+            static member secondary_text_disabled_material_dark = 2131230776
+            
+            // aapt resource value: 0x7f080039
+            static member secondary_text_disabled_material_light = 2131230777
+            
+            // aapt resource value: 0x7f08003a
+            static member switch_thumb_disabled_material_dark = 2131230778
+            
+            // aapt resource value: 0x7f08003b
+            static member switch_thumb_disabled_material_light = 2131230779
+            
+            // aapt resource value: 0x7f080051
+            static member switch_thumb_material_dark = 2131230801
+            
+            // aapt resource value: 0x7f080052
+            static member switch_thumb_material_light = 2131230802
+            
+            // aapt resource value: 0x7f08003c
+            static member switch_thumb_normal_material_dark = 2131230780
+            
+            // aapt resource value: 0x7f08003d
+            static member switch_thumb_normal_material_light = 2131230781
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Dimension () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f06000f
+            static member abc_action_bar_content_inset_material = 2131099663
+            
+            // aapt resource value: 0x7f060005
+            static member abc_action_bar_default_height_material = 2131099653
+            
+            // aapt resource value: 0x7f060010
+            static member abc_action_bar_default_padding_end_material = 2131099664
+            
+            // aapt resource value: 0x7f060011
+            static member abc_action_bar_default_padding_start_material = 2131099665
+            
+            // aapt resource value: 0x7f060013
+            static member abc_action_bar_icon_vertical_padding_material = 2131099667
+            
+            // aapt resource value: 0x7f060014
+            static member abc_action_bar_overflow_padding_end_material = 2131099668
+            
+            // aapt resource value: 0x7f060015
+            static member abc_action_bar_overflow_padding_start_material = 2131099669
+            
+            // aapt resource value: 0x7f060006
+            static member abc_action_bar_progress_bar_size = 2131099654
+            
+            // aapt resource value: 0x7f060016
+            static member abc_action_bar_stacked_max_height = 2131099670
+            
+            // aapt resource value: 0x7f060017
+            static member abc_action_bar_stacked_tab_max_width = 2131099671
+            
+            // aapt resource value: 0x7f060018
+            static member abc_action_bar_subtitle_bottom_margin_material = 2131099672
+            
+            // aapt resource value: 0x7f060019
+            static member abc_action_bar_subtitle_top_margin_material = 2131099673
+            
+            // aapt resource value: 0x7f06001a
+            static member abc_action_button_min_height_material = 2131099674
+            
+            // aapt resource value: 0x7f06001b
+            static member abc_action_button_min_width_material = 2131099675
+            
+            // aapt resource value: 0x7f06001c
+            static member abc_action_button_min_width_overflow_material = 2131099676
+            
+            // aapt resource value: 0x7f060004
+            static member abc_alert_dialog_button_bar_height = 2131099652
+            
+            // aapt resource value: 0x7f06001d
+            static member abc_button_inset_horizontal_material = 2131099677
+            
+            // aapt resource value: 0x7f06001e
+            static member abc_button_inset_vertical_material = 2131099678
+            
+            // aapt resource value: 0x7f06001f
+            static member abc_button_padding_horizontal_material = 2131099679
+            
+            // aapt resource value: 0x7f060020
+            static member abc_button_padding_vertical_material = 2131099680
+            
+            // aapt resource value: 0x7f060009
+            static member abc_config_prefDialogWidth = 2131099657
+            
+            // aapt resource value: 0x7f060021
+            static member abc_control_corner_material = 2131099681
+            
+            // aapt resource value: 0x7f060022
+            static member abc_control_inset_material = 2131099682
+            
+            // aapt resource value: 0x7f060023
+            static member abc_control_padding_material = 2131099683
+            
+            // aapt resource value: 0x7f060024
+            static member abc_dialog_list_padding_vertical_material = 2131099684
+            
+            // aapt resource value: 0x7f060025
+            static member abc_dialog_min_width_major = 2131099685
+            
+            // aapt resource value: 0x7f060026
+            static member abc_dialog_min_width_minor = 2131099686
+            
+            // aapt resource value: 0x7f060027
+            static member abc_dialog_padding_material = 2131099687
+            
+            // aapt resource value: 0x7f060028
+            static member abc_dialog_padding_top_material = 2131099688
+            
+            // aapt resource value: 0x7f060029
+            static member abc_disabled_alpha_material_dark = 2131099689
+            
+            // aapt resource value: 0x7f06002a
+            static member abc_disabled_alpha_material_light = 2131099690
+            
+            // aapt resource value: 0x7f06002b
+            static member abc_dropdownitem_icon_width = 2131099691
+            
+            // aapt resource value: 0x7f06002c
+            static member abc_dropdownitem_text_padding_left = 2131099692
+            
+            // aapt resource value: 0x7f06002d
+            static member abc_dropdownitem_text_padding_right = 2131099693
+            
+            // aapt resource value: 0x7f06002e
+            static member abc_edit_text_inset_bottom_material = 2131099694
+            
+            // aapt resource value: 0x7f06002f
+            static member abc_edit_text_inset_horizontal_material = 2131099695
+            
+            // aapt resource value: 0x7f060030
+            static member abc_edit_text_inset_top_material = 2131099696
+            
+            // aapt resource value: 0x7f060031
+            static member abc_floating_window_z = 2131099697
+            
+            // aapt resource value: 0x7f060032
+            static member abc_list_item_padding_horizontal_material = 2131099698
+            
+            // aapt resource value: 0x7f060033
+            static member abc_panel_menu_list_width = 2131099699
+            
+            // aapt resource value: 0x7f060034
+            static member abc_search_view_preferred_width = 2131099700
+            
+            // aapt resource value: 0x7f06000a
+            static member abc_search_view_text_min_width = 2131099658
+            
+            // aapt resource value: 0x7f060012
+            static member abc_switch_padding = 2131099666
+            
+            // aapt resource value: 0x7f060035
+            static member abc_text_size_body_1_material = 2131099701
+            
+            // aapt resource value: 0x7f060036
+            static member abc_text_size_body_2_material = 2131099702
+            
+            // aapt resource value: 0x7f060037
+            static member abc_text_size_button_material = 2131099703
+            
+            // aapt resource value: 0x7f060038
+            static member abc_text_size_caption_material = 2131099704
+            
+            // aapt resource value: 0x7f060039
+            static member abc_text_size_display_1_material = 2131099705
+            
+            // aapt resource value: 0x7f06003a
+            static member abc_text_size_display_2_material = 2131099706
+            
+            // aapt resource value: 0x7f06003b
+            static member abc_text_size_display_3_material = 2131099707
+            
+            // aapt resource value: 0x7f06003c
+            static member abc_text_size_display_4_material = 2131099708
+            
+            // aapt resource value: 0x7f06003d
+            static member abc_text_size_headline_material = 2131099709
+            
+            // aapt resource value: 0x7f06003e
+            static member abc_text_size_large_material = 2131099710
+            
+            // aapt resource value: 0x7f06003f
+            static member abc_text_size_medium_material = 2131099711
+            
+            // aapt resource value: 0x7f060040
+            static member abc_text_size_menu_material = 2131099712
+            
+            // aapt resource value: 0x7f060041
+            static member abc_text_size_small_material = 2131099713
+            
+            // aapt resource value: 0x7f060042
+            static member abc_text_size_subhead_material = 2131099714
+            
+            // aapt resource value: 0x7f060007
+            static member abc_text_size_subtitle_material_toolbar = 2131099655
+            
+            // aapt resource value: 0x7f060043
+            static member abc_text_size_title_material = 2131099715
+            
+            // aapt resource value: 0x7f060008
+            static member abc_text_size_title_material_toolbar = 2131099656
+            
+            // aapt resource value: 0x7f060001
+            static member cardview_compat_inset_shadow = 2131099649
+            
+            // aapt resource value: 0x7f060002
+            static member cardview_default_elevation = 2131099650
+            
+            // aapt resource value: 0x7f060003
+            static member cardview_default_radius = 2131099651
+            
+            // aapt resource value: 0x7f060054
+            static member design_appbar_elevation = 2131099732
+            
+            // aapt resource value: 0x7f060055
+            static member design_fab_border_width = 2131099733
+            
+            // aapt resource value: 0x7f060056
+            static member design_fab_content_size = 2131099734
+            
+            // aapt resource value: 0x7f060057
+            static member design_fab_elevation = 2131099735
+            
+            // aapt resource value: 0x7f060058
+            static member design_fab_size_mini = 2131099736
+            
+            // aapt resource value: 0x7f060059
+            static member design_fab_size_normal = 2131099737
+            
+            // aapt resource value: 0x7f06005a
+            static member design_fab_translation_z_pressed = 2131099738
+            
+            // aapt resource value: 0x7f06005b
+            static member design_navigation_elevation = 2131099739
+            
+            // aapt resource value: 0x7f06005c
+            static member design_navigation_icon_padding = 2131099740
+            
+            // aapt resource value: 0x7f06005d
+            static member design_navigation_icon_size = 2131099741
+            
+            // aapt resource value: 0x7f06005e
+            static member design_navigation_max_width = 2131099742
+            
+            // aapt resource value: 0x7f06005f
+            static member design_navigation_padding_bottom = 2131099743
+            
+            // aapt resource value: 0x7f060053
+            static member design_navigation_padding_top_default = 2131099731
+            
+            // aapt resource value: 0x7f060060
+            static member design_navigation_separator_vertical_padding = 2131099744
+            
+            // aapt resource value: 0x7f06004c
+            static member design_snackbar_action_inline_max_width = 2131099724
+            
+            // aapt resource value: 0x7f06004d
+            static member design_snackbar_background_corner_radius = 2131099725
+            
+            // aapt resource value: 0x7f060061
+            static member design_snackbar_elevation = 2131099745
+            
+            // aapt resource value: 0x7f06004e
+            static member design_snackbar_extra_spacing_horizontal = 2131099726
+            
+            // aapt resource value: 0x7f06004f
+            static member design_snackbar_max_width = 2131099727
+            
+            // aapt resource value: 0x7f060050
+            static member design_snackbar_min_width = 2131099728
+            
+            // aapt resource value: 0x7f060062
+            static member design_snackbar_padding_horizontal = 2131099746
+            
+            // aapt resource value: 0x7f060063
+            static member design_snackbar_padding_vertical = 2131099747
+            
+            // aapt resource value: 0x7f060051
+            static member design_snackbar_padding_vertical_2lines = 2131099729
+            
+            // aapt resource value: 0x7f060064
+            static member design_snackbar_text_size = 2131099748
+            
+            // aapt resource value: 0x7f060065
+            static member design_tab_max_width = 2131099749
+            
+            // aapt resource value: 0x7f060052
+            static member design_tab_min_width = 2131099730
+            
+            // aapt resource value: 0x7f06000b
+            static member dialog_fixed_height_major = 2131099659
+            
+            // aapt resource value: 0x7f06000c
+            static member dialog_fixed_height_minor = 2131099660
+            
+            // aapt resource value: 0x7f06000d
+            static member dialog_fixed_width_major = 2131099661
+            
+            // aapt resource value: 0x7f06000e
+            static member dialog_fixed_width_minor = 2131099662
+            
+            // aapt resource value: 0x7f060044
+            static member disabled_alpha_material_dark = 2131099716
+            
+            // aapt resource value: 0x7f060045
+            static member disabled_alpha_material_light = 2131099717
+            
+            // aapt resource value: 0x7f060046
+            static member highlight_alpha_material_colored = 2131099718
+            
+            // aapt resource value: 0x7f060047
+            static member highlight_alpha_material_dark = 2131099719
+            
+            // aapt resource value: 0x7f060048
+            static member highlight_alpha_material_light = 2131099720
+            
+            // aapt resource value: 0x7f060000
+            static member mr_media_route_controller_art_max_height = 2131099648
+            
+            // aapt resource value: 0x7f060049
+            static member notification_large_icon_height = 2131099721
+            
+            // aapt resource value: 0x7f06004a
+            static member notification_large_icon_width = 2131099722
+            
+            // aapt resource value: 0x7f06004b
+            static member notification_subtext_size = 2131099723
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 
@@ -59,7 +3000,304 @@ namespace ffrab.droid
         (* partial *)Resource_Drawable () =
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
             // aapt resource value: 0x7f020000
-            static member Icon = 2130837504
+            static member abc_ab_share_pack_mtrl_alpha = 2130837504
+            
+            // aapt resource value: 0x7f020001
+            static member abc_action_bar_item_background_material = 2130837505
+            
+            // aapt resource value: 0x7f020002
+            static member abc_btn_borderless_material = 2130837506
+            
+            // aapt resource value: 0x7f020003
+            static member abc_btn_check_material = 2130837507
+            
+            // aapt resource value: 0x7f020004
+            static member abc_btn_check_to_on_mtrl_000 = 2130837508
+            
+            // aapt resource value: 0x7f020005
+            static member abc_btn_check_to_on_mtrl_015 = 2130837509
+            
+            // aapt resource value: 0x7f020006
+            static member abc_btn_colored_material = 2130837510
+            
+            // aapt resource value: 0x7f020007
+            static member abc_btn_default_mtrl_shape = 2130837511
+            
+            // aapt resource value: 0x7f020008
+            static member abc_btn_radio_material = 2130837512
+            
+            // aapt resource value: 0x7f020009
+            static member abc_btn_radio_to_on_mtrl_000 = 2130837513
+            
+            // aapt resource value: 0x7f02000a
+            static member abc_btn_radio_to_on_mtrl_015 = 2130837514
+            
+            // aapt resource value: 0x7f02000b
+            static member abc_btn_rating_star_off_mtrl_alpha = 2130837515
+            
+            // aapt resource value: 0x7f02000c
+            static member abc_btn_rating_star_on_mtrl_alpha = 2130837516
+            
+            // aapt resource value: 0x7f02000d
+            static member abc_btn_switch_to_on_mtrl_00001 = 2130837517
+            
+            // aapt resource value: 0x7f02000e
+            static member abc_btn_switch_to_on_mtrl_00012 = 2130837518
+            
+            // aapt resource value: 0x7f02000f
+            static member abc_cab_background_internal_bg = 2130837519
+            
+            // aapt resource value: 0x7f020010
+            static member abc_cab_background_top_material = 2130837520
+            
+            // aapt resource value: 0x7f020011
+            static member abc_cab_background_top_mtrl_alpha = 2130837521
+            
+            // aapt resource value: 0x7f020012
+            static member abc_control_background_material = 2130837522
+            
+            // aapt resource value: 0x7f020013
+            static member abc_dialog_material_background_dark = 2130837523
+            
+            // aapt resource value: 0x7f020014
+            static member abc_dialog_material_background_light = 2130837524
+            
+            // aapt resource value: 0x7f020015
+            static member abc_edit_text_material = 2130837525
+            
+            // aapt resource value: 0x7f020016
+            static member abc_ic_ab_back_mtrl_am_alpha = 2130837526
+            
+            // aapt resource value: 0x7f020017
+            static member abc_ic_clear_mtrl_alpha = 2130837527
+            
+            // aapt resource value: 0x7f020018
+            static member abc_ic_commit_search_api_mtrl_alpha = 2130837528
+            
+            // aapt resource value: 0x7f020019
+            static member abc_ic_go_search_api_mtrl_alpha = 2130837529
+            
+            // aapt resource value: 0x7f02001a
+            static member abc_ic_menu_copy_mtrl_am_alpha = 2130837530
+            
+            // aapt resource value: 0x7f02001b
+            static member abc_ic_menu_cut_mtrl_alpha = 2130837531
+            
+            // aapt resource value: 0x7f02001c
+            static member abc_ic_menu_moreoverflow_mtrl_alpha = 2130837532
+            
+            // aapt resource value: 0x7f02001d
+            static member abc_ic_menu_paste_mtrl_am_alpha = 2130837533
+            
+            // aapt resource value: 0x7f02001e
+            static member abc_ic_menu_selectall_mtrl_alpha = 2130837534
+            
+            // aapt resource value: 0x7f02001f
+            static member abc_ic_menu_share_mtrl_alpha = 2130837535
+            
+            // aapt resource value: 0x7f020020
+            static member abc_ic_search_api_mtrl_alpha = 2130837536
+            
+            // aapt resource value: 0x7f020021
+            static member abc_ic_voice_search_api_mtrl_alpha = 2130837537
+            
+            // aapt resource value: 0x7f020022
+            static member abc_item_background_holo_dark = 2130837538
+            
+            // aapt resource value: 0x7f020023
+            static member abc_item_background_holo_light = 2130837539
+            
+            // aapt resource value: 0x7f020024
+            static member abc_list_divider_mtrl_alpha = 2130837540
+            
+            // aapt resource value: 0x7f020025
+            static member abc_list_focused_holo = 2130837541
+            
+            // aapt resource value: 0x7f020026
+            static member abc_list_longpressed_holo = 2130837542
+            
+            // aapt resource value: 0x7f020027
+            static member abc_list_pressed_holo_dark = 2130837543
+            
+            // aapt resource value: 0x7f020028
+            static member abc_list_pressed_holo_light = 2130837544
+            
+            // aapt resource value: 0x7f020029
+            static member abc_list_selector_background_transition_holo_dark = 2130837545
+            
+            // aapt resource value: 0x7f02002a
+            static member abc_list_selector_background_transition_holo_light = 2130837546
+            
+            // aapt resource value: 0x7f02002b
+            static member abc_list_selector_disabled_holo_dark = 2130837547
+            
+            // aapt resource value: 0x7f02002c
+            static member abc_list_selector_disabled_holo_light = 2130837548
+            
+            // aapt resource value: 0x7f02002d
+            static member abc_list_selector_holo_dark = 2130837549
+            
+            // aapt resource value: 0x7f02002e
+            static member abc_list_selector_holo_light = 2130837550
+            
+            // aapt resource value: 0x7f02002f
+            static member abc_menu_hardkey_panel_mtrl_mult = 2130837551
+            
+            // aapt resource value: 0x7f020030
+            static member abc_popup_background_mtrl_mult = 2130837552
+            
+            // aapt resource value: 0x7f020031
+            static member abc_ratingbar_full_material = 2130837553
+            
+            // aapt resource value: 0x7f020032
+            static member abc_spinner_mtrl_am_alpha = 2130837554
+            
+            // aapt resource value: 0x7f020033
+            static member abc_spinner_textfield_background_material = 2130837555
+            
+            // aapt resource value: 0x7f020034
+            static member abc_switch_thumb_material = 2130837556
+            
+            // aapt resource value: 0x7f020035
+            static member abc_switch_track_mtrl_alpha = 2130837557
+            
+            // aapt resource value: 0x7f020036
+            static member abc_tab_indicator_material = 2130837558
+            
+            // aapt resource value: 0x7f020037
+            static member abc_tab_indicator_mtrl_alpha = 2130837559
+            
+            // aapt resource value: 0x7f020038
+            static member abc_text_cursor_material = 2130837560
+            
+            // aapt resource value: 0x7f020039
+            static member abc_textfield_activated_mtrl_alpha = 2130837561
+            
+            // aapt resource value: 0x7f02003a
+            static member abc_textfield_default_mtrl_alpha = 2130837562
+            
+            // aapt resource value: 0x7f02003b
+            static member abc_textfield_search_activated_mtrl_alpha = 2130837563
+            
+            // aapt resource value: 0x7f02003c
+            static member abc_textfield_search_default_mtrl_alpha = 2130837564
+            
+            // aapt resource value: 0x7f02003d
+            static member abc_textfield_search_material = 2130837565
+            
+            // aapt resource value: 0x7f02003e
+            static member design_fab_background = 2130837566
+            
+            // aapt resource value: 0x7f02003f
+            static member design_snackbar_background = 2130837567
+            
+            // aapt resource value: 0x7f020040
+            static member ic_cast_dark = 2130837568
+            
+            // aapt resource value: 0x7f020041
+            static member ic_cast_disabled_light = 2130837569
+            
+            // aapt resource value: 0x7f020042
+            static member ic_cast_light = 2130837570
+            
+            // aapt resource value: 0x7f020043
+            static member ic_cast_off_light = 2130837571
+            
+            // aapt resource value: 0x7f020044
+            static member ic_cast_on_0_light = 2130837572
+            
+            // aapt resource value: 0x7f020045
+            static member ic_cast_on_1_light = 2130837573
+            
+            // aapt resource value: 0x7f020046
+            static member ic_cast_on_2_light = 2130837574
+            
+            // aapt resource value: 0x7f020047
+            static member ic_cast_on_light = 2130837575
+            
+            // aapt resource value: 0x7f020048
+            static member ic_media_pause = 2130837576
+            
+            // aapt resource value: 0x7f020049
+            static member ic_media_play = 2130837577
+            
+            // aapt resource value: 0x7f02004a
+            static member ic_media_route_disabled_mono_dark = 2130837578
+            
+            // aapt resource value: 0x7f02004b
+            static member ic_media_route_off_mono_dark = 2130837579
+            
+            // aapt resource value: 0x7f02004c
+            static member ic_media_route_on_0_mono_dark = 2130837580
+            
+            // aapt resource value: 0x7f02004d
+            static member ic_media_route_on_1_mono_dark = 2130837581
+            
+            // aapt resource value: 0x7f02004e
+            static member ic_media_route_on_2_mono_dark = 2130837582
+            
+            // aapt resource value: 0x7f02004f
+            static member ic_media_route_on_mono_dark = 2130837583
+            
+            // aapt resource value: 0x7f020050
+            static member ic_pause_dark = 2130837584
+            
+            // aapt resource value: 0x7f020051
+            static member ic_pause_light = 2130837585
+            
+            // aapt resource value: 0x7f020052
+            static member ic_play_dark = 2130837586
+            
+            // aapt resource value: 0x7f020053
+            static member ic_play_light = 2130837587
+            
+            // aapt resource value: 0x7f020054
+            static member ic_setting_dark = 2130837588
+            
+            // aapt resource value: 0x7f020055
+            static member ic_setting_light = 2130837589
+            
+            // aapt resource value: 0x7f020056
+            static member Icon = 2130837590
+            
+            // aapt resource value: 0x7f020057
+            static member mr_ic_cast_dark = 2130837591
+            
+            // aapt resource value: 0x7f020058
+            static member mr_ic_cast_light = 2130837592
+            
+            // aapt resource value: 0x7f020059
+            static member mr_ic_media_route_connecting_mono_dark = 2130837593
+            
+            // aapt resource value: 0x7f02005a
+            static member mr_ic_media_route_connecting_mono_light = 2130837594
+            
+            // aapt resource value: 0x7f02005b
+            static member mr_ic_media_route_mono_dark = 2130837595
+            
+            // aapt resource value: 0x7f02005c
+            static member mr_ic_media_route_mono_light = 2130837596
+            
+            // aapt resource value: 0x7f02005d
+            static member mr_ic_pause_dark = 2130837597
+            
+            // aapt resource value: 0x7f02005e
+            static member mr_ic_pause_light = 2130837598
+            
+            // aapt resource value: 0x7f02005f
+            static member mr_ic_play_dark = 2130837599
+            
+            // aapt resource value: 0x7f020060
+            static member mr_ic_play_light = 2130837600
+            
+            // aapt resource value: 0x7f020061
+            static member mr_ic_settings_dark = 2130837601
+            
+            // aapt resource value: 0x7f020062
+            static member mr_ic_settings_light = 2130837602
+            
+            // aapt resource value: 0x7f020063
+            static member notification_template_icon_bg = 2130837603
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 
@@ -68,8 +3306,420 @@ namespace ffrab.droid
         
         (* partial *)Resource_Id () =
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
-            // aapt resource value: 0x7f050000
-            static member MyButton = 2131034112
+            // aapt resource value: 0x7f0b0066
+            static member MyButton = 2131427430
+            
+            // aapt resource value: 0x7f0b0075
+            static member action0 = 2131427445
+            
+            // aapt resource value: 0x7f0b0055
+            static member action_bar = 2131427413
+            
+            // aapt resource value: 0x7f0b0000
+            static member action_bar_activity_content = 2131427328
+            
+            // aapt resource value: 0x7f0b0054
+            static member action_bar_container = 2131427412
+            
+            // aapt resource value: 0x7f0b0050
+            static member action_bar_root = 2131427408
+            
+            // aapt resource value: 0x7f0b0001
+            static member action_bar_spinner = 2131427329
+            
+            // aapt resource value: 0x7f0b0039
+            static member action_bar_subtitle = 2131427385
+            
+            // aapt resource value: 0x7f0b0038
+            static member action_bar_title = 2131427384
+            
+            // aapt resource value: 0x7f0b0056
+            static member action_context_bar = 2131427414
+            
+            // aapt resource value: 0x7f0b0079
+            static member action_divider = 2131427449
+            
+            // aapt resource value: 0x7f0b0002
+            static member action_menu_divider = 2131427330
+            
+            // aapt resource value: 0x7f0b0003
+            static member action_menu_presenter = 2131427331
+            
+            // aapt resource value: 0x7f0b0052
+            static member action_mode_bar = 2131427410
+            
+            // aapt resource value: 0x7f0b0051
+            static member action_mode_bar_stub = 2131427409
+            
+            // aapt resource value: 0x7f0b003a
+            static member action_mode_close_button = 2131427386
+            
+            // aapt resource value: 0x7f0b003b
+            static member activity_chooser_view_content = 2131427387
+            
+            // aapt resource value: 0x7f0b0045
+            static member alertTitle = 2131427397
+            
+            // aapt resource value: 0x7f0b001c
+            static member always = 2131427356
+            
+            // aapt resource value: 0x7f0b006d
+            static member art = 2131427437
+            
+            // aapt resource value: 0x7f0b0019
+            static member beginning = 2131427353
+            
+            // aapt resource value: 0x7f0b0028
+            static member bottom = 2131427368
+            
+            // aapt resource value: 0x7f0b004b
+            static member buttonPanel = 2131427403
+            
+            // aapt resource value: 0x7f0b0072
+            static member buttons = 2131427442
+            
+            // aapt resource value: 0x7f0b0076
+            static member cancel_action = 2131427446
+            
+            // aapt resource value: 0x7f0b0029
+            static member center = 2131427369
+            
+            // aapt resource value: 0x7f0b002a
+            static member center_horizontal = 2131427370
+            
+            // aapt resource value: 0x7f0b002b
+            static member center_vertical = 2131427371
+            
+            // aapt resource value: 0x7f0b004d
+            static member checkbox = 2131427405
+            
+            // aapt resource value: 0x7f0b007c
+            static member chronometer = 2131427452
+            
+            // aapt resource value: 0x7f0b0031
+            static member clip_horizontal = 2131427377
+            
+            // aapt resource value: 0x7f0b0032
+            static member clip_vertical = 2131427378
+            
+            // aapt resource value: 0x7f0b001d
+            static member collapseActionView = 2131427357
+            
+            // aapt resource value: 0x7f0b0046
+            static member contentPanel = 2131427398
+            
+            // aapt resource value: 0x7f0b004a
+            static member custom = 2131427402
+            
+            // aapt resource value: 0x7f0b0049
+            static member customPanel = 2131427401
+            
+            // aapt resource value: 0x7f0b0053
+            static member decor_content_parent = 2131427411
+            
+            // aapt resource value: 0x7f0b003e
+            static member default_activity_button = 2131427390
+            
+            // aapt resource value: 0x7f0b006c
+            static member default_control_frame = 2131427436
+            
+            // aapt resource value: 0x7f0b000d
+            static member disableHome = 2131427341
+            
+            // aapt resource value: 0x7f0b0073
+            static member disconnect = 2131427443
+            
+            // aapt resource value: 0x7f0b0057
+            static member edit_query = 2131427415
+            
+            // aapt resource value: 0x7f0b001a
+            static member end = 2131427354
+            
+            // aapt resource value: 0x7f0b0081
+            static member end_padder = 2131427457
+            
+            // aapt resource value: 0x7f0b0022
+            static member enterAlways = 2131427362
+            
+            // aapt resource value: 0x7f0b0023
+            static member enterAlwaysCollapsed = 2131427363
+            
+            // aapt resource value: 0x7f0b0024
+            static member exitUntilCollapsed = 2131427364
+            
+            // aapt resource value: 0x7f0b003c
+            static member expand_activities_button = 2131427388
+            
+            // aapt resource value: 0x7f0b004c
+            static member expanded_menu = 2131427404
+            
+            // aapt resource value: 0x7f0b0033
+            static member fill = 2131427379
+            
+            // aapt resource value: 0x7f0b0034
+            static member fill_horizontal = 2131427380
+            
+            // aapt resource value: 0x7f0b002c
+            static member fill_vertical = 2131427372
+            
+            // aapt resource value: 0x7f0b0036
+            static member fixed = 2131427382
+            
+            // aapt resource value: 0x7f0b0004
+            static member home = 2131427332
+            
+            // aapt resource value: 0x7f0b000e
+            static member homeAsUp = 2131427342
+            
+            // aapt resource value: 0x7f0b0040
+            static member icon = 2131427392
+            
+            // aapt resource value: 0x7f0b001e
+            static member ifRoom = 2131427358
+            
+            // aapt resource value: 0x7f0b003d
+            static member image = 2131427389
+            
+            // aapt resource value: 0x7f0b0080
+            static member info = 2131427456
+            
+            // aapt resource value: 0x7f0b002d
+            static member left = 2131427373
+            
+            // aapt resource value: 0x7f0b007a
+            static member line1 = 2131427450
+            
+            // aapt resource value: 0x7f0b007e
+            static member line3 = 2131427454
+            
+            // aapt resource value: 0x7f0b000a
+            static member listMode = 2131427338
+            
+            // aapt resource value: 0x7f0b003f
+            static member list_item = 2131427391
+            
+            // aapt resource value: 0x7f0b0078
+            static member media_actions = 2131427448
+            
+            // aapt resource value: 0x7f0b006b
+            static member media_route_control_frame = 2131427435
+            
+            // aapt resource value: 0x7f0b0067
+            static member media_route_list = 2131427431
+            
+            // aapt resource value: 0x7f0b0070
+            static member media_route_volume_layout = 2131427440
+            
+            // aapt resource value: 0x7f0b0071
+            static member media_route_volume_slider = 2131427441
+            
+            // aapt resource value: 0x7f0b001b
+            static member middle = 2131427355
+            
+            // aapt resource value: 0x7f0b0035
+            static member mini = 2131427381
+            
+            // aapt resource value: 0x7f0b0014
+            static member multiply = 2131427348
+            
+            // aapt resource value: 0x7f0b001f
+            static member never = 2131427359
+            
+            // aapt resource value: 0x7f0b000f
+            static member none = 2131427343
+            
+            // aapt resource value: 0x7f0b000b
+            static member normal = 2131427339
+            
+            // aapt resource value: 0x7f0b0026
+            static member parallax = 2131427366
+            
+            // aapt resource value: 0x7f0b0042
+            static member parentPanel = 2131427394
+            
+            // aapt resource value: 0x7f0b0027
+            static member pin = 2131427367
+            
+            // aapt resource value: 0x7f0b006e
+            static member play_pause = 2131427438
+            
+            // aapt resource value: 0x7f0b0005
+            static member progress_circular = 2131427333
+            
+            // aapt resource value: 0x7f0b0006
+            static member progress_horizontal = 2131427334
+            
+            // aapt resource value: 0x7f0b004f
+            static member radio = 2131427407
+            
+            // aapt resource value: 0x7f0b002e
+            static member right = 2131427374
+            
+            // aapt resource value: 0x7f0b0069
+            static member route_name = 2131427433
+            
+            // aapt resource value: 0x7f0b0015
+            static member screen = 2131427349
+            
+            // aapt resource value: 0x7f0b0025
+            static member scroll = 2131427365
+            
+            // aapt resource value: 0x7f0b0047
+            static member scrollView = 2131427399
+            
+            // aapt resource value: 0x7f0b0037
+            static member scrollable = 2131427383
+            
+            // aapt resource value: 0x7f0b0059
+            static member search_badge = 2131427417
+            
+            // aapt resource value: 0x7f0b0058
+            static member search_bar = 2131427416
+            
+            // aapt resource value: 0x7f0b005a
+            static member search_button = 2131427418
+            
+            // aapt resource value: 0x7f0b005f
+            static member search_close_btn = 2131427423
+            
+            // aapt resource value: 0x7f0b005b
+            static member search_edit_frame = 2131427419
+            
+            // aapt resource value: 0x7f0b0061
+            static member search_go_btn = 2131427425
+            
+            // aapt resource value: 0x7f0b005c
+            static member search_mag_icon = 2131427420
+            
+            // aapt resource value: 0x7f0b005d
+            static member search_plate = 2131427421
+            
+            // aapt resource value: 0x7f0b005e
+            static member search_src_text = 2131427422
+            
+            // aapt resource value: 0x7f0b0062
+            static member search_voice_btn = 2131427426
+            
+            // aapt resource value: 0x7f0b0063
+            static member select_dialog_listview = 2131427427
+            
+            // aapt resource value: 0x7f0b006a
+            static member settings = 2131427434
+            
+            // aapt resource value: 0x7f0b004e
+            static member shortcut = 2131427406
+            
+            // aapt resource value: 0x7f0b0010
+            static member showCustom = 2131427344
+            
+            // aapt resource value: 0x7f0b0011
+            static member showHome = 2131427345
+            
+            // aapt resource value: 0x7f0b0012
+            static member showTitle = 2131427346
+            
+            // aapt resource value: 0x7f0b0065
+            static member snackbar_action = 2131427429
+            
+            // aapt resource value: 0x7f0b0064
+            static member snackbar_text = 2131427428
+            
+            // aapt resource value: 0x7f0b0007
+            static member split_action_bar = 2131427335
+            
+            // aapt resource value: 0x7f0b0016
+            static member src_atop = 2131427350
+            
+            // aapt resource value: 0x7f0b0017
+            static member src_in = 2131427351
+            
+            // aapt resource value: 0x7f0b0018
+            static member src_over = 2131427352
+            
+            // aapt resource value: 0x7f0b002f
+            static member start = 2131427375
+            
+            // aapt resource value: 0x7f0b0077
+            static member status_bar_latest_event_content = 2131427447
+            
+            // aapt resource value: 0x7f0b0074
+            static member stop = 2131427444
+            
+            // aapt resource value: 0x7f0b0060
+            static member submit_area = 2131427424
+            
+            // aapt resource value: 0x7f0b006f
+            static member subtitle = 2131427439
+            
+            // aapt resource value: 0x7f0b000c
+            static member tabMode = 2131427340
+            
+            // aapt resource value: 0x7f0b007f
+            static member text = 2131427455
+            
+            // aapt resource value: 0x7f0b007d
+            static member text2 = 2131427453
+            
+            // aapt resource value: 0x7f0b0048
+            static member textSpacerNoButtons = 2131427400
+            
+            // aapt resource value: 0x7f0b007b
+            static member time = 2131427451
+            
+            // aapt resource value: 0x7f0b0041
+            static member title = 2131427393
+            
+            // aapt resource value: 0x7f0b0068
+            static member title_bar = 2131427432
+            
+            // aapt resource value: 0x7f0b0044
+            static member title_template = 2131427396
+            
+            // aapt resource value: 0x7f0b0030
+            static member top = 2131427376
+            
+            // aapt resource value: 0x7f0b0043
+            static member topPanel = 2131427395
+            
+            // aapt resource value: 0x7f0b0008
+            static member up = 2131427336
+            
+            // aapt resource value: 0x7f0b0013
+            static member useLogo = 2131427347
+            
+            // aapt resource value: 0x7f0b0009
+            static member view_offset_helper = 2131427337
+            
+            // aapt resource value: 0x7f0b0020
+            static member withText = 2131427360
+            
+            // aapt resource value: 0x7f0b0021
+            static member wrap_content = 2131427361
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Integer () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f0a0001
+            static member abc_config_activityDefaultDur = 2131361793
+            
+            // aapt resource value: 0x7f0a0002
+            static member abc_config_activityShortDur = 2131361794
+            
+            // aapt resource value: 0x7f0a0000
+            static member abc_max_action_buttons = 2131361792
+            
+            // aapt resource value: 0x7f0a0003
+            static member cancel_button_image_alpha = 2131361795
+            
+            // aapt resource value: 0x7f0a0005
+            static member design_snackbar_text_max_lines = 2131361797
+            
+            // aapt resource value: 0x7f0a0004
+            static member status_bar_notification_info_maxnum = 2131361796
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 
@@ -79,7 +3729,151 @@ namespace ffrab.droid
         (* partial *)Resource_Layout () =
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
             // aapt resource value: 0x7f030000
-            static member Main = 2130903040
+            static member abc_action_bar_title_item = 2130903040
+            
+            // aapt resource value: 0x7f030001
+            static member abc_action_bar_up_container = 2130903041
+            
+            // aapt resource value: 0x7f030002
+            static member abc_action_bar_view_list_nav_layout = 2130903042
+            
+            // aapt resource value: 0x7f030003
+            static member abc_action_menu_item_layout = 2130903043
+            
+            // aapt resource value: 0x7f030004
+            static member abc_action_menu_layout = 2130903044
+            
+            // aapt resource value: 0x7f030005
+            static member abc_action_mode_bar = 2130903045
+            
+            // aapt resource value: 0x7f030006
+            static member abc_action_mode_close_item_material = 2130903046
+            
+            // aapt resource value: 0x7f030007
+            static member abc_activity_chooser_view = 2130903047
+            
+            // aapt resource value: 0x7f030008
+            static member abc_activity_chooser_view_list_item = 2130903048
+            
+            // aapt resource value: 0x7f030009
+            static member abc_alert_dialog_material = 2130903049
+            
+            // aapt resource value: 0x7f03000a
+            static member abc_dialog_title_material = 2130903050
+            
+            // aapt resource value: 0x7f03000b
+            static member abc_expanded_menu_layout = 2130903051
+            
+            // aapt resource value: 0x7f03000c
+            static member abc_list_menu_item_checkbox = 2130903052
+            
+            // aapt resource value: 0x7f03000d
+            static member abc_list_menu_item_icon = 2130903053
+            
+            // aapt resource value: 0x7f03000e
+            static member abc_list_menu_item_layout = 2130903054
+            
+            // aapt resource value: 0x7f03000f
+            static member abc_list_menu_item_radio = 2130903055
+            
+            // aapt resource value: 0x7f030010
+            static member abc_popup_menu_item_layout = 2130903056
+            
+            // aapt resource value: 0x7f030011
+            static member abc_screen_content_include = 2130903057
+            
+            // aapt resource value: 0x7f030012
+            static member abc_screen_simple = 2130903058
+            
+            // aapt resource value: 0x7f030013
+            static member abc_screen_simple_overlay_action_mode = 2130903059
+            
+            // aapt resource value: 0x7f030014
+            static member abc_screen_toolbar = 2130903060
+            
+            // aapt resource value: 0x7f030015
+            static member abc_search_dropdown_item_icons_2line = 2130903061
+            
+            // aapt resource value: 0x7f030016
+            static member abc_search_view = 2130903062
+            
+            // aapt resource value: 0x7f030017
+            static member abc_select_dialog_material = 2130903063
+            
+            // aapt resource value: 0x7f030018
+            static member design_layout_snackbar = 2130903064
+            
+            // aapt resource value: 0x7f030019
+            static member design_layout_snackbar_include = 2130903065
+            
+            // aapt resource value: 0x7f03001a
+            static member design_layout_tab_icon = 2130903066
+            
+            // aapt resource value: 0x7f03001b
+            static member design_layout_tab_text = 2130903067
+            
+            // aapt resource value: 0x7f03001c
+            static member design_navigation_item = 2130903068
+            
+            // aapt resource value: 0x7f03001d
+            static member design_navigation_item_header = 2130903069
+            
+            // aapt resource value: 0x7f03001e
+            static member design_navigation_item_separator = 2130903070
+            
+            // aapt resource value: 0x7f03001f
+            static member design_navigation_item_subheader = 2130903071
+            
+            // aapt resource value: 0x7f030020
+            static member design_navigation_menu = 2130903072
+            
+            // aapt resource value: 0x7f030021
+            static member Main = 2130903073
+            
+            // aapt resource value: 0x7f030022
+            static member mr_media_route_chooser_dialog = 2130903074
+            
+            // aapt resource value: 0x7f030023
+            static member mr_media_route_controller_material_dialog_b = 2130903075
+            
+            // aapt resource value: 0x7f030024
+            static member mr_media_route_list_item = 2130903076
+            
+            // aapt resource value: 0x7f030025
+            static member notification_media_action = 2130903077
+            
+            // aapt resource value: 0x7f030026
+            static member notification_media_cancel_action = 2130903078
+            
+            // aapt resource value: 0x7f030027
+            static member notification_template_big_media = 2130903079
+            
+            // aapt resource value: 0x7f030028
+            static member notification_template_big_media_narrow = 2130903080
+            
+            // aapt resource value: 0x7f030029
+            static member notification_template_lines = 2130903081
+            
+            // aapt resource value: 0x7f03002a
+            static member notification_template_media = 2130903082
+            
+            // aapt resource value: 0x7f03002b
+            static member notification_template_part_chronometer = 2130903083
+            
+            // aapt resource value: 0x7f03002c
+            static member notification_template_part_time = 2130903084
+            
+            // aapt resource value: 0x7f03002d
+            static member select_dialog_item_material = 2130903085
+            
+            // aapt resource value: 0x7f03002e
+            static member select_dialog_multichoice_material = 2130903086
+            
+            // aapt resource value: 0x7f03002f
+            static member select_dialog_singlechoice_material = 2130903087
+            
+            // aapt resource value: 0x7f030030
+            static member support_simple_spinner_dropdown_item = 2130903088
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 
@@ -88,10 +3882,2328 @@ namespace ffrab.droid
         
         (* partial *)Resource_String () =
             static do Android.Runtime.ResourceIdManager.UpdateIdValues()
-            // aapt resource value: 0x7f040001
-            static member ApplicationName = 2130968577
+            // aapt resource value: 0x7f05001f
+            static member ApplicationName = 2131034143
             
-            // aapt resource value: 0x7f040000
-            static member Hello = 2130968576
+            // aapt resource value: 0x7f05001e
+            static member Hello = 2131034142
+            
+            // aapt resource value: 0x7f05000b
+            static member abc_action_bar_home_description = 2131034123
+            
+            // aapt resource value: 0x7f05000c
+            static member abc_action_bar_home_description_format = 2131034124
+            
+            // aapt resource value: 0x7f05000d
+            static member abc_action_bar_home_subtitle_description_format = 2131034125
+            
+            // aapt resource value: 0x7f05000e
+            static member abc_action_bar_up_description = 2131034126
+            
+            // aapt resource value: 0x7f05000f
+            static member abc_action_menu_overflow_description = 2131034127
+            
+            // aapt resource value: 0x7f050010
+            static member abc_action_mode_done = 2131034128
+            
+            // aapt resource value: 0x7f050011
+            static member abc_activity_chooser_view_see_all = 2131034129
+            
+            // aapt resource value: 0x7f050012
+            static member abc_activitychooserview_choose_application = 2131034130
+            
+            // aapt resource value: 0x7f050013
+            static member abc_search_hint = 2131034131
+            
+            // aapt resource value: 0x7f050014
+            static member abc_searchview_description_clear = 2131034132
+            
+            // aapt resource value: 0x7f050015
+            static member abc_searchview_description_query = 2131034133
+            
+            // aapt resource value: 0x7f050016
+            static member abc_searchview_description_search = 2131034134
+            
+            // aapt resource value: 0x7f050017
+            static member abc_searchview_description_submit = 2131034135
+            
+            // aapt resource value: 0x7f050018
+            static member abc_searchview_description_voice = 2131034136
+            
+            // aapt resource value: 0x7f050019
+            static member abc_shareactionprovider_share_with = 2131034137
+            
+            // aapt resource value: 0x7f05001a
+            static member abc_shareactionprovider_share_with_application = 2131034138
+            
+            // aapt resource value: 0x7f05001b
+            static member abc_toolbar_collapse_description = 2131034139
+            
+            // aapt resource value: 0x7f05001d
+            static member appbar_scrolling_view_behavior = 2131034141
+            
+            // aapt resource value: 0x7f050000
+            static member mr_media_route_button_content_description = 2131034112
+            
+            // aapt resource value: 0x7f050001
+            static member mr_media_route_chooser_searching = 2131034113
+            
+            // aapt resource value: 0x7f050002
+            static member mr_media_route_chooser_title = 2131034114
+            
+            // aapt resource value: 0x7f050003
+            static member mr_media_route_controller_disconnect = 2131034115
+            
+            // aapt resource value: 0x7f050004
+            static member mr_media_route_controller_no_info_available = 2131034116
+            
+            // aapt resource value: 0x7f050005
+            static member mr_media_route_controller_pause = 2131034117
+            
+            // aapt resource value: 0x7f050006
+            static member mr_media_route_controller_play = 2131034118
+            
+            // aapt resource value: 0x7f050007
+            static member mr_media_route_controller_settings_description = 2131034119
+            
+            // aapt resource value: 0x7f050008
+            static member mr_media_route_controller_stop = 2131034120
+            
+            // aapt resource value: 0x7f050009
+            static member mr_system_route_name = 2131034121
+            
+            // aapt resource value: 0x7f05000a
+            static member mr_user_route_category_name = 2131034122
+            
+            // aapt resource value: 0x7f05001c
+            static member status_bar_notification_info_overflow = 2131034140
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Style () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            // aapt resource value: 0x7f070081
+            static member AlertDialog_AppCompat = 2131165313
+            
+            // aapt resource value: 0x7f070082
+            static member AlertDialog_AppCompat_Light = 2131165314
+            
+            // aapt resource value: 0x7f070083
+            static member Animation_AppCompat_Dialog = 2131165315
+            
+            // aapt resource value: 0x7f070084
+            static member Animation_AppCompat_DropDownUp = 2131165316
+            
+            // aapt resource value: 0x7f070085
+            static member Base_AlertDialog_AppCompat = 2131165317
+            
+            // aapt resource value: 0x7f070086
+            static member Base_AlertDialog_AppCompat_Light = 2131165318
+            
+            // aapt resource value: 0x7f070087
+            static member Base_Animation_AppCompat_Dialog = 2131165319
+            
+            // aapt resource value: 0x7f070088
+            static member Base_Animation_AppCompat_DropDownUp = 2131165320
+            
+            // aapt resource value: 0x7f070089
+            static member Base_DialogWindowTitle_AppCompat = 2131165321
+            
+            // aapt resource value: 0x7f07008a
+            static member Base_DialogWindowTitleBackground_AppCompat = 2131165322
+            
+            // aapt resource value: 0x7f070034
+            static member Base_TextAppearance_AppCompat = 2131165236
+            
+            // aapt resource value: 0x7f070035
+            static member Base_TextAppearance_AppCompat_Body1 = 2131165237
+            
+            // aapt resource value: 0x7f070036
+            static member Base_TextAppearance_AppCompat_Body2 = 2131165238
+            
+            // aapt resource value: 0x7f07001f
+            static member Base_TextAppearance_AppCompat_Button = 2131165215
+            
+            // aapt resource value: 0x7f070037
+            static member Base_TextAppearance_AppCompat_Caption = 2131165239
+            
+            // aapt resource value: 0x7f070038
+            static member Base_TextAppearance_AppCompat_Display1 = 2131165240
+            
+            // aapt resource value: 0x7f070039
+            static member Base_TextAppearance_AppCompat_Display2 = 2131165241
+            
+            // aapt resource value: 0x7f07003a
+            static member Base_TextAppearance_AppCompat_Display3 = 2131165242
+            
+            // aapt resource value: 0x7f07003b
+            static member Base_TextAppearance_AppCompat_Display4 = 2131165243
+            
+            // aapt resource value: 0x7f07003c
+            static member Base_TextAppearance_AppCompat_Headline = 2131165244
+            
+            // aapt resource value: 0x7f07000a
+            static member Base_TextAppearance_AppCompat_Inverse = 2131165194
+            
+            // aapt resource value: 0x7f07003d
+            static member Base_TextAppearance_AppCompat_Large = 2131165245
+            
+            // aapt resource value: 0x7f07000b
+            static member Base_TextAppearance_AppCompat_Large_Inverse = 2131165195
+            
+            // aapt resource value: 0x7f07003e
+            static member Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165246
+            
+            // aapt resource value: 0x7f07003f
+            static member Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165247
+            
+            // aapt resource value: 0x7f070040
+            static member Base_TextAppearance_AppCompat_Medium = 2131165248
+            
+            // aapt resource value: 0x7f07000c
+            static member Base_TextAppearance_AppCompat_Medium_Inverse = 2131165196
+            
+            // aapt resource value: 0x7f070041
+            static member Base_TextAppearance_AppCompat_Menu = 2131165249
+            
+            // aapt resource value: 0x7f07008b
+            static member Base_TextAppearance_AppCompat_SearchResult = 2131165323
+            
+            // aapt resource value: 0x7f070042
+            static member Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131165250
+            
+            // aapt resource value: 0x7f070043
+            static member Base_TextAppearance_AppCompat_SearchResult_Title = 2131165251
+            
+            // aapt resource value: 0x7f070044
+            static member Base_TextAppearance_AppCompat_Small = 2131165252
+            
+            // aapt resource value: 0x7f07000d
+            static member Base_TextAppearance_AppCompat_Small_Inverse = 2131165197
+            
+            // aapt resource value: 0x7f070045
+            static member Base_TextAppearance_AppCompat_Subhead = 2131165253
+            
+            // aapt resource value: 0x7f07000e
+            static member Base_TextAppearance_AppCompat_Subhead_Inverse = 2131165198
+            
+            // aapt resource value: 0x7f070046
+            static member Base_TextAppearance_AppCompat_Title = 2131165254
+            
+            // aapt resource value: 0x7f07000f
+            static member Base_TextAppearance_AppCompat_Title_Inverse = 2131165199
+            
+            // aapt resource value: 0x7f070047
+            static member Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165255
+            
+            // aapt resource value: 0x7f070048
+            static member Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165256
+            
+            // aapt resource value: 0x7f070049
+            static member Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165257
+            
+            // aapt resource value: 0x7f07004a
+            static member Base_TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165258
+            
+            // aapt resource value: 0x7f07004b
+            static member Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165259
+            
+            // aapt resource value: 0x7f07004c
+            static member Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165260
+            
+            // aapt resource value: 0x7f07004d
+            static member Base_TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165261
+            
+            // aapt resource value: 0x7f07004e
+            static member Base_TextAppearance_AppCompat_Widget_Button = 2131165262
+            
+            // aapt resource value: 0x7f07007d
+            static member Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131165309
+            
+            // aapt resource value: 0x7f07008c
+            static member Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131165324
+            
+            // aapt resource value: 0x7f07004f
+            static member Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165263
+            
+            // aapt resource value: 0x7f070050
+            static member Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165264
+            
+            // aapt resource value: 0x7f070051
+            static member Base_TextAppearance_AppCompat_Widget_Switch = 2131165265
+            
+            // aapt resource value: 0x7f070052
+            static member Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165266
+            
+            // aapt resource value: 0x7f07008d
+            static member Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165325
+            
+            // aapt resource value: 0x7f070053
+            static member Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165267
+            
+            // aapt resource value: 0x7f070054
+            static member Base_TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165268
+            
+            // aapt resource value: 0x7f070055
+            static member Base_Theme_AppCompat = 2131165269
+            
+            // aapt resource value: 0x7f07008e
+            static member Base_Theme_AppCompat_CompactMenu = 2131165326
+            
+            // aapt resource value: 0x7f070010
+            static member Base_Theme_AppCompat_Dialog = 2131165200
+            
+            // aapt resource value: 0x7f07008f
+            static member Base_Theme_AppCompat_Dialog_Alert = 2131165327
+            
+            // aapt resource value: 0x7f070090
+            static member Base_Theme_AppCompat_Dialog_FixedSize = 2131165328
+            
+            // aapt resource value: 0x7f070091
+            static member Base_Theme_AppCompat_Dialog_MinWidth = 2131165329
+            
+            // aapt resource value: 0x7f070008
+            static member Base_Theme_AppCompat_DialogWhenLarge = 2131165192
+            
+            // aapt resource value: 0x7f070056
+            static member Base_Theme_AppCompat_Light = 2131165270
+            
+            // aapt resource value: 0x7f070092
+            static member Base_Theme_AppCompat_Light_DarkActionBar = 2131165330
+            
+            // aapt resource value: 0x7f070011
+            static member Base_Theme_AppCompat_Light_Dialog = 2131165201
+            
+            // aapt resource value: 0x7f070093
+            static member Base_Theme_AppCompat_Light_Dialog_Alert = 2131165331
+            
+            // aapt resource value: 0x7f070094
+            static member Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131165332
+            
+            // aapt resource value: 0x7f070095
+            static member Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131165333
+            
+            // aapt resource value: 0x7f070009
+            static member Base_Theme_AppCompat_Light_DialogWhenLarge = 2131165193
+            
+            // aapt resource value: 0x7f070096
+            static member Base_ThemeOverlay_AppCompat = 2131165334
+            
+            // aapt resource value: 0x7f070097
+            static member Base_ThemeOverlay_AppCompat_ActionBar = 2131165335
+            
+            // aapt resource value: 0x7f070098
+            static member Base_ThemeOverlay_AppCompat_Dark = 2131165336
+            
+            // aapt resource value: 0x7f070099
+            static member Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131165337
+            
+            // aapt resource value: 0x7f07009a
+            static member Base_ThemeOverlay_AppCompat_Light = 2131165338
+            
+            // aapt resource value: 0x7f070012
+            static member Base_V11_Theme_AppCompat_Dialog = 2131165202
+            
+            // aapt resource value: 0x7f070013
+            static member Base_V11_Theme_AppCompat_Light_Dialog = 2131165203
+            
+            // aapt resource value: 0x7f07001b
+            static member Base_V12_Widget_AppCompat_AutoCompleteTextView = 2131165211
+            
+            // aapt resource value: 0x7f07001c
+            static member Base_V12_Widget_AppCompat_EditText = 2131165212
+            
+            // aapt resource value: 0x7f070057
+            static member Base_V21_Theme_AppCompat = 2131165271
+            
+            // aapt resource value: 0x7f070058
+            static member Base_V21_Theme_AppCompat_Dialog = 2131165272
+            
+            // aapt resource value: 0x7f070059
+            static member Base_V21_Theme_AppCompat_Light = 2131165273
+            
+            // aapt resource value: 0x7f07005a
+            static member Base_V21_Theme_AppCompat_Light_Dialog = 2131165274
+            
+            // aapt resource value: 0x7f07007b
+            static member Base_V22_Theme_AppCompat = 2131165307
+            
+            // aapt resource value: 0x7f07007c
+            static member Base_V22_Theme_AppCompat_Light = 2131165308
+            
+            // aapt resource value: 0x7f07007e
+            static member Base_V23_Theme_AppCompat = 2131165310
+            
+            // aapt resource value: 0x7f07007f
+            static member Base_V23_Theme_AppCompat_Light = 2131165311
+            
+            // aapt resource value: 0x7f07009b
+            static member Base_V7_Theme_AppCompat = 2131165339
+            
+            // aapt resource value: 0x7f07009c
+            static member Base_V7_Theme_AppCompat_Dialog = 2131165340
+            
+            // aapt resource value: 0x7f07009d
+            static member Base_V7_Theme_AppCompat_Light = 2131165341
+            
+            // aapt resource value: 0x7f07009e
+            static member Base_V7_Theme_AppCompat_Light_Dialog = 2131165342
+            
+            // aapt resource value: 0x7f07009f
+            static member Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131165343
+            
+            // aapt resource value: 0x7f0700a0
+            static member Base_V7_Widget_AppCompat_EditText = 2131165344
+            
+            // aapt resource value: 0x7f0700a1
+            static member Base_Widget_AppCompat_ActionBar = 2131165345
+            
+            // aapt resource value: 0x7f0700a2
+            static member Base_Widget_AppCompat_ActionBar_Solid = 2131165346
+            
+            // aapt resource value: 0x7f0700a3
+            static member Base_Widget_AppCompat_ActionBar_TabBar = 2131165347
+            
+            // aapt resource value: 0x7f07005b
+            static member Base_Widget_AppCompat_ActionBar_TabText = 2131165275
+            
+            // aapt resource value: 0x7f07005c
+            static member Base_Widget_AppCompat_ActionBar_TabView = 2131165276
+            
+            // aapt resource value: 0x7f07005d
+            static member Base_Widget_AppCompat_ActionButton = 2131165277
+            
+            // aapt resource value: 0x7f07005e
+            static member Base_Widget_AppCompat_ActionButton_CloseMode = 2131165278
+            
+            // aapt resource value: 0x7f07005f
+            static member Base_Widget_AppCompat_ActionButton_Overflow = 2131165279
+            
+            // aapt resource value: 0x7f0700a4
+            static member Base_Widget_AppCompat_ActionMode = 2131165348
+            
+            // aapt resource value: 0x7f0700a5
+            static member Base_Widget_AppCompat_ActivityChooserView = 2131165349
+            
+            // aapt resource value: 0x7f07001d
+            static member Base_Widget_AppCompat_AutoCompleteTextView = 2131165213
+            
+            // aapt resource value: 0x7f070060
+            static member Base_Widget_AppCompat_Button = 2131165280
+            
+            // aapt resource value: 0x7f070061
+            static member Base_Widget_AppCompat_Button_Borderless = 2131165281
+            
+            // aapt resource value: 0x7f070062
+            static member Base_Widget_AppCompat_Button_Borderless_Colored = 2131165282
+            
+            // aapt resource value: 0x7f0700a6
+            static member Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165350
+            
+            // aapt resource value: 0x7f070080
+            static member Base_Widget_AppCompat_Button_Colored = 2131165312
+            
+            // aapt resource value: 0x7f070063
+            static member Base_Widget_AppCompat_Button_Small = 2131165283
+            
+            // aapt resource value: 0x7f070064
+            static member Base_Widget_AppCompat_ButtonBar = 2131165284
+            
+            // aapt resource value: 0x7f0700a7
+            static member Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131165351
+            
+            // aapt resource value: 0x7f070065
+            static member Base_Widget_AppCompat_CompoundButton_CheckBox = 2131165285
+            
+            // aapt resource value: 0x7f070066
+            static member Base_Widget_AppCompat_CompoundButton_RadioButton = 2131165286
+            
+            // aapt resource value: 0x7f0700a8
+            static member Base_Widget_AppCompat_CompoundButton_Switch = 2131165352
+            
+            // aapt resource value: 0x7f070007
+            static member Base_Widget_AppCompat_DrawerArrowToggle = 2131165191
+            
+            // aapt resource value: 0x7f0700a9
+            static member Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131165353
+            
+            // aapt resource value: 0x7f070067
+            static member Base_Widget_AppCompat_DropDownItem_Spinner = 2131165287
+            
+            // aapt resource value: 0x7f07001e
+            static member Base_Widget_AppCompat_EditText = 2131165214
+            
+            // aapt resource value: 0x7f0700aa
+            static member Base_Widget_AppCompat_Light_ActionBar = 2131165354
+            
+            // aapt resource value: 0x7f0700ab
+            static member Base_Widget_AppCompat_Light_ActionBar_Solid = 2131165355
+            
+            // aapt resource value: 0x7f0700ac
+            static member Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131165356
+            
+            // aapt resource value: 0x7f070068
+            static member Base_Widget_AppCompat_Light_ActionBar_TabText = 2131165288
+            
+            // aapt resource value: 0x7f070069
+            static member Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165289
+            
+            // aapt resource value: 0x7f07006a
+            static member Base_Widget_AppCompat_Light_ActionBar_TabView = 2131165290
+            
+            // aapt resource value: 0x7f07006b
+            static member Base_Widget_AppCompat_Light_PopupMenu = 2131165291
+            
+            // aapt resource value: 0x7f07006c
+            static member Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131165292
+            
+            // aapt resource value: 0x7f07006d
+            static member Base_Widget_AppCompat_ListPopupWindow = 2131165293
+            
+            // aapt resource value: 0x7f07006e
+            static member Base_Widget_AppCompat_ListView = 2131165294
+            
+            // aapt resource value: 0x7f07006f
+            static member Base_Widget_AppCompat_ListView_DropDown = 2131165295
+            
+            // aapt resource value: 0x7f070070
+            static member Base_Widget_AppCompat_ListView_Menu = 2131165296
+            
+            // aapt resource value: 0x7f070071
+            static member Base_Widget_AppCompat_PopupMenu = 2131165297
+            
+            // aapt resource value: 0x7f070072
+            static member Base_Widget_AppCompat_PopupMenu_Overflow = 2131165298
+            
+            // aapt resource value: 0x7f0700ad
+            static member Base_Widget_AppCompat_PopupWindow = 2131165357
+            
+            // aapt resource value: 0x7f070014
+            static member Base_Widget_AppCompat_ProgressBar = 2131165204
+            
+            // aapt resource value: 0x7f070015
+            static member Base_Widget_AppCompat_ProgressBar_Horizontal = 2131165205
+            
+            // aapt resource value: 0x7f070073
+            static member Base_Widget_AppCompat_RatingBar = 2131165299
+            
+            // aapt resource value: 0x7f0700ae
+            static member Base_Widget_AppCompat_SearchView = 2131165358
+            
+            // aapt resource value: 0x7f0700af
+            static member Base_Widget_AppCompat_SearchView_ActionBar = 2131165359
+            
+            // aapt resource value: 0x7f070074
+            static member Base_Widget_AppCompat_Spinner = 2131165300
+            
+            // aapt resource value: 0x7f070075
+            static member Base_Widget_AppCompat_Spinner_Underlined = 2131165301
+            
+            // aapt resource value: 0x7f070076
+            static member Base_Widget_AppCompat_TextView_SpinnerItem = 2131165302
+            
+            // aapt resource value: 0x7f0700b0
+            static member Base_Widget_AppCompat_Toolbar = 2131165360
+            
+            // aapt resource value: 0x7f070077
+            static member Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131165303
+            
+            // aapt resource value: 0x7f070136
+            static member Base_Widget_Design_TabLayout = 2131165494
+            
+            // aapt resource value: 0x7f070004
+            static member CardView = 2131165188
+            
+            // aapt resource value: 0x7f070005
+            static member CardView_Dark = 2131165189
+            
+            // aapt resource value: 0x7f070006
+            static member CardView_Light = 2131165190
+            
+            // aapt resource value: 0x7f070016
+            static member Platform_AppCompat = 2131165206
+            
+            // aapt resource value: 0x7f070017
+            static member Platform_AppCompat_Light = 2131165207
+            
+            // aapt resource value: 0x7f070078
+            static member Platform_ThemeOverlay_AppCompat = 2131165304
+            
+            // aapt resource value: 0x7f070079
+            static member Platform_ThemeOverlay_AppCompat_Dark = 2131165305
+            
+            // aapt resource value: 0x7f07007a
+            static member Platform_ThemeOverlay_AppCompat_Light = 2131165306
+            
+            // aapt resource value: 0x7f070018
+            static member Platform_V11_AppCompat = 2131165208
+            
+            // aapt resource value: 0x7f070019
+            static member Platform_V11_AppCompat_Light = 2131165209
+            
+            // aapt resource value: 0x7f070020
+            static member Platform_V14_AppCompat = 2131165216
+            
+            // aapt resource value: 0x7f070021
+            static member Platform_V14_AppCompat_Light = 2131165217
+            
+            // aapt resource value: 0x7f07001a
+            static member Platform_Widget_AppCompat_Spinner = 2131165210
+            
+            // aapt resource value: 0x7f070027
+            static member RtlOverlay_DialogWindowTitle_AppCompat = 2131165223
+            
+            // aapt resource value: 0x7f070028
+            static member RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131165224
+            
+            // aapt resource value: 0x7f070029
+            static member RtlOverlay_Widget_AppCompat_ActionButton_Overflow = 2131165225
+            
+            // aapt resource value: 0x7f07002a
+            static member RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131165226
+            
+            // aapt resource value: 0x7f07002b
+            static member RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131165227
+            
+            // aapt resource value: 0x7f07002c
+            static member RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131165228
+            
+            // aapt resource value: 0x7f07002d
+            static member RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131165229
+            
+            // aapt resource value: 0x7f07002e
+            static member RtlOverlay_Widget_AppCompat_Search_DropDown = 2131165230
+            
+            // aapt resource value: 0x7f07002f
+            static member RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131165231
+            
+            // aapt resource value: 0x7f070030
+            static member RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131165232
+            
+            // aapt resource value: 0x7f070031
+            static member RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131165233
+            
+            // aapt resource value: 0x7f070032
+            static member RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131165234
+            
+            // aapt resource value: 0x7f070033
+            static member RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131165235
+            
+            // aapt resource value: 0x7f0700b1
+            static member TextAppearance_AppCompat = 2131165361
+            
+            // aapt resource value: 0x7f0700b2
+            static member TextAppearance_AppCompat_Body1 = 2131165362
+            
+            // aapt resource value: 0x7f0700b3
+            static member TextAppearance_AppCompat_Body2 = 2131165363
+            
+            // aapt resource value: 0x7f0700b4
+            static member TextAppearance_AppCompat_Button = 2131165364
+            
+            // aapt resource value: 0x7f0700b5
+            static member TextAppearance_AppCompat_Caption = 2131165365
+            
+            // aapt resource value: 0x7f0700b6
+            static member TextAppearance_AppCompat_Display1 = 2131165366
+            
+            // aapt resource value: 0x7f0700b7
+            static member TextAppearance_AppCompat_Display2 = 2131165367
+            
+            // aapt resource value: 0x7f0700b8
+            static member TextAppearance_AppCompat_Display3 = 2131165368
+            
+            // aapt resource value: 0x7f0700b9
+            static member TextAppearance_AppCompat_Display4 = 2131165369
+            
+            // aapt resource value: 0x7f0700ba
+            static member TextAppearance_AppCompat_Headline = 2131165370
+            
+            // aapt resource value: 0x7f0700bb
+            static member TextAppearance_AppCompat_Inverse = 2131165371
+            
+            // aapt resource value: 0x7f0700bc
+            static member TextAppearance_AppCompat_Large = 2131165372
+            
+            // aapt resource value: 0x7f0700bd
+            static member TextAppearance_AppCompat_Large_Inverse = 2131165373
+            
+            // aapt resource value: 0x7f0700be
+            static member TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131165374
+            
+            // aapt resource value: 0x7f0700bf
+            static member TextAppearance_AppCompat_Light_SearchResult_Title = 2131165375
+            
+            // aapt resource value: 0x7f0700c0
+            static member TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165376
+            
+            // aapt resource value: 0x7f0700c1
+            static member TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165377
+            
+            // aapt resource value: 0x7f0700c2
+            static member TextAppearance_AppCompat_Medium = 2131165378
+            
+            // aapt resource value: 0x7f0700c3
+            static member TextAppearance_AppCompat_Medium_Inverse = 2131165379
+            
+            // aapt resource value: 0x7f0700c4
+            static member TextAppearance_AppCompat_Menu = 2131165380
+            
+            // aapt resource value: 0x7f0700c5
+            static member TextAppearance_AppCompat_SearchResult_Subtitle = 2131165381
+            
+            // aapt resource value: 0x7f0700c6
+            static member TextAppearance_AppCompat_SearchResult_Title = 2131165382
+            
+            // aapt resource value: 0x7f0700c7
+            static member TextAppearance_AppCompat_Small = 2131165383
+            
+            // aapt resource value: 0x7f0700c8
+            static member TextAppearance_AppCompat_Small_Inverse = 2131165384
+            
+            // aapt resource value: 0x7f0700c9
+            static member TextAppearance_AppCompat_Subhead = 2131165385
+            
+            // aapt resource value: 0x7f0700ca
+            static member TextAppearance_AppCompat_Subhead_Inverse = 2131165386
+            
+            // aapt resource value: 0x7f0700cb
+            static member TextAppearance_AppCompat_Title = 2131165387
+            
+            // aapt resource value: 0x7f0700cc
+            static member TextAppearance_AppCompat_Title_Inverse = 2131165388
+            
+            // aapt resource value: 0x7f0700cd
+            static member TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165389
+            
+            // aapt resource value: 0x7f0700ce
+            static member TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165390
+            
+            // aapt resource value: 0x7f0700cf
+            static member TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165391
+            
+            // aapt resource value: 0x7f0700d0
+            static member TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165392
+            
+            // aapt resource value: 0x7f0700d1
+            static member TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165393
+            
+            // aapt resource value: 0x7f0700d2
+            static member TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165394
+            
+            // aapt resource value: 0x7f0700d3
+            static member TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131165395
+            
+            // aapt resource value: 0x7f0700d4
+            static member TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165396
+            
+            // aapt resource value: 0x7f0700d5
+            static member TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131165397
+            
+            // aapt resource value: 0x7f0700d6
+            static member TextAppearance_AppCompat_Widget_Button = 2131165398
+            
+            // aapt resource value: 0x7f0700d7
+            static member TextAppearance_AppCompat_Widget_Button_Inverse = 2131165399
+            
+            // aapt resource value: 0x7f0700d8
+            static member TextAppearance_AppCompat_Widget_DropDownItem = 2131165400
+            
+            // aapt resource value: 0x7f0700d9
+            static member TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165401
+            
+            // aapt resource value: 0x7f0700da
+            static member TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165402
+            
+            // aapt resource value: 0x7f0700db
+            static member TextAppearance_AppCompat_Widget_Switch = 2131165403
+            
+            // aapt resource value: 0x7f0700dc
+            static member TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165404
+            
+            // aapt resource value: 0x7f070137
+            static member TextAppearance_Design_CollapsingToolbar_Expanded = 2131165495
+            
+            // aapt resource value: 0x7f070138
+            static member TextAppearance_Design_Error = 2131165496
+            
+            // aapt resource value: 0x7f070139
+            static member TextAppearance_Design_Hint = 2131165497
+            
+            // aapt resource value: 0x7f07013a
+            static member TextAppearance_Design_Snackbar_Message = 2131165498
+            
+            // aapt resource value: 0x7f07013b
+            static member TextAppearance_Design_Tab = 2131165499
+            
+            // aapt resource value: 0x7f070022
+            static member TextAppearance_StatusBar_EventContent = 2131165218
+            
+            // aapt resource value: 0x7f070023
+            static member TextAppearance_StatusBar_EventContent_Info = 2131165219
+            
+            // aapt resource value: 0x7f070024
+            static member TextAppearance_StatusBar_EventContent_Line2 = 2131165220
+            
+            // aapt resource value: 0x7f070025
+            static member TextAppearance_StatusBar_EventContent_Time = 2131165221
+            
+            // aapt resource value: 0x7f070026
+            static member TextAppearance_StatusBar_EventContent_Title = 2131165222
+            
+            // aapt resource value: 0x7f0700dd
+            static member TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165405
+            
+            // aapt resource value: 0x7f0700de
+            static member TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165406
+            
+            // aapt resource value: 0x7f0700df
+            static member TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165407
+            
+            // aapt resource value: 0x7f0700e0
+            static member Theme_AppCompat = 2131165408
+            
+            // aapt resource value: 0x7f0700e1
+            static member Theme_AppCompat_CompactMenu = 2131165409
+            
+            // aapt resource value: 0x7f0700e2
+            static member Theme_AppCompat_Dialog = 2131165410
+            
+            // aapt resource value: 0x7f0700e3
+            static member Theme_AppCompat_Dialog_Alert = 2131165411
+            
+            // aapt resource value: 0x7f0700e4
+            static member Theme_AppCompat_Dialog_MinWidth = 2131165412
+            
+            // aapt resource value: 0x7f0700e5
+            static member Theme_AppCompat_DialogWhenLarge = 2131165413
+            
+            // aapt resource value: 0x7f0700e6
+            static member Theme_AppCompat_Light = 2131165414
+            
+            // aapt resource value: 0x7f0700e7
+            static member Theme_AppCompat_Light_DarkActionBar = 2131165415
+            
+            // aapt resource value: 0x7f0700e8
+            static member Theme_AppCompat_Light_Dialog = 2131165416
+            
+            // aapt resource value: 0x7f0700e9
+            static member Theme_AppCompat_Light_Dialog_Alert = 2131165417
+            
+            // aapt resource value: 0x7f0700ea
+            static member Theme_AppCompat_Light_Dialog_MinWidth = 2131165418
+            
+            // aapt resource value: 0x7f0700eb
+            static member Theme_AppCompat_Light_DialogWhenLarge = 2131165419
+            
+            // aapt resource value: 0x7f0700ec
+            static member Theme_AppCompat_Light_NoActionBar = 2131165420
+            
+            // aapt resource value: 0x7f0700ed
+            static member Theme_AppCompat_NoActionBar = 2131165421
+            
+            // aapt resource value: 0x7f070000
+            static member Theme_MediaRouter = 2131165184
+            
+            // aapt resource value: 0x7f070001
+            static member Theme_MediaRouter_Light = 2131165185
+            
+            // aapt resource value: 0x7f0700ee
+            static member ThemeOverlay_AppCompat = 2131165422
+            
+            // aapt resource value: 0x7f0700ef
+            static member ThemeOverlay_AppCompat_ActionBar = 2131165423
+            
+            // aapt resource value: 0x7f0700f0
+            static member ThemeOverlay_AppCompat_Dark = 2131165424
+            
+            // aapt resource value: 0x7f0700f1
+            static member ThemeOverlay_AppCompat_Dark_ActionBar = 2131165425
+            
+            // aapt resource value: 0x7f0700f2
+            static member ThemeOverlay_AppCompat_Light = 2131165426
+            
+            // aapt resource value: 0x7f0700f3
+            static member Widget_AppCompat_ActionBar = 2131165427
+            
+            // aapt resource value: 0x7f0700f4
+            static member Widget_AppCompat_ActionBar_Solid = 2131165428
+            
+            // aapt resource value: 0x7f0700f5
+            static member Widget_AppCompat_ActionBar_TabBar = 2131165429
+            
+            // aapt resource value: 0x7f0700f6
+            static member Widget_AppCompat_ActionBar_TabText = 2131165430
+            
+            // aapt resource value: 0x7f0700f7
+            static member Widget_AppCompat_ActionBar_TabView = 2131165431
+            
+            // aapt resource value: 0x7f0700f8
+            static member Widget_AppCompat_ActionButton = 2131165432
+            
+            // aapt resource value: 0x7f0700f9
+            static member Widget_AppCompat_ActionButton_CloseMode = 2131165433
+            
+            // aapt resource value: 0x7f0700fa
+            static member Widget_AppCompat_ActionButton_Overflow = 2131165434
+            
+            // aapt resource value: 0x7f0700fb
+            static member Widget_AppCompat_ActionMode = 2131165435
+            
+            // aapt resource value: 0x7f0700fc
+            static member Widget_AppCompat_ActivityChooserView = 2131165436
+            
+            // aapt resource value: 0x7f0700fd
+            static member Widget_AppCompat_AutoCompleteTextView = 2131165437
+            
+            // aapt resource value: 0x7f0700fe
+            static member Widget_AppCompat_Button = 2131165438
+            
+            // aapt resource value: 0x7f0700ff
+            static member Widget_AppCompat_Button_Borderless = 2131165439
+            
+            // aapt resource value: 0x7f070100
+            static member Widget_AppCompat_Button_Borderless_Colored = 2131165440
+            
+            // aapt resource value: 0x7f070101
+            static member Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165441
+            
+            // aapt resource value: 0x7f070102
+            static member Widget_AppCompat_Button_Colored = 2131165442
+            
+            // aapt resource value: 0x7f070103
+            static member Widget_AppCompat_Button_Small = 2131165443
+            
+            // aapt resource value: 0x7f070104
+            static member Widget_AppCompat_ButtonBar = 2131165444
+            
+            // aapt resource value: 0x7f070105
+            static member Widget_AppCompat_ButtonBar_AlertDialog = 2131165445
+            
+            // aapt resource value: 0x7f070106
+            static member Widget_AppCompat_CompoundButton_CheckBox = 2131165446
+            
+            // aapt resource value: 0x7f070107
+            static member Widget_AppCompat_CompoundButton_RadioButton = 2131165447
+            
+            // aapt resource value: 0x7f070108
+            static member Widget_AppCompat_CompoundButton_Switch = 2131165448
+            
+            // aapt resource value: 0x7f070109
+            static member Widget_AppCompat_DrawerArrowToggle = 2131165449
+            
+            // aapt resource value: 0x7f07010a
+            static member Widget_AppCompat_DropDownItem_Spinner = 2131165450
+            
+            // aapt resource value: 0x7f07010b
+            static member Widget_AppCompat_EditText = 2131165451
+            
+            // aapt resource value: 0x7f07010c
+            static member Widget_AppCompat_Light_ActionBar = 2131165452
+            
+            // aapt resource value: 0x7f07010d
+            static member Widget_AppCompat_Light_ActionBar_Solid = 2131165453
+            
+            // aapt resource value: 0x7f07010e
+            static member Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131165454
+            
+            // aapt resource value: 0x7f07010f
+            static member Widget_AppCompat_Light_ActionBar_TabBar = 2131165455
+            
+            // aapt resource value: 0x7f070110
+            static member Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131165456
+            
+            // aapt resource value: 0x7f070111
+            static member Widget_AppCompat_Light_ActionBar_TabText = 2131165457
+            
+            // aapt resource value: 0x7f070112
+            static member Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165458
+            
+            // aapt resource value: 0x7f070113
+            static member Widget_AppCompat_Light_ActionBar_TabView = 2131165459
+            
+            // aapt resource value: 0x7f070114
+            static member Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131165460
+            
+            // aapt resource value: 0x7f070115
+            static member Widget_AppCompat_Light_ActionButton = 2131165461
+            
+            // aapt resource value: 0x7f070116
+            static member Widget_AppCompat_Light_ActionButton_CloseMode = 2131165462
+            
+            // aapt resource value: 0x7f070117
+            static member Widget_AppCompat_Light_ActionButton_Overflow = 2131165463
+            
+            // aapt resource value: 0x7f070118
+            static member Widget_AppCompat_Light_ActionMode_Inverse = 2131165464
+            
+            // aapt resource value: 0x7f070119
+            static member Widget_AppCompat_Light_ActivityChooserView = 2131165465
+            
+            // aapt resource value: 0x7f07011a
+            static member Widget_AppCompat_Light_AutoCompleteTextView = 2131165466
+            
+            // aapt resource value: 0x7f07011b
+            static member Widget_AppCompat_Light_DropDownItem_Spinner = 2131165467
+            
+            // aapt resource value: 0x7f07011c
+            static member Widget_AppCompat_Light_ListPopupWindow = 2131165468
+            
+            // aapt resource value: 0x7f07011d
+            static member Widget_AppCompat_Light_ListView_DropDown = 2131165469
+            
+            // aapt resource value: 0x7f07011e
+            static member Widget_AppCompat_Light_PopupMenu = 2131165470
+            
+            // aapt resource value: 0x7f07011f
+            static member Widget_AppCompat_Light_PopupMenu_Overflow = 2131165471
+            
+            // aapt resource value: 0x7f070120
+            static member Widget_AppCompat_Light_SearchView = 2131165472
+            
+            // aapt resource value: 0x7f070121
+            static member Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131165473
+            
+            // aapt resource value: 0x7f070122
+            static member Widget_AppCompat_ListPopupWindow = 2131165474
+            
+            // aapt resource value: 0x7f070123
+            static member Widget_AppCompat_ListView = 2131165475
+            
+            // aapt resource value: 0x7f070124
+            static member Widget_AppCompat_ListView_DropDown = 2131165476
+            
+            // aapt resource value: 0x7f070125
+            static member Widget_AppCompat_ListView_Menu = 2131165477
+            
+            // aapt resource value: 0x7f070126
+            static member Widget_AppCompat_PopupMenu = 2131165478
+            
+            // aapt resource value: 0x7f070127
+            static member Widget_AppCompat_PopupMenu_Overflow = 2131165479
+            
+            // aapt resource value: 0x7f070128
+            static member Widget_AppCompat_PopupWindow = 2131165480
+            
+            // aapt resource value: 0x7f070129
+            static member Widget_AppCompat_ProgressBar = 2131165481
+            
+            // aapt resource value: 0x7f07012a
+            static member Widget_AppCompat_ProgressBar_Horizontal = 2131165482
+            
+            // aapt resource value: 0x7f07012b
+            static member Widget_AppCompat_RatingBar = 2131165483
+            
+            // aapt resource value: 0x7f07012c
+            static member Widget_AppCompat_SearchView = 2131165484
+            
+            // aapt resource value: 0x7f07012d
+            static member Widget_AppCompat_SearchView_ActionBar = 2131165485
+            
+            // aapt resource value: 0x7f07012e
+            static member Widget_AppCompat_Spinner = 2131165486
+            
+            // aapt resource value: 0x7f07012f
+            static member Widget_AppCompat_Spinner_DropDown = 2131165487
+            
+            // aapt resource value: 0x7f070130
+            static member Widget_AppCompat_Spinner_DropDown_ActionBar = 2131165488
+            
+            // aapt resource value: 0x7f070131
+            static member Widget_AppCompat_Spinner_Underlined = 2131165489
+            
+            // aapt resource value: 0x7f070132
+            static member Widget_AppCompat_TextView_SpinnerItem = 2131165490
+            
+            // aapt resource value: 0x7f070133
+            static member Widget_AppCompat_Toolbar = 2131165491
+            
+            // aapt resource value: 0x7f070134
+            static member Widget_AppCompat_Toolbar_Button_Navigation = 2131165492
+            
+            // aapt resource value: 0x7f07013c
+            static member Widget_Design_AppBarLayout = 2131165500
+            
+            // aapt resource value: 0x7f07013d
+            static member Widget_Design_CollapsingToolbar = 2131165501
+            
+            // aapt resource value: 0x7f07013e
+            static member Widget_Design_CoordinatorLayout = 2131165502
+            
+            // aapt resource value: 0x7f07013f
+            static member Widget_Design_FloatingActionButton = 2131165503
+            
+            // aapt resource value: 0x7f070140
+            static member Widget_Design_NavigationView = 2131165504
+            
+            // aapt resource value: 0x7f070141
+            static member Widget_Design_ScrimInsetsFrameLayout = 2131165505
+            
+            // aapt resource value: 0x7f070142
+            static member Widget_Design_Snackbar = 2131165506
+            
+            // aapt resource value: 0x7f070135
+            static member Widget_Design_TabLayout = 2131165493
+            
+            // aapt resource value: 0x7f070143
+            static member Widget_Design_TextInputLayout = 2131165507
+            
+            // aapt resource value: 0x7f070002
+            static member Widget_MediaRouter_Light_MediaRouteButton = 2131165186
+            
+            // aapt resource value: 0x7f070003
+            static member Widget_MediaRouter_MediaRouteButton = 2131165187
+            (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
+
+
+    
+    and
+        
+        (* partial *)Resource_Styleable () =
+            static do Android.Runtime.ResourceIdManager.UpdateIdValues()
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActionBar:int[]
+            
+            // aapt resource value: 10
+            static member ActionBar_background = 10
+            
+            // aapt resource value: 12
+            static member ActionBar_backgroundSplit = 12
+            
+            // aapt resource value: 11
+            static member ActionBar_backgroundStacked = 11
+            
+            // aapt resource value: 21
+            static member ActionBar_contentInsetEnd = 21
+            
+            // aapt resource value: 22
+            static member ActionBar_contentInsetLeft = 22
+            
+            // aapt resource value: 23
+            static member ActionBar_contentInsetRight = 23
+            
+            // aapt resource value: 20
+            static member ActionBar_contentInsetStart = 20
+            
+            // aapt resource value: 13
+            static member ActionBar_customNavigationLayout = 13
+            
+            // aapt resource value: 3
+            static member ActionBar_displayOptions = 3
+            
+            // aapt resource value: 9
+            static member ActionBar_divider = 9
+            
+            // aapt resource value: 24
+            static member ActionBar_elevation = 24
+            
+            // aapt resource value: 0
+            static member ActionBar_height = 0
+            
+            // aapt resource value: 19
+            static member ActionBar_hideOnContentScroll = 19
+            
+            // aapt resource value: 26
+            static member ActionBar_homeAsUpIndicator = 26
+            
+            // aapt resource value: 14
+            static member ActionBar_homeLayout = 14
+            
+            // aapt resource value: 7
+            static member ActionBar_icon = 7
+            
+            // aapt resource value: 16
+            static member ActionBar_indeterminateProgressStyle = 16
+            
+            // aapt resource value: 18
+            static member ActionBar_itemPadding = 18
+            
+            // aapt resource value: 8
+            static member ActionBar_logo = 8
+            
+            // aapt resource value: 2
+            static member ActionBar_navigationMode = 2
+            
+            // aapt resource value: 25
+            static member ActionBar_popupTheme = 25
+            
+            // aapt resource value: 17
+            static member ActionBar_progressBarPadding = 17
+            
+            // aapt resource value: 15
+            static member ActionBar_progressBarStyle = 15
+            
+            // aapt resource value: 4
+            static member ActionBar_subtitle = 4
+            
+            // aapt resource value: 6
+            static member ActionBar_subtitleTextStyle = 6
+            
+            // aapt resource value: 1
+            static member ActionBar_title = 1
+            
+            // aapt resource value: 5
+            static member ActionBar_titleTextStyle = 5
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActionBarLayout:int[]
+            
+            // aapt resource value: 0
+            static member ActionBarLayout_android_layout_gravity = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActionMenuItemView:int[]
+            
+            // aapt resource value: 0
+            static member ActionMenuItemView_android_minWidth = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActionMenuView:int[]
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActionMode:int[]
+            
+            // aapt resource value: 3
+            static member ActionMode_background = 3
+            
+            // aapt resource value: 4
+            static member ActionMode_backgroundSplit = 4
+            
+            // aapt resource value: 5
+            static member ActionMode_closeItemLayout = 5
+            
+            // aapt resource value: 0
+            static member ActionMode_height = 0
+            
+            // aapt resource value: 2
+            static member ActionMode_subtitleTextStyle = 2
+            
+            // aapt resource value: 1
+            static member ActionMode_titleTextStyle = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ActivityChooserView:int[]
+            
+            // aapt resource value: 1
+            static member ActivityChooserView_expandActivityOverflowButtonDrawable = 1
+            
+            // aapt resource value: 0
+            static member ActivityChooserView_initialActivityCount = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private AlertDialog:int[]
+            
+            // aapt resource value: 0
+            static member AlertDialog_android_layout = 0
+            
+            // aapt resource value: 1
+            static member AlertDialog_buttonPanelSideLayout = 1
+            
+            // aapt resource value: 5
+            static member AlertDialog_listItemLayout = 5
+            
+            // aapt resource value: 2
+            static member AlertDialog_listLayout = 2
+            
+            // aapt resource value: 3
+            static member AlertDialog_multiChoiceItemLayout = 3
+            
+            // aapt resource value: 4
+            static member AlertDialog_singleChoiceItemLayout = 4
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private AppBarLayout:int[]
+            
+            // aapt resource value: 0
+            static member AppBarLayout_android_background = 0
+            
+            // aapt resource value: 1
+            static member AppBarLayout_elevation = 1
+            
+            // aapt resource value: 2
+            static member AppBarLayout_expanded = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private AppBarLayout_LayoutParams:int[]
+            
+            // aapt resource value: 0
+            static member AppBarLayout_LayoutParams_layout_scrollFlags = 0
+            
+            // aapt resource value: 1
+            static member AppBarLayout_LayoutParams_layout_scrollInterpolator = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private AppCompatTextView:int[]
+            
+            // aapt resource value: 0
+            static member AppCompatTextView_android_textAppearance = 0
+            
+            // aapt resource value: 1
+            static member AppCompatTextView_textAllCaps = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CardView:int[]
+            
+            // aapt resource value: 0
+            static member CardView_cardBackgroundColor = 0
+            
+            // aapt resource value: 1
+            static member CardView_cardCornerRadius = 1
+            
+            // aapt resource value: 2
+            static member CardView_cardElevation = 2
+            
+            // aapt resource value: 3
+            static member CardView_cardMaxElevation = 3
+            
+            // aapt resource value: 5
+            static member CardView_cardPreventCornerOverlap = 5
+            
+            // aapt resource value: 4
+            static member CardView_cardUseCompatPadding = 4
+            
+            // aapt resource value: 6
+            static member CardView_contentPadding = 6
+            
+            // aapt resource value: 10
+            static member CardView_contentPaddingBottom = 10
+            
+            // aapt resource value: 7
+            static member CardView_contentPaddingLeft = 7
+            
+            // aapt resource value: 8
+            static member CardView_contentPaddingRight = 8
+            
+            // aapt resource value: 9
+            static member CardView_contentPaddingTop = 9
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CollapsingAppBarLayout_LayoutParams:int[]
+            
+            // aapt resource value: 0
+            static member CollapsingAppBarLayout_LayoutParams_layout_collapseMode = 0
+            
+            // aapt resource value: 1
+            static member CollapsingAppBarLayout_LayoutParams_layout_collapseParallaxMultiplier = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CollapsingToolbarLayout:int[]
+            
+            // aapt resource value: 11
+            static member CollapsingToolbarLayout_collapsedTitleGravity = 11
+            
+            // aapt resource value: 7
+            static member CollapsingToolbarLayout_collapsedTitleTextAppearance = 7
+            
+            // aapt resource value: 8
+            static member CollapsingToolbarLayout_contentScrim = 8
+            
+            // aapt resource value: 12
+            static member CollapsingToolbarLayout_expandedTitleGravity = 12
+            
+            // aapt resource value: 1
+            static member CollapsingToolbarLayout_expandedTitleMargin = 1
+            
+            // aapt resource value: 5
+            static member CollapsingToolbarLayout_expandedTitleMarginBottom = 5
+            
+            // aapt resource value: 4
+            static member CollapsingToolbarLayout_expandedTitleMarginEnd = 4
+            
+            // aapt resource value: 2
+            static member CollapsingToolbarLayout_expandedTitleMarginStart = 2
+            
+            // aapt resource value: 3
+            static member CollapsingToolbarLayout_expandedTitleMarginTop = 3
+            
+            // aapt resource value: 6
+            static member CollapsingToolbarLayout_expandedTitleTextAppearance = 6
+            
+            // aapt resource value: 9
+            static member CollapsingToolbarLayout_statusBarScrim = 9
+            
+            // aapt resource value: 0
+            static member CollapsingToolbarLayout_title = 0
+            
+            // aapt resource value: 13
+            static member CollapsingToolbarLayout_titleEnabled = 13
+            
+            // aapt resource value: 10
+            static member CollapsingToolbarLayout_toolbarId = 10
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CompoundButton:int[]
+            
+            // aapt resource value: 0
+            static member CompoundButton_android_button = 0
+            
+            // aapt resource value: 1
+            static member CompoundButton_buttonTint = 1
+            
+            // aapt resource value: 2
+            static member CompoundButton_buttonTintMode = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CoordinatorLayout:int[]
+            
+            // aapt resource value: 0
+            static member CoordinatorLayout_keylines = 0
+            
+            // aapt resource value: 1
+            static member CoordinatorLayout_statusBarBackground = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private CoordinatorLayout_LayoutParams:int[]
+            
+            // aapt resource value: 0
+            static member CoordinatorLayout_LayoutParams_android_layout_gravity = 0
+            
+            // aapt resource value: 2
+            static member CoordinatorLayout_LayoutParams_layout_anchor = 2
+            
+            // aapt resource value: 4
+            static member CoordinatorLayout_LayoutParams_layout_anchorGravity = 4
+            
+            // aapt resource value: 1
+            static member CoordinatorLayout_LayoutParams_layout_behavior = 1
+            
+            // aapt resource value: 3
+            static member CoordinatorLayout_LayoutParams_layout_keyline = 3
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private DrawerArrowToggle:int[]
+            
+            // aapt resource value: 4
+            static member DrawerArrowToggle_arrowHeadLength = 4
+            
+            // aapt resource value: 5
+            static member DrawerArrowToggle_arrowShaftLength = 5
+            
+            // aapt resource value: 6
+            static member DrawerArrowToggle_barLength = 6
+            
+            // aapt resource value: 0
+            static member DrawerArrowToggle_color = 0
+            
+            // aapt resource value: 2
+            static member DrawerArrowToggle_drawableSize = 2
+            
+            // aapt resource value: 3
+            static member DrawerArrowToggle_gapBetweenBars = 3
+            
+            // aapt resource value: 1
+            static member DrawerArrowToggle_spinBars = 1
+            
+            // aapt resource value: 7
+            static member DrawerArrowToggle_thickness = 7
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private FloatingActionButton:int[]
+            
+            // aapt resource value: 0
+            static member FloatingActionButton_android_background = 0
+            
+            // aapt resource value: 2
+            static member FloatingActionButton_backgroundTint = 2
+            
+            // aapt resource value: 3
+            static member FloatingActionButton_backgroundTintMode = 3
+            
+            // aapt resource value: 7
+            static member FloatingActionButton_borderWidth = 7
+            
+            // aapt resource value: 1
+            static member FloatingActionButton_elevation = 1
+            
+            // aapt resource value: 5
+            static member FloatingActionButton_fabSize = 5
+            
+            // aapt resource value: 6
+            static member FloatingActionButton_pressedTranslationZ = 6
+            
+            // aapt resource value: 4
+            static member FloatingActionButton_rippleColor = 4
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private LinearLayoutCompat:int[]
+            
+            // aapt resource value: 2
+            static member LinearLayoutCompat_android_baselineAligned = 2
+            
+            // aapt resource value: 3
+            static member LinearLayoutCompat_android_baselineAlignedChildIndex = 3
+            
+            // aapt resource value: 0
+            static member LinearLayoutCompat_android_gravity = 0
+            
+            // aapt resource value: 1
+            static member LinearLayoutCompat_android_orientation = 1
+            
+            // aapt resource value: 4
+            static member LinearLayoutCompat_android_weightSum = 4
+            
+            // aapt resource value: 5
+            static member LinearLayoutCompat_divider = 5
+            
+            // aapt resource value: 8
+            static member LinearLayoutCompat_dividerPadding = 8
+            
+            // aapt resource value: 6
+            static member LinearLayoutCompat_measureWithLargestChild = 6
+            
+            // aapt resource value: 7
+            static member LinearLayoutCompat_showDividers = 7
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private LinearLayoutCompat_Layout:int[]
+            
+            // aapt resource value: 0
+            static member LinearLayoutCompat_Layout_android_layout_gravity = 0
+            
+            // aapt resource value: 2
+            static member LinearLayoutCompat_Layout_android_layout_height = 2
+            
+            // aapt resource value: 3
+            static member LinearLayoutCompat_Layout_android_layout_weight = 3
+            
+            // aapt resource value: 1
+            static member LinearLayoutCompat_Layout_android_layout_width = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ListPopupWindow:int[]
+            
+            // aapt resource value: 0
+            static member ListPopupWindow_android_dropDownHorizontalOffset = 0
+            
+            // aapt resource value: 1
+            static member ListPopupWindow_android_dropDownVerticalOffset = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private MediaRouteButton:int[]
+            
+            // aapt resource value: 1
+            static member MediaRouteButton_android_minHeight = 1
+            
+            // aapt resource value: 0
+            static member MediaRouteButton_android_minWidth = 0
+            
+            // aapt resource value: 2
+            static member MediaRouteButton_externalRouteEnabledDrawable = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private MenuGroup:int[]
+            
+            // aapt resource value: 5
+            static member MenuGroup_android_checkableBehavior = 5
+            
+            // aapt resource value: 0
+            static member MenuGroup_android_enabled = 0
+            
+            // aapt resource value: 1
+            static member MenuGroup_android_id = 1
+            
+            // aapt resource value: 3
+            static member MenuGroup_android_menuCategory = 3
+            
+            // aapt resource value: 4
+            static member MenuGroup_android_orderInCategory = 4
+            
+            // aapt resource value: 2
+            static member MenuGroup_android_visible = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private MenuItem:int[]
+            
+            // aapt resource value: 14
+            static member MenuItem_actionLayout = 14
+            
+            // aapt resource value: 16
+            static member MenuItem_actionProviderClass = 16
+            
+            // aapt resource value: 15
+            static member MenuItem_actionViewClass = 15
+            
+            // aapt resource value: 9
+            static member MenuItem_android_alphabeticShortcut = 9
+            
+            // aapt resource value: 11
+            static member MenuItem_android_checkable = 11
+            
+            // aapt resource value: 3
+            static member MenuItem_android_checked = 3
+            
+            // aapt resource value: 1
+            static member MenuItem_android_enabled = 1
+            
+            // aapt resource value: 0
+            static member MenuItem_android_icon = 0
+            
+            // aapt resource value: 2
+            static member MenuItem_android_id = 2
+            
+            // aapt resource value: 5
+            static member MenuItem_android_menuCategory = 5
+            
+            // aapt resource value: 10
+            static member MenuItem_android_numericShortcut = 10
+            
+            // aapt resource value: 12
+            static member MenuItem_android_onClick = 12
+            
+            // aapt resource value: 6
+            static member MenuItem_android_orderInCategory = 6
+            
+            // aapt resource value: 7
+            static member MenuItem_android_title = 7
+            
+            // aapt resource value: 8
+            static member MenuItem_android_titleCondensed = 8
+            
+            // aapt resource value: 4
+            static member MenuItem_android_visible = 4
+            
+            // aapt resource value: 13
+            static member MenuItem_showAsAction = 13
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private MenuView:int[]
+            
+            // aapt resource value: 4
+            static member MenuView_android_headerBackground = 4
+            
+            // aapt resource value: 2
+            static member MenuView_android_horizontalDivider = 2
+            
+            // aapt resource value: 5
+            static member MenuView_android_itemBackground = 5
+            
+            // aapt resource value: 6
+            static member MenuView_android_itemIconDisabledAlpha = 6
+            
+            // aapt resource value: 1
+            static member MenuView_android_itemTextAppearance = 1
+            
+            // aapt resource value: 3
+            static member MenuView_android_verticalDivider = 3
+            
+            // aapt resource value: 0
+            static member MenuView_android_windowAnimationStyle = 0
+            
+            // aapt resource value: 7
+            static member MenuView_preserveIconSpacing = 7
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private NavigationView:int[]
+            
+            // aapt resource value: 0
+            static member NavigationView_android_background = 0
+            
+            // aapt resource value: 1
+            static member NavigationView_android_fitsSystemWindows = 1
+            
+            // aapt resource value: 2
+            static member NavigationView_android_maxWidth = 2
+            
+            // aapt resource value: 3
+            static member NavigationView_elevation = 3
+            
+            // aapt resource value: 9
+            static member NavigationView_headerLayout = 9
+            
+            // aapt resource value: 7
+            static member NavigationView_itemBackground = 7
+            
+            // aapt resource value: 5
+            static member NavigationView_itemIconTint = 5
+            
+            // aapt resource value: 8
+            static member NavigationView_itemTextAppearance = 8
+            
+            // aapt resource value: 6
+            static member NavigationView_itemTextColor = 6
+            
+            // aapt resource value: 4
+            static member NavigationView_menu = 4
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private PopupWindow:int[]
+            
+            // aapt resource value: 0
+            static member PopupWindow_android_popupBackground = 0
+            
+            // aapt resource value: 1
+            static member PopupWindow_overlapAnchor = 1
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private PopupWindowBackgroundState:int[]
+            
+            // aapt resource value: 0
+            static member PopupWindowBackgroundState_state_above_anchor = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ScrimInsetsFrameLayout:int[]
+            
+            // aapt resource value: 0
+            static member ScrimInsetsFrameLayout_insetForeground = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ScrollingViewBehavior_Params:int[]
+            
+            // aapt resource value: 0
+            static member ScrollingViewBehavior_Params_behavior_overlapTop = 0
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private SearchView:int[]
+            
+            // aapt resource value: 0
+            static member SearchView_android_focusable = 0
+            
+            // aapt resource value: 3
+            static member SearchView_android_imeOptions = 3
+            
+            // aapt resource value: 2
+            static member SearchView_android_inputType = 2
+            
+            // aapt resource value: 1
+            static member SearchView_android_maxWidth = 1
+            
+            // aapt resource value: 8
+            static member SearchView_closeIcon = 8
+            
+            // aapt resource value: 13
+            static member SearchView_commitIcon = 13
+            
+            // aapt resource value: 7
+            static member SearchView_defaultQueryHint = 7
+            
+            // aapt resource value: 9
+            static member SearchView_goIcon = 9
+            
+            // aapt resource value: 5
+            static member SearchView_iconifiedByDefault = 5
+            
+            // aapt resource value: 4
+            static member SearchView_layout = 4
+            
+            // aapt resource value: 15
+            static member SearchView_queryBackground = 15
+            
+            // aapt resource value: 6
+            static member SearchView_queryHint = 6
+            
+            // aapt resource value: 11
+            static member SearchView_searchHintIcon = 11
+            
+            // aapt resource value: 10
+            static member SearchView_searchIcon = 10
+            
+            // aapt resource value: 16
+            static member SearchView_submitBackground = 16
+            
+            // aapt resource value: 14
+            static member SearchView_suggestionRowLayout = 14
+            
+            // aapt resource value: 12
+            static member SearchView_voiceIcon = 12
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private SnackbarLayout:int[]
+            
+            // aapt resource value: 0
+            static member SnackbarLayout_android_maxWidth = 0
+            
+            // aapt resource value: 1
+            static member SnackbarLayout_elevation = 1
+            
+            // aapt resource value: 2
+            static member SnackbarLayout_maxActionInlineWidth = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private Spinner:int[]
+            
+            // aapt resource value: 2
+            static member Spinner_android_dropDownWidth = 2
+            
+            // aapt resource value: 0
+            static member Spinner_android_popupBackground = 0
+            
+            // aapt resource value: 1
+            static member Spinner_android_prompt = 1
+            
+            // aapt resource value: 3
+            static member Spinner_popupTheme = 3
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private SwitchCompat:int[]
+            
+            // aapt resource value: 1
+            static member SwitchCompat_android_textOff = 1
+            
+            // aapt resource value: 0
+            static member SwitchCompat_android_textOn = 0
+            
+            // aapt resource value: 2
+            static member SwitchCompat_android_thumb = 2
+            
+            // aapt resource value: 9
+            static member SwitchCompat_showText = 9
+            
+            // aapt resource value: 8
+            static member SwitchCompat_splitTrack = 8
+            
+            // aapt resource value: 6
+            static member SwitchCompat_switchMinWidth = 6
+            
+            // aapt resource value: 7
+            static member SwitchCompat_switchPadding = 7
+            
+            // aapt resource value: 5
+            static member SwitchCompat_switchTextAppearance = 5
+            
+            // aapt resource value: 4
+            static member SwitchCompat_thumbTextPadding = 4
+            
+            // aapt resource value: 3
+            static member SwitchCompat_track = 3
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private TabLayout:int[]
+            
+            // aapt resource value: 3
+            static member TabLayout_tabBackground = 3
+            
+            // aapt resource value: 2
+            static member TabLayout_tabContentStart = 2
+            
+            // aapt resource value: 5
+            static member TabLayout_tabGravity = 5
+            
+            // aapt resource value: 0
+            static member TabLayout_tabIndicatorColor = 0
+            
+            // aapt resource value: 1
+            static member TabLayout_tabIndicatorHeight = 1
+            
+            // aapt resource value: 7
+            static member TabLayout_tabMaxWidth = 7
+            
+            // aapt resource value: 6
+            static member TabLayout_tabMinWidth = 6
+            
+            // aapt resource value: 4
+            static member TabLayout_tabMode = 4
+            
+            // aapt resource value: 15
+            static member TabLayout_tabPadding = 15
+            
+            // aapt resource value: 14
+            static member TabLayout_tabPaddingBottom = 14
+            
+            // aapt resource value: 13
+            static member TabLayout_tabPaddingEnd = 13
+            
+            // aapt resource value: 11
+            static member TabLayout_tabPaddingStart = 11
+            
+            // aapt resource value: 12
+            static member TabLayout_tabPaddingTop = 12
+            
+            // aapt resource value: 10
+            static member TabLayout_tabSelectedTextColor = 10
+            
+            // aapt resource value: 8
+            static member TabLayout_tabTextAppearance = 8
+            
+            // aapt resource value: 9
+            static member TabLayout_tabTextColor = 9
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private TextAppearance:int[]
+            
+            // aapt resource value: 3
+            static member TextAppearance_android_textColor = 3
+            
+            // aapt resource value: 0
+            static member TextAppearance_android_textSize = 0
+            
+            // aapt resource value: 2
+            static member TextAppearance_android_textStyle = 2
+            
+            // aapt resource value: 1
+            static member TextAppearance_android_typeface = 1
+            
+            // aapt resource value: 4
+            static member TextAppearance_textAllCaps = 4
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private TextInputLayout:int[]
+            
+            // aapt resource value: 1
+            static member TextInputLayout_android_hint = 1
+            
+            // aapt resource value: 0
+            static member TextInputLayout_android_textColorHint = 0
+            
+            // aapt resource value: 3
+            static member TextInputLayout_errorEnabled = 3
+            
+            // aapt resource value: 4
+            static member TextInputLayout_errorTextAppearance = 4
+            
+            // aapt resource value: 5
+            static member TextInputLayout_hintAnimationEnabled = 5
+            
+            // aapt resource value: 2
+            static member TextInputLayout_hintTextAppearance = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private Theme:int[]
+            
+            // aapt resource value: 23
+            static member Theme_actionBarDivider = 23
+            
+            // aapt resource value: 24
+            static member Theme_actionBarItemBackground = 24
+            
+            // aapt resource value: 17
+            static member Theme_actionBarPopupTheme = 17
+            
+            // aapt resource value: 22
+            static member Theme_actionBarSize = 22
+            
+            // aapt resource value: 19
+            static member Theme_actionBarSplitStyle = 19
+            
+            // aapt resource value: 18
+            static member Theme_actionBarStyle = 18
+            
+            // aapt resource value: 13
+            static member Theme_actionBarTabBarStyle = 13
+            
+            // aapt resource value: 12
+            static member Theme_actionBarTabStyle = 12
+            
+            // aapt resource value: 14
+            static member Theme_actionBarTabTextStyle = 14
+            
+            // aapt resource value: 20
+            static member Theme_actionBarTheme = 20
+            
+            // aapt resource value: 21
+            static member Theme_actionBarWidgetTheme = 21
+            
+            // aapt resource value: 49
+            static member Theme_actionButtonStyle = 49
+            
+            // aapt resource value: 45
+            static member Theme_actionDropDownStyle = 45
+            
+            // aapt resource value: 25
+            static member Theme_actionMenuTextAppearance = 25
+            
+            // aapt resource value: 26
+            static member Theme_actionMenuTextColor = 26
+            
+            // aapt resource value: 29
+            static member Theme_actionModeBackground = 29
+            
+            // aapt resource value: 28
+            static member Theme_actionModeCloseButtonStyle = 28
+            
+            // aapt resource value: 31
+            static member Theme_actionModeCloseDrawable = 31
+            
+            // aapt resource value: 33
+            static member Theme_actionModeCopyDrawable = 33
+            
+            // aapt resource value: 32
+            static member Theme_actionModeCutDrawable = 32
+            
+            // aapt resource value: 37
+            static member Theme_actionModeFindDrawable = 37
+            
+            // aapt resource value: 34
+            static member Theme_actionModePasteDrawable = 34
+            
+            // aapt resource value: 39
+            static member Theme_actionModePopupWindowStyle = 39
+            
+            // aapt resource value: 35
+            static member Theme_actionModeSelectAllDrawable = 35
+            
+            // aapt resource value: 36
+            static member Theme_actionModeShareDrawable = 36
+            
+            // aapt resource value: 30
+            static member Theme_actionModeSplitBackground = 30
+            
+            // aapt resource value: 27
+            static member Theme_actionModeStyle = 27
+            
+            // aapt resource value: 38
+            static member Theme_actionModeWebSearchDrawable = 38
+            
+            // aapt resource value: 15
+            static member Theme_actionOverflowButtonStyle = 15
+            
+            // aapt resource value: 16
+            static member Theme_actionOverflowMenuStyle = 16
+            
+            // aapt resource value: 57
+            static member Theme_activityChooserViewStyle = 57
+            
+            // aapt resource value: 91
+            static member Theme_alertDialogButtonGroupStyle = 91
+            
+            // aapt resource value: 92
+            static member Theme_alertDialogCenterButtons = 92
+            
+            // aapt resource value: 90
+            static member Theme_alertDialogStyle = 90
+            
+            // aapt resource value: 93
+            static member Theme_alertDialogTheme = 93
+            
+            // aapt resource value: 1
+            static member Theme_android_windowAnimationStyle = 1
+            
+            // aapt resource value: 0
+            static member Theme_android_windowIsFloating = 0
+            
+            // aapt resource value: 98
+            static member Theme_autoCompleteTextViewStyle = 98
+            
+            // aapt resource value: 54
+            static member Theme_borderlessButtonStyle = 54
+            
+            // aapt resource value: 51
+            static member Theme_buttonBarButtonStyle = 51
+            
+            // aapt resource value: 96
+            static member Theme_buttonBarNegativeButtonStyle = 96
+            
+            // aapt resource value: 97
+            static member Theme_buttonBarNeutralButtonStyle = 97
+            
+            // aapt resource value: 95
+            static member Theme_buttonBarPositiveButtonStyle = 95
+            
+            // aapt resource value: 50
+            static member Theme_buttonBarStyle = 50
+            
+            // aapt resource value: 99
+            static member Theme_buttonStyle = 99
+            
+            // aapt resource value: 100
+            static member Theme_buttonStyleSmall = 100
+            
+            // aapt resource value: 101
+            static member Theme_checkboxStyle = 101
+            
+            // aapt resource value: 102
+            static member Theme_checkedTextViewStyle = 102
+            
+            // aapt resource value: 83
+            static member Theme_colorAccent = 83
+            
+            // aapt resource value: 87
+            static member Theme_colorButtonNormal = 87
+            
+            // aapt resource value: 85
+            static member Theme_colorControlActivated = 85
+            
+            // aapt resource value: 86
+            static member Theme_colorControlHighlight = 86
+            
+            // aapt resource value: 84
+            static member Theme_colorControlNormal = 84
+            
+            // aapt resource value: 81
+            static member Theme_colorPrimary = 81
+            
+            // aapt resource value: 82
+            static member Theme_colorPrimaryDark = 82
+            
+            // aapt resource value: 88
+            static member Theme_colorSwitchThumbNormal = 88
+            
+            // aapt resource value: 89
+            static member Theme_controlBackground = 89
+            
+            // aapt resource value: 43
+            static member Theme_dialogPreferredPadding = 43
+            
+            // aapt resource value: 42
+            static member Theme_dialogTheme = 42
+            
+            // aapt resource value: 56
+            static member Theme_dividerHorizontal = 56
+            
+            // aapt resource value: 55
+            static member Theme_dividerVertical = 55
+            
+            // aapt resource value: 73
+            static member Theme_dropDownListViewStyle = 73
+            
+            // aapt resource value: 46
+            static member Theme_dropdownListPreferredItemHeight = 46
+            
+            // aapt resource value: 63
+            static member Theme_editTextBackground = 63
+            
+            // aapt resource value: 62
+            static member Theme_editTextColor = 62
+            
+            // aapt resource value: 103
+            static member Theme_editTextStyle = 103
+            
+            // aapt resource value: 48
+            static member Theme_homeAsUpIndicator = 48
+            
+            // aapt resource value: 80
+            static member Theme_listChoiceBackgroundIndicator = 80
+            
+            // aapt resource value: 44
+            static member Theme_listDividerAlertDialog = 44
+            
+            // aapt resource value: 74
+            static member Theme_listPopupWindowStyle = 74
+            
+            // aapt resource value: 68
+            static member Theme_listPreferredItemHeight = 68
+            
+            // aapt resource value: 70
+            static member Theme_listPreferredItemHeightLarge = 70
+            
+            // aapt resource value: 69
+            static member Theme_listPreferredItemHeightSmall = 69
+            
+            // aapt resource value: 71
+            static member Theme_listPreferredItemPaddingLeft = 71
+            
+            // aapt resource value: 72
+            static member Theme_listPreferredItemPaddingRight = 72
+            
+            // aapt resource value: 77
+            static member Theme_panelBackground = 77
+            
+            // aapt resource value: 79
+            static member Theme_panelMenuListTheme = 79
+            
+            // aapt resource value: 78
+            static member Theme_panelMenuListWidth = 78
+            
+            // aapt resource value: 60
+            static member Theme_popupMenuStyle = 60
+            
+            // aapt resource value: 61
+            static member Theme_popupWindowStyle = 61
+            
+            // aapt resource value: 104
+            static member Theme_radioButtonStyle = 104
+            
+            // aapt resource value: 105
+            static member Theme_ratingBarStyle = 105
+            
+            // aapt resource value: 67
+            static member Theme_searchViewStyle = 67
+            
+            // aapt resource value: 52
+            static member Theme_selectableItemBackground = 52
+            
+            // aapt resource value: 53
+            static member Theme_selectableItemBackgroundBorderless = 53
+            
+            // aapt resource value: 47
+            static member Theme_spinnerDropDownItemStyle = 47
+            
+            // aapt resource value: 106
+            static member Theme_spinnerStyle = 106
+            
+            // aapt resource value: 107
+            static member Theme_switchStyle = 107
+            
+            // aapt resource value: 40
+            static member Theme_textAppearanceLargePopupMenu = 40
+            
+            // aapt resource value: 75
+            static member Theme_textAppearanceListItem = 75
+            
+            // aapt resource value: 76
+            static member Theme_textAppearanceListItemSmall = 76
+            
+            // aapt resource value: 65
+            static member Theme_textAppearanceSearchResultSubtitle = 65
+            
+            // aapt resource value: 64
+            static member Theme_textAppearanceSearchResultTitle = 64
+            
+            // aapt resource value: 41
+            static member Theme_textAppearanceSmallPopupMenu = 41
+            
+            // aapt resource value: 94
+            static member Theme_textColorAlertDialogListItem = 94
+            
+            // aapt resource value: 66
+            static member Theme_textColorSearchUrl = 66
+            
+            // aapt resource value: 59
+            static member Theme_toolbarNavigationButtonStyle = 59
+            
+            // aapt resource value: 58
+            static member Theme_toolbarStyle = 58
+            
+            // aapt resource value: 2
+            static member Theme_windowActionBar = 2
+            
+            // aapt resource value: 4
+            static member Theme_windowActionBarOverlay = 4
+            
+            // aapt resource value: 5
+            static member Theme_windowActionModeOverlay = 5
+            
+            // aapt resource value: 9
+            static member Theme_windowFixedHeightMajor = 9
+            
+            // aapt resource value: 7
+            static member Theme_windowFixedHeightMinor = 7
+            
+            // aapt resource value: 6
+            static member Theme_windowFixedWidthMajor = 6
+            
+            // aapt resource value: 8
+            static member Theme_windowFixedWidthMinor = 8
+            
+            // aapt resource value: 10
+            static member Theme_windowMinWidthMajor = 10
+            
+            // aapt resource value: 11
+            static member Theme_windowMinWidthMinor = 11
+            
+            // aapt resource value: 3
+            static member Theme_windowNoTitle = 3
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private Toolbar:int[]
+            
+            // aapt resource value: 0
+            static member Toolbar_android_gravity = 0
+            
+            // aapt resource value: 1
+            static member Toolbar_android_minHeight = 1
+            
+            // aapt resource value: 19
+            static member Toolbar_collapseContentDescription = 19
+            
+            // aapt resource value: 18
+            static member Toolbar_collapseIcon = 18
+            
+            // aapt resource value: 6
+            static member Toolbar_contentInsetEnd = 6
+            
+            // aapt resource value: 7
+            static member Toolbar_contentInsetLeft = 7
+            
+            // aapt resource value: 8
+            static member Toolbar_contentInsetRight = 8
+            
+            // aapt resource value: 5
+            static member Toolbar_contentInsetStart = 5
+            
+            // aapt resource value: 4
+            static member Toolbar_logo = 4
+            
+            // aapt resource value: 22
+            static member Toolbar_logoDescription = 22
+            
+            // aapt resource value: 17
+            static member Toolbar_maxButtonHeight = 17
+            
+            // aapt resource value: 21
+            static member Toolbar_navigationContentDescription = 21
+            
+            // aapt resource value: 20
+            static member Toolbar_navigationIcon = 20
+            
+            // aapt resource value: 9
+            static member Toolbar_popupTheme = 9
+            
+            // aapt resource value: 3
+            static member Toolbar_subtitle = 3
+            
+            // aapt resource value: 11
+            static member Toolbar_subtitleTextAppearance = 11
+            
+            // aapt resource value: 24
+            static member Toolbar_subtitleTextColor = 24
+            
+            // aapt resource value: 2
+            static member Toolbar_title = 2
+            
+            // aapt resource value: 16
+            static member Toolbar_titleMarginBottom = 16
+            
+            // aapt resource value: 14
+            static member Toolbar_titleMarginEnd = 14
+            
+            // aapt resource value: 13
+            static member Toolbar_titleMarginStart = 13
+            
+            // aapt resource value: 15
+            static member Toolbar_titleMarginTop = 15
+            
+            // aapt resource value: 12
+            static member Toolbar_titleMargins = 12
+            
+            // aapt resource value: 10
+            static member Toolbar_titleTextAppearance = 10
+            
+            // aapt resource value: 23
+            static member Toolbar_titleTextColor = 23
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private View:int[]
+            
+            // aapt resource value: 1
+            static member View_android_focusable = 1
+            
+            // aapt resource value: 0
+            static member View_android_theme = 0
+            
+            // aapt resource value: 3
+            static member View_paddingEnd = 3
+            
+            // aapt resource value: 2
+            static member View_paddingStart = 2
+            
+            // aapt resource value: 4
+            static member View_theme = 4
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ViewBackgroundHelper:int[]
+            
+            // aapt resource value: 0
+            static member ViewBackgroundHelper_android_background = 0
+            
+            // aapt resource value: 1
+            static member ViewBackgroundHelper_backgroundTint = 1
+            
+            // aapt resource value: 2
+            static member ViewBackgroundHelper_backgroundTintMode = 2
+            
+            [<Microsoft.FSharp.Core.DefaultValueAttribute(false)>]
+            static val mutable private ViewStubCompat:int[]
+            
+            // aapt resource value: 0
+            static member ViewStubCompat_android_id = 0
+            
+            // aapt resource value: 2
+            static member ViewStubCompat_android_inflatedId = 2
+            
+            // aapt resource value: 1
+            static member ViewStubCompat_android_layout = 1
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
