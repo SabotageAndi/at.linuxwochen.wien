@@ -5,12 +5,34 @@ module entities =
     open NodaTime
     open SQLite.Net
     open SQLite.Net.Attributes
+
+    type Speaker2Entry() =
+
+        [<PrimaryKey>]
+        [<AutoIncrement>]
+        member val Id : int = -1 with get,set
+
+        member val SpeakerGuid : Guid = Guid.Empty with get, set
+        member val EntryGuid : Guid = Guid.Empty with get, set
+        member val ConferenceId : int = 0 with get, set
+
+    type Speaker() =
+        member val Id : int = -1 with get,set
+
+        [<PrimaryKey>]
+        member val Guid : Guid = Guid.Empty with get,set
+        member val Name : string = "" with get,set
+        member val ConferenceId : int = 0 with get, set
+
+
+  
+
     
     type Entry() = 
         member val Id : int = -1 with get, set
         
         [<PrimaryKeyAttribute>]
-        member val Guid : string = "" with get, set
+        member val Guid : Guid = Guid.Empty with get, set
         
         member val Title : string = "" with get, set
         member val Subtitle : string = "" with get, set
@@ -33,6 +55,9 @@ module entities =
         
         [<IndexedAttribute>]
         member val RoomGuid : Guid = Guid.Empty with get, set
+
+        [<Ignore>]
+        member val Speaker : Speaker list = [] with get, set
     
     type Room() = 
         

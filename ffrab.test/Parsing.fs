@@ -59,7 +59,7 @@
         |> should equal 311
 
         entry.Guid
-        |> should equal "38a1c2da-bb3e-47f8-b832-945b8d5ab1ab"
+        |> should equal (new System.Guid("38a1c2da-bb3e-47f8-b832-945b8d5ab1ab"))
 
         entry.Title
         |> should equal "Begrüßung"
@@ -84,6 +84,9 @@
 
         entry.Type
         |> should equal "lecture"
+
+        entry.Speaker.Length
+        |> should equal 1
 
     [<Fact>]
     let ``correct conference id in day``() =

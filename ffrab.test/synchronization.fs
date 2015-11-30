@@ -28,6 +28,9 @@
         currentState.SQLConnection.Table<ConferenceDay>().Count() |> should equal 3
         currentState.SQLConnection.Table<Room>().Count() |> should equal 21
         currentState.SQLConnection.Table<Entry>().Count() |> should equal 101
+        currentState.SQLConnection.Table<Speaker>().Count() |> should equal 79
+        currentState.SQLConnection.Table<Speaker2Entry>().Count() |> should equal 108
+
 
     [<Fact>]
     let ``Synchronate test data into filled database with old version``() =
@@ -43,6 +46,8 @@
         currentState.SQLConnection.Table<ConferenceDay>().Count() |> should equal 3
         currentState.SQLConnection.Table<Room>().Count() |> should equal 21
         currentState.SQLConnection.Table<Entry>().Count() |> should equal 101
+        currentState.SQLConnection.Table<Speaker>().Count() |> should equal 79
+        currentState.SQLConnection.Table<Speaker2Entry>().Count() |> should equal 108
 
     [<Fact>]
     let ``Not Synchronate test data into filled database with current version``() =

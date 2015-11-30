@@ -20,6 +20,7 @@
     <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End"/>
     
     <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Room}" StyleId="room"/>
+    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Speaker}" StyleId="room"/>
 
     <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
            LineBreakMode="WordWrap" Text="{Binding Path=Content}" StyleId="content"/>

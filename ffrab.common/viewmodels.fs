@@ -6,6 +6,7 @@ open FSharp.ViewModule
 open System.Linq
 open Xamarin.Forms
 open NodaTime
+open System
 
 module viewmodels = 
     open ffrab.mobile.common.common
@@ -216,3 +217,8 @@ module viewmodels =
         member this.Content
             with get() =
                 entry.Abstract
+
+        member this.Speaker
+            with get() =
+                let names = entry.Speaker |> List.map (fun s -> s.Name) 
+                String.Join(", ", names)

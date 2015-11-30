@@ -70,8 +70,11 @@ module model =
                 reader.DateParseHandling <- DateParseHandling.None
                 JObject.Load(reader)
             
+            let parseSpeaker (conferenceId : int) (speakerNode : JToken) =
+                new Speaker(Id = speakerNode.["id"].Value<int>(), Name = speakerNode.["full_public_name"].Value<string>(), ConferenceId = conferenceId, Guid = Guid.NewGuid())
+
             let parseEntry (room : Room) (entryNode : JToken) = 
-                new Entry(Id = entryNode.["id"].Value<int>(), Guid = entryNode.["guid"].Value<string>(), 
+                let entry = new Entry(Id = entryNode.["id"].Value<int>(), Guid = new Guid(entryNode.["guid"].Value<string>()), 
                           Title = entryNode.["title"].Value<string>(), Subtitle = entryNode.["subtitle"].Value<string>(), 
                           Abstract = entryNode.["abstract"].Value<string>(), Track = entryNode.["track"].Value<string>(), 
                           Description = entryNode.["description"].Value<string>(), 
@@ -80,6 +83,14 @@ module model =
                           Duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
                           Type = entryNode.["type"].Value<string>(), ConferenceId = room.ConferenceId, 
                           ConferenceDayGuid = room.ConferenceDayGuid, RoomGuid = room.Guid)
+
+                let speakers = entryNode.["persons"].Children()
+                              |> List.ofSeq
+                              |> List.map (fun x -> parseSpeaker room.ConferenceId x)
+
+                entry.Speaker <- speakers
+
+                entry
             
             let parseRoom (conferenceDay : ConferenceDay) (roomNode : JToken) = 
                 let roomPropertyNode = roomNode :?> JProperty
@@ -129,19 +140,22 @@ module model =
                 |> parseSchedule conference
 
         module Database = 
-            let shouldCreateDatabase() =
-                not(CurrentState.SQLConnection.GetTableInfo("Entry").Any())
 
             let createSchema() =
                 CurrentState.SQLConnection.DropTable<Entry>() |> ignore
                 CurrentState.SQLConnection.DropTable<Room>() |> ignore
                 CurrentState.SQLConnection.DropTable<ConferenceDay>() |> ignore
                 CurrentState.SQLConnection.DropTable<ConferenceData>() |> ignore
+                CurrentState.SQLConnection.DropTable<Speaker>() |> ignore
+                CurrentState.SQLConnection.DropTable<Speaker2Entry>() |> ignore
 
                 CurrentState.SQLConnection.CreateTable<Entry>() |> ignore
                 CurrentState.SQLConnection.CreateTable<Room>() |> ignore
                 CurrentState.SQLConnection.CreateTable<ConferenceDay>() |> ignore
                 CurrentState.SQLConnection.CreateTable<ConferenceData>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Speaker>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Speaker2Entry>() |> ignore
+
 
 
             let deleteConference (conference : Conference) =
@@ -149,6 +163,8 @@ module model =
                 CurrentState.SQLConnection.Table<Room>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
                 CurrentState.SQLConnection.Table<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
                 CurrentState.SQLConnection.Table<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Speaker>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Speaker2Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
 
             let getConferenceData (conference : Conference) =
                 CurrentState.SQLConnection.Table<ConferenceData>()
@@ -162,10 +178,34 @@ module model =
                 CurrentState.SQLConnection.Table<ConferenceDay>()
                 |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
 
+            let getSpeaker (speakerGuid : Guid) =
+                CurrentState.SQLConnection.Table<Speaker>()
+                |> Seq.filter (fun s -> s.Guid = speakerGuid)
+                |> Seq.tryHead
+
+            let getSpeakerForConference (speakerId : int) (conferenceId : int) =
+                CurrentState.SQLConnection.Table<Speaker>()
+                |> Seq.filter (fun s -> s.Id = speakerId && s.ConferenceId = conferenceId)
+                |> Seq.tryHead
+
+            let getSpeakersOfEntry (entry : Entry) =
+                CurrentState.SQLConnection.Table<Speaker2Entry>()
+                |> Seq.filter (fun se -> se.EntryGuid = entry.Guid)
+                |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
+                |> Seq.filter(fun s ->
+                    match s with
+                    | Some(x) -> true
+                    | _ -> false)
+                |> Seq.map (fun s -> s.Value)
+                |> Seq.toList
+
             
             let getEntriesForDay (day : ConferenceDay) =
                 CurrentState.SQLConnection.Table<Entry>()
                 |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
+                |> Seq.map (fun e -> 
+                    e.Speaker <- getSpeakersOfEntry(e)
+                    e)
                 |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
             
             let getRoom (roomGuid) =
@@ -175,8 +215,22 @@ module model =
 
         module Synchronization =
 
+            let writeSpeaker (speaker : Speaker) (entry : Entry)=
+                let existingSpeaker = Database.getSpeakerForConference speaker.Id speaker.ConferenceId
+
+                let actualSpeaker = match existingSpeaker with
+                                    | Some(x) -> existingSpeaker.Value
+                                    | _ ->
+                                        Database.writeDbEntry speaker
+                                        speaker
+                let speaker2Entry = new Speaker2Entry(EntryGuid = entry.Guid, SpeakerGuid = actualSpeaker.Guid)
+                Database.writeDbEntry speaker2Entry
+
             let writeEntry (entry : Entry) =
                 Database.writeDbEntry entry
+
+                entry.Speaker
+                |> List.iter (fun speaker -> writeSpeaker speaker entry)
 
             let writeRoom (room : Room) =
                 Database.writeDbEntry room
