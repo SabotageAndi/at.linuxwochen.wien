@@ -17,13 +17,13 @@
 
     let initWithRecreate() =
         let db = init()
-        Conferences.Database.reCreateDatabase()
+        Conferences.Database.createSchema()
         db
 
     [<Fact>]
     let ``Database is recreated``() =
         let db = init()
-        Conferences.Database.reCreateDatabase()
+        Conferences.Database.createSchema()
     
     [<Fact>]
     let ``Entries removed on conference clean``() =

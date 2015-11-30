@@ -132,7 +132,7 @@ module model =
             let shouldCreateDatabase() =
                 not(CurrentState.SQLConnection.GetTableInfo("Entry").Any())
 
-            let reCreateDatabase() =
+            let createSchema() =
                 CurrentState.SQLConnection.DropTable<Entry>() |> ignore
                 CurrentState.SQLConnection.DropTable<Room>() |> ignore
                 CurrentState.SQLConnection.DropTable<ConferenceDay>() |> ignore
@@ -276,5 +276,4 @@ module model =
 
         CurrentState <- new State(sqlConnection)
 
-        if Conferences.Database.shouldCreateDatabase() then
-            Conferences.Database.reCreateDatabase()
+        Conferences.Database.createSchema()

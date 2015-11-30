@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="ffrab_mobile.windows.App"
+    x:Class="ffrab.windows.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ffrab_mobile.windows"
+    xmlns:local="using:ffrab.windows"
     RequestedTheme="Light">
 
 </Application>

@@ -15,7 +15,7 @@
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db, "ffrab.mobile.db")
-        Conferences.Database.reCreateDatabase()
+        Conferences.Database.createSchema()
         CurrentState
 
     [<Fact>]

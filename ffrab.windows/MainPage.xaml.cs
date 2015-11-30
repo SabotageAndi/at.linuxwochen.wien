@@ -15,17 +15,21 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace ffrab_mobile.windows
+namespace ffrab.windows
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage 
+    public sealed partial class MainPage : Xamarin.Forms.Platform.UWP.WindowsPage
     {
         public MainPage()
         {
             this.InitializeComponent();
-            LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), Windows.Storage.ApplicationData.Current.LocalFolder.Path));
+            var databasePath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "ffrab.mobile.db");
+            var application = new ffrab.mobile.common.app.App(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), databasePath);
+            LoadApplication(application);
+
+            application.OnStart();
         }
     }
 }
