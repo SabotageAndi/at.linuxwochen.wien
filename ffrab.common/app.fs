@@ -159,8 +159,8 @@ module app =
             addToNavigationInfrastructure home
             |> menuViewModel.AddMenu
             
-            addToNavigationInfrastructure conferenceList
-            |> menuViewModel.AddMenu
+//            addToNavigationInfrastructure conferenceList
+//            |> menuViewModel.AddMenu
             
             addToNavigationInfrastructure about
             |> menuViewModel.AddMenu

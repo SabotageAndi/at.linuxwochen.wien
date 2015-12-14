@@ -46,7 +46,7 @@ module model =
         let actualConfKey = "actualConference"
         
         let conferences =
-            [ new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
+            [// new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
               new Conference(2, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json", "") ]
         
         let getAllConferences() = conferences
@@ -54,12 +54,13 @@ module model =
         let setActualConference (conf : Conference) = Application.Current.Properties.[actualConfKey] <- conf.Id
         
         let getActualConference() = 
-            let keyExists = Application.Current.Properties.ContainsKey(actualConfKey)
-            match keyExists with
-            | true -> 
-                let id = Application.Current.Properties.[actualConfKey] :?> int
-                getConference id
-            | _ -> None
+            getConference 2 //only enable Linuxwochen 2015
+//            let keyExists = Application.Current.Properties.ContainsKey(actualConfKey)
+//            match keyExists with
+//            | true -> 
+//                let id = Application.Current.Properties.[actualConfKey] :?> int
+//                getConference id
+//            | _ -> None
    
         
         module Parser = 
