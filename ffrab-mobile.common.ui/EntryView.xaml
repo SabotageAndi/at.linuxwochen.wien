@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ffrab.mobile.common.ui.EntryView" Padding="5">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Favorite" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}"></ToolbarItem>
+  </ContentPage.ToolbarItems>
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
@@ -13,6 +16,7 @@
       <ColumnDefinition Width="Auto"></ColumnDefinition>
       <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
+    
 
     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource TitleStyle}"/>
 

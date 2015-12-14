@@ -2,5 +2,18 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ffrab.mobile.common.ui.MainPage">
-    <Label Text="{Binding Path=ConferenceTitle}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <StackLayout Orientation="Vertical">
+    <Label Text="{Binding Path=ConferenceTitle}" VerticalOptions="Start" HorizontalOptions="Center" />
+
+    <ListView ItemsSource="{Binding Path=NextFavoriteEvents}">
+       <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Path=Title}" />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
 </ContentView>

@@ -107,16 +107,25 @@ module viewmodels =
     type MainViewModel() as self = 
         inherit ViewModelBase()
         let mutable conference : Conference option = None
+
+        let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<entities.Entry>())
         
         interface IViewModelShown with
             member this.Init() = 
                 conference <- model.Conferences.getActualConference()
+                nextFavoriteEvents.Value.Clear()
+
+                model.Conferences.Entry.getTopFavorites 5
+                |> List.iter nextFavoriteEvents.Value.Add
+
                 self.RaisePropertyChanged(<@ self.ConferenceTitle @>)
         
         member this.ConferenceTitle = 
             match conference with
             | Some conf -> conf.Name
             | _ -> ""
+
+        member this.NextFavoriteEvents = nextFavoriteEvents.Value
 
     [<AllowNullLiteralAttribute>]
     type DayItemViewModel(entry : entities.Entry) =
@@ -176,9 +185,13 @@ module viewmodels =
                     new EntrySelected(Message.ShowEntry, v.Entry) |> Eventbus.Current.Publish
                     
 
-    type EntryViewModel(entry : entities.Entry) =
+    type EntryViewModel(entry : entities.Entry) as self =
         inherit ViewModelBase()
 
+        let onFavorite() =
+            model.Conferences.Entry.toggleEntryFavorite entry
+
+        let favoriteCommand = self.Factory.CommandSync onFavorite
         let entry = entry
         let mutable room : entities.Room option = None
 
@@ -222,3 +235,7 @@ module viewmodels =
             with get() =
                 let names = entry.Speaker |> List.map (fun s -> s.Name) 
                 String.Join(", ", names)
+
+        member this.FavoriteCommand
+            with get() =
+                favoriteCommand

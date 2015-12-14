@@ -7,6 +7,7 @@ module model =
     open entities
     open common
     open System.Collections.Generic
+    open System.Linq
     
     [<AllowNullLiteral>]
     type Conference(id, name, dataUri, rawData) = 
@@ -141,21 +142,26 @@ module model =
         module Database = 
 
             let createSchema() =
-                CurrentState.SQLConnection.DropTable<Entry>() |> ignore
-                CurrentState.SQLConnection.DropTable<Room>() |> ignore
-                CurrentState.SQLConnection.DropTable<ConferenceDay>() |> ignore
-                CurrentState.SQLConnection.DropTable<ConferenceData>() |> ignore
-                CurrentState.SQLConnection.DropTable<Speaker>() |> ignore
-                CurrentState.SQLConnection.DropTable<Speaker2Entry>() |> ignore
-
                 CurrentState.SQLConnection.CreateTable<Entry>() |> ignore
                 CurrentState.SQLConnection.CreateTable<Room>() |> ignore
                 CurrentState.SQLConnection.CreateTable<ConferenceDay>() |> ignore
                 CurrentState.SQLConnection.CreateTable<ConferenceData>() |> ignore
                 CurrentState.SQLConnection.CreateTable<Speaker>() |> ignore
                 CurrentState.SQLConnection.CreateTable<Speaker2Entry>() |> ignore
+                CurrentState.SQLConnection.CreateTable<EntryFavorite>() |> ignore
+
+            let writeDbEntry dbEntry =
+                CurrentState.SQLConnection.Insert dbEntry |> ignore
 
 
+            let isEntryFavorite (entry : Entry) =
+                CurrentState.SQLConnection.Table<EntryFavorite>().Where(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id).Any()
+
+            let setEntryFavorite (entryFavorite : EntryFavorite) =
+                writeDbEntry entryFavorite
+
+            let removeEntryFavorite (entry : Entry) =
+                CurrentState.SQLConnection.Table<EntryFavorite>().Delete(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) |> ignore
 
             let deleteConference (conference : Conference) =
                 CurrentState.SQLConnection.Table<Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
@@ -170,9 +176,7 @@ module model =
                 |> Seq.filter (fun c -> c.ConferenceId = conference.Id)
                 |> Seq.tryHead
 
-            let writeDbEntry dbEntry =
-                CurrentState.SQLConnection.Insert dbEntry |> ignore
-
+           
             let getConferenceDays (conference : Conference) =
                 CurrentState.SQLConnection.Table<ConferenceDay>()
                 |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
@@ -309,7 +313,32 @@ module model =
             | _ ->
                 ignore()
 
-    
+        module Entry =
+
+            let isEntryFavorite (entry : Entry) =
+                Database.isEntryFavorite entry
+
+            let toggleEntryFavorite (entry : Entry) =
+                let entryAlreadyFavorite = isEntryFavorite entry
+
+                if entryAlreadyFavorite then
+                    Database.removeEntryFavorite entry
+                else
+                    let entryFavorite = new EntryFavorite(Guid = Guid.NewGuid(), EntryId = entry.Id, ConferenceId = entry.ConferenceId)
+                    Database.setEntryFavorite entryFavorite
+            
+            let getTopFavorites number =
+                let conf = getActualConference()
+                match conf with
+                | Some conference ->
+                    let sql = sprintf "select * from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start asc limit %i" number
+                    //CurrentState.SQLConnection.Query<Entry>("select Entry.* from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start desc", conference.Id)
+                    let entries = CurrentState.SQLConnection.Query<Entry>(sql, conference.Id)
+
+                    entries
+                    |> List.ofSeq
+                | _ ->
+                    List.Empty
 
     let Init (sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform, databaseFilePath : string) =
 
@@ -330,3 +359,5 @@ module model =
         CurrentState <- new State(sqlConnection)
 
         Conferences.Database.createSchema()
+
+    

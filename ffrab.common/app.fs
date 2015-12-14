@@ -175,11 +175,13 @@ module app =
             menu.BindingContext <- menuViewModel
 
             masterDetailPage.Master <- menu
-            navigateTo home
-            this.MainPage <- masterDetailPage
 
         override this.OnStart() =
             model.Init sql
             model.Conferences.synchronizeData()
             lastConference <- model.Conferences.getActualConference()
             addConferenceDayMenuItems()
+            navigateTo home
+            this.MainPage <- masterDetailPage
+
+            

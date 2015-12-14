@@ -23,10 +23,6 @@ module entities =
         member val Guid : Guid = Guid.Empty with get,set
         member val Name : string = "" with get,set
         member val ConferenceId : int = 0 with get, set
-
-
-  
-
     
     type Entry() = 
         member val Id : int = -1 with get, set
@@ -99,3 +95,14 @@ module entities =
         member val Days : ConferenceDay list = [] with get, set
         
         member val Version : string = "" with get, set
+
+
+    type EntryFavorite() =
+        
+        [<PrimaryKeyAttribute>]
+        member val Guid : Guid = Guid.Empty with get, set
+
+        [<IndexedAttribute>]
+        member val ConferenceId : int = 0 with get, set
+
+        member val EntryId : int = -1 with get, set
