@@ -13,7 +13,7 @@ module app =
     open SQLite.Net.Interop
     
     type App(sqlPlatform : ISQLitePlatform, databasePath : string) as this = 
-        inherit Application()
+        inherit ffrab.mobile.common.ui.AppXaml()
         
         let about = 
             { MenuItemConnection.Name = "About"

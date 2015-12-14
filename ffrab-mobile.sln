@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab-mobile.common", "ffrab.common\ffrab-mobile.common.fsproj", "{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}"
 EndProject
@@ -320,7 +320,6 @@ Global
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|x64.Build.0 = Debug|Any CPU
 		{1BBC03AA-EEE5-447A-BC01-D6043A17A7C8}.Debug|x86.ActiveCfg = Debug|Any CPU
