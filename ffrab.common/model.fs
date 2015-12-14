@@ -4,7 +4,6 @@ module model =
     open Xamarin.Forms
     open System
     open SQLite.Net
-    open FSharp.Data
     open entities
     open common
     open System.Collections.Generic
@@ -41,7 +40,6 @@ module model =
         open Newtonsoft.Json
         open Newtonsoft.Json.Linq
         open System.IO
-        open System.Linq
         
         let actualConfKey = "actualConference"
         
@@ -195,7 +193,7 @@ module model =
                 |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
                 |> Seq.filter(fun s ->
                     match s with
-                    | Some(x) -> true
+                    | Some(_) -> true
                     | _ -> false)
                 |> Seq.map (fun s -> s.Value)
                 |> Seq.toList
@@ -220,7 +218,7 @@ module model =
                 let existingSpeaker = Database.getSpeakerForConference speaker.Id speaker.ConferenceId
 
                 let actualSpeaker = match existingSpeaker with
-                                    | Some(x) -> existingSpeaker.Value
+                                    | Some(_) -> existingSpeaker.Value
                                     | _ ->
                                         Database.writeDbEntry speaker
                                         speaker
