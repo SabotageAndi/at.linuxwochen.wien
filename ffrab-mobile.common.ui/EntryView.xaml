@@ -14,7 +14,7 @@
       <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
   
-    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource labelStyle}"/>
+    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource TitleStyle}"/>
   
     <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Time}" StyleId="starttime" />
     <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End"/>

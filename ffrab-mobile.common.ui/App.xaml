@@ -5,8 +5,8 @@
     x:Class="ffrab.mobile.common.ui.AppXaml">
     <Application.Resources>
         <ResourceDictionary>
-            <Style x:Key="labelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="Green" />
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
