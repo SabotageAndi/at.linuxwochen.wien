@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ffrab.mobile.common.ui.MainPage">
+             x:Class="ffrab.mobile.common.ui.MainPage"
+  >
 
   <Grid Grid.ColumnSpacing="0" RowSpacing="0" >
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="10"></RowDefinition>
       <RowDefinition Height="*"></RowDefinition>
     </Grid.RowDefinitions>
@@ -14,9 +14,8 @@
       <ColumnDefinition Width="*"></ColumnDefinition>
       <ColumnDefinition Width="10"></ColumnDefinition>
     </Grid.ColumnDefinitions>
-    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=ConferenceTitle}" VerticalOptions="Start" HorizontalOptions="Center" />
-
-    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Path=NextFavoriteEvents}">
+    
+    <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=NextFavoriteEvents}">
        <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

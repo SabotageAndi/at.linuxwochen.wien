@@ -76,6 +76,13 @@ module app =
             let contentPage = new ContentPage()
             contentPage.Content <- stackPanel
 
+            let acutalConference = model.Conferences.getActualConference()
+            match acutalConference with
+            | Some acutalConference ->
+                contentPage.Title <- acutalConference.Name
+            | None ->
+                contentPage.Title <- ""
+
             masterDetailPage.Detail <- new NavigationPage(contentPage)
             match viewModel with
             | As(viewModelShown : IViewModelShown) -> viewModelShown.Init()
@@ -144,7 +151,7 @@ module app =
 
                     match lastConference with
                     | Some conf ->
-                        masterDetailPage.Title <- conf.Name
+                        masterDetailPage.Detail.Title <- conf.Name
                     | _ ->
                         ignore()
 
@@ -217,6 +224,7 @@ module app =
                     addConferenceDayMenuItems()
                     
                     navigateTo home
+
                     new eventbus.Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
 
 
