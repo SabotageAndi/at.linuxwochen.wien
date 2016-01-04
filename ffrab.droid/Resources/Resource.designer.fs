@@ -23,10 +23,10 @@ namespace ffrab.droid
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException6e42ba0515c34be9be874e68186c2761 of obj
-    exception ReturnNoneException6e42ba0515c34be9be874e68186c2761
+    exception ReturnExceptionb1ad0cb99a45424f9e2890eaf6e09345 of obj
+    exception ReturnNoneExceptionb1ad0cb99a45424f9e2890eaf6e09345
     [<AutoOpen>]
-    module FuncConvertFinalOverload6e42ba0515c34be9be874e68186c2761 =
+    module FuncConvertFinalOverloadb1ad0cb99a45424f9e2890eaf6e09345 =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form
@@ -619,7 +619,7 @@ namespace ffrab.droid
                 global.Xamarin.Forms.Platform.Resource.Id.default_activity_button <- Resource_Id.default_activity_button
                 global.Xamarin.Forms.Platform.Resource.Id.disableHome <- Resource_Id.disableHome
                 global.Xamarin.Forms.Platform.Resource.Id.edit_query <- Resource_Id.edit_query
-                global.Xamarin.Forms.Platform.Resource.Id.``end`` <- Resource_Id.``end``
+                global.Xamarin.Forms.Platform.Resource.Id.end <- Resource_Id.end
                 global.Xamarin.Forms.Platform.Resource.Id.end_padder <- Resource_Id.end_padder
                 global.Xamarin.Forms.Platform.Resource.Id.enterAlways <- Resource_Id.enterAlways
                 global.Xamarin.Forms.Platform.Resource.Id.enterAlwaysCollapsed <- Resource_Id.enterAlwaysCollapsed
@@ -3448,7 +3448,7 @@ namespace ffrab.droid
             static member edit_query = 2131099736
             
             // aapt resource value: 0x7f06001b
-            static member ``end`` = 2131099675
+            static member end = 2131099675
             
             // aapt resource value: 0x7f060082
             static member end_padder = 2131099778
