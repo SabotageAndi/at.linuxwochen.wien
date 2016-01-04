@@ -37,9 +37,6 @@ module common =
 
     module NodaTypeSerializerDelegate =
 
-        type SupportedTyp = {
-            Typ : Type;
-        }
 
         let localDateType = typeof<LocalDate>
         let offsetDateTimeType = typeof<OffsetDateTime>
