@@ -14,6 +14,10 @@ module common =
         | Main
         | Day of NodaTime.LocalDate
 
+    let runOnUIthread func =
+        let action = new Action(func)
+        Xamarin.Forms.Device.BeginInvokeOnMainThread action
+
          
     let loadJsonFromUri (uri : string) = 
         async { 

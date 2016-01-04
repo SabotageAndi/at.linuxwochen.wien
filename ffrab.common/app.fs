@@ -32,6 +32,8 @@ module app =
               Type = ViewModelType.ConferenceList
               ViewModel = ( fun _ -> new ConferenceListViewModel() :> ViewModelBase)
               Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
+
+
         
         let sql = (sqlPlatform, databasePath)
 
@@ -48,12 +50,16 @@ module app =
                                                                           IsVisible = false)
         
         let startLongRunningAction msg =
-            activityIndicator.IsRunning <- true
-            activityIndicator.IsVisible <- true
+            let onUI() =
+                activityIndicator.IsRunning <- true
+                activityIndicator.IsVisible <- true
+            onUI |> common.runOnUIthread
 
         let stopLongRunningAction msg =
-            activityIndicator.IsRunning <- false
-            activityIndicator.IsVisible <- false
+            let onUI() =
+                activityIndicator.IsRunning <- false
+                activityIndicator.IsVisible <- false
+            onUI |> common.runOnUIthread
 
         let getNewDetail menuItem = 
             let viewModel = menuItem.ViewModel()
@@ -80,7 +86,8 @@ module app =
             match lastMenuItem with
             | Some lmi -> 
                 if menuItem.Name <> lmi.Name then getNewDetail menuItem
-            | None -> getNewDetail menuItem
+            | None -> 
+                getNewDetail menuItem
             lastMenuItem <- Some menuItem
             masterDetailPage.IsPresented <- false
         
@@ -118,17 +125,34 @@ module app =
           
         let changeConference msg = 
             new eventbus.Entry(Message.StartLongRunningAction) |> Eventbus.Current.Publish
-            match lastConference with
-            | Some conf ->
-                removeActualConferenceDayMenuItems conf 
-            | _ ->
-                ignore()
 
-            model.Conferences.synchronizeData()
-            addConferenceDayMenuItems()
-            lastConference <- model.Conferences.getActualConference()
-            navigateTo home
-            new eventbus.Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
+            async {
+
+                match lastConference with
+                | Some conf ->
+                    removeActualConferenceDayMenuItems conf 
+                | _ ->
+                    ignore()
+
+
+                model.Conferences.synchronizeData()
+
+                let onUI() =
+                    addConferenceDayMenuItems()
+                    lastConference <- model.Conferences.getActualConference()
+                    navigateTo home
+
+                    match lastConference with
+                    | Some conf ->
+                        masterDetailPage.Title <- conf.Name
+                    | _ ->
+                        ignore()
+
+                    new eventbus.Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
+
+                onUI |> common.runOnUIthread
+
+            } |> Async.Start
         
         let navigate (data : eventbus.Entry) =
             match data with
@@ -175,13 +199,28 @@ module app =
             menu.BindingContext <- menuViewModel
 
             masterDetailPage.Master <- menu
+            masterDetailPage.Detail <- new ContentPage(Content = new LoadingView())
+            
+            this.MainPage <- masterDetailPage
+
 
         override this.OnStart() =
             model.Init sql
-            model.Conferences.synchronizeData()
-            lastConference <- model.Conferences.getActualConference()
-            addConferenceDayMenuItems()
-            navigateTo home
-            this.MainPage <- masterDetailPage
+            async {
+                new eventbus.Entry(Message.StartLongRunningAction) |> Eventbus.Current.Publish
+                
+            
+                model.Conferences.synchronizeData()
+                lastConference <- model.Conferences.getActualConference()
+
+                let onUI() = 
+                    addConferenceDayMenuItems()
+                    
+                    navigateTo home
+                    new eventbus.Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
+
+
+                onUI |> common.runOnUIthread
+            } |> Async.Start
 
             
