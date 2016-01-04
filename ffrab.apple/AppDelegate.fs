@@ -66,7 +66,7 @@ type AppDelegate () =
         let window = new UIWindow (UIScreen.MainScreen.Bounds)
 
         #if DEBUG
-        _testHookListener.Start()
+        //_testHookListener.Start()
         #endif
         
         let databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ffrab.mobile.db")
