@@ -107,11 +107,11 @@ module app =
             menuItemConnection
         
         let dateFormat = NodaTime.Text.LocalDatePattern.CreateWithInvariantCulture("dd'.'MM")
-        let getConferenceDayName (item : ConferenceDay) = dateFormat.Format(item.Day)
+        let getConferenceDayName (item : ConferenceDay) dayCounter = sprintf "%s - Day %i" (dateFormat.Format(item.Day)) dayCounter
         
-        let addConferenceDayMenuItems conferenceDay =
+        let addConferenceDayMenuItems conferenceDay dayCounter =
             let menuItemConnection = 
-                           { MenuItemConnection.Name = getConferenceDayName (conferenceDay)
+                           { MenuItemConnection.Name = getConferenceDayName conferenceDay dayCounter
                              Type = ViewModelType.Day(conferenceDay.Day)
                              ViewModel = (fun _ -> new DayViewModel(conferenceDay) :> ViewModelBase)
                              Content = (fun _ -> new DayView() :> ContentView) }
@@ -120,15 +120,24 @@ module app =
             |> menuViewModel.AddMenuAfter home
 
         let addConferenceDayMenuItems() = 
-            Conferences.getActualConferenceDays()
+            let days = Conferences.getActualConferenceDays()
+            let mutable dayCounter = days.Length
+            
+            days
             |> Seq.sortByDescending (fun i -> i.Day)
-            |> Seq.iter addConferenceDayMenuItems
+            |> Seq.iter (fun d -> 
+                        addConferenceDayMenuItems d dayCounter
+                        dayCounter <- dayCounter - 1)
             
         let removeActualConferenceDayMenuItems conference = 
+            let mutable dayCounter = 1
             conference 
             |> Conferences.getConferenceDays
-            |> Seq.map getConferenceDayName
-            |> Seq.iter menuViewModel.RemoveMenu
+            |> Seq.sortBy (fun i -> i.Day)
+            |> Seq.iter (fun d ->
+                        let menuItemText = getConferenceDayName d dayCounter
+                        menuViewModel.RemoveMenu menuItemText
+                        dayCounter <- dayCounter + 1)
           
         let changeConference msg = 
             new eventbus.Entry(Message.StartLongRunningAction) |> Eventbus.Current.Publish

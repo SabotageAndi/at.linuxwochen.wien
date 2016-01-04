@@ -8,16 +8,25 @@
             HasUnevenRows="True"
             ItemTapped="ListView_OnItemTapped"
             >
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding Path=Title}" />
-      </DataTemplate>
-    </ListView.ItemTemplate>
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
-        <TextCell Text="{Binding Path=StartTime}"></TextCell>
+        <ViewCell>
+          <Grid Padding="4" Style="{StaticResource EntryGroupItemStyle}" VerticalOptions="Start">
+            <Label Text="{Binding Path=StartTime}" VerticalTextAlignment="Center" VerticalOptions="Center" />
+          </Grid>
+        </ViewCell>
       </DataTemplate>
     </ListView.GroupHeaderTemplate>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <Grid Padding="4" Style="{StaticResource EntryItemStyle}" VerticalOptions="Start">
+            <Label Text="{Binding Path=Title}" VerticalTextAlignment="Center" VerticalOptions="Start" />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+   
 
   </ListView>
 </ContentView>

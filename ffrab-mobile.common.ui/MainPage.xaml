@@ -2,27 +2,41 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ffrab.mobile.common.ui.MainPage"
-  >
+  Padding="10">
 
-  <Grid Grid.ColumnSpacing="0" RowSpacing="0" >
+  <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Start" >
     <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="10"></RowDefinition>
       <RowDefinition Height="*"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="10"></ColumnDefinition>
       <ColumnDefinition Width="*"></ColumnDefinition>
-      <ColumnDefinition Width="10"></ColumnDefinition>
     </Grid.ColumnDefinitions>
-    
-    <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=NextFavoriteEvents}">
-       <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Label Text="{Binding Path=Title}" />
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+
+    <Label Grid.Row="0" Text="Next 5 Talks" />
+    <ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}"
+            SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+            HasUnevenRows="True" SeparatorVisibility="None">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid Padding="0,4,0,4">
+              <Grid Padding="2" Style="{StaticResource FavoriteItemStyle}">
+                <Grid RowSpacing="0" >
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                  </Grid.RowDefinitions>
+                  <Label Grid.Row="0" Text="{Binding Path=BeginTime}" />
+                  <Label Grid.Row="1" Text="{Binding Path=Title}" />
+
+                </Grid>
+              </Grid>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
     </ListView>
   </Grid>
 </ContentView>

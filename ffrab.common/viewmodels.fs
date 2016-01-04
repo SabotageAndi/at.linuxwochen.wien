@@ -1,6 +1,5 @@
 ﻿namespace ffrab.mobile.common
 
-open System.Collections.Generic
 open System.Collections.ObjectModel
 open FSharp.ViewModule
 open System.Linq
@@ -35,6 +34,11 @@ module viewmodels =
         inherit eventbus.Entry(msg)
 
         member this.Typ = typ
+
+    type EntrySelected(msg, entry : entities.Entry) =
+        inherit eventbus.Entry(msg)
+
+        member this.Entry = entry
 
     type MenuViewModel() as self = 
         inherit ViewModelBase()
@@ -104,11 +108,26 @@ module viewmodels =
                     model.Conferences.setActualConference selectedItem.Value.Value
                     new eventbus.Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
     
+    [<AllowNullLiteralAttribute>]
+    type EntryItemViewModel(entry : entities.Entry) =
+
+        let entry = entry
+
+        member this.Entry = entry
+
+        member this.Title = entry.Title
+
+        member this.BeginTime 
+            with get() =
+                common.Formatting.durationOffsetFormat.Format entry.Start
+
     type MainViewModel() as self = 
         inherit ViewModelBase()
         let mutable conference : Conference option = None
 
-        let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<entities.Entry>())
+        let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<EntryItemViewModel>())
+        let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
+
         
         interface IViewModelShown with
             member this.Init() = 
@@ -116,6 +135,7 @@ module viewmodels =
                 nextFavoriteEvents.Value.Clear()
 
                 model.Conferences.Entry.getTopFavorites 5
+                |> List.map (fun e -> new EntryItemViewModel(e))
                 |> List.iter nextFavoriteEvents.Value.Add
 
                 self.RaisePropertyChanged(<@ self.ConferenceTitle @>)
@@ -127,18 +147,23 @@ module viewmodels =
 
         member this.NextFavoriteEvents = nextFavoriteEvents.Value
 
+        member this.SelectedItem 
+            with get () : EntryItemViewModel = 
+                match selectedItem.Value with
+                | Some v -> v
+                | _ -> null
+            and set (v) = 
+                match v with
+                | null -> selectedItem.Value <- None
+                | _ -> 
+                    selectedItem.Value <- Some v
+                    new EntrySelected(Message.ShowEntry, v.Entry) |> Eventbus.Current.Publish
+
+    
+
     [<AllowNullLiteralAttribute>]
-    type DayItemViewModel(entry : entities.Entry) =
-
-        let entry = entry
-
-        member this.Entry = entry
-
-        member this.Title = entry.Title
-
-    [<AllowNullLiteralAttribute>]
-    type GroupDayItemViewModel(startTime : OffsetDateTime, itemViewModels : DayItemViewModel list) =
-        inherit ObservableCollection<DayItemViewModel>(itemViewModels)
+    type GroupDayItemViewModel(startTime : OffsetDateTime, itemViewModels : EntryItemViewModel list) =
+        inherit ObservableCollection<EntryItemViewModel>(itemViewModels)
 
         let startTime = startTime
 
@@ -148,10 +173,7 @@ module viewmodels =
 
         
 
-    type EntrySelected(msg, entry : entities.Entry) =
-        inherit eventbus.Entry(msg)
-
-        member this.Entry = entry
+    
 
     type DayViewModel(conferenceDay) as self =
         inherit ViewModelBase()
@@ -165,7 +187,7 @@ module viewmodels =
                 let viewModels = conferenceDay
                                  |> model.Conferences.getEntriesForDay
                                  |> List.groupBy (fun e -> e.Start)
-                                 |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new DayItemViewModel(i))))
+                                 |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new EntryItemViewModel(i))))
                                  |> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
                                  
                 items.Value <- new ObservableCollection<GroupDayItemViewModel>(viewModels)
@@ -173,7 +195,7 @@ module viewmodels =
         member this.Items = items.Value
 
         member this.SelectedItem 
-            with get () : DayItemViewModel = 
+            with get () : EntryItemViewModel = 
                 match selectedItem.Value with
                 | Some v -> v
                 | _ -> null

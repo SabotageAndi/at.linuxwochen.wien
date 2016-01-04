@@ -10,11 +10,14 @@
                 iOS="0,20,0,0"/>
   </ContentPage.Padding>
 
-  <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+  <ListView ItemsSource="{Binding Path=Items}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+            RowHeight="50">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <Label Text="{Binding Path=Name}" />
+          <Grid Padding="4" VerticalOptions="CenterAndExpand">
+            <Label Text="{Binding Path=Name}" VerticalTextAlignment="Center" />
+          </Grid>
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
