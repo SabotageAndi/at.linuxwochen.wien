@@ -8,6 +8,7 @@ module model =
     open common
     open System.Collections.Generic
     open System.Linq
+    open NodaTime
     
     [<AllowNullLiteral>]
     type Conference(id, name, dataUri, rawData) = 
@@ -48,8 +49,106 @@ module model =
             [// new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
               new Conference(2, "Linuxwochen 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json", "") ]
         
+        module Database = 
+
+            let createSchema() =
+                CurrentState.SQLConnection.CreateTable<Entry>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Room>() |> ignore
+                CurrentState.SQLConnection.CreateTable<ConferenceDay>() |> ignore
+                CurrentState.SQLConnection.CreateTable<ConferenceData>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Speaker>() |> ignore
+                CurrentState.SQLConnection.CreateTable<Speaker2Entry>() |> ignore
+                CurrentState.SQLConnection.CreateTable<EntryFavorite>() |> ignore
+            
+            let dropSchema() =
+                CurrentState.SQLConnection.DropTable<Entry>() |> ignore
+                CurrentState.SQLConnection.DropTable<Room>() |> ignore
+                CurrentState.SQLConnection.DropTable<ConferenceDay>() |> ignore
+                CurrentState.SQLConnection.DropTable<ConferenceData>() |> ignore
+                CurrentState.SQLConnection.DropTable<Speaker>() |> ignore
+                CurrentState.SQLConnection.DropTable<Speaker2Entry>() |> ignore
+                CurrentState.SQLConnection.DropTable<EntryFavorite>() |> ignore
+
+            let writeDbEntry dbEntry =
+                CurrentState.SQLConnection.Insert dbEntry |> ignore
+
+            let updateDbEntry dbEntry =
+                CurrentState.SQLConnection.Update dbEntry |> ignore
+
+
+            let isEntryFavorite (entry : Entry) =
+                CurrentState.SQLConnection.Table<EntryFavorite>().Where(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id).Any()
+
+            let setEntryFavorite (entryFavorite : EntryFavorite) =
+                writeDbEntry entryFavorite
+
+            let removeEntryFavorite (entry : Entry) =
+                CurrentState.SQLConnection.Table<EntryFavorite>().Delete(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) |> ignore
+
+            let deleteConference (conference : Conference) =
+                CurrentState.SQLConnection.Table<Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Room>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Speaker>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+                CurrentState.SQLConnection.Table<Speaker2Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
+
+            let getConferenceData (conference : Conference) =
+                CurrentState.SQLConnection.Table<ConferenceData>()
+                |> Seq.filter (fun c -> c.ConferenceId = conference.Id)
+                |> Seq.tryHead
+
+           
+            let getConferenceDays (conference : Conference) =
+                CurrentState.SQLConnection.Table<ConferenceDay>()
+                |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
+
+            let getSpeaker (speakerGuid : Guid) =
+                CurrentState.SQLConnection.Table<Speaker>()
+                |> Seq.filter (fun s -> s.Guid = speakerGuid)
+                |> Seq.tryHead
+
+            let getSpeakerForConference (speakerId : int) (conferenceId : int) =
+                CurrentState.SQLConnection.Table<Speaker>()
+                |> Seq.filter (fun s -> s.Id = speakerId && s.ConferenceId = conferenceId)
+                |> Seq.tryHead
+
+            let getSpeakersOfEntry (entry : Entry) =
+                CurrentState.SQLConnection.Table<Speaker2Entry>()
+                |> Seq.filter (fun se -> se.EntryGuid = entry.Guid)
+                |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
+                |> Seq.filter(fun s ->
+                    match s with
+                    | Some(_) -> true
+                    | _ -> false)
+                |> Seq.map (fun s -> s.Value)
+                |> Seq.toList
+
+            
+            let getEntriesForDay (day : ConferenceDay) =
+                CurrentState.SQLConnection.Table<Entry>()
+                |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
+                |> Seq.map (fun e -> 
+                    e.Speaker <- getSpeakersOfEntry(e)
+                    e)
+                |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
+            
+            let getRoom (roomGuid) =
+                CurrentState.SQLConnection.Table<Room>()
+                |> Seq.filter (fun r -> r.Guid = roomGuid)
+                |> Seq.tryHead
+
         let getAllConferences() = conferences
-        let getConference id = conferences |> List.tryFind (fun i -> i.Id = id)
+        let getConference id = 
+            let conf = conferences 
+                       |> List.tryFind (fun i -> i.Id = id)
+            match conf with
+            | Some conf ->
+                conf.Data <- Database.getConferenceData conf
+            | None ->
+                ignore()
+            conf
+
         let setActualConference (conf : Conference) = Application.Current.Properties.[actualConfKey] <- conf.Id
         
         let getActualConference() = 
@@ -136,85 +235,15 @@ module model =
                 new ConferenceData(Version = version.Value<string>(), Days = days, ConferenceId = conference.Id)
             
             let parseJson conference json = 
-                deserializeJson json 
-                |> parseSchedule conference
+                match json with 
+                | Some s ->
+                    deserializeJson s 
+                    |> parseSchedule conference
+                    |> Some
+                | None ->
+                    None
 
-        module Database = 
-
-            let createSchema() =
-                CurrentState.SQLConnection.CreateTable<Entry>() |> ignore
-                CurrentState.SQLConnection.CreateTable<Room>() |> ignore
-                CurrentState.SQLConnection.CreateTable<ConferenceDay>() |> ignore
-                CurrentState.SQLConnection.CreateTable<ConferenceData>() |> ignore
-                CurrentState.SQLConnection.CreateTable<Speaker>() |> ignore
-                CurrentState.SQLConnection.CreateTable<Speaker2Entry>() |> ignore
-                CurrentState.SQLConnection.CreateTable<EntryFavorite>() |> ignore
-
-            let writeDbEntry dbEntry =
-                CurrentState.SQLConnection.Insert dbEntry |> ignore
-
-
-            let isEntryFavorite (entry : Entry) =
-                CurrentState.SQLConnection.Table<EntryFavorite>().Where(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id).Any()
-
-            let setEntryFavorite (entryFavorite : EntryFavorite) =
-                writeDbEntry entryFavorite
-
-            let removeEntryFavorite (entry : Entry) =
-                CurrentState.SQLConnection.Table<EntryFavorite>().Delete(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) |> ignore
-
-            let deleteConference (conference : Conference) =
-                CurrentState.SQLConnection.Table<Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-                CurrentState.SQLConnection.Table<Room>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-                CurrentState.SQLConnection.Table<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-                CurrentState.SQLConnection.Table<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-                CurrentState.SQLConnection.Table<Speaker>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-                CurrentState.SQLConnection.Table<Speaker2Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-
-            let getConferenceData (conference : Conference) =
-                CurrentState.SQLConnection.Table<ConferenceData>()
-                |> Seq.filter (fun c -> c.ConferenceId = conference.Id)
-                |> Seq.tryHead
-
-           
-            let getConferenceDays (conference : Conference) =
-                CurrentState.SQLConnection.Table<ConferenceDay>()
-                |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
-
-            let getSpeaker (speakerGuid : Guid) =
-                CurrentState.SQLConnection.Table<Speaker>()
-                |> Seq.filter (fun s -> s.Guid = speakerGuid)
-                |> Seq.tryHead
-
-            let getSpeakerForConference (speakerId : int) (conferenceId : int) =
-                CurrentState.SQLConnection.Table<Speaker>()
-                |> Seq.filter (fun s -> s.Id = speakerId && s.ConferenceId = conferenceId)
-                |> Seq.tryHead
-
-            let getSpeakersOfEntry (entry : Entry) =
-                CurrentState.SQLConnection.Table<Speaker2Entry>()
-                |> Seq.filter (fun se -> se.EntryGuid = entry.Guid)
-                |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
-                |> Seq.filter(fun s ->
-                    match s with
-                    | Some(_) -> true
-                    | _ -> false)
-                |> Seq.map (fun s -> s.Value)
-                |> Seq.toList
-
-            
-            let getEntriesForDay (day : ConferenceDay) =
-                CurrentState.SQLConnection.Table<Entry>()
-                |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
-                |> Seq.map (fun e -> 
-                    e.Speaker <- getSpeakersOfEntry(e)
-                    e)
-                |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
-            
-            let getRoom (roomGuid) =
-                CurrentState.SQLConnection.Table<Room>()
-                |> Seq.filter (fun r -> r.Guid = roomGuid)
-                |> Seq.tryHead
+        
 
         module Synchronization =
 
@@ -250,17 +279,28 @@ module model =
                 conferenceData.Days 
                 |> List.iter writeDay
              
+            let writeLastSync (conferenceData : ConferenceData) =
+                conferenceData.LastSync <- SystemClock.Instance.Now.WithOffset(Offset.Zero)
+                Database.updateDbEntry conferenceData
+                ignore()
 
-            let sync conference (conferenceData : ConferenceData) =
-                let currentConferenceData = Database.getConferenceData conference
 
-                match currentConferenceData with
-                | Some data ->
-                    if data.Version <> conferenceData.Version then
-                        Database.deleteConference conference
+            let sync conference (conferenceData : ConferenceData option) =
+                match conferenceData with
+                | Some conferenceData ->
+                    let currentConferenceData = Database.getConferenceData conference
+
+                    match currentConferenceData with
+                    | Some data ->
+                        if data.Version <> conferenceData.Version then
+                            Database.deleteConference conference
+                            writeData conferenceData
+                        writeLastSync conferenceData
+                    | _ ->
                         writeData conferenceData
-                | _ ->
-                    writeData conferenceData
+                        writeLastSync conferenceData
+                | None ->
+                    ignore()
         
         let getConferenceDays conference = 
             Database.getConferenceDays conference 
@@ -285,27 +325,49 @@ module model =
         | Http
         | Local
 
-        let getUriType (conf : Conference) =
-            let uri = conf.DataUri
-            let start = uri.Substring(0, 4)
+        let getUriType (conf : Conference option) =
+            match conf with
+            | Some c ->
+                let uri = c.DataUri
+                let start = uri.Substring(0, 4)
 
-            if start = "http" then 
-                (UriType.Http, conf)
-            else
-                (UriType.Local, conf)
+                if start = "http" then 
+                    (Some UriType.Http, Some c)
+                else
+                    (Some UriType.Local, Some c)
+            | None ->
+                (None, None)
 
-        let getJson (uriType, conf : Conference) =
-            match uriType with
-            | UriType.Http ->
-                loadJsonFromUri conf.DataUri
-            | UriType.Local ->
-                conf.RawData
+        let getJson (uriType : UriType option, conf : Conference option) =
+            match conf with
+            | None ->
+                None
+            | Some c ->
+                match uriType with
+                | Some UriType.Http ->
+                    loadJsonFromUri c.DataUri
+                    |> Some
+                | Some UriType.Local ->
+                    Some c.RawData
+                | None ->
+                    None
+
+        let checkForTimeout (conf : Conference)  =
+            match conf.Data with
+            | Some confData ->
+                let durationSinceLastSync = NodaTime.SystemClock.Instance.Now - confData.LastSync.ToInstant()
+                match (durationSinceLastSync.ToTimeSpan().TotalMinutes < 15.0) with
+                | true -> None
+                | false -> Some conf
+            | None ->
+                Some conf
 
         let synchronizeData() =
             let conf = getActualConference()
             match conf with
             | Some conference ->
                 conference 
+                |> checkForTimeout
                 |> getUriType
                 |> getJson 
                 |> Parser.parseJson conference

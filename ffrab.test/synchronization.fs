@@ -7,14 +7,15 @@
     open ffrab.mobile.common.model
     open ffrab.mobile.common.entities
 
-    let conference = new Conference(1, "", "", "")
+    let conference = new Conference(2, "", "", "")
 
     let parseJson() = 
-        File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson conference
+        File.ReadAllText("data/conference.json") |> Some |> Conferences.Parser.parseJson conference
 
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db, "ffrab.mobile.db")
+        Conferences.Database.dropSchema()
         Conferences.Database.createSchema()
         CurrentState
 
@@ -37,8 +38,8 @@
         let currentState = init()
         let conferenceData = parseJson()
 
-        let oldConferenceData = new ConferenceData(ConferenceId = conference.Id, Version= "0")
-        currentState.SQLConnection.Insert oldConferenceData |> ignore
+        let oldConferenceData = new ConferenceData(ConferenceId = conference.Id, Version= "0", LastSync = new NodaTime.OffsetDateTime(new NodaTime.LocalDateTime(), NodaTime.Offset.Zero))
+        currentState.SQLConnection.Update oldConferenceData |> ignore
 
         Conferences.Synchronization.sync conference conferenceData
 

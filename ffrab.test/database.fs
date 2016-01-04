@@ -17,7 +17,9 @@
 
     let initWithRecreate() =
         let db = init()
+        Conferences.Database.dropSchema()
         Conferences.Database.createSchema()
+
         db
 
     [<Fact>]

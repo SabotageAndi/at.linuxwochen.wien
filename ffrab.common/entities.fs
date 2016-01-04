@@ -96,6 +96,8 @@ module entities =
         
         member val Version : string = "" with get, set
 
+        member val LastSync : OffsetDateTime = new OffsetDateTime() with get, set
+
 
     type EntryFavorite() =
         

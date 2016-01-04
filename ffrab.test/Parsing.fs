@@ -7,7 +7,9 @@
     
     let parseJson() = 
         let conf = new Conference(1, "", "", "")
-        File.ReadAllText("data/conference.json") |> Conferences.Parser.parseJson conf
+        let confData = File.ReadAllText("data/conference.json") |> Some |> Conferences.Parser.parseJson conf
+        
+        confData.Value
     
     [<Fact>]
     let ``get correct number of days``() = 
