@@ -32,6 +32,25 @@ module common =
         }
         |> Async.RunSynchronously
 
+    open System.Linq.Expressions
+    open Microsoft.FSharp.Quotations
+    open Microsoft.FSharp.Linq.RuntimeHelpers.LeafExpressionConverter
+    
+    let toLinq (expr : Expr<'a -> 'b>) =
+      let linq = expr |> QuotationToExpression
+      let call = linq :?> MethodCallExpression
+      let lambda = call.Arguments.[0] :?> LambdaExpression
+      Expression.Lambda<Func<'a, 'b>>(lambda.Body, lambda.Parameters) 
+
+    type State(conn) = 
+        let sqlConnection : SQLite.Net.SQLiteConnection = conn
+
+        member this.SQLConnection 
+            with get() = sqlConnection
+    
+
+    let mutable CurrentState : State = new State(null)
+
     open NodaTime
     open NodaTime.Text  
     open SQLite.Net

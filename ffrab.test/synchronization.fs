@@ -6,6 +6,7 @@
     open System.IO
     open ffrab.mobile.common.model
     open ffrab.mobile.common.entities
+    open ffrab.mobile.common
 
     let conference = new Conference(2, "", "", "")
 
@@ -15,9 +16,9 @@
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db, "ffrab.mobile.db")
-        Conferences.Database.dropSchema()
-        Conferences.Database.createSchema()
-        CurrentState
+        Database.dropSchema()
+        Database.createSchema()
+        common.CurrentState
 
     [<Fact>]
     let ``Synchronate test data into empty database``() =

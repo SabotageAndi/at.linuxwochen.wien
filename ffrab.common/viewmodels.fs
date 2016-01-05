@@ -250,7 +250,7 @@ module viewmodels =
         interface IViewModelShown with
             member this.Init() =
                 room <- model.Conferences.getRoom entry.RoomGuid
-                speaker <- model.Conferences.Database.getSpeakersOfEntry entry
+                speaker <- model.Conferences.getSpeakersOfEntry entry
 
         member this.Title 
             with get() =

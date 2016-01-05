@@ -7,25 +7,26 @@
     open SQLite.Net
     open ffrab.mobile.common.model
     open ffrab.mobile.common.entities
+    open ffrab.mobile.common
 
     let conf = new Conference(1, "", "", "")
 
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db, "ffrab.mobile.db")
-        ffrab.mobile.common.model.CurrentState.SQLConnection
+        ffrab.mobile.common.common.CurrentState.SQLConnection
 
     let initWithRecreate() =
         let db = init()
-        Conferences.Database.dropSchema()
-        Conferences.Database.createSchema()
+        Database.dropSchema()
+        Database.createSchema()
 
         db
 
     [<Fact>]
     let ``Database is recreated``() =
         let db = init()
-        Conferences.Database.createSchema()
+        Database.createSchema()
     
     [<Fact>]
     let ``Entries removed on conference clean``() =
@@ -36,7 +37,7 @@
         
         db.Table<Entry>().Count() |> should equal 1
 
-        Conferences.Database.deleteConference conf
+        Conferences.deleteConference conf
 
         db.Table<Entry>().Count() |> should equal 0
 
@@ -49,7 +50,7 @@
 
         db.Table<Room>().Count() |> should equal 1
 
-        Conferences.Database.deleteConference conf
+        Conferences.deleteConference conf
 
         db.Table<Room>().Count() |> should equal 0
 
@@ -62,7 +63,7 @@
 
         db.Table<ConferenceDay>().Count() |> should equal 1
 
-        Conferences.Database.deleteConference conf
+        Conferences.deleteConference conf
 
         db.Table<ConferenceDay>().Count() |> should equal 0
 
@@ -75,6 +76,6 @@
 
         db.Table<ConferenceData>().Count() |> should equal 1
 
-        Conferences.Database.deleteConference conf
+        Conferences.deleteConference conf
 
         db.Table<ConferenceData>().Count() |> should equal 0

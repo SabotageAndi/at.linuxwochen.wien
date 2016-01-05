@@ -44,6 +44,7 @@
     <Compile Include="common.fs" />
     <Compile Include="eventbus.fs" />
     <Compile Include="entities.fs" />
+    <Compile Include="database.fs" />
     <Compile Include="model.fs" />
     <Compile Include="viewmodels.fs" />
     <Compile Include="app.fs" />
