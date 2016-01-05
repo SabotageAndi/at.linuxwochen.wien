@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ffrab.mobile.common.ui.EntryView" Padding="5">
+             x:Class="ffrab.mobile.common.ui.EntryView" Padding="5"
+  BackgroundColor="#C0C0C0">
   <ContentPage.ToolbarItems>
-    <ToolbarItem Name="Favorite" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}"></ToolbarItem>
+    <ToolbarItem Text="Favorite" Icon="{Binding Path=FavoriteIcon}" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}" />
   </ContentPage.ToolbarItems>
-  <Grid>
+  <Grid Style="{StaticResource EntryBackground}">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition Height="Auto"></RowDefinition>
@@ -16,15 +17,15 @@
       <ColumnDefinition Width="Auto"></ColumnDefinition>
       <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
-    
+
 
     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource TitleStyle}"/>
 
     <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Time}" StyleId="starttime" />
-    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End"/>
+    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End" HorizontalTextAlignment="End"/>
 
     <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Room}" StyleId="room"/>
-    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Speaker}" StyleId="speaker" HorizontalOptions="End"/>
+    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Speaker}" StyleId="speaker" HorizontalOptions="End" HorizontalTextAlignment="End"/>
 
     <ScrollView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
       <Label LineBreakMode="WordWrap" Text="{Binding Path=Content}" StyleId="content"/>

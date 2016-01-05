@@ -122,6 +122,16 @@
     <None Include="Icon-Small-50%402x.png" />
     <None Include="iTunesArtwork%402x" />
     <Content Include="packages.config" />
+    <BundleResource Include="Resources\ic_star_48pt.png" />
+    <BundleResource Include="Resources\ic_star_48pt%402x.png" />
+    <BundleResource Include="Resources\ic_star_48pt%403x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_48dp.png" />
+    <BundleResource Include="Resources\ic_star_border_black_48dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_36pt.png" />
+    <BundleResource Include="Resources\ic_star_36pt%402x.png" />
+    <BundleResource Include="Resources\ic_star_36pt%403x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%401x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NodaTime">

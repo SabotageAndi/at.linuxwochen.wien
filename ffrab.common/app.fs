@@ -85,7 +85,7 @@ module app =
 
             masterDetailPage.Detail <- new NavigationPage(contentPage)
             match viewModel with
-            | As(viewModelShown : IViewModelShown) -> viewModelShown.Init()
+            | As(viewModelShown : IViewModelShown) -> initViewModel viewModelShown
             | _ -> ()
             menuViewModel.SetCurrentItem menuItem
         
@@ -181,6 +181,7 @@ module app =
             match data with
             | :? EntrySelected as entrySelected ->
                 let viewModel = new EntryViewModel(entrySelected.Entry)
+                initViewModel viewModel
                 let view = new EntryView()
                 view.BindingContext <- viewModel
 

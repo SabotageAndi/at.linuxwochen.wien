@@ -57,6 +57,17 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_star_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_star_border_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_star_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_star_border_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_star_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_star_border_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_star_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_star_border_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_star_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_star_border_black_48dp.png" />
+
     <Compile Include="Properties\AssemblyInfo.fs" />
     <Content Include="Properties\AndroidManifest.xml" />
     <Compile Include="MainActivity.fs" />

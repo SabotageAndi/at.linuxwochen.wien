@@ -114,8 +114,8 @@ module model =
                 |> Seq.tryHead
 
             let getSpeakersOfEntry (entry : Entry) =
-                CurrentState.SQLConnection.Table<Speaker2Entry>()
-                |> Seq.filter (fun se -> se.EntryGuid = entry.Guid)
+                CurrentState.SQLConnection.Table<Speaker2Entry>().Where(fun s2e -> s2e.EntryGuid = entry.Guid)
+//                |> Seq.filter (fun se -> se.EntryGuid.ToString() = entry.Guid.ToString())
                 |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
                 |> Seq.filter(fun s ->
                     match s with
@@ -170,18 +170,29 @@ module model =
                 JObject.Load(reader)
             
             let parseSpeaker (conferenceId : int) (speakerNode : JToken) =
-                new Speaker(Id = speakerNode.["id"].Value<int>(), Name = speakerNode.["full_public_name"].Value<string>(), ConferenceId = conferenceId, Guid = Guid.NewGuid())
+                new Speaker(Id = speakerNode.["id"].Value<int>(), 
+                            Name = speakerNode.["full_public_name"].Value<string>(), 
+                            ConferenceId = conferenceId, 
+                            Guid = Guid.NewGuid())
 
             let parseEntry (room : Room) (entryNode : JToken) = 
-                let entry = new Entry(Id = entryNode.["id"].Value<int>(), Guid = new Guid(entryNode.["guid"].Value<string>()), 
-                          Title = entryNode.["title"].Value<string>(), Subtitle = entryNode.["subtitle"].Value<string>(), 
-                          Abstract = entryNode.["abstract"].Value<string>(), Track = entryNode.["track"].Value<string>(), 
-                          Description = entryNode.["description"].Value<string>(), 
-                          Start = common.Formatting.dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value, 
-                          Language = entryNode.["language"].Value<string>(), 
-                          Duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
-                          Type = entryNode.["type"].Value<string>(), ConferenceId = room.ConferenceId, 
-                          ConferenceDayGuid = room.ConferenceDayGuid, RoomGuid = room.Guid)
+                let abstractText = entryNode.["abstract"].Value<string>() |> removeHTMLTags
+                let description = entryNode.["description"].Value<string>() |> removeHTMLTags
+
+                let entry = new Entry(Id = entryNode.["id"].Value<int>(), 
+                                      Guid = new Guid(entryNode.["guid"].Value<string>()), 
+                                      Title = entryNode.["title"].Value<string>(), 
+                                      Subtitle = entryNode.["subtitle"].Value<string>(), 
+                                      Abstract = abstractText, 
+                                      Track = entryNode.["track"].Value<string>(), 
+                                      Description = description, 
+                                      Start = common.Formatting.dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value, 
+                                      Language = entryNode.["language"].Value<string>(), 
+                                      Duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
+                                      Type = entryNode.["type"].Value<string>(), 
+                                      ConferenceId = room.ConferenceId, 
+                                      ConferenceDayGuid = room.ConferenceDayGuid, 
+                                      RoomGuid = room.Guid)
 
                 let speakers = entryNode.["persons"].Children()
                               |> List.ofSeq
@@ -255,7 +266,7 @@ module model =
                                     | _ ->
                                         Database.writeDbEntry speaker
                                         speaker
-                let speaker2Entry = new Speaker2Entry(EntryGuid = entry.Guid, SpeakerGuid = actualSpeaker.Guid)
+                let speaker2Entry = new Speaker2Entry(EntryGuid = entry.Guid, SpeakerGuid = actualSpeaker.Guid, ConferenceId = speaker.ConferenceId)
                 Database.writeDbEntry speaker2Entry
 
             let writeEntry (entry : Entry) =
@@ -393,12 +404,14 @@ module model =
                 let conf = getActualConference()
                 match conf with
                 | Some conference ->
-                    let sql = sprintf "select * from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start asc limit %i" number
-                    //CurrentState.SQLConnection.Query<Entry>("select Entry.* from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start desc", conference.Id)
+                    let sql = sprintf "select Entry.* from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start asc limit %i" number
+                    
                     let entries = CurrentState.SQLConnection.Query<Entry>(sql, conference.Id)
 
                     entries
                     |> List.ofSeq
+//                    |> List.map (fun e -> e.Speaker <- Database.getSpeakersOfEntry(e)
+//                                          e)
                 | _ ->
                     List.Empty
 

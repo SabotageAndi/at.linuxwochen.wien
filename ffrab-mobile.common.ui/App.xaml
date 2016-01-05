@@ -21,6 +21,9 @@
       <Style TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="#C0C0C0"></Setter>
       </Style>
+      <Style x:Key="EntryBackground" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#C0C0C0"></Setter>
+      </Style>
       <Style TargetType="ContentView">
         <Setter Property="BackgroundColor" Value="#C0C0C0"></Setter>
       </Style>

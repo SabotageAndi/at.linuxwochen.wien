@@ -1,6 +1,7 @@
 ﻿namespace ffrab.mobile.common
 
 open System
+open System.Text.RegularExpressions
 
 module common = 
     let (|As|_|) (p : 'T) : 'U option = 
@@ -18,6 +19,8 @@ module common =
         let action = new Action(func)
         Xamarin.Forms.Device.BeginInvokeOnMainThread action
 
+    let removeHTMLTags str =
+        Regex.Replace(str, @"<[^>]+>|&nbsp;", "").Trim();
          
     let loadJsonFromUri (uri : string) = 
         async { 
@@ -30,14 +33,16 @@ module common =
         |> Async.RunSynchronously
 
     open NodaTime
-    open NodaTime.Text
+    open NodaTime.Text  
     open SQLite.Net
 
     module Formatting =
         let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
         let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
         let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
-        let durationOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
+        let timeOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
+        let dateOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("dd.MM")
+//        let durationOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
 
     module NodaTypeSerializerDelegate =
 

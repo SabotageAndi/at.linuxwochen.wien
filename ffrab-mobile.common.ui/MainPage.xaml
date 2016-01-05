@@ -14,7 +14,7 @@
       <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
 
-    <Label Grid.Row="0" Text="Next 5 Talks" />
+    <Label Grid.Row="0" Text="Your next 5 Talks" />
     <ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}"
             SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
             HasUnevenRows="True" SeparatorVisibility="None">
@@ -28,9 +28,13 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                   </Grid.RowDefinitions>
-                  <Label Grid.Row="0" Text="{Binding Path=BeginTime}" />
-                  <Label Grid.Row="1" Text="{Binding Path=Title}" />
-
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=BeginTime}" />
+                  <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Room}" HorizontalTextAlignment="End" />
+                  <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" />
                 </Grid>
               </Grid>
             </Grid>

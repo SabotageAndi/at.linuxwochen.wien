@@ -40,6 +40,16 @@ module viewmodels =
 
         member this.Entry = entry
 
+    let getRoomName (room : entities.Room option) =
+        match room with
+        | Some room ->
+            room.Name
+        | None ->
+            ""
+
+    let initViewModel (viewModel : IViewModelShown) =
+        viewModel.Init()
+
     type MenuViewModel() as self = 
         inherit ViewModelBase()
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<MenuItemViewModel>())
@@ -107,6 +117,28 @@ module viewmodels =
                     selectedItem.Value <- Some v
                     model.Conferences.setActualConference selectedItem.Value.Value
                     new eventbus.Entry(Message.ChangeConference) |>  Eventbus.Current.Publish
+ 
+    [<AllowNullLiteralAttribute>]
+    type FavoriteItemViewModel(entry : entities.Entry) =
+
+        let entry = entry
+
+        member this.Entry = entry
+
+        member this.Title = entry.Title
+
+        member this.Room = 
+             model.Conferences.getRoom entry.RoomGuid
+             |> getRoomName
+            
+        member this.BeginTime 
+            with get() =
+                let formatedStartTime = common.Formatting.timeOffsetFormat.Format entry.Start
+                match entry.Start.Date = SystemClock.Instance.Now.InZone(DateTimeZoneProviders.Tzdb.GetSystemDefault()).Date with
+                | true ->                    
+                    formatedStartTime
+                | false ->
+                    sprintf "%s - %s" formatedStartTime (common.Formatting.dateOffsetFormat.Format entry.Start)
     
     [<AllowNullLiteralAttribute>]
     type EntryItemViewModel(entry : entities.Entry) =
@@ -119,13 +151,13 @@ module viewmodels =
 
         member this.BeginTime 
             with get() =
-                common.Formatting.durationOffsetFormat.Format entry.Start
+                common.Formatting.timeOffsetFormat.Format entry.Start
 
     type MainViewModel() as self = 
         inherit ViewModelBase()
         let mutable conference : Conference option = None
 
-        let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<EntryItemViewModel>())
+        let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
 
         
@@ -135,12 +167,12 @@ module viewmodels =
                 nextFavoriteEvents.Value.Clear()
 
                 model.Conferences.Entry.getTopFavorites 5
-                |> List.map (fun e -> new EntryItemViewModel(e))
+                |> List.map (fun e -> new FavoriteItemViewModel(e))
                 |> List.iter nextFavoriteEvents.Value.Add
 
                 self.RaisePropertyChanged(<@ self.ConferenceTitle @>)
         
-        member this.ConferenceTitle = 
+        member self.ConferenceTitle = 
             match conference with
             | Some conf -> conf.Name
             | _ -> ""
@@ -148,7 +180,7 @@ module viewmodels =
         member this.NextFavoriteEvents = nextFavoriteEvents.Value
 
         member this.SelectedItem 
-            with get () : EntryItemViewModel = 
+            with get () : FavoriteItemViewModel = 
                 match selectedItem.Value with
                 | Some v -> v
                 | _ -> null
@@ -169,7 +201,7 @@ module viewmodels =
 
         member this.StartTime 
             with get() =
-                common.Formatting.durationOffsetFormat.Format startTime
+                common.Formatting.timeOffsetFormat.Format startTime
 
         
 
@@ -212,14 +244,17 @@ module viewmodels =
 
         let onFavorite() =
             model.Conferences.Entry.toggleEntryFavorite entry
+            self.RaisePropertyChanged <@ self.FavoriteIcon @>
 
         let favoriteCommand = self.Factory.CommandSync onFavorite
         let entry = entry
         let mutable room : entities.Room option = None
+        let mutable speaker :entities.Speaker list = []
 
         interface IViewModelShown with
             member this.Init() =
                 room <- model.Conferences.getRoom entry.RoomGuid
+                speaker <- model.Conferences.Database.getSpeakersOfEntry entry
 
         member this.Title 
             with get() =
@@ -231,7 +266,7 @@ module viewmodels =
 
         member this.BeginTime 
             with get() =
-                common.Formatting.durationOffsetFormat.Format entry.Start
+                common.Formatting.timeOffsetFormat.Format entry.Start
             
         member this.Duration
             with get() = 
@@ -239,11 +274,7 @@ module viewmodels =
 
         member this.Room
             with get() =
-                match room with
-                | Some r ->
-                    r.Name
-                | None ->
-                    ""
+                getRoomName room
 
         member this.Track
             with get() =
@@ -251,13 +282,20 @@ module viewmodels =
 
         member this.Content
             with get() =
-                entry.Abstract
+                sprintf "%s %s %s %s" entry.Abstract System.Environment.NewLine System.Environment.NewLine entry.Description
 
         member this.Speaker
             with get() =
-                let names = entry.Speaker |> List.map (fun s -> s.Name) 
+                let names = speaker |> List.map (fun s -> s.Name) 
                 String.Join(", ", names)
 
         member this.FavoriteCommand
             with get() =
                 favoriteCommand
+        member this.FavoriteIcon
+            with get() =
+                match model.Conferences.Entry.isEntryFavorite entry with
+                | true ->
+                    "ic_star_36pt.png"
+                | false ->
+                    "ic_star_border_black_36dp.png"
