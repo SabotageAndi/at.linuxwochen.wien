@@ -38,3 +38,10 @@ module eventbus =
             |> List.iter (fun i -> e |> i.Action)
         
         static member Current = currentInstance
+
+    let beginLongRunningTask() =
+        new Entry(Message.StartLongRunningAction) |> Eventbus.Current.Publish
+        
+    let endLongRunningTask() = 
+        new Entry(Message.StopLongRunningAction) |> Eventbus.Current.Publish
+        

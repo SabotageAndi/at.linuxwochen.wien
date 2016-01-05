@@ -159,7 +159,6 @@ module viewmodels =
 
         let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
-
         
         interface IViewModelShown with
             member this.Init() = 
@@ -204,9 +203,6 @@ module viewmodels =
                 common.Formatting.timeOffsetFormat.Format startTime
 
         
-
-    
-
     type DayViewModel(conferenceDay) as self =
         inherit ViewModelBase()
         let items = self.Factory.Backing(<@ self.Items @>, new ObservableCollection<GroupDayItemViewModel>())

@@ -42,7 +42,8 @@ module common =
         let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
         let timeOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
         let dateOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("dd.MM")
-//        let durationOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
+        let shortdateFormat = LocalDatePattern.CreateWithInvariantCulture("dd'.'MM")
+
 
     module NodaTypeSerializerDelegate =
 
