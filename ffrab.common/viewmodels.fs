@@ -5,7 +5,6 @@ open FSharp.ViewModule
 open System.Linq
 open Xamarin.Forms
 open NodaTime
-open System
 
 module viewmodels = 
     open ffrab.mobile.common.common
@@ -28,18 +27,18 @@ module viewmodels =
     type MenuItemViewModel(menuItemConnection) = 
         inherit ViewModelBase()
         let menuItemConnection = menuItemConnection
-        member this.Name = menuItemConnection.Name
-        member this.Type = menuItemConnection.Type
+        member val Name = menuItemConnection.Name
+        member val Type = menuItemConnection.Type
     
     type SwitchPageEvent(msg, typ) =
         inherit eventbus.Entry(msg)
 
-        member this.Typ = typ
+        member val Typ = typ
 
     type EntrySelected(msg, entry : entities.Entry) =
         inherit eventbus.Entry(msg)
 
-        member this.Entry = entry
+        member val Entry = entry
 
     let getRoomName (room : entities.Room option) =
         match room with
@@ -76,8 +75,7 @@ module viewmodels =
             |> List.filter (fun i -> i.Name = name)
             |> List.iter removeMenuEntry
         
-        member this.Items 
-            with get() = items.Value
+        member val Items = items.Value with get
         
         member this.SelectedItem 
             with get () = selectedItem.Value
@@ -103,8 +101,7 @@ module viewmodels =
             member this.Init() = 
                 items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
         
-        member this.Items 
-            with get() = items.Value
+        member val Items = items.Value with get
         
         member this.SelectedItem 
             with get () = 
@@ -124,13 +121,9 @@ module viewmodels =
 
         let entry = entry
 
-        member this.Entry = entry
-
-        member this.Title = entry.Title
-
-        member this.Room = 
-             queries.getRoom entry.RoomGuid
-             |> getRoomName
+        member val Entry = entry
+        member val Title = entry.Title
+        member val Room = queries.getRoom entry.RoomGuid |> getRoomName
             
         member this.BeginTime 
             with get() =
@@ -146,18 +139,13 @@ module viewmodels =
 
         let entry = entry
 
-        member this.Entry = entry
-
-        member this.Title = entry.Title
-
-        member this.BeginTime 
-            with get() =
-                common.Formatting.timeOffsetFormat.Format entry.Start
+        member val Entry = entry
+        member val Title = entry.Title
+        member val BeginTime = common.Formatting.timeOffsetFormat.Format entry.Start
 
     type MainViewModel() as self = 
         inherit ViewModelBase()
-        let mutable conference : Conference option = None
-
+        
         let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
         
@@ -169,13 +157,6 @@ module viewmodels =
                 |> queries.getTopFavorites 5
                 |> List.map (fun e -> new FavoriteItemViewModel(e))
                 |> List.iter nextFavoriteEvents.Value.Add
-
-                self.RaisePropertyChanged(<@ self.ConferenceTitle @>)
-        
-        member self.ConferenceTitle = 
-            match conference with
-            | Some conf -> conf.Name
-            | _ -> ""
 
         member this.NextFavoriteEvents = nextFavoriteEvents.Value
 
@@ -199,9 +180,7 @@ module viewmodels =
 
         let startTime = startTime
 
-        member this.StartTime 
-            with get() =
-                common.Formatting.timeOffsetFormat.Format startTime
+        member val StartTime = common.Formatting.timeOffsetFormat.Format startTime
 
         
     type DayViewModel(conferenceDay) as self =
@@ -212,7 +191,7 @@ module viewmodels =
         let conferenceDay = conferenceDay
 
         interface IViewModelShown with
-            member this.Init() =
+            member x.Init() =
                 let viewModels = conferenceDay
                                  |> queries.getEntriesForDay
                                  |> List.groupBy (fun e -> e.Start)
@@ -223,7 +202,7 @@ module viewmodels =
 
         member this.Items = items.Value
 
-        member this.SelectedItem 
+        member self.SelectedItem 
             with get () : EntryItemViewModel = 
                 match selectedItem.Value with
                 | Some v -> v
@@ -253,42 +232,27 @@ module viewmodels =
                 room <- queries.getRoom entry.RoomGuid
                 speaker <- queries.getSpeakersOfEntry entry
 
-        member this.Title 
-            with get() =
-                entry.Title
+        member val Title = entry.Title with get
+        member val BeginTime = common.Formatting.timeOffsetFormat.Format entry.Start with get
+        member val Duration = common.Formatting.durationFormat.Format entry.Duration with get
 
         member this.Time
-            with get() =
-                sprintf "%s - %s min" this.BeginTime this.Duration
+            with get() = sprintf "%s - %s min" this.BeginTime this.Duration
 
-        member this.BeginTime 
-            with get() =
-                common.Formatting.timeOffsetFormat.Format entry.Start
-            
-        member this.Duration
-            with get() = 
-                common.Formatting.durationFormat.Format entry.Duration
-
-        member this.Room
+        member this.Room 
             with get() =
                 getRoomName room
-
-        member this.Track
-            with get() =
-                entry.Track
+        member val Track = entry.Track with get
 
         member this.Content
-            with get() =
-                sprintf "%s %s %s %s" entry.Abstract System.Environment.NewLine System.Environment.NewLine entry.Description
+            with get() = sprintf "%s %s %s %s" entry.Abstract System.Environment.NewLine System.Environment.NewLine entry.Description
 
-        member this.Speaker
-            with get() =
-                let names = speaker |> List.map (fun s -> s.Name) 
-                String.Join(", ", names)
+        member this.Speaker 
+            with get() = speaker |> List.map (fun s -> s.Name) |> String.concat ", "
 
-        member this.FavoriteCommand
-            with get() =
-                favoriteCommand
+        member this.FavoriteCommand 
+            with get() = favoriteCommand
+
         member this.FavoriteIcon
             with get() =
                 match model.Entry.isEntryFavorite entry with
