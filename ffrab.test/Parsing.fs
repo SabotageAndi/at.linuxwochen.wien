@@ -4,10 +4,12 @@
     open System.IO
     open ffrab.mobile.common.model
     open NodaTime
-    
+    open ffrab.mobile.common.entities
+    open ffrab.mobile.common
+
     let parseJson() = 
         let conf = new Conference(1, "", "", "")
-        let confData = File.ReadAllText("data/conference.json") |> Some |> Conferences.Parser.parseJson conf
+        let confData = File.ReadAllText("data/conference.json") |> Some |> Parser.parseJson conf
         
         confData.Value
     

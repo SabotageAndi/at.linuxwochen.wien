@@ -45,6 +45,9 @@
     <Compile Include="eventbus.fs" />
     <Compile Include="entities.fs" />
     <Compile Include="database.fs" />
+    <Compile Include="queries.fs" />
+    <Compile Include="sync.fs" />
+    <Compile Include="parser.fs" />
     <Compile Include="model.fs" />
     <Compile Include="viewmodels.fs" />
     <Compile Include="app.fs" />

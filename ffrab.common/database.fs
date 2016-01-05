@@ -3,7 +3,8 @@
  module Database = 
     open entities
     open common
-    open Microsoft.FSharp.Linq
+    open System.Collections.Generic
+    open System.Linq
             
     let tables = [typeof<Entry>; typeof<Room>; typeof<ConferenceDay>; typeof<ConferenceData>; typeof<Speaker>; typeof<Speaker2Entry>; typeof<EntryFavorite>]
 
@@ -34,9 +35,20 @@
         getSQLConnection().Update dbEntry |> ignore
 
     let query<'T when 'T : not struct>(query, arg1) =
-        let args = [arg1]
+        let args = [arg1].ToArray()
         getSQLConnection().Query<'T>(query, args)
 
     let filter<'T when 'T : not struct> predicate =
         let linq = predicate |> toLinq
         getTable<'T>().Where(linq)
+
+    let any<'T> (collection : IEnumerable<'T>) = 
+        collection.Any()
+
+    let delete<'T>(collection : IEnumerable<'T>) = 
+        collection 
+        |> Seq.iter (fun i -> getSQLConnection().Delete(i) |> ignore)
+
+    let tryFirst<'T>(collection : IEnumerable<'T>) =
+        collection
+        |> Seq.tryHead

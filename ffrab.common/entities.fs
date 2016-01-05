@@ -81,3 +81,19 @@ module entities =
         [<IndexedAttribute>]
         member val ConferenceId : int = 0 with get, set
         member val EntryId : int = -1 with get, set
+
+    [<AllowNullLiteral>]
+    type Conference(id : int, name : string, dataUri : string, rawData : string) = 
+        let id = id
+        let name = name
+        let dataUri = dataUri
+        let rawData = rawData
+        let mutable data : ConferenceData option = None
+        member this.Name = name
+        member this.Id = id
+        member this.DataUri = dataUri
+        member this.RawData = rawData
+        
+        member this.Data 
+            with get () = data
+            and set (v) = data <- v

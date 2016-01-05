@@ -10,88 +10,27 @@ module model =
     open System.Collections.Generic
 
     
-    [<AllowNullLiteral>]
-    type Conference(id, name, dataUri, rawData) = 
-        let id = id
-        let name = name
-        let dataUri = dataUri
-        let rawData = rawData
-        let mutable data : ConferenceData option = None
-        member this.Name = name
-        member this.Id = id
-        member this.DataUri = dataUri
-        member this.RawData = rawData
-        
-        member this.Data 
-            with get () = data
-            and set (v) = data <- v
-
-
-
     module Conferences = 
-        open Newtonsoft.Json
-        open Newtonsoft.Json.Linq
-        open System.IO
+
         open Database
-        open System.Linq
+        open queries
 
         
+        type UriType =
+        | Http
+        | Local
+
         let actualConfKey = "actualConference"
         
         let conferences =
             [// new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
               new Conference(2, "Linuxwochen Wien 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json", "") ]
         
-        let isEntryFavorite (entry : Entry) =            
-            let any = filter<EntryFavorite> <@ fun (ef : EntryFavorite) -> (ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) @> 
-            any.Any()
-
-        let setEntryFavorite (entryFavorite : EntryFavorite) =
-            writeDbEntry entryFavorite
-
-        let removeEntryFavorite (entry : Entry) =
-            getTable<EntryFavorite>().Delete(fun ef -> ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) |> ignore
-
-        let deleteConference (conference : Conference) =
-            getTable<Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-            getTable<Room>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-            getTable<ConferenceDay>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-            getTable<ConferenceData>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-            getTable<Speaker>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-            getTable<Speaker2Entry>().Delete(fun e -> e.ConferenceId = conference.Id) |> ignore
-
-        let getConferenceData (conference : Conference) =
-            getTable<ConferenceData>()
-            |> Seq.filter (fun c -> c.ConferenceId = conference.Id)
-            |> Seq.tryHead
-
-           
-       
-
-        let getSpeaker (speakerGuid : Guid) =
-            getTable<Speaker>()
-            |> Seq.filter (fun s -> s.Guid = speakerGuid)
-            |> Seq.tryHead
-
-        let getSpeakerForConference (speakerId : int) (conferenceId : int) =
-            getTable<Speaker>()
-            |> Seq.filter (fun s -> s.Id = speakerId && s.ConferenceId = conferenceId)
-            |> Seq.tryHead
-
-        let getSpeakersOfEntry (entry : Entry) =
-            getTable<Speaker2Entry>().Where(fun s2e -> s2e.EntryGuid = entry.Guid)
-            |> Seq.map (fun se -> getSpeaker(se.SpeakerGuid))
-            |> Seq.filter(fun s ->
-                match s with
-                | Some(_) -> true
-                | _ -> false)
-            |> Seq.map (fun s -> s.Value)
-            |> Seq.toList
-
         let getAllConferences() = conferences
         let getConference id = 
             let conf = conferences 
                        |> List.tryFind (fun i -> i.Id = id)
+
             match conf with
             | Some conf ->
                 conf.Data <- getConferenceData conf
@@ -99,7 +38,8 @@ module model =
                 ignore()
             conf
 
-        let setActualConference (conf : Conference) = Application.Current.Properties.[actualConfKey] <- conf.Id
+        let setActualConference (conf : Conference) = 
+            Application.Current.Properties.[actualConfKey] <- conf.Id
         
         let getActualConference() = 
             getConference 2 //only enable Linuxwochen 2015
@@ -110,173 +50,7 @@ module model =
 //                getConference id
 //            | _ -> None
    
-        
-        module Parser = 
-
-            
-            let deserializeJson data = 
-                let reader = new JsonTextReader(new StringReader(data))
-                reader.DateParseHandling <- DateParseHandling.None
-                JObject.Load(reader)
-            
-            let parseSpeaker (conferenceId : int) (speakerNode : JToken) =
-                new Speaker(Id = speakerNode.["id"].Value<int>(), 
-                            Name = speakerNode.["full_public_name"].Value<string>(), 
-                            ConferenceId = conferenceId, 
-                            Guid = Guid.NewGuid())
-
-            let parseEntry (room : Room) (entryNode : JToken) = 
-                let abstractText = entryNode.["abstract"].Value<string>() |> removeHTMLTags
-                let description = entryNode.["description"].Value<string>() |> removeHTMLTags
-
-                let entry = new Entry(Id = entryNode.["id"].Value<int>(), 
-                                      Guid = new Guid(entryNode.["guid"].Value<string>()), 
-                                      Title = entryNode.["title"].Value<string>(), 
-                                      Subtitle = entryNode.["subtitle"].Value<string>(), 
-                                      Abstract = abstractText, 
-                                      Track = entryNode.["track"].Value<string>(), 
-                                      Description = description, 
-                                      Start = common.Formatting.dateTimeFormat.Parse(entryNode.["date"].Value<string>()).Value, 
-                                      Language = entryNode.["language"].Value<string>(), 
-                                      Duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].Value<string>()).Value, 
-                                      Type = entryNode.["type"].Value<string>(), 
-                                      ConferenceId = room.ConferenceId, 
-                                      ConferenceDayGuid = room.ConferenceDayGuid, 
-                                      RoomGuid = room.Guid)
-
-                let speakers = entryNode.["persons"].Children()
-                              |> List.ofSeq
-                              |> List.map (fun x -> parseSpeaker room.ConferenceId x)
-
-                entry.Speaker <- speakers
-
-                entry
-            
-            let parseRoom (conferenceDay : ConferenceDay) (roomNode : JToken) = 
-                let roomPropertyNode = roomNode :?> JProperty
-                let array = roomPropertyNode.First.Children()
-                let room = 
-                    new Room(Name = roomPropertyNode.Name, Guid = Guid.NewGuid(), 
-                             ConferenceId = conferenceDay.ConferenceId, ConferenceDayGuid = conferenceDay.Guid)
-                
-                let entries = 
-                    array
-                    |> List.ofSeq
-                    |> List.map (fun x -> parseEntry room x)
-                room.Entries <- entries
-                room
-            
-            let parseDay (conference : Conference) (dayNode : JToken) = 
-                let date = dayNode.["date"]
-                let day = common.Formatting.dateFormat.Parse(date.Value<string>()).Value
-                let startTime = common.Formatting.dateTimeFormat.Parse(dayNode.["day_start"].Value<string>()).Value
-                let endTime = common.Formatting.dateTimeFormat.Parse(dayNode.["day_end"].Value<string>()).Value
-                let conferenceDay = 
-                    new ConferenceDay(Index = dayNode.["index"].Value<int>(), Day = day, StartTime = startTime, 
-                                      EndTime = endTime, ConferenceId = conference.Id, Guid = Guid.NewGuid())
-                
-                let rooms = 
-                    dayNode.["rooms"].Children()
-                    |> List.ofSeq
-                    |> List.map (fun x -> parseRoom conferenceDay x)
-                conferenceDay.Rooms <- rooms
-                conferenceDay
-            
-            let parseDays conference (conferenceNode : JObject) = 
-                let daysNode = conferenceNode.["days"]
-                daysNode.Children()
-                |> List.ofSeq
-                |> List.map (fun x -> parseDay conference x)
-            
-            let parseSchedule (conference : Conference) (root : JObject) = 
-                let scheduleNode = root.["schedule"]
-                let conferenceNode = scheduleNode.["conference"] :?> JObject
-                let version = scheduleNode.["version"]
-                let days = parseDays conference conferenceNode
-                new ConferenceData(Version = version.Value<string>(), Days = days, ConferenceId = conference.Id)
-            
-            let parseJson conference json = 
-                match json with 
-                | Some s ->
-                    deserializeJson s 
-                    |> parseSchedule conference
-                    |> Some
-                | None ->
-                    None
-
-        
-
-        module Synchronization =
-
-            let writeSpeaker (speaker : Speaker) (entry : Entry)=
-                let existingSpeaker = getSpeakerForConference speaker.Id speaker.ConferenceId
-
-                let actualSpeaker = match existingSpeaker with
-                                    | Some(_) -> existingSpeaker.Value
-                                    | _ ->
-                                        Database.writeDbEntry speaker
-                                        speaker
-                let speaker2Entry = new Speaker2Entry(EntryGuid = entry.Guid, SpeakerGuid = actualSpeaker.Guid, ConferenceId = speaker.ConferenceId)
-                Database.writeDbEntry speaker2Entry
-
-            let writeEntry (entry : Entry) =
-                Database.writeDbEntry entry
-
-                entry.Speaker
-                |> List.iter (fun speaker -> writeSpeaker speaker entry)
-
-            let writeRoom (room : Room) =
-                Database.writeDbEntry room
-                room.Entries 
-                |> List.iter writeEntry
-
-            let writeDay (conferenceDay : ConferenceDay) =
-                Database.writeDbEntry conferenceDay
-                conferenceDay.Rooms 
-                |> List.iter writeRoom
-
-            let writeData (conferenceData : ConferenceData) =
-                Database.writeDbEntry conferenceData
-                conferenceData.Days 
-                |> List.iter writeDay
-             
-            let writeLastSync (conferenceData : ConferenceData) =
-                conferenceData.LastSync <- SystemClock.Instance.Now.WithOffset(Offset.Zero)
-                Database.updateDbEntry conferenceData
-                ignore()
-
-
-            let sync conference (conferenceData : ConferenceData option) =
-                match conferenceData with
-                | Some conferenceData ->
-                    let currentConferenceData = getConferenceData conference
-
-                    match currentConferenceData with
-                    | Some data ->
-                        if data.Version <> conferenceData.Version then
-                            deleteConference conference
-                            writeData conferenceData
-                        writeLastSync conferenceData
-                    | _ ->
-                        writeData conferenceData
-                        writeLastSync conferenceData
-                | None ->
-                    ignore()
                
-        let getConferenceDays (conference : Conference) = 
-            getTable<ConferenceDay>()
-            |> Seq.filter (fun cd -> cd.ConferenceId = conference.Id)
-            |> Seq.toList
-
-        let getEntriesForDay (day : ConferenceDay) =
-            getTable<Entry>()
-            |> Seq.filter (fun e -> e.ConferenceDayGuid = day.Guid)
-            |> Seq.map (fun e -> 
-                e.Speaker <- getSpeakersOfEntry(e)
-                e)
-            |> Seq.sortBy (fun e -> e.Start.ToDateTimeOffset())
-            |> Seq.toList
-
         let getActualConferenceDays() =
             let conf = getActualConference()
             match conf with
@@ -285,40 +59,30 @@ module model =
             | _ ->
                 List.empty
 
-        let getRoom roomGuid =
-            getTable<Room>()
-            |> Seq.filter (fun r -> r.Guid = roomGuid)
-            |> Seq.tryHead
-
-
-        type UriType =
-        | Http
-        | Local
-
-        let getUriType (conf : Conference option) =
+        let getDataLocation (conf : Conference option) =
             match conf with
-            | Some c ->
-                let uri = c.DataUri
+            | Some conf ->
+                let uri = conf.DataUri
                 let start = uri.Substring(0, 4)
 
                 if start = "http" then 
-                    (Some UriType.Http, Some c)
+                    (Some UriType.Http, Some conf)
                 else
-                    (Some UriType.Local, Some c)
+                    (Some UriType.Local, Some conf)
             | None ->
                 (None, None)
 
-        let getJson (uriType : UriType option, conf : Conference option) =
+        let fetchJson (uriType : UriType option, conf : Conference option) =
             match conf with
             | None ->
                 None
-            | Some c ->
+            | Some conf ->
                 match uriType with
                 | Some UriType.Http ->
-                    loadJsonFromUri c.DataUri
+                    loadJsonFromUri conf.DataUri
                     |> Some
                 | Some UriType.Local ->
-                    Some c.RawData
+                    Some conf.RawData
                 | None ->
                     None
 
@@ -332,47 +96,32 @@ module model =
             | None ->
                 Some conf
 
-        let synchronizeData() =
-            let conf = getActualConference()
-            match conf with
+        let synchronizeData conference =
+            match conference with
             | Some conference ->
                 conference 
                 |> checkForTimeout
-                |> getUriType
-                |> getJson 
+                |> getDataLocation
+                |> fetchJson 
                 |> Parser.parseJson conference
                 |> Synchronization.sync conference
             | _ ->
                 ignore()
+            conference
 
-        module Entry =
+    module Entry =
 
-            let isEntryFavorite (entry : Entry) =
-                isEntryFavorite entry
+        let isEntryFavorite (entry : Entry) =
+            queries.isEntryFavorite entry
 
-            let toggleEntryFavorite (entry : Entry) =
-                let entryAlreadyFavorite = isEntryFavorite entry
-
-                if entryAlreadyFavorite then
-                    removeEntryFavorite entry
-                else
-                    let entryFavorite = new EntryFavorite(Guid = Guid.NewGuid(), EntryId = entry.Id, ConferenceId = entry.ConferenceId)
-                    setEntryFavorite entryFavorite
+        let toggleEntryFavorite (entry : Entry) =
+            match isEntryFavorite entry with 
+            | true ->
+                queries.removeEntryFavorite entry
+            | false ->
+                let entryFavorite = new EntryFavorite(Guid = Guid.NewGuid(), EntryId = entry.Id, ConferenceId = entry.ConferenceId)
+                queries.setEntryFavorite entryFavorite
             
-            let getTopFavorites number =
-                let conf = getActualConference()
-                match conf with
-                | Some conference ->
-                    let sql = sprintf "select Entry.* from Entry inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id where Entry.ConferenceId = ? order by Entry.Start asc limit %i" number
-                    
-                    let entries = Database.query<Entry>(sql,conference.Id)
-
-                    entries
-                    |> List.ofSeq
-//                    |> List.map (fun e -> e.Speaker <- Database.getSpeakersOfEntry(e)
-//                                          e)
-                | _ ->
-                    List.Empty
 
     let Init (sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform, databaseFilePath : string) =
 

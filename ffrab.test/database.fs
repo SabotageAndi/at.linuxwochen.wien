@@ -37,7 +37,7 @@
         
         db.Table<Entry>().Count() |> should equal 1
 
-        Conferences.deleteConference conf
+        queries.deleteConference conf
 
         db.Table<Entry>().Count() |> should equal 0
 
@@ -50,7 +50,7 @@
 
         db.Table<Room>().Count() |> should equal 1
 
-        Conferences.deleteConference conf
+        queries.deleteConference conf
 
         db.Table<Room>().Count() |> should equal 0
 
@@ -63,7 +63,7 @@
 
         db.Table<ConferenceDay>().Count() |> should equal 1
 
-        Conferences.deleteConference conf
+        queries.deleteConference conf
 
         db.Table<ConferenceDay>().Count() |> should equal 0
 
@@ -76,6 +76,6 @@
 
         db.Table<ConferenceData>().Count() |> should equal 1
 
-        Conferences.deleteConference conf
+        queries.deleteConference conf
 
         db.Table<ConferenceData>().Count() |> should equal 0

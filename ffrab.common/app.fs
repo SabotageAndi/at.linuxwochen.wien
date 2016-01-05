@@ -33,7 +33,7 @@ module app =
               ViewModel = ( fun _ -> new ConferenceListViewModel() :> ViewModelBase)
               Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
 
-
+       
         
         let sql = (sqlPlatform, databasePath)
 
@@ -42,6 +42,9 @@ module app =
         let mutable menuItems : MenuItemConnection list = []
         let mutable lastMenuItem : MenuItemConnection option = None
         let mutable lastConference : Conference option = None
+
+        let setLastConference conference =
+            lastConference <- conference
 
         let activityIndicator : ActivityIndicator = new ActivityIndicator(Color = Color.Gray, 
                                                                           HorizontalOptions = LayoutOptions.CenterAndExpand, 
@@ -108,18 +111,22 @@ module app =
         let getConferenceDayName (item : ConferenceDay) dayCounter = 
             sprintf "%s - Day %i" (common.Formatting.shortdateFormat.Format(item.Day)) dayCounter
         
-        let addConferenceDayMenuItems conferenceDay dayCounter =
+        let createDayMenu conferenceDay dayCounter=
             { 
                 MenuItemConnection.Name = getConferenceDayName conferenceDay dayCounter;
                 Type = ViewModelType.Day(conferenceDay.Day);
                 ViewModel = (fun _ -> new DayViewModel(conferenceDay) :> ViewModelBase);
                 Content = (fun _ -> new DayView() :> ContentView) 
             }
+
+        let addConferenceDayMenuItems conferenceDay dayCounter =
+            createDayMenu conferenceDay dayCounter
             |> addToNavigationInfrastructure 
             |> menuViewModel.AddMenuAfter home
 
-        let addConferenceDayMenuItems() = 
-            Conferences.getActualConferenceDays()
+        let addConferenceDayMenuItems conference = 
+            conference 
+            |> queries.getConferenceDays
             |> List.sortBy (fun i -> i.Day)
             |> List.indexed
             |> Seq.sortByDescending (fun (_,d) -> d.Day)
@@ -127,61 +134,56 @@ module app =
             
         let removeActualConferenceDayMenuItems conference = 
             conference 
-            |> Conferences.getConferenceDays
+            |> queries.getConferenceDays
             |> Seq.sortBy (fun i -> i.Day)
             |> Seq.indexed
             |> Seq.iter (fun (i,d) ->
                         let menuItemText = getConferenceDayName d (i+1)
                         menuViewModel.RemoveMenu menuItemText)
           
+        let endConferenceLoad() =
+            match lastConference with
+            | Some conf ->
+                addConferenceDayMenuItems conf
+            | _ ->
+                ignore()
+
+            navigateTo home
+
+            endLongRunningTask()
+
         let changeConference msg = 
             beginLongRunningTask()
 
             async {
-
                 match lastConference with
                 | Some conf ->
                     removeActualConferenceDayMenuItems conf 
                 | _ ->
                     ignore()
 
-                model.Conferences.synchronizeData()
+                model.Conferences.getActualConference()
+                |> model.Conferences.synchronizeData
+                |> setLastConference 
 
-                let onUI() =
-                    addConferenceDayMenuItems()
-                    lastConference <- model.Conferences.getActualConference()
-                    navigateTo home
-
-                    match lastConference with
-                    | Some conf ->
-                        masterDetailPage.Detail.Title <- conf.Name
-                    | _ ->
-                        ignore()
-
-                    endLongRunningTask()
-
-                onUI |> common.runOnUIthread
+                endConferenceLoad |> common.runOnUIthread
 
             } |> Async.Start
         
         let navigate (data : eventbus.Entry) =
             match data with
-            | :? SwitchPageEvent as switchPageEvent ->
-                searchMenuItemAndNavigateTo switchPageEvent.Typ
-            | _ ->
-                ignore()
+            | As(switchPageEvent : SwitchPageEvent) -> searchMenuItemAndNavigateTo switchPageEvent.Typ
+            | _ -> ignore()
 
         let gotoEntry (data : eventbus.Entry) =
             match data with
-            | :? EntrySelected as entrySelected ->
+            | As(entrySelected : EntrySelected) ->
                 let viewModel = new EntryViewModel(entrySelected.Entry)
                 initViewModel viewModel
-                let view = new EntryView()
-                view.BindingContext <- viewModel
-
+                let view = new EntryView(BindingContext = viewModel)
+                
                 masterDetailPage.Detail.Navigation.PushAsync view |> Async.AwaitTask |> ignore
-            | _ ->
-                ignore()
+            | _ -> ignore()
 
         let addEventListeners() = 
             Message.ChangeConference |> Eventbus.Current.Register changeConference
@@ -214,18 +216,15 @@ module app =
 
         override this.OnStart() =
             model.Init sql
+
             async {
                 beginLongRunningTask()
             
-                model.Conferences.synchronizeData()
-                lastConference <- model.Conferences.getActualConference()
+                model.Conferences.getActualConference()
+                |> model.Conferences.synchronizeData
+                |> setLastConference
 
-                let onUI() = 
-                    addConferenceDayMenuItems()                    
-                    navigateTo home
-                    endLongRunningTask()
-
-                onUI |> common.runOnUIthread
+                endConferenceLoad |> common.runOnUIthread
             } |> Async.Start
 
             

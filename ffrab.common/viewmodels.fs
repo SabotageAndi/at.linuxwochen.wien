@@ -11,6 +11,7 @@ module viewmodels =
     open ffrab.mobile.common.common
     open ffrab.mobile.common.model
     open ffrab.mobile.common.eventbus
+    open ffrab.mobile.common.entities
     
     type IViewModelShown = 
         abstract Init : unit -> unit
@@ -128,7 +129,7 @@ module viewmodels =
         member this.Title = entry.Title
 
         member this.Room = 
-             model.Conferences.getRoom entry.RoomGuid
+             queries.getRoom entry.RoomGuid
              |> getRoomName
             
         member this.BeginTime 
@@ -162,10 +163,10 @@ module viewmodels =
         
         interface IViewModelShown with
             member this.Init() = 
-                conference <- model.Conferences.getActualConference()
                 nextFavoriteEvents.Value.Clear()
 
-                model.Conferences.Entry.getTopFavorites 5
+                model.Conferences.getActualConference()
+                |> queries.getTopFavorites 5
                 |> List.map (fun e -> new FavoriteItemViewModel(e))
                 |> List.iter nextFavoriteEvents.Value.Add
 
@@ -213,7 +214,7 @@ module viewmodels =
         interface IViewModelShown with
             member this.Init() =
                 let viewModels = conferenceDay
-                                 |> model.Conferences.getEntriesForDay
+                                 |> queries.getEntriesForDay
                                  |> List.groupBy (fun e -> e.Start)
                                  |> List.map (fun (key, value) -> (key, value |> List.map (fun i -> new EntryItemViewModel(i))))
                                  |> List.map (fun (key, value) -> new GroupDayItemViewModel(key, value))
@@ -239,7 +240,7 @@ module viewmodels =
         inherit ViewModelBase()
 
         let onFavorite() =
-            model.Conferences.Entry.toggleEntryFavorite entry
+            model.Entry.toggleEntryFavorite entry
             self.RaisePropertyChanged <@ self.FavoriteIcon @>
 
         let favoriteCommand = self.Factory.CommandSync onFavorite
@@ -249,8 +250,8 @@ module viewmodels =
 
         interface IViewModelShown with
             member this.Init() =
-                room <- model.Conferences.getRoom entry.RoomGuid
-                speaker <- model.Conferences.getSpeakersOfEntry entry
+                room <- queries.getRoom entry.RoomGuid
+                speaker <- queries.getSpeakersOfEntry entry
 
         member this.Title 
             with get() =
@@ -290,7 +291,7 @@ module viewmodels =
                 favoriteCommand
         member this.FavoriteIcon
             with get() =
-                match model.Conferences.Entry.isEntryFavorite entry with
+                match model.Entry.isEntryFavorite entry with
                 | true ->
                     "ic_star_36pt.png"
                 | false ->
