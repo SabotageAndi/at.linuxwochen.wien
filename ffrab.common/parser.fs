@@ -8,10 +8,13 @@ module Parser =
 
     type FrabJson = JsonProvider<"data-examples/ffrab1.json">
             
+    let parseNodaTime<'T> (pattern : NodaTime.Text.IPattern<'T>) rawValue =
+        let result = pattern.Parse(rawValue)
+        result.Value
+
     let deserializeJson data = 
         FrabJson.Parse data
-        
-            
+                    
     let parseSpeaker (conferenceId : int) (speakerNode : JsonValue) =
         new Speaker(Id = speakerNode.["id"].AsInteger(), 
                     Name = speakerNode.["full_public_name"].AsString(), 
@@ -20,69 +23,62 @@ module Parser =
 
     let parseEntry (room : Room) (entryNode : JsonValue) = 
 
-        let description = entryNode.["description"].AsString() |> removeHTMLTags
-
         let id = (entryNode.GetProperty "id").AsInteger()
         let guid = (entryNode.GetProperty "guid").AsGuid()
         let title = (entryNode.GetProperty "title").AsString()
         let subtitle = (entryNode.GetProperty "subtitle").AsString()
         let abstractText = entryNode.["abstract"].AsString() |> removeHTMLTags
         let track = (entryNode.GetProperty "track").AsString()
-        let start = common.Formatting.dateTimeFormat.Parse(entryNode.["date"].AsString()).Value
+        let description = entryNode.["description"].AsString() |> removeHTMLTags
+        let start = entryNode.["date"].AsString() |> parseNodaTime common.Formatting.dateTimeFormat
         let language = entryNode.["language"].AsString()
-        let duration = common.Formatting.durationFormat.Parse(entryNode.["duration"].AsString()).Value
+        let duration = entryNode.["duration"].AsString() |> parseNodaTime common.Formatting.durationFormat
         let entryType = entryNode.["type"].AsString()
 
         let entry = new Entry(Id = id, 
-                                Guid = guid, 
-                                Title = title, 
-                                Subtitle = subtitle, 
-                                Abstract = abstractText, 
-                                Track = track, 
-                                Description = description, 
-                                Start = start, 
-                                Language = language, 
-                                Duration = duration, 
-                                Type = entryType, 
-                                ConferenceId = room.ConferenceId, 
-                                ConferenceDayGuid = room.ConferenceDayGuid, 
-                                RoomGuid = room.Guid)
+                              Guid = guid, 
+                              Title = title, 
+                              Subtitle = subtitle, 
+                              Abstract = abstractText, 
+                              Track = track, 
+                              Description = description, 
+                              Start = start, 
+                              Language = language, 
+                              Duration = duration, 
+                              Type = entryType, 
+                              ConferenceId = room.ConferenceId, 
+                              ConferenceDayGuid = room.ConferenceDayGuid, 
+                              RoomGuid = room.Guid)
 
-        let persons = (entryNode.GetProperty "persons").AsArray()
-        let speakers = persons
+        entry.Speaker <- (entryNode.GetProperty "persons").AsArray()
                         |> Seq.map (fun x -> parseSpeaker room.ConferenceId x)
                         |> List.ofSeq
-
-        entry.Speaker <- speakers
-
         entry
             
     let parseRoom (conferenceDay : ConferenceDay) (name : string) (talks : JsonValue) = 
-        let array = talks.AsArray()
-        let room = 
-            new Room(Name = name, Guid = Guid.NewGuid(), 
-                        ConferenceId = conferenceDay.ConferenceId, ConferenceDayGuid = conferenceDay.Guid)
-                
-        let entries = 
-            array
-            |> Seq.map (fun x -> parseEntry room x)
-            |> List.ofSeq
-        room.Entries <- entries
+        let room = new Room(Name = name, 
+                            Guid = Guid.NewGuid(), 
+                            ConferenceId = conferenceDay.ConferenceId, 
+                            ConferenceDayGuid = conferenceDay.Guid)
+        
+        room.Entries <- talks.AsArray()
+                        |> Seq.map (fun x -> parseEntry room x)
+                        |> List.ofSeq
         room
             
     let parseDay (conference : Conference) (dayNode : FrabJson.Day) = 
         let json = dayNode.JsonValue
         
+        let day = (json.GetProperty "date").AsString() |> parseNodaTime common.Formatting.dateFormat
+        let startTime = (json.GetProperty "day_start").AsString() |> parseNodaTime common.Formatting.dateTimeFormat
+        let endTime = (json.GetProperty "day_end").AsString() |> parseNodaTime common.Formatting.dateTimeFormat
 
-        let date = json.GetProperty "date"
-        let day = common.Formatting.dateFormat.Parse(date.AsString()).Value
-
-
-        let startTime = common.Formatting.dateTimeFormat.Parse((json.GetProperty "day_start").AsString()).Value
-        let endTime = common.Formatting.dateTimeFormat.Parse((json.GetProperty "day_end").AsString()).Value
-        let conferenceDay = 
-            new ConferenceDay(Index = dayNode.Index, Day = day, StartTime = startTime, 
-                                EndTime = endTime, ConferenceId = conference.Id, Guid = Guid.NewGuid())
+        let conferenceDay = new ConferenceDay(Index = dayNode.Index, 
+                                              Day = day, 
+                                              StartTime = startTime, 
+                                              EndTime = endTime, 
+                                              ConferenceId = conference.Id, 
+                                              Guid = Guid.NewGuid())
           
                 
         let rooms = 
@@ -94,17 +90,17 @@ module Parser =
         conferenceDay
             
     let parseDays conference (conferenceNode : FrabJson.Conference) = 
-        let daysNode = conferenceNode.Days
-        daysNode
+        conferenceNode.Days
         |> List.ofSeq
         |> List.map (fun x -> parseDay conference x)
             
     let parseSchedule (conference : Conference) (root : FrabJson.Root) = 
         let scheduleNode = root.Schedule
         let conferenceNode = scheduleNode.Conference
-        let version = scheduleNode.Version
         let days = parseDays conference conferenceNode
-        new ConferenceData(Version = version, Days = days, ConferenceId = conference.Id)
+        new ConferenceData(Version = scheduleNode.Version, 
+                          Days = days, 
+                          ConferenceId = conference.Id)
             
     let parseJson conference json = 
         match json with 
