@@ -23,10 +23,10 @@ namespace ffrab.droid
     #nowarn "51" // address-of operator can occur in the code
     #nowarn "1183" // unused 'this' reference
     
-    exception ReturnException600fce4ba07f441e8b15d1195220deaf of obj
-    exception ReturnNoneException600fce4ba07f441e8b15d1195220deaf
+    exception ReturnException9313ce49f9a843b28233c738023c0b61 of obj
+    exception ReturnNoneException9313ce49f9a843b28233c738023c0b61
     [<AutoOpen>]
-    module FuncConvertFinalOverload600fce4ba07f441e8b15d1195220deaf =
+    module FuncConvertFinalOverload9313ce49f9a843b28233c738023c0b61 =
       // This extension member adds to the FuncConvert type and is the last resort member in the method overloading rules. 
       type global.Microsoft.FSharp.Core.FuncConvert with
           /// A utility function to convert function values from tupled to curried form
@@ -3273,46 +3273,52 @@ namespace ffrab.droid
             static member ic_setting_light = 2130837589
             
             // aapt resource value: 0x7f020056
-            static member Icon = 2130837590
+            static member ic_star_black_48dp = 2130837590
             
             // aapt resource value: 0x7f020057
-            static member mr_ic_cast_dark = 2130837591
+            static member ic_star_border_black_48dp = 2130837591
             
             // aapt resource value: 0x7f020058
-            static member mr_ic_cast_light = 2130837592
+            static member Icon = 2130837592
             
             // aapt resource value: 0x7f020059
-            static member mr_ic_media_route_connecting_mono_dark = 2130837593
+            static member mr_ic_cast_dark = 2130837593
             
             // aapt resource value: 0x7f02005a
-            static member mr_ic_media_route_connecting_mono_light = 2130837594
+            static member mr_ic_cast_light = 2130837594
             
             // aapt resource value: 0x7f02005b
-            static member mr_ic_media_route_mono_dark = 2130837595
+            static member mr_ic_media_route_connecting_mono_dark = 2130837595
             
             // aapt resource value: 0x7f02005c
-            static member mr_ic_media_route_mono_light = 2130837596
+            static member mr_ic_media_route_connecting_mono_light = 2130837596
             
             // aapt resource value: 0x7f02005d
-            static member mr_ic_pause_dark = 2130837597
+            static member mr_ic_media_route_mono_dark = 2130837597
             
             // aapt resource value: 0x7f02005e
-            static member mr_ic_pause_light = 2130837598
+            static member mr_ic_media_route_mono_light = 2130837598
             
             // aapt resource value: 0x7f02005f
-            static member mr_ic_play_dark = 2130837599
+            static member mr_ic_pause_dark = 2130837599
             
             // aapt resource value: 0x7f020060
-            static member mr_ic_play_light = 2130837600
+            static member mr_ic_pause_light = 2130837600
             
             // aapt resource value: 0x7f020061
-            static member mr_ic_settings_dark = 2130837601
+            static member mr_ic_play_dark = 2130837601
             
             // aapt resource value: 0x7f020062
-            static member mr_ic_settings_light = 2130837602
+            static member mr_ic_play_light = 2130837602
             
             // aapt resource value: 0x7f020063
-            static member notification_template_icon_bg = 2130837603
+            static member mr_ic_settings_dark = 2130837603
+            
+            // aapt resource value: 0x7f020064
+            static member mr_ic_settings_light = 2130837604
+            
+            // aapt resource value: 0x7f020065
+            static member notification_template_icon_bg = 2130837605
             (* Member of type 'CodeTypeConstructor' is not supported by the CodeDOM provider and was omitted *)
 
 

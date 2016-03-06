@@ -122,16 +122,16 @@
     <None Include="Icon-Small-50%402x.png" />
     <None Include="iTunesArtwork%402x" />
     <Content Include="packages.config" />
-    <BundleResource Include="Resources\ic_star_48pt.png" />
-    <BundleResource Include="Resources\ic_star_48pt%402x.png" />
-    <BundleResource Include="Resources\ic_star_48pt%403x.png" />
-    <BundleResource Include="Resources\ic_star_border_black_48dp.png" />
+    <!--<BundleResource Include="Resources\ic_star_48pt.png" />-->
+    <!--<BundleResource Include="Resources\ic_star_48pt@2x.png" />
+    <BundleResource Include="Resources\ic_star_48pt@3x.png" />-->
+    <!--<BundleResource Include="Resources\ic_star_border_black_48dp.png" />
     <BundleResource Include="Resources\ic_star_border_black_48dp%402x.png" />
     <BundleResource Include="Resources\ic_star_36pt.png" />
-    <BundleResource Include="Resources\ic_star_36pt%402x.png" />
-    <BundleResource Include="Resources\ic_star_36pt%403x.png" />
+    <BundleResource Include="Resources\ic_star_36pt@2x.png" />
+    <BundleResource Include="Resources\ic_star_36pt@3x.png" />
     <BundleResource Include="Resources\ic_star_border_black_36dp%401x.png" />
-    <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />-->
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NodaTime">
@@ -147,6 +147,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Forms.Core">

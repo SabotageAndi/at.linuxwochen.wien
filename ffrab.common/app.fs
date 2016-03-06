@@ -16,24 +16,28 @@ module app =
         inherit ffrab.mobile.common.ui.AppXaml()
         
         let about = 
-            { MenuItemConnection.Name = "About"
+            { 
+              Name = "About"
               Type = ViewModelType.About
-              ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase)
-              Content = (fun _ -> new ContentView()) }
+              ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase )
+              Content = (fun _ -> new ContentView()) 
+            }
         
         let home = 
-            { MenuItemConnection.Name = "Home"
+            { 
+              Name = "Home"
               Type = ViewModelType.Main
               ViewModel = ( fun _ -> new viewmodels.MainViewModel() :> ViewModelBase)
-              Content = (fun _ -> new MainPage() :> ContentView) }
+              Content = (fun _ -> new MainPage() :> ContentView) 
+            }
 
         let conferenceList = 
-            { MenuItemConnection.Name = "Conferences"
+            { 
+              Name = "Conferences"
               Type = ViewModelType.ConferenceList
               ViewModel = ( fun _ -> new ConferenceListViewModel() :> ViewModelBase)
-              Content = (fun (x : unit) -> new ConferenceList() :> ContentView) }
-
-       
+              Content = (fun (x : unit) -> new ConferenceList() :> ContentView) 
+            }
         
         let sql = (sqlPlatform, databasePath)
 
