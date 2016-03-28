@@ -23,7 +23,6 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SelectedDevice>LGE Nexus 5</SelectedDevice>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
