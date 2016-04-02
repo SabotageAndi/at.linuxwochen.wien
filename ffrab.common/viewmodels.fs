@@ -171,7 +171,8 @@ module viewmodels =
 
     type MainViewModel() as self = 
         inherit ViewModelBase()
-        
+
+        let nextEvents = self.Factory.Backing(<@ self.NextEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
         
@@ -184,7 +185,18 @@ module viewmodels =
                 |> List.map (fun e -> new FavoriteItemViewModel(e))
                 |> List.iter nextFavoriteEvents.Value.Add
 
+                model.Conferences.getActualConference()
+                |> queries.getNextTalks 5
+                |> List.map (fun e -> new FavoriteItemViewModel(e))
+                |> List.iter nextEvents.Value.Add
+
+                this.RaisePropertyChanged(<@ self.NextFavoriteEventsVisible @>)
+
         member this.NextFavoriteEvents = nextFavoriteEvents.Value
+        member this.NextEvents = nextEvents.Value
+
+        member this.NextFavoriteEventsVisible 
+            with get() = this.NextFavoriteEvents.Any()
 
         member this.SelectedItem 
             with get () : FavoriteItemViewModel = 

@@ -34,9 +34,13 @@
     let updateDbEntry dbEntry =
         getSQLConnection().Update dbEntry |> ignore
 
-    let query<'T when 'T : not struct>(query, arg1) =
+    let query<'T when 'T : not struct>(queryString, arg1) =
         let args = [arg1].ToArray()
-        getSQLConnection().Query<'T>(query, args)
+        getSQLConnection().Query<'T>(queryString, args)
+
+    let query2<'T when 'T : not struct>(queryString, arg1, arg2) =
+        let args = [arg1;arg2].ToArray()
+        getSQLConnection().Query<'T>(queryString, args)
 
     let filter<'T when 'T : not struct> predicate =
         let linq = predicate |> toLinq

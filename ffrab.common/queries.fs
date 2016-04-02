@@ -6,6 +6,9 @@ module queries =
     open entities
     open Database
 
+    let now() =
+        DateTime.Now.AddMonths(-10).AddDays(-26.0)
+
     let isEntryFavorite (entry : Entry) =            
         filter<EntryFavorite> <@ fun (ef : EntryFavorite) -> (ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) @> 
         |> any
@@ -68,11 +71,30 @@ module queries =
         | Some conference ->
             let sql = sprintf "select Entry.* from Entry 
                                 inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id 
-                                where Entry.ConferenceId = ? order by Entry.Start asc limit %i" number
+                                where Entry.ConferenceId = ? 
+                                and Entry.Start >= ?
+                                order by Entry.Start asc limit %i" number
                     
-            let entries = Database.query<Entry>(sql, conference.Id)
+            let entries = Database.query2<Entry>(sql, conference.Id, now())
 
             entries
             |> List.ofSeq
         | _ ->
             List.Empty
+
+    let getNextTalks number (conf : Conference option) =
+        match conf with
+        | Some conference ->
+            let sql = sprintf "select Entry.* from Entry 
+                                where Entry.ConferenceId = ? 
+                                and Entry.Start >= ?
+                                order by Entry.Start asc limit %i" number
+                    
+            let entries = Database.query2<Entry>(sql, conference.Id, now())
+
+            entries
+            |> List.ofSeq
+        | _ ->
+            List.Empty
+
+    

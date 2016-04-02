@@ -1,46 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ffrab.mobile.common.ui.MainPage"
-  Padding="10">
-
-  <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Start" >
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="10"></RowDefinition>
-      <RowDefinition Height="*"></RowDefinition>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-
-    <Label Grid.Row="0" Text="Your next 5 Talks" />
-    <ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}"
-            SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
-            HasUnevenRows="True" SeparatorVisibility="None">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <Grid Padding="0,4,0,4">
-              <Grid Padding="2" Style="{StaticResource FavoriteItemStyle}">
-                <Grid RowSpacing="0" >
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                  </Grid.RowDefinitions>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                  </Grid.ColumnDefinitions>
-                  <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=BeginTime}" />
-                  <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Room}" HorizontalTextAlignment="End" />
-                  <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" />
-                </Grid>
-              </Grid>
-            </Grid>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </Grid>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ffrab.mobile.common.ui.MainPage" Padding="10">
+	<Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Start">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" Text="Your next 5 Talks" IsVisible="{Binding NextFavoriteEventsVisible}" />
+        <Label Grid.Row="0" Text="Next 5 Talks" IsVisible="{Binding NextFavoriteEventsVisible, Converter={StaticResource NegateBooleanConverter}}" />
+		
+		<ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+				HasUnevenRows="True" SeparatorVisibility="None" 
+				IsVisible="{Binding NextFavoriteEventsVisible}"
+				>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Grid Padding="0,4,0,4">
+							<Grid Padding="2" Style="{StaticResource FavoriteItemStyle}">
+								<Grid RowSpacing="0">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition />
+									</Grid.ColumnDefinitions>
+									<Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=BeginTime}" />
+									<Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Room}" HorizontalTextAlignment="End" />
+									<Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" />
+								</Grid>
+							</Grid>
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+		<ListView Grid.Row="2" ItemsSource="{Binding Path=NextEvents}" 
+				SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" 
+				HasUnevenRows="True" SeparatorVisibility="None" 
+				IsVisible="{Binding NextFavoriteEventsVisible, Converter={StaticResource NegateBooleanConverter}}" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Grid Padding="0,4,0,4">
+							<Grid Padding="2" Style="{StaticResource FavoriteItemStyle}">
+								<Grid RowSpacing="0">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition />
+									</Grid.ColumnDefinitions>
+									<Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=BeginTime}" />
+									<Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Room}" HorizontalTextAlignment="End" />
+									<Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" />
+								</Grid>
+							</Grid>
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
 </ContentView>

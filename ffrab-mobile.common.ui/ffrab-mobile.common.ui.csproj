@@ -128,6 +128,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\www.linuxwochen.ui.code\www.linuxwochen.ui.code.fsproj">
+      <Project>{FC06932A-98BA-4235-9C35-433C661A1DBF}</Project>
+      <Name>www.linuxwochen.ui.code</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
