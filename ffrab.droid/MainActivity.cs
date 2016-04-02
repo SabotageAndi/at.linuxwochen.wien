@@ -6,7 +6,8 @@ using Xamarin.Forms.Platform.Android;
 
 namespace ffrab.droid
 {
-	[Activity(Label = "droid", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Label = "droid", MainLauncher = true, Icon = "@mipmap/icon", 
+	          ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation, ScreenOrientation= Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MainActivity : FormsApplicationActivity
 	{
 		protected override void OnCreate(Bundle savedInstanceState)

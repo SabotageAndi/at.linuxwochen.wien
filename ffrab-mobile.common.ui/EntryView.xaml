@@ -1,34 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ffrab.mobile.common.ui.EntryView" Padding="5"
-  BackgroundColor="#C0C0C0">
-  <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Favorite" Icon="{Binding Path=FavoriteIcon}" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}" />
-  </ContentPage.ToolbarItems>
-  <Grid Style="{StaticResource EntryBackground}">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition Height="*"></RowDefinition>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto"></ColumnDefinition>
-      <ColumnDefinition Width="*"></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-
-
-    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource TitleStyle}"/>
-
-    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Time}" StyleId="starttime" />
-    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End" HorizontalTextAlignment="End"/>
-
-    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Room}" StyleId="room"/>
-    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Speaker}" StyleId="speaker" HorizontalOptions="End" HorizontalTextAlignment="End"/>
-
-    <ScrollView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-      <Label LineBreakMode="WordWrap" Text="{Binding Path=Content}" StyleId="content"/>
-    </ScrollView>
-  </Grid>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ffrab.mobile.common.ui.EntryView" Padding="5" BackgroundColor="#DDDDDD">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Favorite" Icon="{Binding Path=FavoriteIcon}" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}" />
+	</ContentPage.ToolbarItems>
+	<Grid Style="{StaticResource EntryBackground}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="1" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Title}" StyleId="title" Style="{StaticResource TitleStyle}" />
+		<Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Time}" StyleId="starttime" />
+		<Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Track}" StyleId="track" HorizontalOptions="End" HorizontalTextAlignment="End" />
+		<Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Room}" StyleId="room" />
+		<Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Speaker}" StyleId="speaker" HorizontalOptions="End" HorizontalTextAlignment="End" />
+		<BoxView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource LineBreak}" />
+		<ScrollView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0" LineBreakMode="WordWrap" Text="{Binding Path=Abstract}" StyleId="abstract" />
+				<BoxView Grid.Row="1" Style="{StaticResource LineBreak}" />
+				<Label Grid.Row="2" LineBreakMode="WordWrap" Text="{Binding Path=Description}" StyleId="description" />
+			</Grid>
+		</ScrollView>
+	</Grid>
 </ContentPage>

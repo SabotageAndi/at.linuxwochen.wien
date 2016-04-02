@@ -24,11 +24,29 @@ module viewmodels =
           ViewModel : unit -> ViewModelBase
           Content : unit -> ContentView }
     
-    type MenuItemViewModel(menuItemConnection) = 
+    type MenuItemViewModel(menuItemConnection) as self = 
         inherit ViewModelBase()
+
+        let isSelected = self.Factory.Backing(<@ self.IsSelected @>, false)
+
         let menuItemConnection = menuItemConnection
         member val Name = menuItemConnection.Name
         member val Type = menuItemConnection.Type
+
+        member this.IsSelected 
+            with get () = 
+                isSelected.Value
+            and set (v) = 
+                isSelected.Value <- v
+                self.RaisePropertyChanged(<@ self.BackgroundColor @>)
+ 
+
+        member this.BackgroundColor
+            with get () =
+                if (this.IsSelected) then
+                    Color.FromHex("#e1a61a")
+                else
+                    Color.FromHex("#DDDDDD")
     
     type SwitchPageEvent(msg, typ) =
         inherit eventbus.Entry(msg)
@@ -84,12 +102,20 @@ module viewmodels =
                 new SwitchPageEvent(Message.SwitchPage, selectedItem.Value.Type) |> Eventbus.Current.Publish
         
         member this.SetCurrentItem item = 
+
+            items.Value
+                |> List.ofSeq
+                |> List.iter (fun i -> i.IsSelected <- false)
+                    
             let mivm = 
                 items.Value
                 |> List.ofSeq
                 |> List.tryFind (fun i -> i.Type = item.Type && i.Name = item.Name)
+                        
             match mivm with
-            | Some x -> selectedItem.Value <- x
+            | Some x -> 
+                x.IsSelected <- true
+                selectedItem.Value <- x
             | _ -> ignore()
     
     type ConferenceListViewModel() as self = 
@@ -244,8 +270,11 @@ module viewmodels =
                 getRoomName room
         member val Track = entry.Track with get
 
-        member this.Content
-            with get() = sprintf "%s %s %s %s" entry.Abstract System.Environment.NewLine System.Environment.NewLine entry.Description
+        member this.Abstract
+            with get() = entry.Abstract
+           
+        member this.Description
+            with get() = entry.Description
 
         member this.Speaker 
             with get() = speaker |> List.map (fun s -> s.Name) |> String.concat ", "

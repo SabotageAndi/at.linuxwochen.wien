@@ -15,7 +15,7 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <Grid Padding="4" VerticalOptions="CenterAndExpand">
+          <Grid Padding="4" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding BackgroundColor}">
             <Label Text="{Binding Path=Name}" VerticalTextAlignment="Center" />
           </Grid>
         </ViewCell>

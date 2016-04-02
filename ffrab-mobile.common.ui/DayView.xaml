@@ -7,11 +7,12 @@
             IsGroupingEnabled="True"
             HasUnevenRows="True"
             ItemTapped="ListView_OnItemTapped"
+			
             >
     <ListView.GroupHeaderTemplate>
       <DataTemplate>
         <ViewCell>
-          <Grid Padding="4" Style="{StaticResource EntryGroupItemStyle}" VerticalOptions="Start">
+          <Grid Padding="4" Style="{StaticResource EntryGroupItemStyle}" VerticalOptions="Start" >
             <Label Text="{Binding Path=StartTime}" VerticalTextAlignment="Center" VerticalOptions="Center" />
           </Grid>
         </ViewCell>
