@@ -9,7 +9,7 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ffrab-mobile.apple", "ffrab
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ffrab.test", "ffrab.test\ffrab.test.fsproj", "{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ffrab.droid", "ffrab.droid\ffrab.droid.csproj", "{430A1460-E60F-487F-B518-44971F65C61A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.linuxwochen.droid", "ffrab.droid\www.linuxwochen.droid.csproj", "{430A1460-E60F-487F-B518-44971F65C61A}"
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "www.linuxwochen.ui.code", "www.linuxwochen.ui.code\www.linuxwochen.ui.code.fsproj", "{FC06932A-98BA-4235-9C35-433C661A1DBF}"
 EndProject

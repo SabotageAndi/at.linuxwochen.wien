@@ -4,9 +4,9 @@ using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-namespace ffrab.droid
+namespace www.linuxwochen.droid
 {
-	[Activity(Label = "droid", MainLauncher = true, Icon = "@mipmap/icon", 
+	[Activity(Label = "Linuxwochen Wien", Icon = "@mipmap/icon", 
 	          ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation, ScreenOrientation= Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MainActivity : FormsApplicationActivity
 	{
@@ -18,7 +18,7 @@ namespace ffrab.droid
 
 			var sqlPlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
 
-			var databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ffrab.mobile.db");
+			var databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "linuxwochen.db");
 
 			var app = new ffrab.mobile.common.app.App(sqlPlatform, databasePath);
 

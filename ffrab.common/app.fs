@@ -17,7 +17,7 @@ module app =
         
         let about = 
             { 
-              Name = "About"
+              Name = "Info"
               Type = ViewModelType.About
               ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase )
               Content = (fun _ -> new ContentView()) 
