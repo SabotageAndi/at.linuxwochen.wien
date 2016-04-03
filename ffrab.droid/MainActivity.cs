@@ -20,7 +20,7 @@ namespace www.linuxwochen.droid
 
 			var databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "linuxwochen.db");
 
-			var app = new ffrab.mobile.common.app.App(sqlPlatform, databasePath);
+			var app = new www.linuxwochen.common.app.App(sqlPlatform, databasePath);
 
 			this.LoadApplication(app);
 		}

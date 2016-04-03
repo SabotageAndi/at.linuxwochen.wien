@@ -26,9 +26,9 @@ namespace www.linuxwochen.droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::www.linuxwochen.droid.Resource.Attribute.actionBarSize;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::www.linuxwochen.droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::www.linuxwochen.droid.Resource.String.Hello;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::www.linuxwochen.droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation

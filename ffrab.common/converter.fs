@@ -1,7 +1,17 @@
-﻿namespace www.linuxwochen.ui.code.converter
+﻿namespace www.linuxwochen.ui.converter
 
 open Xamarin.Forms
 
+
+
+type PreserveAttribute() =
+    inherit System.Attribute()
+
+    member val AllMembers = false with get,set
+    member val Conditional = false with get,set
+
+
+[<Preserve>]
 type NegateBooleanConverter() =
 
     do 

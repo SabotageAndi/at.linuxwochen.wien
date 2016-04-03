@@ -2,10 +2,10 @@
     open Xunit
     open FsUnit.Xunit
     open System.IO
-    open ffrab.mobile.common.model
+    open www.linuxwochen.common.model
     open NodaTime
-    open ffrab.mobile.common.entities
-    open ffrab.mobile.common
+    open www.linuxwochen.common.entities
+    open www.linuxwochen.common
 
     let parseJson() = 
         let conf = new Conference(1, "", "", "")

@@ -1,19 +1,20 @@
-﻿namespace ffrab.mobile.common
+﻿namespace www.linuxwochen.common
 
 module app = 
     open System.Collections.Generic
     open FSharp.ViewModule
     open Xamarin.Forms
     open common
-    open ffrab.mobile.common.ui
     open viewmodels
     open eventbus
     open entities
     open model
     open SQLite.Net.Interop
+    open www.linuxwochen.ui.converter
+    open www.linuxwochen.common.ui
     
     type App(sqlPlatform : ISQLitePlatform, databasePath : string) as this = 
-        inherit ffrab.mobile.common.ui.AppXaml()
+        inherit AppXaml()
         
         let about = 
             { 
@@ -207,6 +208,8 @@ module app =
             |> menuViewModel.AddMenu
 
         do 
+            this.Resources.Add("NegateBooleanConverter", new NegateBooleanConverter())
+
             lastMenuItem <- None
 
             addEventListeners()

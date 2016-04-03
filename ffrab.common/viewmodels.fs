@@ -1,4 +1,4 @@
-﻿namespace ffrab.mobile.common
+﻿namespace www.linuxwochen.common
 
 open System.Collections.ObjectModel
 open FSharp.ViewModule
@@ -7,10 +7,10 @@ open Xamarin.Forms
 open NodaTime
 
 module viewmodels = 
-    open ffrab.mobile.common.common
-    open ffrab.mobile.common.model
-    open ffrab.mobile.common.eventbus
-    open ffrab.mobile.common.entities
+    open common
+    open model
+    open eventbus
+    open entities
     
     type IViewModelShown = 
         abstract Init : unit -> unit

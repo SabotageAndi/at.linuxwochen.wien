@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace ffrab.mobile.common.ui
+namespace www.linuxwochen.common.ui
 {
     public partial class EntryView : ContentPage
     {

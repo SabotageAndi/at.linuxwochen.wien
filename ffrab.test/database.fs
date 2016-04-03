@@ -5,16 +5,17 @@
     open System
     open System.IO
     open SQLite.Net
-    open ffrab.mobile.common.model
-    open ffrab.mobile.common.entities
-    open ffrab.mobile.common
+    open www.linuxwochen.common.model
+    open www.linuxwochen.common.entities
+    open www.linuxwochen.common
+    open www.linuxwochen.common.common
 
     let conf = new Conference(1, "", "", "")
 
     let init() =
         let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
         Init(db, "ffrab.mobile.db")
-        ffrab.mobile.common.common.CurrentState.SQLConnection
+        CurrentState.SQLConnection
 
     let initWithRecreate() =
         let db = init()

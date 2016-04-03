@@ -1,4 +1,4 @@
-namespace ffrab.mobile.apple
+namespace www.linuxwochen.apple
 
 open System
 open UIKit
@@ -8,6 +8,7 @@ open Xamarin.Forms
 open System.Net
 open System.Threading
 open System.IO
+open www.linuxwochen.common
 
 
 type TestHookListener() =
@@ -21,7 +22,7 @@ type TestHookListener() =
 
         let streamReader = new StreamReader(context.Request.InputStream)
         let requestData = streamReader.ReadToEnd()
-        let responseData = ffrab.mobile.common.testhooks.Execute.Execute requestData
+        let responseData = testhooks.Execute.Execute requestData
 
         let streamWriter = new StreamWriter(context.Response.OutputStream)
         streamWriter.Write(responseData)
@@ -70,7 +71,7 @@ type AppDelegate () =
         #endif
         
         let databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ffrab.mobile.db")
-        this.LoadApplication(new ffrab.mobile.common.app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS(), databasePath))
+        this.LoadApplication(new app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS(), databasePath))
            
         base.FinishedLaunching (app, options)
 

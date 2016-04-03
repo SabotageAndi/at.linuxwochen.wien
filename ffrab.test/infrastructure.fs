@@ -7,7 +7,7 @@
 
     module NodaTypeSerializerDelegate =
 
-        open ffrab.mobile.common.common
+        open www.linuxwochen.common.common
 
         [<Fact>]
         let ``can serialize LocalDate``() =
@@ -156,7 +156,7 @@
 
         [<Fact>]
         let ``load schedule.json from server``() =
-            let json = ffrab.mobile.common.common.loadJsonFromUri "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json"
+            let json = www.linuxwochen.common.common.loadJsonFromUri "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json"
 
             json.Length 
             |> should greaterThan 0

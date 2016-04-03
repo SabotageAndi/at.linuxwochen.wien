@@ -2,7 +2,7 @@
 
     open Xunit
     open FsUnit.Xunit
-    open ffrab.mobile.common.eventbus
+    open www.linuxwochen.common.eventbus
     
     [<Fact>]
     let ``One Event registered, called one time``() =

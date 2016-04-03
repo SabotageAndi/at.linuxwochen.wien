@@ -1,4 +1,4 @@
-﻿namespace ffrab.mobile.common
+﻿namespace www.linuxwochen.common
 
 module Parser = 
     open System

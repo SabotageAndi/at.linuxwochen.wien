@@ -1,4 +1,4 @@
-﻿namespace ffrab.mobile.common
+﻿namespace www.linuxwochen.common
 
 open System
 open System.Text.RegularExpressions

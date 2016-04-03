@@ -1,7 +1,7 @@
-﻿namespace ffrab.mobile.common
+﻿namespace www.linuxwochen.common
 
 module eventbus = 
-    open ffrab.mobile.common.common
+    open common
     
     type Message = 
         | ChangeConference

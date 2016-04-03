@@ -4,9 +4,9 @@
     open FsUnit.Xunit
     open System
     open System.IO
-    open ffrab.mobile.common.model
-    open ffrab.mobile.common.entities
-    open ffrab.mobile.common
+    open www.linuxwochen.common.model
+    open www.linuxwochen.common.entities
+    open www.linuxwochen.common
 
     let conference = new Conference(2, "", "", "")
 
