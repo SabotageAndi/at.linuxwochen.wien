@@ -114,7 +114,7 @@ module app =
             menuItemConnection
         
         let getConferenceDayName (item : ConferenceDay) dayCounter = 
-            sprintf "%s - Day %i" (common.Formatting.shortdateFormat.Format(item.Day)) dayCounter
+            sprintf "%s - Tag %i" (common.Formatting.shortdateFormat.Format(item.Day)) dayCounter
         
         let createDayMenu conferenceDay dayCounter=
             { 

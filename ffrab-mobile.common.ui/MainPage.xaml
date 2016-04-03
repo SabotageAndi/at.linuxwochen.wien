@@ -14,7 +14,7 @@
 		<Label Grid.Row="0" Text="Deine nächsten 5 Vorträge" IsVisible="{Binding NextFavoriteEventsVisible}" />
         <Label Grid.Row="0" Text="Nächste 5 Vorträge" IsVisible="{Binding NextFavoriteEventsVisible, Converter={StaticResource NegateBooleanConverter}}" />
 		
-		<ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+		<ListView Grid.Row="2" ItemsSource="{Binding Path=NextFavoriteEvents}" SelectedItem="{Binding Path=SelectedFavoriteItem, Mode=TwoWay}"
 				HasUnevenRows="True" SeparatorVisibility="None" 
 				IsVisible="{Binding NextFavoriteEventsVisible}"
 				>
@@ -43,7 +43,7 @@
 			</ListView.ItemTemplate>
 		</ListView>
 		<ListView Grid.Row="2" ItemsSource="{Binding Path=NextEvents}" 
-				SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" 
+				SelectedItem="{Binding Path=SelectedEventItem, Mode=TwoWay}" 
 				HasUnevenRows="True" SeparatorVisibility="None" 
 				IsVisible="{Binding NextFavoriteEventsVisible, Converter={StaticResource NegateBooleanConverter}}" >
 			<ListView.ItemTemplate>

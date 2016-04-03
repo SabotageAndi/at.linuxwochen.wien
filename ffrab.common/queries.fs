@@ -6,8 +6,7 @@ module queries =
     open entities
     open Database
 
-    let now() =
-        DateTime.Now.AddMonths(-10).AddDays(-26.0)
+
 
     let isEntryFavorite (entry : Entry) =            
         filter<EntryFavorite> <@ fun (ef : EntryFavorite) -> (ef.ConferenceId = entry.ConferenceId && ef.EntryId = entry.Id) @> 
@@ -75,7 +74,8 @@ module queries =
                                 and Entry.Start >= ?
                                 order by Entry.Start asc limit %i" number
                     
-            let entries = Database.query2<Entry>(sql, conference.Id, now())
+            let nowSerialize = www.linuxwochen.common.common.NodaTypeSerializerDelegate.serialize(common.now())
+            let entries = Database.query2<Entry>(sql, conference.Id, nowSerialize)
 
             entries
             |> List.ofSeq
@@ -89,8 +89,9 @@ module queries =
                                 where Entry.ConferenceId = ? 
                                 and Entry.Start >= ?
                                 order by Entry.Start asc limit %i" number
-                    
-            let entries = Database.query2<Entry>(sql, conference.Id, now())
+            
+            let nowSerialize = www.linuxwochen.common.common.NodaTypeSerializerDelegate.serialize(common.now())
+            let entries = Database.query2<Entry>(sql, conference.Id, nowSerialize)
 
             entries
             |> List.ofSeq

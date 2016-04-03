@@ -174,7 +174,8 @@ module viewmodels =
 
         let nextEvents = self.Factory.Backing(<@ self.NextEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
-        let selectedItem = self.Factory.Backing(<@ self.SelectedItem @>, None)
+        let selectedFavoriteItem = self.Factory.Backing(<@ self.SelectedFavoriteItem @>, None)
+        let selectedEventItem = self.Factory.Backing(<@ self.SelectedEventItem @>, None)
         
         interface IViewModelShown with
             member this.Init() = 
@@ -198,17 +199,30 @@ module viewmodels =
         member this.NextFavoriteEventsVisible 
             with get() = this.NextFavoriteEvents.Any()
 
-        member this.SelectedItem 
+        member this.SelectedFavoriteItem 
             with get () : FavoriteItemViewModel = 
-                match selectedItem.Value with
+                match selectedFavoriteItem.Value with
                 | Some v -> v
                 | _ -> null
             and set (v) = 
                 match v with
-                | null -> selectedItem.Value <- None
+                | null -> selectedFavoriteItem.Value <- None
                 | _ -> 
-                    selectedItem.Value <- Some v
+                    selectedFavoriteItem.Value <- Some v
                     new EntrySelected(Message.ShowEntry, v.Entry) |> Eventbus.Current.Publish
+
+        member this.SelectedEventItem 
+            with get () : FavoriteItemViewModel = 
+                match selectedEventItem.Value with
+                | Some v -> v
+                | _ -> null
+            and set (v) = 
+                match v with
+                | null -> selectedEventItem.Value <- None
+                | _ -> 
+                    selectedEventItem.Value <- Some v
+                    new EntrySelected(Message.ShowEntry, v.Entry) |> Eventbus.Current.Publish
+
 
     
 

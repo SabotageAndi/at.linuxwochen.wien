@@ -55,6 +55,13 @@ module common =
     open NodaTime.Text  
     open SQLite.Net
 
+
+    let now() =
+        let now = NodaTime.SystemClock.Instance.Now
+        let timeback = now.Minus(Duration.FromStandardDays(332L)).Minus(Duration.FromHours(4L))
+
+        timeback.InZone(DateTimeZoneProviders.Tzdb.GetSystemDefault()).ToOffsetDateTime()
+
     module Formatting =
         let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
         let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
@@ -108,11 +115,11 @@ module common =
             if typ = durationType then
                 formatResult <- DurationPattern.RoundtripPattern.Format (obj :?> Duration)
                 
-            System.Text.Encoding.Unicode.GetBytes formatResult
+            System.Text.Encoding.UTF8.GetBytes formatResult
 
             
         let deserialize (data : byte[]) (typ : Type) : Object =
-            let text = System.Text.Encoding.Unicode.GetString(data, 0, data.Length)
+            let text = System.Text.Encoding.UTF8.GetString(data, 0, data.Length)
 
             let mutable result : Object = null
 
