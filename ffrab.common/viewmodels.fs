@@ -312,6 +312,6 @@ module viewmodels =
             with get() =
                 match model.Entry.isEntryFavorite entry with
                 | true ->
-                    "ic_star_36pt.png"
+                    "ic_star_black_36dp.png"
                 | false ->
                     "ic_star_border_black_36dp.png"

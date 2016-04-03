@@ -3,7 +3,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="www.linuxwochen.common.ui.EntryView" Padding="5" BackgroundColor="#DDDDDD">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Favorite" Icon="{Binding Path=FavoriteIcon}" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}" />
+		<ToolbarItem Icon="{Binding Path=FavoriteIcon}" Order="Primary" Priority="0" Command="{Binding Path=FavoriteCommand}" />
 	</ContentPage.ToolbarItems>
 	<Grid Style="{StaticResource EntryBackground}">
 		<Grid.RowDefinitions>
