@@ -15,6 +15,9 @@ module viewmodels =
     type IViewModelShown = 
         abstract Init : unit -> unit
     
+    type IRefresh =
+        abstract RefreshCommand : INotifyCommand with get
+
     type AboutViewModel() = 
         inherit ViewModelBase()
     
@@ -22,7 +25,8 @@ module viewmodels =
         { Name : string
           Type : ViewModelType
           ViewModel : unit -> ViewModelBase
-          Content : unit -> ContentView }
+          Content : unit -> ContentView
+          HasRefresh : bool }
     
     type MenuItemViewModel(menuItemConnection) as self = 
         inherit ViewModelBase()
@@ -127,6 +131,7 @@ module viewmodels =
             member this.Init() = 
                 items.Value <- new ObservableCollection<Conference>(Conferences.getAllConferences())
         
+
         member val Items = items.Value with get
         
         member this.SelectedItem 
@@ -176,22 +181,33 @@ module viewmodels =
         let nextFavoriteEvents = self.Factory.Backing(<@ self.NextFavoriteEvents @>, new ObservableCollection<FavoriteItemViewModel>())
         let selectedFavoriteItem = self.Factory.Backing(<@ self.SelectedFavoriteItem @>, None)
         let selectedEventItem = self.Factory.Backing(<@ self.SelectedEventItem @>, None)
+       
+
+        let refresh() =
+            nextFavoriteEvents.Value.Clear()
+            nextEvents.Value.Clear()
+
+            model.Conferences.getActualConference()
+            |> queries.getTopFavorites 5
+            |> List.map (fun e -> new FavoriteItemViewModel(e))
+            |> List.iter nextFavoriteEvents.Value.Add
+
+            model.Conferences.getActualConference()
+            |> queries.getNextTalks 5
+            |> List.map (fun e -> new FavoriteItemViewModel(e))
+            |> List.iter nextEvents.Value.Add
+
+            self.RaisePropertyChanged(<@ self.NextFavoriteEventsVisible @>)
+
+        let refreshCommand = self.Factory.CommandSync(refresh)
         
         interface IViewModelShown with
             member this.Init() = 
-                nextFavoriteEvents.Value.Clear()
+                refresh()
 
-                model.Conferences.getActualConference()
-                |> queries.getTopFavorites 5
-                |> List.map (fun e -> new FavoriteItemViewModel(e))
-                |> List.iter nextFavoriteEvents.Value.Add
-
-                model.Conferences.getActualConference()
-                |> queries.getNextTalks 5
-                |> List.map (fun e -> new FavoriteItemViewModel(e))
-                |> List.iter nextEvents.Value.Add
-
-                this.RaisePropertyChanged(<@ self.NextFavoriteEventsVisible @>)
+        
+        interface IRefresh with
+            member this.RefreshCommand = refreshCommand
 
         member this.NextFavoriteEvents = nextFavoriteEvents.Value
         member this.NextEvents = nextEvents.Value

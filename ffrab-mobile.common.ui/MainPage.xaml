@@ -2,6 +2,9 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="www.linuxwochen.common.ui.MainPage" Padding="10">
+<!--	<ContentView.ToolbarItems>
+        <ToolbarItem Icon="ic_cached_black_36dp.png" Order="Primary" Priority="0" Command="{Binding Path=RefreshCommand}" />
+    </ContentView.ToolbarItems>-->
 	<Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Start">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />

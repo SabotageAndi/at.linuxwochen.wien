@@ -10,7 +10,12 @@
         open www.linuxwochen.common.common
         open www.linuxwochen.common.eventbus
 
-        let conn menuviewmodel = { MenuItemConnection.Name = "name"; Type = ViewModelType.Main; ViewModel = (fun _ -> menuviewmodel); Content = (fun _ -> null) }
+        let conn menuviewmodel = { 
+            MenuItemConnection.Name = "name"; 
+            Type = ViewModelType.Main; 
+            ViewModel = (fun _ -> menuviewmodel); 
+            Content = (fun _ -> null) 
+            HasRefresh = false }
 
         [<Fact>]
         let ``add menu item``() =

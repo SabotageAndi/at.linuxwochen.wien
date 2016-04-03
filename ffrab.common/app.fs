@@ -22,6 +22,7 @@ module app =
               Type = ViewModelType.About
               ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase )
               Content = (fun _ -> new ContentView()) 
+              HasRefresh = false
             }
         
         let home = 
@@ -30,6 +31,7 @@ module app =
               Type = ViewModelType.Main
               ViewModel = ( fun _ -> new viewmodels.MainViewModel() :> ViewModelBase)
               Content = (fun _ -> new MainPage() :> ContentView) 
+              HasRefresh = true
             }
 
         let conferenceList = 
@@ -38,6 +40,7 @@ module app =
               Type = ViewModelType.ConferenceList
               ViewModel = ( fun _ -> new ConferenceListViewModel() :> ViewModelBase)
               Content = (fun (x : unit) -> new ConferenceList() :> ContentView) 
+              HasRefresh = false
             }
         
         let sql = (sqlPlatform, databasePath)
@@ -83,6 +86,19 @@ module app =
             let contentPage = new ContentPage()
             contentPage.Content <- stackPanel
 
+            if (menuItem.HasRefresh) then
+                let refreshButton = new ToolbarItem()
+                refreshButton.Text <- "Refresh"
+                refreshButton.Icon <- FileImageSource.FromFile("ic_cached_black_36dp.png") :?> FileImageSource
+                refreshButton.Order <- ToolbarItemOrder.Primary
+                refreshButton.Priority <- 0
+
+                match viewModel with
+                | As(refresh : IRefresh) -> refreshButton.Command <- refresh.RefreshCommand
+                | _ -> ignore() 
+
+                contentPage.ToolbarItems.Add(refreshButton)
+
             let acutalConference = model.Conferences.getActualConference()
             match acutalConference with
             | Some acutalConference ->
@@ -122,6 +138,7 @@ module app =
                 Type = ViewModelType.Day(conferenceDay.Day);
                 ViewModel = (fun _ -> new DayViewModel(conferenceDay) :> ViewModelBase);
                 Content = (fun _ -> new DayView() :> ContentView) 
+                HasRefresh = false
             }
 
         let addConferenceDayMenuItems conferenceDay dayCounter =
