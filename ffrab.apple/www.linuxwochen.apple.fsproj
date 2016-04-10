@@ -6,7 +6,7 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{F2A71F9B-5D33-465A-A702-920D77279786}</ProjectTypeGuids>
     <ProjectGuid>0b182395-e355-4d83-babf-d1d9683285dd</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ffrab.apple</RootNamespace>
+    <RootNamespace>www.linuxwochen.apple</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>ffrabapple</AssemblyName>
     <Name>ffrab-mobile.apple</Name>
@@ -56,6 +56,7 @@
     <PlatformTarget></PlatformTarget>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +70,7 @@
     <ConsolePause>false</ConsolePause>
     <Tailcalls>true</Tailcalls>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,6 +86,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <BuildIpa>true</BuildIpa>
+    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,10 +97,11 @@
     <ErrorReport>prompt</ErrorReport>
     <Tailcalls>true</Tailcalls>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: TechTalk Software Support Handelsgesellschaft m.b.H. (QCEZFT8635)</CodesignKey>
     <PlatformTarget></PlatformTarget>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" />
   <ItemGroup>
@@ -109,16 +113,10 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
     <None Include="Icon.png" />
     <None Include="Icon%402x.png" />
-    <None Include="Icon-60%402x.png" />
     <None Include="Icon-72.png" />
     <None Include="Icon-72%402x.png" />
-    <None Include="Icon-Small-40.png" />
-    <None Include="Icon-Small-40%402x.png" />
-    <None Include="Icon-76.png" />
-    <None Include="Icon-76%402x.png" />
     <None Include="Icon-Small-50.png" />
     <None Include="Icon-Small-50%402x.png" />
-    <None Include="iTunesArtwork%402x" />
     <Content Include="packages.config" />
     <!--<BundleResource Include="Resources\ic_star_48pt.png" />-->
     <!--<BundleResource Include="Resources\ic_star_48pt@2x.png" />
@@ -131,6 +129,57 @@
     <BundleResource Include="Resources\ic_star_border_black_36dp%401x.png" />
     <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />-->
     <None Include="Entitlements.plist" />
+    <BundleResource Include="AppIcon.appiconset\Contents.json" />
+    <BundleResource Include="AppIcon.appiconset\Icon-40.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-40%402x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-40%403x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-60%402x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-60%403x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-76.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-76%402x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-83.5%402x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-Small.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-Small%402x.png" />
+    <BundleResource Include="AppIcon.appiconset\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\Default-568h%402x~iphone_640x1136.png" />
+    <BundleResource Include="Resources\Default-750%402x~iphone6-landscape_1334x750.png" />
+    <BundleResource Include="Resources\Default-750%402x~iphone6-portrait_750x1334.png" />
+    <BundleResource Include="Resources\Default-1242%403x~iphone6s-landscape_2208x1242.png" />
+    <BundleResource Include="Resources\Default-1242%403x~iphone6s-portrait_1242x2208.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x~ipad_2048x1496.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x~ipad_2048x1536.png" />
+    <BundleResource Include="Resources\Default-Landscape~ipad_1024x748.png" />
+    <BundleResource Include="Resources\Default-Landscape~ipad_1024x768.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x~ipad_1536x2008.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x~ipad_1536x2048.png" />
+    <BundleResource Include="Resources\Default-Portrait~ipad_768x1024.png" />
+    <BundleResource Include="Resources\Default%402x~iphone_640x960.png" />
+    <BundleResource Include="Resources\Default%403x.png" />
+    <BundleResource Include="Resources\Default~ipad.png" />
+    <BundleResource Include="Resources\ic_star_48dp.png" />
+    <BundleResource Include="Resources\ic_star_48dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_48dp%403x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%401x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_48dp.png" />
+    <BundleResource Include="Resources\ic_star_border_black_48dp%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-72.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-50.png" />
+    <BundleResource Include="Resources\Icon-Small-50%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\ic_cached_black_36dp.png" />
+    <BundleResource Include="Resources\ic_cached_black_36dp%402x.png" />
+    <BundleResource Include="Resources\ic_cached_black_36dp%403x.png" />
+    <BundleResource Include="Resources\ic_star_black_36dp.png" />
+    <BundleResource Include="Resources\ic_star_black_36dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_black_36dp%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NodaTime">
@@ -182,6 +231,23 @@
       <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
       <Name>www.linuxwochen.common.ui</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-83.5%402x.png" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -2,6 +2,7 @@
 
 open System.Collections.ObjectModel
 open FSharp.ViewModule
+open System
 open System.Linq
 open Xamarin.Forms
 open NodaTime
@@ -18,8 +19,25 @@ module viewmodels =
     type IRefresh =
         abstract RefreshCommand : INotifyCommand with get
 
-    type AboutViewModel() = 
+    type AboutViewModel() as self = 
         inherit ViewModelBase()
+              
+        let onRead() =
+            new eventbus.Entry(Message.ShowLicense) |> Eventbus.Current.Publish
+
+        let onOpenSourceCode() =
+            let uri = new Uri("https://github.com/SabotageAndi/at.linuxwochen.wien")
+            Device.OpenUri(uri)
+
+        let readCommand = self.Factory.CommandSync(onRead)
+        let openSourceCodeCommand = self.Factory.CommandSync(onOpenSourceCode)
+
+        member this.ReadCommand
+            with get() = readCommand
+
+
+        member this.OpenSourceCodeCommand
+            with get() = openSourceCodeCommand
     
     type MenuItemConnection = 
         { Name : string

@@ -21,7 +21,7 @@ module app =
               Name = "Info"
               Type = ViewModelType.About
               ViewModel =( fun _ -> new AboutViewModel() :> ViewModelBase )
-              Content = (fun _ -> new ContentView()) 
+              Content = (fun _ -> new Info() :> ContentView) 
               HasRefresh = false
             }
         
@@ -207,19 +207,22 @@ module app =
                 masterDetailPage.Detail.Navigation.PushAsync view |> Async.AwaitTask |> ignore
             | _ -> ignore()
 
+        let showLicense e =
+            let view = new License()
+            masterDetailPage.Detail.Navigation.PushAsync view |> Async.AwaitTask |> ignore
+            
+
         let addEventListeners() = 
             Message.ChangeConference |> Eventbus.Current.Register changeConference
             Message.StartLongRunningAction |> Eventbus.Current.Register startLongRunningAction
             Message.StopLongRunningAction |> Eventbus.Current.Register stopLongRunningAction
             Message.SwitchPage |> Eventbus.Current.Register navigate
             Message.ShowEntry |> Eventbus.Current.Register gotoEntry
+            Message.ShowLicense |> Eventbus.Current.Register showLicense
 
         let addMenuItems() = 
             addToNavigationInfrastructure home
             |> menuViewModel.AddMenu
-            
-//            addToNavigationInfrastructure conferenceList
-//            |> menuViewModel.AddMenu
             
             addToNavigationInfrastructure about
             |> menuViewModel.AddMenu

@@ -57,6 +57,7 @@
     <None Include="data-examples\ffrab1.json" />
     <EmbeddedResource Include="data\vmqn2015.json" />
     <Content Include="packages.config" />
+    <None Include="data-examples\ffrab2.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">

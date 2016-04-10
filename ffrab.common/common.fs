@@ -66,7 +66,7 @@ module common =
         let dateFormat = LocalDatePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd")
         let dateTimeFormat = OffsetDateTimePattern.CreateWithInvariantCulture("yyyy'-'MM'-'dd'T'HH':'mm':'sso<G>")
         let durationFormat = DurationPattern.CreateWithInvariantCulture("H:ss")
-        let timeOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:ss")
+        let timeOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("H:mm")
         let dateOffsetFormat = OffsetDateTimePattern.CreateWithInvariantCulture("dd.MM")
         let shortdateFormat = LocalDatePattern.CreateWithInvariantCulture("dd'.'MM")
 

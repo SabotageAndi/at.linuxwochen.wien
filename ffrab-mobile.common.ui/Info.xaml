@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="www.linuxwochen.common.ui.Info">
+	<ContentView.Content>
+		<ScrollView Padding="5">
+			<Grid>
+				<Grid.RowDefinitions>
+                    <RowDefinition Height="5" />
+					<RowDefinition Height="Auto" />
+                    <RowDefinition Height="5"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="5"/>
+					
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Label Grid.Row="1"  Text="Programm App der Linuxwochen Wien" 
+					   HorizontalOptions="CenterAndExpand" 
+					   HorizontalTextAlignment="Center"
+					   FontSize="Medium"
+					   />
+
+				<StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+					<Label Text="Source Code:" />
+                    <Label Text="https://github.com/SabotageAndi/at.linuxwochen.wien" 
+                           TextColor="Blue" x:Name="sourcecodeLabel" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding Path=OpenSourceCodeCommand}"></TapGestureRecognizer>
+						</Label.GestureRecognizers>
+					</Label>
+						
+				</StackLayout>
+                
+
+				<Label Grid.Row="5" Text="Vielen Dank für die Unterstützung von TechTalk" />
+
+                <Label Grid.Row="7" Text="Lizenz: BSD 3-Clause License" />
+				<Button Grid.Row="8" Text="Lesen" Command="{Binding Path=ReadCommand}" />
+			</Grid>
+
+		</ScrollView>
+	</ContentView.Content>
+</ContentView>

@@ -9,6 +9,7 @@ module eventbus =
         | StartLongRunningAction
         | StopLongRunningAction
         | ShowEntry
+        | ShowLicense
     
     type Entry(msg) =
         member this.Message : Message = msg
