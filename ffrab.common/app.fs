@@ -245,10 +245,8 @@ module app =
             model.Init sql
 
             async {
-                beginLongRunningTask()
-            
-                model.Conferences.getActualConference()
-                |> model.Conferences.synchronizeData
+
+                model.SyncWithUi()
                 |> setLastConference
 
                 endConferenceLoad |> common.runOnUIthread

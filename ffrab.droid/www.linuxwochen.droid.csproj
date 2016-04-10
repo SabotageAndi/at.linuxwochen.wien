@@ -80,6 +80,12 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.1.0.6529\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.1.2\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.1.2\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -131,6 +137,21 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\lc_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\screen.png" />
     <AndroidResource Include="Resources\drawable\screen.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cached_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_star_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_star_border_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_cached_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_star_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_star_border_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_cached_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_star_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_star_border_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_cached_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_star_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_star_border_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_cached_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_star_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_star_border_black_36dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

@@ -23,14 +23,17 @@ module common =
         Regex.Replace(str, @"<[^>]+>|&nbsp;", "").Trim();
          
     let loadJsonFromUri (uri : string) = 
-        async { 
-            let httpClient = new System.Net.Http.HttpClient()
-            let! response = httpClient.GetAsync(uri) |> Async.AwaitTask
-            response.EnsureSuccessStatusCode() |> ignore
-            let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask
-            return content
-        }
-        |> Async.RunSynchronously
+        try
+            async { 
+                let httpClient = new System.Net.Http.HttpClient()
+                let! response = httpClient.GetAsync(uri) |> Async.AwaitTask
+                response.EnsureSuccessStatusCode() |> ignore
+                let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask
+                return content
+            }
+            |> Async.RunSynchronously
+        with
+            | _ -> String.Empty
 
     open System.Linq.Expressions
     open Microsoft.FSharp.Quotations

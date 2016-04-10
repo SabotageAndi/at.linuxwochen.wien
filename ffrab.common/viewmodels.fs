@@ -201,7 +201,7 @@ module viewmodels =
         let selectedEventItem = self.Factory.Backing(<@ self.SelectedEventItem @>, None)
        
 
-        let refresh() =
+        let updateLists() =
             nextFavoriteEvents.Value.Clear()
             nextEvents.Value.Clear()
 
@@ -217,11 +217,25 @@ module viewmodels =
 
             self.RaisePropertyChanged(<@ self.NextFavoriteEventsVisible @>)
 
+
+
+        let refresh() =
+            async {
+                model.SyncWithUi()
+                |> ignore
+
+                updateLists |> common.runOnUIthread
+
+                endLongRunningTask()
+            } |> Async.Start
+
+           
+           
         let refreshCommand = self.Factory.CommandSync(refresh)
         
         interface IViewModelShown with
             member this.Init() = 
-                refresh()
+                updateLists()
 
         
         interface IRefresh with

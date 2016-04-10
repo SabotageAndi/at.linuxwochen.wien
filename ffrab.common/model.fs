@@ -81,8 +81,12 @@ module model =
             | Some conf ->
                 match uriType with
                 | Some UriType.Http ->
-                    loadJsonFromUri conf.DataUri
-                    |> Some
+                    match Plugin.Connectivity.CrossConnectivity.Current.IsConnected with
+                    | true ->
+                        loadJsonFromUri conf.DataUri
+                        |> Some
+                    | false ->
+                        None
                 | Some UriType.Local ->
                     Some conf.RawData
                 | None ->
@@ -145,4 +149,10 @@ module model =
 
         Database.createSchema()
 
-    
+    let SyncWithUi() =
+        eventbus.beginLongRunningTask()
+            
+        Conferences.getActualConference()
+        |> Conferences.synchronizeData
+
+
