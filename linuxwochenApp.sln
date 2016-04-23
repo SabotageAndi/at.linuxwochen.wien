@@ -4,11 +4,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.linuxwochen.common.ui", "ffrab-mobile.common.ui\www.linuxwochen.common.ui.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "www.linuxwochen.common", "ffrab.common\www.linuxwochen.common.fsproj", "{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "www.linuxwochen.common", "ffrab.common\www.linuxwochen.common.fsproj", "{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "www.linuxwochen.apple", "ffrab.apple\www.linuxwochen.apple.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "at.linuxwochen.wien", "ffrab.apple\at.linuxwochen.wien.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab.test", "ffrab.test\ffrab.test.fsproj", "{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ffrab.test", "ffrab.test\ffrab.test.fsproj", "{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.linuxwochen.droid", "ffrab.droid\www.linuxwochen.droid.csproj", "{430A1460-E60F-487F-B518-44971F65C61A}"
 EndProject
