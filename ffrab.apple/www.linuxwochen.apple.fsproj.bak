@@ -13,7 +13,6 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SelectedDevice>iPhone 5s iOS 8.4</SelectedDevice>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,12 +23,11 @@
     <ErrorReport>prompt</ErrorReport>
     <Tailcalls>false</Tailcalls>
     <ConsolePause>false</ConsolePause>
-    <PlatformTarget>
-    </PlatformTarget>
+    <PlatformTarget></PlatformTarget>
     <MtouchDebug>true</MtouchDebug>
     <MtouchLink>None</MtouchLink>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
+    <AssemblyName>www.linuxwochen.apple</AssemblyName>
     <MtouchArch>i386, x86_64</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -39,12 +37,11 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <DefineConstants>__MOBILE__;__IOS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <PlatformTarget>
-    </PlatformTarget>
+    <PlatformTarget></PlatformTarget>
     <ConsolePause>false</ConsolePause>
     <Tailcalls>true</Tailcalls>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>wwwlinuxwochenapple</AssemblyName>
+    <AssemblyName>www.linuxwochen.apple</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,8 +53,7 @@
     <Tailcalls>false</Tailcalls>
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
-    <PlatformTarget>
-    </PlatformTarget>
+    <PlatformTarget></PlatformTarget>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <AssemblyName>wwwlinuxwochenapple</AssemblyName>
@@ -69,8 +65,7 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <DefineConstants>__MOBILE__;__IOS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <PlatformTarget>
-    </PlatformTarget>
+    <PlatformTarget></PlatformTarget>
     <CodesignKey>iPhone Developer</CodesignKey>
     <ConsolePause>false</ConsolePause>
     <Tailcalls>true</Tailcalls>
@@ -87,8 +82,7 @@
     <Tailcalls>true</Tailcalls>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <PlatformTarget>
-    </PlatformTarget>
+    <PlatformTarget></PlatformTarget>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>434fb206-6507-4e73-a2ac-35ad03f885c4</CodesignProvision>
     <BuildIpa>true</BuildIpa>
@@ -104,26 +98,19 @@
     <Tailcalls>true</Tailcalls>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: TechTalk Software Support Handelsgesellschaft m.b.H. (QCEZFT8635)</CodesignKey>
-    <PlatformTarget>
-    </PlatformTarget>
-    <CodesignProvision>
-    </CodesignProvision>
+    <PlatformTarget></PlatformTarget>
+    <CodesignProvision></CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <AssemblyName>wwwlinuxwochenapple</AssemblyName>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
-  </Target>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <None Include="Info.plist" />
     <Compile Include="AppDelegate.fs" />
     <Content Include="app.config" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
     <None Include="Icon.png" />
     <None Include="Icon%402x.png" />
     <None Include="Icon-72.png" />
@@ -131,6 +118,16 @@
     <None Include="Icon-Small-50.png" />
     <None Include="Icon-Small-50%402x.png" />
     <Content Include="packages.config" />
+    <!--<BundleResource Include="Resources\ic_star_48pt.png" />-->
+    <!--<BundleResource Include="Resources\ic_star_48pt@2x.png" />
+    <BundleResource Include="Resources\ic_star_48pt@3x.png" />-->
+    <!--<BundleResource Include="Resources\ic_star_border_black_48dp.png" />
+    <BundleResource Include="Resources\ic_star_border_black_48dp%402x.png" />
+    <BundleResource Include="Resources\ic_star_36pt.png" />
+    <BundleResource Include="Resources\ic_star_36pt@2x.png" />
+    <BundleResource Include="Resources\ic_star_36pt@3x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%401x.png" />
+    <BundleResource Include="Resources\ic_star_border_black_36dp%402x.png" />-->
     <None Include="Entitlements.plist" />
     <BundleResource Include="AppIcon.appiconset\Contents.json" />
     <BundleResource Include="AppIcon.appiconset\Icon-40.png" />
@@ -144,9 +141,6 @@
     <BundleResource Include="AppIcon.appiconset\Icon-Small.png" />
     <BundleResource Include="AppIcon.appiconset\Icon-Small%402x.png" />
     <BundleResource Include="AppIcon.appiconset\Icon-Small%403x.png" />
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\Default-568h%402x~iphone_640x1136.png" />
     <BundleResource Include="Resources\Default-750%402x~iphone6-landscape_1334x750.png" />
     <BundleResource Include="Resources\Default-750%402x~iphone6-portrait_750x1334.png" />
@@ -186,42 +180,6 @@
     <BundleResource Include="Resources\ic_star_black_36dp.png" />
     <BundleResource Include="Resources\ic_star_black_36dp%402x.png" />
     <BundleResource Include="Resources\ic_star_black_36dp%403x.png" />
-    <InterfaceDefinition Include="Launch.storyboard" />
-    <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork%402x" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-83.5%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NodaTime">
@@ -245,7 +203,6 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
@@ -267,6 +224,11 @@
     <Reference Include="Plugin.Connectivity.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Connectivity.2.1.2\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Launch.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ffrab.common\www.linuxwochen.common.fsproj">
       <Project>{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}</Project>
       <Name>www.linuxwochen.common</Name>
@@ -276,4 +238,29 @@
       <Name>www.linuxwochen.common.ui</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-83.5%402x.png" />
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
 </Project>
