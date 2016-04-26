@@ -104,9 +104,9 @@
     <CodesignKey>iPhone Distribution: TechTalk Software Support Handelsgesellschaft m.b.H. (QCEZFT8635)</CodesignKey>
     <PlatformTarget>
     </PlatformTarget>
-    <CodesignProvision>
-    </CodesignProvision>
+    <CodesignProvision>434fb206-6507-4e73-a2ac-35ad03f885c4</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
