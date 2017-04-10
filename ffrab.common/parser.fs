@@ -17,7 +17,7 @@ module Parser =
                     
     let parseSpeaker (conferenceId : int) (speakerNode : JsonValue) =
         new Speaker(Id = speakerNode.["id"].AsInteger(), 
-                    Name = speakerNode.["full_public_name"].AsString(), 
+                    Name = speakerNode.["public_name"].AsString(), 
                     ConferenceId = conferenceId, 
                     Guid = Guid.NewGuid())
 
