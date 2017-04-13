@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="www.linuxwochen.common.ui.Menu"
@@ -15,7 +15,7 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <Grid Padding="4" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding BackgroundColor}">
+          <Grid Padding="4" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding BackgroundColor}" HeightRequest="50">
             <Label Text="{Binding Path=Name}" VerticalTextAlignment="Center" />
           </Grid>
         </ViewCell>
