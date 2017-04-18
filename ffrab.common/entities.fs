@@ -3,7 +3,7 @@
 module entities = 
     open System
     open NodaTime
-    open SQLite.Net.Attributes
+    open SQLite
 
     type Speaker2Entry() =
 

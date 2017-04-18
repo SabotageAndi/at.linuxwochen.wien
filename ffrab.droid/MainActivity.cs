@@ -16,11 +16,9 @@ namespace www.linuxwochen.droid
 
 			Forms.Init(this, savedInstanceState);
 
-			var sqlPlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
-
 			var databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "linuxwochen.db");
 
-			var app = new www.linuxwochen.common.app.App(sqlPlatform, databasePath);
+			var app = new www.linuxwochen.common.app.App(databasePath);
 
 			this.LoadApplication(app);
 		}

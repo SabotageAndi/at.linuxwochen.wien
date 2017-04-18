@@ -2,18 +2,18 @@
 
 module app = 
     open System.Collections.Generic
-    open FSharp.ViewModule
+    open ViewModule
     open Xamarin.Forms
     open common
     open viewmodels
     open eventbus
     open entities
     open model
-    open SQLite.Net.Interop
+    open SQLite
     open www.linuxwochen.ui.converter
     open www.linuxwochen.common.ui
     
-    type App(sqlPlatform : ISQLitePlatform, databasePath : string) as this = 
+    type App(databasePath : string) as this = 
         inherit AppXaml()
         
         let about = 
@@ -43,7 +43,7 @@ module app =
               HasRefresh = false
             }
         
-        let sql = (sqlPlatform, databasePath)
+        let sql = databasePath
 
         let mutable masterDetailPage : MasterDetailPage = new MasterDetailPage()
         let menuViewModel = new MenuViewModel()

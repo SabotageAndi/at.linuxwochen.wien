@@ -71,7 +71,7 @@ type AppDelegate () =
         #endif
         
         let databasePath = System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ffrab.mobile.db")
-        this.LoadApplication(new app.App(new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS(), databasePath))
+        this.LoadApplication(new app.App(databasePath))
            
         base.FinishedLaunching (app, options)
 

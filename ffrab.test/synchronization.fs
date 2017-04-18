@@ -14,8 +14,7 @@
         File.ReadAllText("data/conference.json") |> Some |> Parser.parseJson conference
 
     let init() =
-        let db = new SQLite.Net.Platform.Win32.SQLitePlatformWin32()
-        Init(db, "ffrab.mobile.db")
+        Init("ffrab.mobile.db")
         Database.dropSchema()
         Database.createSchema()
         common.CurrentState

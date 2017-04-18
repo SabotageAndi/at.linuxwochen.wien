@@ -3,7 +3,7 @@
 module model = 
     open Xamarin.Forms
     open System
-    open SQLite.Net
+    open SQLite
     open entities
     open common
     open NodaTime
@@ -129,21 +129,23 @@ module model =
                 queries.setEntryFavorite entryFavorite
             
 
-    let Init (sqlitePlatform : SQLite.Net.Interop.ISQLitePlatform, databaseFilePath : string) =
+    let Init (databaseFilePath : string) =
 
         let extraTypeMappings = new Dictionary<Type, string>()
         
         extraTypeMappings.Add(typeof<NodaTime.LocalDate>, "blob")
         extraTypeMappings.Add(typeof<NodaTime.OffsetDateTime>, "blob")
         extraTypeMappings.Add(typeof<NodaTime.Duration>, "blob")
-
-        let sqlConnection = new SQLiteConnection(sqlitePlatform, 
-                                                    databaseFilePath, 
-                                                    false,
-                                                    NodaTypeSerializerDelegate.Delegate(),
-                                                    null,
-                                                    extraTypeMappings
-                                                    )
+        
+        let sqlConnection = new SQLiteConnection(databaseFilePath)
+        
+        
+                                                    //, 
+                                                    //false,
+                                                    //NodaTypeSerializerDelegate.Delegate(),
+                                                    //null,
+                                                    //extraTypeMappings
+                                                    //)
 
         CurrentState <- new State(sqlConnection)
 

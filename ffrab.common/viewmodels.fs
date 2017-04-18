@@ -1,7 +1,8 @@
 ﻿namespace www.linuxwochen.common
 
 open System.Collections.ObjectModel
-open FSharp.ViewModule
+open ViewModule
+open ViewModule.FSharp
 open System
 open System.Linq
 open Xamarin.Forms
@@ -29,8 +30,8 @@ module viewmodels =
             let uri = new Uri("https://github.com/SabotageAndi/at.linuxwochen.wien")
             Device.OpenUri(uri)
 
-        let readCommand = self.Factory.CommandSync(onRead)
-        let openSourceCodeCommand = self.Factory.CommandSync(onOpenSourceCode)
+        let readCommand = self.Factory.CommandSync onRead
+        let openSourceCodeCommand = self.Factory.CommandSync onOpenSourceCode
 
         member this.ReadCommand
             with get() = readCommand

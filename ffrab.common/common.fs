@@ -46,7 +46,7 @@ module common =
       Expression.Lambda<Func<'a, 'b>>(lambda.Body, lambda.Parameters) 
 
     type State(conn) = 
-        let sqlConnection : SQLite.Net.SQLiteConnection = conn
+        let sqlConnection : SQLite.SQLiteConnection = conn
 
         member this.SQLConnection 
             with get() = sqlConnection
@@ -56,7 +56,7 @@ module common =
 
     open NodaTime
     open NodaTime.Text  
-    open SQLite.Net
+    open SQLite
 
 
     let now() =
@@ -141,7 +141,7 @@ module common =
             result
             
 
-        let Delegate() =
-            new BlobSerializerDelegate(new BlobSerializerDelegate.SerializeDelegate(serialize),
-                                       new BlobSerializerDelegate.DeserializeDelegate(deserialize),
-                                       new BlobSerializerDelegate.CanSerializeDelegate(canSerialize))
+        //let Delegate() =
+        //    new BlobSerializerDelegate(new BlobSerializerDelegate.SerializeDelegate(serialize),
+        //                               new BlobSerializerDelegate.DeserializeDelegate(deserialize),
+        //                               new BlobSerializerDelegate.CanSerializeDelegate(canSerialize))
