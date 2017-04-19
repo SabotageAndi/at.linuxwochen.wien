@@ -29,7 +29,11 @@ module entities =
         member val Subtitle : string = "" with get, set        
         [<IndexedAttribute>]
         member val Track : string = "" with get, set        
+        
+        [<Ignore>]    
         member val Start : OffsetDateTime = new OffsetDateTime() with get, set
+        
+        [<Ignore>]
         member val Duration : Duration = Duration.Zero with get, set
         member val Type : string = "" with get, set
         member val Language : string = "" with get, set
@@ -61,8 +65,11 @@ module entities =
         [<IndexedAttribute>]
         member val ConferenceId : int = 0 with get, set        
         member val Index : int = -1 with get, set
-        member val Day : LocalDate = new LocalDate() with get, set
+        [<Ignore>]
+        member val Day : LocalDate = new LocalDate() with get, set        
+        [<Ignore>]
         member val StartTime : OffsetDateTime = new OffsetDateTime() with get, set
+        [<Ignore>]
         member val EndTime : OffsetDateTime = new OffsetDateTime() with get, set
         [<IgnoreAttribute>]
         member val Rooms : Room list = [] with get, set
@@ -73,6 +80,7 @@ module entities =
         [<IgnoreAttribute>]
         member val Days : ConferenceDay list = [] with get, set        
         member val Version : string = "" with get, set
+        [<Ignore>]
         member val LastSync : OffsetDateTime = new OffsetDateTime() with get, set
 
     type EntryFavorite() =        

@@ -118,11 +118,11 @@ module common =
             if typ = durationType then
                 formatResult <- DurationPattern.RoundtripPattern.Format (obj :?> Duration)
                 
-            System.Text.Encoding.UTF8.GetBytes formatResult
+            System.Text.Encoding.Unicode.GetBytes formatResult
 
             
         let deserialize (data : byte[]) (typ : Type) : Object =
-            let text = System.Text.Encoding.UTF8.GetString(data, 0, data.Length)
+            let text = System.Text.Encoding.Unicode.GetString(data, 0, data.Length)
 
             let mutable result : Object = null
 
