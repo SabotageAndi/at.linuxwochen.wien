@@ -142,7 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ffrab.common\www.linuxwochen.common.fsproj">
-      <Project>{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}</Project>
+      <Project>{4AA0E1C9-21AE-4DF3-9BB3-763E9B3178C3}</Project>
       <Name>www.linuxwochen.common</Name>
     </ProjectReference>
   </ItemGroup>

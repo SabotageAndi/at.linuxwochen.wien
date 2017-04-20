@@ -5,15 +5,18 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>219c64d9-17f7-46cd-8a3c-ee9ede15bf16</ProjectGuid>
-    <OutputType>Library</OutputType>
     <RootNamespace>ffrab.common</RootNamespace>
     <AssemblyName>www.linuxwochen.common</AssemblyName>
+    <Name>ffrab-mobile.common</Name>
+    
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <ProjectGuid>{4AA0E1C9-21AE-4DF3-9BB3-763E9B3178C3}</ProjectGuid>
     <TargetProfile>netcore</TargetProfile>
     <TargetFSharpCoreVersion>3.78.3.1</TargetFSharpCoreVersion>
-    <Name>ffrab-mobile.common</Name>
+    <OutputType>Library</OutputType>
+
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -128,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ffrab-mobile.common.ui\www.linuxwochen.common.ui.csproj">
-      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Project>{ED467B47-8362-41E5-8093-91F2ADE0EDEE}</Project>
       <Name>www.linuxwochen.common.ui</Name>
     </ProjectReference>
   </ItemGroup>

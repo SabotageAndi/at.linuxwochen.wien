@@ -198,11 +198,11 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ffrab.common\www.linuxwochen.common.fsproj">
-      <Project>{219C64D9-17F7-46CD-8A3C-EE9EDE15BF16}</Project>
+      <Project>{4AA0E1C9-21AE-4DF3-9BB3-763E9B3178C3}</Project>
       <Name>www.linuxwochen.common</Name>
     </ProjectReference>
     <ProjectReference Include="..\ffrab-mobile.common.ui\www.linuxwochen.common.ui.csproj">
-      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Project>{ED467B47-8362-41E5-8093-91F2ADE0EDEE}</Project>
       <Name>www.linuxwochen.common.ui</Name>
     </ProjectReference>
   </ItemGroup>
