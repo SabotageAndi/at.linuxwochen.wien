@@ -34,7 +34,7 @@
                                 "persons":[  
                                     {  
                                         "id":2,
-                                        "full_public_name":"Georg Markus Kainz"
+                                        "public_name":"Georg Markus Kainz"
                                     }
                                 ],
                                 "links":[  
@@ -60,7 +60,7 @@
                                 "persons":[  
                                     {  
                                         "id":254,
-                                        "full_public_name":"Katharina Krombholz"
+                                        "public_name":"Katharina Krombholz"
                                     }
                                 ],
                                 "links":[  
@@ -89,7 +89,7 @@
                                 "persons":[  
                                     {  
                                         "id":247,
-                                        "full_public_name":"Georg Sch\u00f6nberger"
+                                        "public_name":"Georg Sch\u00f6nberger"
                                     }
                                 ],
                                 "links":[  
@@ -115,7 +115,7 @@
                                 "persons":[  
                                     {  
                                         "id":222,
-                                        "full_public_name":"Bernhard Fr\u00f6hler"
+                                        "public_name":"Bernhard Fr\u00f6hler"
                                     }
                                 ],
                                 "links":[  
@@ -152,15 +152,15 @@
                                 "persons":[  
                                     {  
                                         "id":2,
-                                        "full_public_name":"Georg Markus Kainz"
+                                        "public_name":"Georg Markus Kainz"
                                     },
                                     {  
                                         "id":128,
-                                        "full_public_name":"Thomas Bleier"
+                                        "public_name":"Thomas Bleier"
                                     },
                                     {  
                                         "id":29,
-                                        "full_public_name":"Robert Kaiser"
+                                        "public_name":"Robert Kaiser"
                                     }
                                 ],
                                 "links":[  
@@ -186,7 +186,7 @@
                                 "persons":[  
                                     {  
                                         "id":209,
-                                        "full_public_name":"Philipp Krenn"
+                                        "public_name":"Philipp Krenn"
                                     }
                                 ],
                                 "links":[  
@@ -212,7 +212,7 @@
                                 "persons":[  
                                     {  
                                         "id":223,
-                                        "full_public_name":"SmilingBear"
+                                        "public_name":"SmilingBear"
                                     }
                                 ],
                                 "links":[  
@@ -238,7 +238,7 @@
                                 "persons":[  
                                     {  
                                         "id":32,
-                                        "full_public_name":"postgresql_007"
+                                        "public_name":"postgresql_007"
                                     }
                                 ],
                                 "links":[  
@@ -267,7 +267,7 @@
                                 "persons":[  
                                     {  
                                         "id":216,
-                                        "full_public_name":"Sonja Pikart"
+                                        "public_name":"Sonja Pikart"
                                     }
                                 ],
                                 "links":[  
@@ -298,7 +298,7 @@
                                 "persons":[  
                                     {  
                                         "id":199,
-                                        "full_public_name":"Konrad Rehling"
+                                        "public_name":"Konrad Rehling"
                                     }
                                 ],
                                 "links":[  
@@ -327,7 +327,7 @@
                                 "persons":[  
                                     {  
                                         "id":224,
-                                        "full_public_name":"Peter Klapper"
+                                        "public_name":"Peter Klapper"
                                     }
                                 ],
                                 "links":[  
@@ -353,7 +353,7 @@
                                 "persons":[  
                                     {  
                                         "id":244,
-                                        "full_public_name":"Mathias Haingartner"
+                                        "public_name":"Mathias Haingartner"
                                     }
                                 ],
                                 "links":[  
@@ -390,7 +390,7 @@
                                 "persons":[  
                                     {  
                                         "id":239,
-                                        "full_public_name":"Philipp Reisner"
+                                        "public_name":"Philipp Reisner"
                                     }
                                 ],
                                 "links":[  
@@ -416,7 +416,7 @@
                                 "persons":[  
                                     {  
                                         "id":220,
-                                        "full_public_name":"Wolfgang Link"
+                                        "public_name":"Wolfgang Link"
                                     }
                                 ],
                                 "links":[  
@@ -465,7 +465,7 @@
                                 "persons":[  
                                     {  
                                         "id":195,
-                                        "full_public_name":"Elvir Kuric"
+                                        "public_name":"Elvir Kuric"
                                     }
                                 ],
                                 "links":[  
@@ -491,7 +491,7 @@
                                 "persons":[  
                                     {  
                                         "id":256,
-                                        "full_public_name":"Michael Ziegler"
+                                        "public_name":"Michael Ziegler"
                                     }
                                 ],
                                 "links":[  
@@ -520,7 +520,7 @@
                                 "persons":[  
                                     {  
                                         "id":213,
-                                        "full_public_name":"Claus Aichinger"
+                                        "public_name":"Claus Aichinger"
                                     }
                                 ],
                                 "links":[  
@@ -548,7 +548,7 @@
                                 "persons":[  
                                     {  
                                         "id":198,
-                                        "full_public_name":"Rainer Stropek"
+                                        "public_name":"Rainer Stropek"
                                     }
                                 ],
                                 "links":[  
@@ -581,7 +581,7 @@
                                 "persons":[  
                                     {  
                                         "id":117,
-                                        "full_public_name":"Sebastian G\u00f6ttschkes"
+                                        "public_name":"Sebastian G\u00f6ttschkes"
                                     }
                                 ],
                                 "links":[  
@@ -607,7 +607,7 @@
                                 "persons":[  
                                     {  
                                         "id":212,
-                                        "full_public_name":"Kevin Kofler"
+                                        "public_name":"Kevin Kofler"
                                     }
                                 ],
                                 "links":[  
@@ -636,7 +636,7 @@
                                 "persons":[  
                                     {  
                                         "id":97,
-                                        "full_public_name":"Christian Schwarzinger"
+                                        "public_name":"Christian Schwarzinger"
                                     }
                                 ],
                                 "links":[  
@@ -665,7 +665,7 @@
                                 "persons":[  
                                     {  
                                         "id":1,
-                                        "full_public_name":"Daniel Jahre"
+                                        "public_name":"Daniel Jahre"
                                     }
                                 ],
                                 "links":[  
@@ -694,7 +694,7 @@
                                 "persons":[  
                                     {  
                                         "id":226,
-                                        "full_public_name":"Christian Ams\u00fcss"
+                                        "public_name":"Christian Ams\u00fcss"
                                     }
                                 ],
                                 "links":[  
@@ -720,7 +720,7 @@
                                 "persons":[  
                                     {  
                                         "id":90,
-                                        "full_public_name":"Gerfried \"Rhonda\" Fuchs"
+                                        "public_name":"Gerfried \"Rhonda\" Fuchs"
                                     }
                                 ],
                                 "links":[  
@@ -749,7 +749,7 @@
                                 "persons":[  
                                     {  
                                         "id":225,
-                                        "full_public_name":"Leopold Zyka"
+                                        "public_name":"Leopold Zyka"
                                     }
                                 ],
                                 "links":[  
@@ -780,7 +780,7 @@
                                 "persons":[  
                                     {  
                                         "id":201,
-                                        "full_public_name":"Daniel Ziegler"
+                                        "public_name":"Daniel Ziegler"
                                     }
                                 ],
                                 "links":[  
@@ -809,7 +809,7 @@
                                 "persons":[  
                                     {  
                                         "id":128,
-                                        "full_public_name":"Thomas Bleier"
+                                        "public_name":"Thomas Bleier"
                                     }
                                 ],
                                 "links":[  
@@ -837,7 +837,7 @@
                                 "persons":[  
                                     {  
                                         "id":161,
-                                        "full_public_name":"Markus Tauber"
+                                        "public_name":"Markus Tauber"
                                     }
                                 ],
                                 "links":[  
@@ -863,7 +863,7 @@
                                 "persons":[  
                                     {  
                                         "id":120,
-                                        "full_public_name":"Sebastian Wagner"
+                                        "public_name":"Sebastian Wagner"
                                     }
                                 ],
                                 "links":[  
@@ -897,7 +897,7 @@
                                 "persons":[  
                                     {  
                                         "id":141,
-                                        "full_public_name":"Markus Sabadello"
+                                        "public_name":"Markus Sabadello"
                                     }
                                 ],
                                 "links":[  
@@ -936,7 +936,7 @@
                                 "persons":[  
                                     {  
                                         "id":229,
-                                        "full_public_name":"Aaron Kaplan"
+                                        "public_name":"Aaron Kaplan"
                                     }
                                 ],
                                 "links":[  
@@ -962,7 +962,7 @@
                                 "persons":[  
                                     {  
                                         "id":261,
-                                        "full_public_name":"Necdet Can Atesman"
+                                        "public_name":"Necdet Can Atesman"
                                     }
                                 ],
                                 "links":[  
@@ -988,7 +988,7 @@
                                 "persons":[  
                                     {  
                                         "id":8,
-                                        "full_public_name":"Joachim Losehand"
+                                        "public_name":"Joachim Losehand"
                                     }
                                 ],
                                 "links":[  
@@ -1014,15 +1014,15 @@
                                 "persons":[  
                                     {  
                                         "id":2,
-                                        "full_public_name":"Georg Markus Kainz"
+                                        "public_name":"Georg Markus Kainz"
                                     },
                                     {  
                                         "id":264,
-                                        "full_public_name":"J\u00fcrgen Schmidt"
+                                        "public_name":"J\u00fcrgen Schmidt"
                                     },
                                     {  
                                         "id":164,
-                                        "full_public_name":"Gerhard Sternath"
+                                        "public_name":"Gerhard Sternath"
                                     }
                                 ],
                                 "links":[  
@@ -1048,7 +1048,7 @@
                                 "persons":[  
                                     {  
                                         "id":251,
-                                        "full_public_name":"Aljosha Judmayer"
+                                        "public_name":"Aljosha Judmayer"
                                     }
                                 ],
                                 "links":[  
@@ -1074,7 +1074,7 @@
                                 "persons":[  
                                     {  
                                         "id":124,
-                                        "full_public_name":"Ren\u00e9 'Lynx' Pfeiffer"
+                                        "public_name":"Ren\u00e9 'Lynx' Pfeiffer"
                                     }
                                 ],
                                 "links":[  
@@ -1100,7 +1100,7 @@
                                 "persons":[  
                                     {  
                                         "id":240,
-                                        "full_public_name":"Martin Mulazzani"
+                                        "public_name":"Martin Mulazzani"
                                     }
                                 ],
                                 "links":[  
@@ -1126,7 +1126,7 @@
                                 "persons":[  
                                     {  
                                         "id":241,
-                                        "full_public_name":"Markus Huber"
+                                        "public_name":"Markus Huber"
                                     }
                                 ],
                                 "links":[  
@@ -1155,11 +1155,11 @@
                                 "persons":[  
                                     {  
                                         "id":17,
-                                        "full_public_name":"Martin Leyrer"
+                                        "public_name":"Martin Leyrer"
                                     },
                                     {  
                                         "id":170,
-                                        "full_public_name":"Pepi Zawodsky"
+                                        "public_name":"Pepi Zawodsky"
                                     }
                                 ],
                                 "links":[  
@@ -1187,7 +1187,7 @@
                                 "persons":[  
                                     {  
                                         "id":11,
-                                        "full_public_name":"Andreas Willich"
+                                        "public_name":"Andreas Willich"
                                     }
                                 ],
                                 "links":[  
@@ -1216,7 +1216,7 @@
                                 "persons":[  
                                     {  
                                         "id":219,
-                                        "full_public_name":"Oliver Lintner"
+                                        "public_name":"Oliver Lintner"
                                     }
                                 ],
                                 "links":[  
@@ -1242,7 +1242,7 @@
                                 "persons":[  
                                     {  
                                         "id":127,
-                                        "full_public_name":"Rina Ahmed"
+                                        "public_name":"Rina Ahmed"
                                     }
                                 ],
                                 "links":[  
@@ -1268,7 +1268,7 @@
                                 "persons":[  
                                     {  
                                         "id":80,
-                                        "full_public_name":"Regine Zawodsky"
+                                        "public_name":"Regine Zawodsky"
                                     }
                                 ],
                                 "links":[  
@@ -1294,7 +1294,7 @@
                                 "persons":[  
                                     {  
                                         "id":126,
-                                        "full_public_name":"Thomas Mutzl"
+                                        "public_name":"Thomas Mutzl"
                                     }
                                 ],
                                 "links":[  
@@ -1320,7 +1320,7 @@
                                 "persons":[  
                                     {  
                                         "id":11,
-                                        "full_public_name":"Andreas Willich"
+                                        "public_name":"Andreas Willich"
                                     }
                                 ],
                                 "links":[  
@@ -1349,7 +1349,7 @@
                                 "persons":[  
                                     {  
                                         "id":11,
-                                        "full_public_name":"Andreas Willich"
+                                        "public_name":"Andreas Willich"
                                     }
                                 ],
                                 "links":[  
@@ -1378,7 +1378,7 @@
                                 "persons":[  
                                     {  
                                         "id":126,
-                                        "full_public_name":"Thomas Mutzl"
+                                        "public_name":"Thomas Mutzl"
                                     }
                                 ],
                                 "links":[  
@@ -1404,7 +1404,7 @@
                                 "persons":[  
                                     {  
                                         "id":248,
-                                        "full_public_name":"Thomas Lor\u00fcnser"
+                                        "public_name":"Thomas Lor\u00fcnser"
                                     }
                                 ],
                                 "links":[  
@@ -1432,7 +1432,7 @@
                                 "persons":[  
                                     {  
                                         "id":231,
-                                        "full_public_name":"Siegfried Goeschl"
+                                        "public_name":"Siegfried Goeschl"
                                     }
                                 ],
                                 "links":[  
@@ -1461,7 +1461,7 @@
                                 "persons":[  
                                     {  
                                         "id":57,
-                                        "full_public_name":"Gerald Bauer"
+                                        "public_name":"Gerald Bauer"
                                     }
                                 ],
                                 "links":[  
@@ -1487,7 +1487,7 @@
                                 "persons":[  
                                     {  
                                         "id":205,
-                                        "full_public_name":"Peter B."
+                                        "public_name":"Peter B."
                                     }
                                 ],
                                 "links":[  
@@ -1532,7 +1532,7 @@
                                 "persons":[  
                                     {  
                                         "id":231,
-                                        "full_public_name":"Siegfried Goeschl"
+                                        "public_name":"Siegfried Goeschl"
                                     }
                                 ],
                                 "links":[  
@@ -1561,7 +1561,7 @@
                                 "persons":[  
                                     {  
                                         "id":129,
-                                        "full_public_name":"Peter F\u00fcreder"
+                                        "public_name":"Peter F\u00fcreder"
                                     }
                                 ],
                                 "links":[  
@@ -1590,7 +1590,7 @@
                                 "persons":[  
                                     {  
                                         "id":211,
-                                        "full_public_name":"Paul Lanzerstorfer"
+                                        "public_name":"Paul Lanzerstorfer"
                                     }
                                 ],
                                 "links":[  
@@ -1623,7 +1623,7 @@
                                 "persons":[  
                                     {  
                                         "id":237,
-                                        "full_public_name":"Arpad Borsos"
+                                        "public_name":"Arpad Borsos"
                                     }
                                 ],
                                 "links":[  
@@ -1649,7 +1649,7 @@
                                 "persons":[  
                                     {  
                                         "id":57,
-                                        "full_public_name":"Gerald Bauer"
+                                        "public_name":"Gerald Bauer"
                                     }
                                 ],
                                 "links":[  
@@ -1677,7 +1677,7 @@
                                 "persons":[  
                                     {  
                                         "id":215,
-                                        "full_public_name":"Christoph Walcher"
+                                        "public_name":"Christoph Walcher"
                                     }
                                 ],
                                 "links":[  
@@ -1703,7 +1703,7 @@
                                 "persons":[  
                                     {  
                                         "id":215,
-                                        "full_public_name":"Christoph Walcher"
+                                        "public_name":"Christoph Walcher"
                                     }
                                 ],
                                 "links":[  
@@ -1729,7 +1729,7 @@
                                 "persons":[  
                                     {  
                                         "id":215,
-                                        "full_public_name":"Christoph Walcher"
+                                        "public_name":"Christoph Walcher"
                                     }
                                 ],
                                 "links":[  
@@ -1758,7 +1758,7 @@
                                 "persons":[  
                                     {  
                                         "id":215,
-                                        "full_public_name":"Christoph Walcher"
+                                        "public_name":"Christoph Walcher"
                                     }
                                 ],
                                 "links":[  
@@ -1789,7 +1789,7 @@
                                 "persons":[  
                                     {  
                                         "id":120,
-                                        "full_public_name":"Sebastian Wagner"
+                                        "public_name":"Sebastian Wagner"
                                     }
                                 ],
                                 "links":[  
@@ -1818,7 +1818,7 @@
                                 "persons":[  
                                     {  
                                         "id":214,
-                                        "full_public_name":"Karl Exler"
+                                        "public_name":"Karl Exler"
                                     }
                                 ],
                                 "links":[  
@@ -1844,7 +1844,7 @@
                                 "persons":[  
                                     {  
                                         "id":18,
-                                        "full_public_name":"S.Kemter"
+                                        "public_name":"S.Kemter"
                                     }
                                 ],
                                 "links":[  
@@ -1872,7 +1872,7 @@
                                 "persons":[  
                                     {  
                                         "id":197,
-                                        "full_public_name":"Sven Guckes"
+                                        "public_name":"Sven Guckes"
                                     }
                                 ],
                                 "links":[  
@@ -1913,7 +1913,7 @@
                                 "persons":[  
                                     {  
                                         "id":197,
-                                        "full_public_name":"Sven Guckes"
+                                        "public_name":"Sven Guckes"
                                     }
                                 ],
                                 "links":[  
@@ -1942,11 +1942,11 @@
                                 "persons":[  
                                     {  
                                         "id":197,
-                                        "full_public_name":"Sven Guckes"
+                                        "public_name":"Sven Guckes"
                                     },
                                     {  
                                         "id":5,
-                                        "full_public_name":"Bernhard Miklautz"
+                                        "public_name":"Bernhard Miklautz"
                                     }
                                 ],
                                 "links":[  
@@ -2041,7 +2041,7 @@
                                 "persons":[  
                                     {  
                                         "id":80,
-                                        "full_public_name":"Regine Zawodsky"
+                                        "public_name":"Regine Zawodsky"
                                     }
                                 ],
                                 "links":[  
@@ -2067,7 +2067,7 @@
                                 "persons":[  
                                     {  
                                         "id":104,
-                                        "full_public_name":"Sebastian Pichelhofer"
+                                        "public_name":"Sebastian Pichelhofer"
                                     }
                                 ],
                                 "links":[  
@@ -2108,7 +2108,7 @@
                                 "persons":[  
                                     {  
                                         "id":108,
-                                        "full_public_name":"Bernhard Kubicek"
+                                        "public_name":"Bernhard Kubicek"
                                     }
                                 ],
                                 "links":[  
@@ -2134,15 +2134,15 @@
                                 "persons":[  
                                     {  
                                         "id":2,
-                                        "full_public_name":"Georg Markus Kainz"
+                                        "public_name":"Georg Markus Kainz"
                                     },
                                     {  
                                         "id":52,
-                                        "full_public_name":"Ralf Schlatterbeck"
+                                        "public_name":"Ralf Schlatterbeck"
                                     },
                                     {  
                                         "id":225,
-                                        "full_public_name":"Leopold Zyka"
+                                        "public_name":"Leopold Zyka"
                                     }
                                 ],
                                 "links":[  
@@ -2168,7 +2168,7 @@
                                 "persons":[  
                                     {  
                                         "id":196,
-                                        "full_public_name":"Tobias Millauer"
+                                        "public_name":"Tobias Millauer"
                                     }
                                 ],
                                 "links":[  
@@ -2197,7 +2197,7 @@
                                 "persons":[  
                                     {  
                                         "id":54,
-                                        "full_public_name":"Robert Matzinger"
+                                        "public_name":"Robert Matzinger"
                                     }
                                 ],
                                 "links":[  
@@ -2223,7 +2223,7 @@
                                 "persons":[  
                                     {  
                                         "id":225,
-                                        "full_public_name":"Leopold Zyka"
+                                        "public_name":"Leopold Zyka"
                                     }
                                 ],
                                 "links":[  
@@ -2251,7 +2251,7 @@
                                 "persons":[  
                                     {  
                                         "id":52,
-                                        "full_public_name":"Ralf Schlatterbeck"
+                                        "public_name":"Ralf Schlatterbeck"
                                     }
                                 ],
                                 "links":[  
@@ -2280,7 +2280,7 @@
                                 "persons":[  
                                     {  
                                         "id":38,
-                                        "full_public_name":"H.Pichler"
+                                        "public_name":"H.Pichler"
                                     }
                                 ],
                                 "links":[  
@@ -2309,7 +2309,7 @@
                                 "persons":[  
                                     {  
                                         "id":56,
-                                        "full_public_name":"Roman Weissg\u00e4rber"
+                                        "public_name":"Roman Weissg\u00e4rber"
                                     }
                                 ],
                                 "links":[  
@@ -2335,7 +2335,7 @@
                                 "persons":[  
                                     {  
                                         "id":249,
-                                        "full_public_name":"Lunifera GmbH"
+                                        "public_name":"Lunifera GmbH"
                                     }
                                 ],
                                 "links":[  
@@ -2364,7 +2364,7 @@
                                 "persons":[  
                                     {  
                                         "id":262,
-                                        "full_public_name":"Bernhard Mayrhofer"
+                                        "public_name":"Bernhard Mayrhofer"
                                     }
                                 ],
                                 "links":[  
@@ -2390,11 +2390,11 @@
                                 "persons":[  
                                     {  
                                         "id":17,
-                                        "full_public_name":"Martin Leyrer"
+                                        "public_name":"Martin Leyrer"
                                     },
                                     {  
                                         "id":170,
-                                        "full_public_name":"Pepi Zawodsky"
+                                        "public_name":"Pepi Zawodsky"
                                     }
                                 ],
                                 "links":[  
@@ -2422,7 +2422,7 @@
                                 "persons":[  
                                     {  
                                         "id":243,
-                                        "full_public_name":"Nikolaus Leopold"
+                                        "public_name":"Nikolaus Leopold"
                                     }
                                 ],
                                 "links":[  
@@ -2448,7 +2448,7 @@
                                 "persons":[  
                                     {  
                                         "id":29,
-                                        "full_public_name":"Robert Kaiser"
+                                        "public_name":"Robert Kaiser"
                                     }
                                 ],
                                 "links":[  
@@ -2474,7 +2474,7 @@
                                 "persons":[  
                                     {  
                                         "id":233,
-                                        "full_public_name":"Thomas Perl"
+                                        "public_name":"Thomas Perl"
                                     }
                                 ],
                                 "links":[  
@@ -2500,7 +2500,7 @@
                                 "persons":[  
                                     {  
                                         "id":54,
-                                        "full_public_name":"Robert Matzinger"
+                                        "public_name":"Robert Matzinger"
                                     }
                                 ],
                                 "links":[  
@@ -2526,7 +2526,7 @@
                                 "persons":[  
                                     {  
                                         "id":79,
-                                        "full_public_name":"Uwe Christian Plachetka"
+                                        "public_name":"Uwe Christian Plachetka"
                                     }
                                 ],
                                 "links":[  
@@ -2559,7 +2559,7 @@
                                 "persons":[  
                                     {  
                                         "id":255,
-                                        "full_public_name":"Raffael Maurer"
+                                        "public_name":"Raffael Maurer"
                                     }
                                 ],
                                 "links":[  
@@ -2585,7 +2585,7 @@
                                 "persons":[  
                                     {  
                                         "id":259,
-                                        "full_public_name":"J\u00f6rg Faschingbauer"
+                                        "public_name":"J\u00f6rg Faschingbauer"
                                     }
                                 ],
                                 "links":[  
@@ -2620,11 +2620,11 @@
                                 "persons":[  
                                     {  
                                         "id":235,
-                                        "full_public_name":"Markus Dulghier"
+                                        "public_name":"Markus Dulghier"
                                     },
                                     {  
                                         "id":236,
-                                        "full_public_name":"Christian Hubinger"
+                                        "public_name":"Christian Hubinger"
                                     }
                                 ],
                                 "links":[  
@@ -2650,7 +2650,7 @@
                                 "persons":[  
                                     {  
                                         "id":104,
-                                        "full_public_name":"Sebastian Pichelhofer"
+                                        "public_name":"Sebastian Pichelhofer"
                                     }
                                 ],
                                 "links":[  
@@ -2676,7 +2676,7 @@
                                 "persons":[  
                                     {  
                                         "id":197,
-                                        "full_public_name":"Sven Guckes"
+                                        "public_name":"Sven Guckes"
                                     }
                                 ],
                                 "links":[  
@@ -2711,7 +2711,7 @@
                                 "persons":[  
                                     {  
                                         "id":120,
-                                        "full_public_name":"Sebastian Wagner"
+                                        "public_name":"Sebastian Wagner"
                                     }
                                 ],
                                 "links":[  
@@ -2740,7 +2740,7 @@
                                 "persons":[  
                                     {  
                                         "id":131,
-                                        "full_public_name":"Gerhard Goeschl"
+                                        "public_name":"Gerhard Goeschl"
                                     }
                                 ],
                                 "links":[  
@@ -2766,7 +2766,7 @@
                                 "persons":[  
                                     {  
                                         "id":18,
-                                        "full_public_name":"S.Kemter"
+                                        "public_name":"S.Kemter"
                                     }
                                 ],
                                 "links":[  
@@ -2794,11 +2794,11 @@
                                 "persons":[  
                                     {  
                                         "id":228,
-                                        "full_public_name":"Michael Haberler"
+                                        "public_name":"Michael Haberler"
                                     },
                                     {  
                                         "id":111,
-                                        "full_public_name":"Alexander R\u00f6ssler"
+                                        "public_name":"Alexander R\u00f6ssler"
                                     }
                                 ],
                                 "links":[  
@@ -2827,7 +2827,7 @@
                                 "persons":[  
                                     {  
                                         "id":252,
-                                        "full_public_name":"Michael F Schreiber"
+                                        "public_name":"Michael F Schreiber"
                                     }
                                 ],
                                 "links":[  
@@ -2856,7 +2856,7 @@
                                 "persons":[  
                                     {  
                                         "id":238,
-                                        "full_public_name":"Simon Repp"
+                                        "public_name":"Simon Repp"
                                     }
                                 ],
                                 "links":[  
@@ -2885,7 +2885,7 @@
                                 "persons":[  
                                     {  
                                         "id":238,
-                                        "full_public_name":"Simon Repp"
+                                        "public_name":"Simon Repp"
                                     }
                                 ],
                                 "links":[  
@@ -2911,7 +2911,7 @@
                                 "persons":[  
                                     {  
                                         "id":238,
-                                        "full_public_name":"Simon Repp"
+                                        "public_name":"Simon Repp"
                                     }
                                 ],
                                 "links":[  
