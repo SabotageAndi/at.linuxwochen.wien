@@ -4,6 +4,7 @@ module entities =
     open System
     open NodaTime
     open SQLite
+    open common
 
     type Speaker2Entry() =
 
@@ -29,10 +30,19 @@ module entities =
         member val Subtitle : string = "" with get, set        
         [<IndexedAttribute>]
         member val Track : string = "" with get, set        
+
+        member this.StartData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.Start) 
+            and set (value : byte array) = this.Start <- (NodaTypeSerializerDelegate.deserialize value typedefof<OffsetDateTime> :?> OffsetDateTime)
+
         
         [<Ignore>]    
         member val Start : OffsetDateTime = new OffsetDateTime() with get, set
         
+        member this.DurationData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.Duration) 
+            and set (value : byte array) = this.Duration <- (NodaTypeSerializerDelegate.deserialize value typedefof<Duration> :?> Duration)
+
         [<Ignore>]
         member val Duration : Duration = Duration.Zero with get, set
         member val Type : string = "" with get, set
@@ -65,10 +75,27 @@ module entities =
         [<IndexedAttribute>]
         member val ConferenceId : int = 0 with get, set        
         member val Index : int = -1 with get, set
+
+        member this.DayData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.Day) 
+            and set (value : byte array) = this.Day <- (NodaTypeSerializerDelegate.deserialize value typedefof<LocalDate> :?> LocalDate)
+
         [<Ignore>]
         member val Day : LocalDate = new LocalDate() with get, set        
+
+        member this.StartTimeData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.StartTime) 
+            and set (value : byte array) = this.StartTime <- (NodaTypeSerializerDelegate.deserialize value typedefof<OffsetDateTime> :?> OffsetDateTime)
+
         [<Ignore>]
         member val StartTime : OffsetDateTime = new OffsetDateTime() with get, set
+
+
+        member this.EndTimeData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.EndTime) 
+            and set (value : byte array) = this.EndTime <- (NodaTypeSerializerDelegate.deserialize value typedefof<OffsetDateTime> :?> OffsetDateTime)
+
+
         [<Ignore>]
         member val EndTime : OffsetDateTime = new OffsetDateTime() with get, set
         [<IgnoreAttribute>]
@@ -80,6 +107,12 @@ module entities =
         [<IgnoreAttribute>]
         member val Days : ConferenceDay list = [] with get, set        
         member val Version : string = "" with get, set
+
+        member this.LastSyncData
+            with get() : byte array = NodaTypeSerializerDelegate.serialize(this.LastSync) 
+            and set (value : byte array) = this.LastSync <- (NodaTypeSerializerDelegate.deserialize value typedefof<OffsetDateTime> :?> OffsetDateTime)
+
+
         [<Ignore>]
         member val LastSync : OffsetDateTime = new OffsetDateTime() with get, set
 

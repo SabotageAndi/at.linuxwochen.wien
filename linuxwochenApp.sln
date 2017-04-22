@@ -1,10 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "at.linuxwochen.wien", "ffrab.apple\at.linuxwochen.wien.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "at.linuxwochen.wien", "ffrab.apple\at.linuxwochen.wien.fsproj", "{0B182395-E355-4D83-BABF-D1D9683285DD}"
 EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ffrab.test", "ffrab.test\ffrab.test.fsproj", "{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ffrab.test", "ffrab.test\ffrab.test.fsproj", "{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.linuxwochen.droid", "ffrab.droid\www.linuxwochen.droid.csproj", "{430A1460-E60F-487F-B518-44971F65C61A}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.linuxwochen.common.ui", "ffrab-mobile.common.ui\www.linuxwochen.common.ui.csproj", "{ED467B47-8362-41E5-8093-91F2ADE0EDEE}"
 EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "www.linuxwochen.common", "ffrab.common\www.linuxwochen.common.fsproj", "{4AA0E1C9-21AE-4DF3-9BB3-763E9B3178C3}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "www.linuxwochen.common", "ffrab.common\www.linuxwochen.common.fsproj", "{4AA0E1C9-21AE-4DF3-9BB3-763E9B3178C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +38,7 @@ Global
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
+		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|Any CPU.Build.0 = AppStore|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|iPhone.Build.0 = AppStore|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhone
@@ -53,7 +54,6 @@ Global
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.Release|iPhone.Build.0 = Release|iPhone
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{0B182395-E355-4D83-BABF-D1D9683285DD}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{0B182395-E355-4D83-BABF-D1D9683285DD}.AppStore|Any CPU.Build.0 = AppStore|iPhone
 		{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{690C9CAF-F991-4AC2-9347-49FF8B0B1F25}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
@@ -87,6 +87,7 @@ Global
 		{430A1460-E60F-487F-B518-44971F65C61A}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{430A1460-E60F-487F-B518-44971F65C61A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU

@@ -26,6 +26,7 @@ module model =
             [// new Conference(1, "Vienna Mobile Quality Night", "file://data/vmqn2015.json", constants.vmqnJson)
               //new Conference(2, "Linuxwochen Wien 2015", "https://cfp.linuxwochen.at/en/LWW15/public/schedule.json", "") 
               new Conference(3, "Linuxwochen Wien 2016", "https://cfp.linuxwochen.at/en/LWW16/public/schedule.json", "")
+              new Conference(4, "Linuxwochen Wien 2017", "https://cfp.linuxwochen.at/en/LWW17/public/schedule.json", "")
               ]
         
         let getAllConferences() = conferences
@@ -44,7 +45,7 @@ module model =
             Application.Current.Properties.[actualConfKey] <- conf.Id
         
         let getActualConference() = 
-            getConference 3 //only enable Linuxwochen 2015
+            getConference 4 //only enable Linuxwochen 2015
 //            let keyExists = Application.Current.Properties.ContainsKey(actualConfKey)
 //            match keyExists with
 //            | true -> 

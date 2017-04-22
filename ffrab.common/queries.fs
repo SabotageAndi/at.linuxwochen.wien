@@ -71,8 +71,8 @@ module queries =
             let sql = sprintf "select Entry.* from Entry 
                                 inner join EntryFavorite on EntryFavorite.ConferenceId = Entry.ConferenceId and EntryFavorite.EntryId = Entry.Id 
                                 where Entry.ConferenceId = ? 
-                                and Entry.Start >= ?
-                                order by Entry.Start asc limit %i" number
+                                and Entry.StartData >= ?
+                                order by Entry.StartData asc limit %i" number
                     
             let nowSerialize = www.linuxwochen.common.common.NodaTypeSerializerDelegate.serialize(common.now())
             let entries = Database.query2<Entry>(sql, conference.Id, nowSerialize)
@@ -87,8 +87,8 @@ module queries =
         | Some conference ->
             let sql = sprintf "select Entry.* from Entry 
                                 where Entry.ConferenceId = ? 
-                                and Entry.Start >= ?
-                                order by Entry.Start asc limit %i" number
+                                and Entry.StartData >= ?
+                                order by Entry.StartData asc limit %i" number
             
             let nowSerialize = www.linuxwochen.common.common.NodaTypeSerializerDelegate.serialize(common.now())
             let entries = Database.query2<Entry>(sql, conference.Id, nowSerialize)
